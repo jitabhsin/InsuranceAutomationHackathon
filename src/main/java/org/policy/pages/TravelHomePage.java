@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.policy.utils.JavaScriptUtils;
 import org.policy.utils.WaitUtils;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
+    JavaScriptUtils javaScriptUtils;
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
@@ -46,5 +48,7 @@ public class TravelHomePage {
         submitButton.click();
     }
 
-    public void
+    public void selectStartDate(String startDate){
+
+    }
 }
