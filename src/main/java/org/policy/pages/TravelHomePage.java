@@ -33,8 +33,24 @@ public class TravelHomePage {
     @FindBy(className="travel_main_cta")
     public WebElement submitButton;
 
-    //  @FindBy(id="traveller_2")
-   // public WebElement
+    @FindBy(id="traveller_2")
+    public WebElement selectCount;
+
+    @FindBy(id="0")
+    public WebElement traveller1Age;
+
+    @FindBy(id="1")
+    public WebElement traveller2Age;
+
+    @FindBy(id="21")
+    public WebElement selectAge1;
+
+    @FindBy(id="22")
+    public WebElement selectAge2;
+
+    @FindBy(id="ped_no")
+    public WebElement diabetesCheckBox;
+
 
     public void selectCountry(String countryName){
         selectCountryElement.click();
@@ -66,6 +82,19 @@ public class TravelHomePage {
     }
 
     public void selectTravellerCount(){
-
+        waitUtils.waitForVisibility(travellerCountElement).click();
+        waitUtils.waitForVisibility(selectCount).click();
+        waitUtils.waitForVisibility(traveller1Age).click();
+        waitUtils.waitForVisibility(selectAge1).click();
+        waitUtils.waitForVisibility(traveller2Age).click();
+        waitUtils.waitForVisibility(selectAge2).click();
+        waitUtils.waitForVisibility(diabetesCheckBox).click();
+        waitUtils.waitForVisibility(submitButton).click();
     }
+
+    public void getTravelQuota(){
+        waitUtils.waitForVisibility(submitButton).click();
+    }
+
+
 }
