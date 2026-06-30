@@ -24,6 +24,11 @@ public class TravelHomePage {
     @FindBy(id="country")
     public WebElement selectCountryElement;
 
+
+    @FindBy(xpath = "//div[contains(@class,'selectedCountryWrap')]//p")
+    public WebElement selectedCountryText;
+
+
     @FindBy(xpath="//span[normalize-space()='Start date']/ancestor::div")
     public WebElement selectDateElement;
 
@@ -59,10 +64,15 @@ public class TravelHomePage {
         }
     }
 
+    public String getSelectedCountry(){
+
+        return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
+    }
+
     public void selectCountry(String countryName){
-        selectCountryElement.click();
-        selectCountryElement.clear();
-        selectCountryElement.sendKeys(countryName);
+        waitUtils.waitForVisibility(selectCountryElement).click();
+        waitUtils.waitForVisibility(selectCountryElement).clear();
+        waitUtils.waitForVisibility(selectCountryElement).sendKeys(countryName);
 
         List<WebElement> options = waitUtils.waitForVisibilityOfAllElements();
 
@@ -72,8 +82,6 @@ public class TravelHomePage {
                 break;
             }
         }
-
-        submitButton.click();
     }
 
     public void selectStartDate(String startDate){
