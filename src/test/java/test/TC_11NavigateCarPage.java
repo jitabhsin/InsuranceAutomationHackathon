@@ -1,21 +1,36 @@
 package test;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+
 import basetest.BaseTest;
 import org.policy.pages.HomePage;
 import org.policy.pages.CarPage;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-public class TC_11NavigateCarPage extends BaseTest {
+public class TC_11NavigateCarPage {
 
+    BaseTest base;
     HomePage homePage;
     CarPage carPage;
 
+    @BeforeMethod
+    public void setup() {
+        base = new BaseTest();
+        base.setup();
+
+        homePage = new HomePage(base.getDriver());
+        carPage = new CarPage(base.getDriver());
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        base.tearDown();
+    }
+
     @Test
     public void verifyCarInsuranceNavigation() {
-
-        homePage = new HomePage(driver);
-        carPage = new CarPage(driver);
 
         homePage.clickCarInsurance();
 

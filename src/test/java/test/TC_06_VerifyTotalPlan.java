@@ -6,8 +6,11 @@ import org.testng.annotations.Test;
 
 public class TC_06_VerifyTotalPlan {
 
+    BaseTest base;
+
     @Test
     public void testTotalPlan(){
-        WebDriver driver;
+        base = new BaseTest();
+        WebDriver driver = base.getDriver();
     }
 }
