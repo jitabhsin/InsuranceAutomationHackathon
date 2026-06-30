@@ -13,7 +13,7 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="/html/body/main/div[2]/section/div[7]/a/div[1]/div/i")
+    @FindBy(xpath="//div[@class='prd-block'][7]/a")
     public WebElement travelInsuranceElement;
 
     @FindBy(xpath="/html/body/main/div[2]/section/div[4]/a/div[1]/div/i")
