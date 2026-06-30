@@ -13,13 +13,13 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//div[@class='prd-block'][7]/a")
+    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Travel')]]//a")
     public WebElement travelInsuranceElement;
 
-    @FindBy(xpath="/html/body/main/div[2]/section/div[4]/a/div[1]/div/i")
+    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Car')]]//a")
     public WebElement carInsuranceElement;
 
-    @FindBy(xpath="/html/body/main/div[2]/section/div[6]/a/div[1]/div/i")
+    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Health')]]//a")
     public WebElement healthInsuranceElement;
 
     public void clickTravelInsurance(){
