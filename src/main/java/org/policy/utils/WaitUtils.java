@@ -3,7 +3,6 @@ package org.policy.utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +13,7 @@ public class WaitUtils {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public WaitUtils(WebDriver driver, WebDriver wait){
+    public WaitUtils(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -27,8 +26,7 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public List<WebElement> waitForVisibilityOfAllElements(){
-        List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li")));
-        return list;
+    public List<WebElement> waitForVisibilityOfAllElements(By locator){
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 }

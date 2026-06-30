@@ -1,17 +1,33 @@
-package org.policy.pages;
+    package org.policy.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.policy.utils.WaitUtils;
+    import org.openqa.selenium.WebDriver;
+    import org.openqa.selenium.WebElement;
+    import org.openqa.selenium.support.FindBy;
+    import org.openqa.selenium.support.PageFactory;
+    import org.policy.utils.WaitUtils;
 
-public class CarPage {
+    public class CarPage {
 
-    WebDriver driver;
-    WaitUtils waitUtils;
+        WebDriver driver;
+        WaitUtils waitUtils;
 
-    public CarPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        public CarPage(WebDriver driver){
+            this.driver = driver;
+            PageFactory.initElements(driver, this);
+        }
+
+        @FindBy(xpath="//button[normalize-space()='View Prices")
+        public WebElement viewPrices;
+
+        @FindBy(xpath="//span[normalize-space()='Click here']")
+        public WebElement newCar;
+
+       public void clickViewPrices(){
+           viewPrices.click();
+       }
+
+       public void clickNewCar(){
+           newCar.click();
+       }
+
     }
-
-}
