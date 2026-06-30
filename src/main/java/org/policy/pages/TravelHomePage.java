@@ -33,9 +33,6 @@ public class TravelHomePage {
     @FindBy(className="travel_main_cta")
     public WebElement submitButton;
 
-    @FindBy(id="traveller_2")
-    public WebElement
-
     public void selectCountry(String countryName){
         selectCountryElement.click();
         selectCountryElement.clear();
