@@ -13,16 +13,13 @@ public class TravelHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id="countryMobile")
+    @FindBy(id="country")
     public WebElement selectCountry;
 
-    @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[2]/div[1]")
+    @FindBy(xpath="//article[@class='newPq_duration_wrap']/div")
     public WebElement selectStartDate;
 
-    @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[2]/div[2]")
-    public WebElement selectEndDate;
-
-    @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[3]")
+    @FindBy(xpath="//article[@class='newPq_travellers_wrap']")
     public WebElement travellerCount;
 
     public void selectCountry(String countryName){
