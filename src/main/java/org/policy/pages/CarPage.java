@@ -13,7 +13,7 @@ public class CarPage {
 
     public CarPage(WebDriver driver){
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver);
+        this.waitUtils = new WaitUtils(driver );
         PageFactory.initElements(driver, this);
     }
 
@@ -30,4 +30,5 @@ public class CarPage {
     public void clickNewCar(){
         waitUtils.waitForClickable(newCar).click();
     }
+
 }
