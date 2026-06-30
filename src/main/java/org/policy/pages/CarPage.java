@@ -35,11 +35,7 @@ public class CarPage {
         try {
             return waitUtils.waitForVisibility(viewPrices).isDisplayed();
         } catch (Exception e1) {
-            try {
-                return waitUtils.waitForVisibility(newCar).isDisplayed();
-            } catch (Exception e2) {
-                return false;
-            }
+           return false;
         }
     }
 }
