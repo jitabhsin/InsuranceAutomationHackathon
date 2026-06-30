@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.policy.utils.WaitUtils;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class HealthHomePage {
 
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver, driver); // second arg unused, but required to compile
+        this.waitUtils = new WaitUtils(driver, Duration.ofSeconds(10)); // second arg unused, but required to compile
         PageFactory.initElements(driver, this);
     }
 

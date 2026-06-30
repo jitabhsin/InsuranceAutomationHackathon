@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.policy.utils.JavaScriptUtils;
 import org.policy.utils.WaitUtils;
 
+import java.time.Duration;
 import java.util.List;
 
 public class TravelHomePage {
@@ -16,6 +17,7 @@ public class TravelHomePage {
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
