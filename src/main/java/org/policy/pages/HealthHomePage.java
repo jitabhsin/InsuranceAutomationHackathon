@@ -17,7 +17,7 @@ public class HealthHomePage {
 
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver, driver); // second arg unused, but required to compile
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
