@@ -13,7 +13,7 @@ public class CarPage {
 
     public CarPage(WebDriver driver){
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver);  // ✅ initialize here
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
