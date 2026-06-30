@@ -30,7 +30,7 @@ public class HomePage {
         carInsuranceElement.click();
     }
 
-    public void clickHealthInurance(){
+    public void clickHealthInsurance(){
         healthInsuranceElement.click();
     }
 
