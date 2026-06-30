@@ -19,7 +19,6 @@ public class TC_11NavigateCarPage {
     public void setup() {
         base = new BaseTest();
         base.setup();
-
         homePage = new HomePage(base.getDriver());
         carPage = new CarPage(base.getDriver());
     }
@@ -31,18 +30,8 @@ public class TC_11NavigateCarPage {
 
     @Test
     public void verifyCarInsuranceNavigation() {
-
         homePage.clickCarInsurance();
-
-        boolean isDisplayed = false;
-
-        for (int i = 0; i < 15; i++) {
-            if (carPage.isCarPageDisplayed()) {
-                isDisplayed = true;
-                break;
-            }
-        }
-
+        boolean isDisplayed = carPage.isCarPageDisplayed();
         Assert.assertTrue(isDisplayed, "Car Insurance page/form is NOT displayed");
     }
 }

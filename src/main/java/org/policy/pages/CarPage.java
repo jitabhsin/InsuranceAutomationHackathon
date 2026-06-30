@@ -13,7 +13,7 @@ public class CarPage {
 
     public CarPage(WebDriver driver){
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver );
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -33,15 +33,13 @@ public class CarPage {
 
     public boolean isCarPageDisplayed() {
         try {
-            return viewPrices.isDisplayed();
+            return waitUtils.waitForVisibility(viewPrices).isDisplayed();
         } catch (Exception e1) {
             try {
-                return newCar.isDisplayed();
+                return waitUtils.waitForVisibility(newCar).isDisplayed();
             } catch (Exception e2) {
                 return false;
             }
         }
     }
-
-
 }
