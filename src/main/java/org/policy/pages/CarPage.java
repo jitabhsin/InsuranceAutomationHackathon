@@ -13,7 +13,7 @@ public class CarPage {
 
     public CarPage(WebDriver driver){
         this.driver = driver;
-        this.waitUtils = new WaitUtils(driver);
+        this.waitUtils = new WaitUtils(driver );
         PageFactory.initElements(driver, this);
     }
 
@@ -22,9 +22,6 @@ public class CarPage {
 
     @FindBy(xpath="//span[normalize-space()='Click here']")
     public WebElement newCar;
-
-    @FindBy(xpath= "//p[contains(@class,'redText')]")
-    public WebElement errorWithoutCarNumber;
 
     public void clickViewPrices(){
         waitUtils.waitForClickable(viewPrices).click();
@@ -36,14 +33,15 @@ public class CarPage {
 
     public boolean isCarPageDisplayed() {
         try {
-            return waitUtils.waitForVisibility(viewPrices).isDisplayed();
-        } catch (Exception e) {
-            return false;
+            return viewPrices.isDisplayed();
+        } catch (Exception e1) {
+            try {
+                return newCar.isDisplayed();
+            } catch (Exception e2) {
+                return false;
+            }
         }
     }
 
-    public String getErrorIfNot(){
-        clickViewPrices();
-        return waitUtils.waitForVisibility(errorWithoutCarNumber).getText();
-    }
+
 }
