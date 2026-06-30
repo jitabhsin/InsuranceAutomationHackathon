@@ -25,7 +25,7 @@ public class TravelHomePage {
     @FindBy(xpath="//span[normalize-space()='Start date']/ancestor::div")
     public WebElement selectDateElement;
 
-    @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[3]")
+    @FindBy(xpath="//article[@class='newPq_travellers_wrap']")
     public WebElement travellerCountElement;
 
     @FindBy(className="travel_main_cta")
@@ -49,6 +49,14 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
+        javaScriptUtils.setDateValue(selectDateElement, startDate);
+    }
 
+    public void selectEndDate(String endDate){
+        javaScriptUtils.setDateValue(selectDateElement, endDate);
+    }
+
+    public void submitDate(){
+        submitButton.click();
     }
 }
