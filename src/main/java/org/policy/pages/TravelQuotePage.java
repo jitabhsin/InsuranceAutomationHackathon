@@ -30,11 +30,14 @@ public class TravelQuotePage {
     @FindBy(className = "tr_qv_planCardWrap")
     public List<WebElement> totalPlans;
 
+    @FindBy(xpath = "//input[@type='radio' and @value='Premium low to high']")
+    public WebElement filterRadioBtn;
+
     public String totalTravelPlan(){
         return totalPlan.getText();
     }
 
-    public void applyFilter(){
+    public boolean applyFilter(){
         filter.click();
 
         WaitUtils wait = new WaitUtils(driver);
@@ -43,7 +46,22 @@ public class TravelQuotePage {
         Select select = new Select(sortOptions);
         select.selectByVisibleText("Premium low to high");
 
-        applyBtn.click();
+        if(filterRadioBtn.isSelected()){
+            applyBtn.click();
+            return true;
+        }
+        return false;
+    }
+
+    public List<WebElement> retrieveTotalPlans(){
+        for(WebElement plan : totalPlans){
+
+            String name = plan.findElement(By.xpath(".//figcaption/p")).getText();
+            String price = plan.findElement(By.xpath(".//span[@class='premiumPlanPrice']")).getText();
+
+            System.out.println(name + " -> " + price);
+        }
+        return totalPlans;
     }
 
     public void topThreePlan(){
