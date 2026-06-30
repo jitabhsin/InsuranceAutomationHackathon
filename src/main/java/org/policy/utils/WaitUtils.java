@@ -34,9 +34,4 @@ public class WaitUtils {
         List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li")));
         return list;
     }
-
-    public List<WebElement> waitForVisibilityOfAllElements(By locator){
-        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-    }
-
 }
