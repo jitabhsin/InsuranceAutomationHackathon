@@ -4,12 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.policy.utils.WaitUtils;
 
 public class HomePage {
     WebDriver driver;
+    WaitUtils waitUtils;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -23,15 +26,15 @@ public class HomePage {
     public WebElement healthInsuranceElement;
 
     public void clickTravelInsurance(){
-        travelInsuranceElement.click();
+        waitUtils.waitForVisibility(travelInsuranceElement).click();
     }
 
     public void clickCarInsurance(){
-        carInsuranceElement.click();
+        waitUtils.waitForVisibility(carInsuranceElement).click();
     }
 
     public void clickHealthInsurance(){
-        healthInsuranceElement.click();
+        waitUtils.waitForVisibility(healthInsuranceElement).click();
     }
 
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.policy.utils.JavaScriptUtils;
 import org.policy.utils.WaitUtils;
 
+import java.time.Duration;
 import java.util.List;
 
 public class TravelHomePage {
@@ -16,6 +17,7 @@ public class TravelHomePage {
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -25,11 +27,14 @@ public class TravelHomePage {
     @FindBy(xpath="//span[normalize-space()='Start date']/ancestor::div")
     public WebElement selectDateElement;
 
-    @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[3]")
+    @FindBy(xpath="//article[@class='newPq_travellers_wrap']")
     public WebElement travellerCountElement;
 
     @FindBy(className="travel_main_cta")
     public WebElement submitButton;
+
+    @FindBy(id="traveller_2")
+    public WebElement
 
     public void selectCountry(String countryName){
         selectCountryElement.click();
@@ -49,6 +54,18 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
+        javaScriptUtils.setDateValue(selectDateElement, startDate);
+    }
+
+    public void selectEndDate(String endDate){
+        javaScriptUtils.setDateValue(selectDateElement, endDate);
+    }
+
+    public void submitDate(){
+        submitButton.click();
+    }
+
+    public void selectTravellerCount(){
 
     }
 }
