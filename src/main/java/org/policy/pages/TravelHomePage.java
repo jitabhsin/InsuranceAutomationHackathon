@@ -29,6 +29,9 @@ public class TravelHomePage {
     @FindBy(xpath="/html/body/section[1]/div/section/section[2]/article[3]")
     public WebElement travellerCountElement;
 
+    @FindBy(className="travel_main_cta")
+    public WebElement submitButton;
+
     public void selectCountry(String countryName){
         selectCountryElement.click();
         selectCountryElement.clear();
@@ -43,5 +46,6 @@ public class TravelHomePage {
             }
         }
 
+        submitButton.click();
     }
 }
