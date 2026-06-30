@@ -51,6 +51,13 @@ public class TravelHomePage {
     @FindBy(id="ped_no")
     public WebElement diabetesCheckBox;
 
+    public boolean isTravelPageDisplayed(){
+        try{
+            return waitUtils.waitForVisibility(selectCountryElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
     public void selectCountry(String countryName){
         selectCountryElement.click();
