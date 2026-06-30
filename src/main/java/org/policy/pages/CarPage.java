@@ -23,7 +23,7 @@ public class CarPage {
     @FindBy(xpath="//span[normalize-space()='Click here']")
     public WebElement newCar;
 
-    @FindBy(xpath= "//p[contains(@class, 'redText mt')]")
+    @FindBy(xpath= "//p[contains(@class,'redText')]")
     public WebElement errorWithoutCarNumber;
 
     public void clickViewPrices(){
