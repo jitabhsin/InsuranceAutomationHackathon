@@ -1,5 +1,6 @@
 package test;
 
+import org.policy.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
@@ -9,39 +10,19 @@ import basetest.BaseTest;
 import org.policy.pages.HomePage;
 import org.policy.pages.CarPage;
 
-public class TC_11NavigateCarPage {
+public class TC_11NavigateCarPage extends BaseTest{
 
-    BaseTest base;
     HomePage homePage;
     CarPage carPage;
-
-    @BeforeMethod
-    public void setup() {
-        base = new BaseTest();
-        base.setup();
-
-        homePage = new HomePage(base.getDriver());
-        carPage = new CarPage(base.getDriver());
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        base.tearDown();
-    }
-
-    @Test
+    
+     @Test
     public void verifyCarInsuranceNavigation() {
 
+        homePage = new HomePage(driver);
+        carPage = new CarPage(driver);
+
         homePage.clickCarInsurance();
-
-        boolean isDisplayed = false;
-
-        for (int i = 0; i < 15; i++) {
-            if (carPage.isCarPageDisplayed()) {
-                isDisplayed = true;
-                break;
-            }
-        }
+        boolean isDisplayed = carPage.isCarPageDisplayed();
 
         Assert.assertTrue(isDisplayed, "Car Insurance page/form is NOT displayed");
     }

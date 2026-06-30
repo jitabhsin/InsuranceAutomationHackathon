@@ -23,6 +23,9 @@ public class CarPage {
     @FindBy(xpath="//span[normalize-space()='Click here']")
     public WebElement newCar;
 
+    @FindBy(xpath= "//p[contains(@class,'redText')]")
+    public WebElement errorWithoutCarNumber;
+
     public void clickViewPrices(){
         waitUtils.waitForClickable(viewPrices).click();
     }
@@ -31,16 +34,17 @@ public class CarPage {
         waitUtils.waitForClickable(newCar).click();
     }
 
-    public boolean isCarPageDisplayed() {
-        try {
-            return viewPrices.isDisplayed();
-        } catch (Exception e1) {
-            try {
-                return newCar.isDisplayed();
-            } catch (Exception e2) {
-                return false;
-            }
+    public boolean isCarPageDisplayed(){
+        try{
+            return waitUtils.waitForVisibility(viewPrices).isDisplayed();
+        } catch (Exception e){
+            return false;
         }
+    }
+
+    public String getErrorIfNot(){
+        clickViewPrices();
+        return waitUtils.waitForVisibility(errorWithoutCarNumber).getText();
     }
 
 

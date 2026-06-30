@@ -57,10 +57,20 @@ public class TravelHomePage {
     public WebElement diabetesCheckBox;
 
 
+    public boolean isTravelPageDisplayed(){
+        try{
+            return waitUtils.waitForVisibility(selectCountryElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
     public String getSelectedCountry(){
 
         return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
     }
+
+
 
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
