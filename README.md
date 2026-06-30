@@ -1,1 +1,1 @@
-"My project" 
+"Our project" 
