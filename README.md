@@ -1,1 +1,1 @@
-Team Swagu Singhuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+Team Swagu Singhu
