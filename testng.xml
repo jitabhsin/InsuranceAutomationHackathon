@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Travel Suite">
+
+    <test name="All Tests">
+        <classes>
+            <class name="tests.TC_01NavigateTravelPage"/>
+            <class name="tests.TC_02VerifySelectedCountry"/>
+        </classes>
+    </test>
+
+</suite>

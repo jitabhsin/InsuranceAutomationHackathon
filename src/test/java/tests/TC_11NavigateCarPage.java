@@ -1,10 +1,7 @@
-package test;
+package tests;
 
-import org.policy.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 
 import basetest.BaseTest;
 import org.policy.pages.HomePage;

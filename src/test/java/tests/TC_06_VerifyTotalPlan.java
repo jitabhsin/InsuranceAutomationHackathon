@@ -1,7 +1,6 @@
-package test;
+package tests;
 
 import basetest.BaseTest;
-import org.openqa.selenium.WebDriver;
 import org.policy.pages.TravelQuotePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

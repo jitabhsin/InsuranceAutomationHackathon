@@ -1,9 +1,8 @@
-package test;
+package tests;
 
 import basetest.BaseTest;
 import org.policy.pages.CarPage;
 import org.policy.pages.HomePage;
-import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

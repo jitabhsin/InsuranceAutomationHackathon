@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import basetest.BaseTest;
 import org.openqa.selenium.WebElement;

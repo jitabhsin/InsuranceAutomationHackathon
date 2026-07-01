@@ -1,8 +1,6 @@
-package test;
+package tests;
 
 import basetest.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.policy.pages.HomePage;
 import org.policy.pages.TravelHomePage;
 import org.policy.utils.WaitUtils;
