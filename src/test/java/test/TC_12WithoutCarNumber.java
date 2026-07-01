@@ -20,7 +20,7 @@ public class TC_12WithoutCarNumber extends BaseTest {
 
 
         carPage = new CarPage(driver);
-        carPage.clickNewCar();
+
 
         String actualError = carPage.getErrorIfNot();
 
