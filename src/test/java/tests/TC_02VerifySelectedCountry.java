@@ -11,7 +11,6 @@ public class TC_02VerifySelectedCountry extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
-    WaitUtils waitUtils;
 
     @Test
     public void verifyAndDisplaySelectedCountry(){
