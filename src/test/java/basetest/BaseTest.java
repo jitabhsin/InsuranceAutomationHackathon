@@ -26,10 +26,10 @@ public class BaseTest {
         driver.get("https://www.policybazaar.com/");
     }
 
-    @AfterTest
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterTest
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
     public WebDriver getDriver() {
         return driver;

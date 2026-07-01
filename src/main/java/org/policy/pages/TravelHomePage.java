@@ -1,5 +1,6 @@
 package org.policy.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,13 +30,16 @@ public class TravelHomePage {
     public WebElement selectedCountryText;
 
 
-    @FindBy(xpath="//span[normalize-space()='Start date']/ancestor::div")
+    @FindBy(xpath="//article[@class='newPq_duration_wrap']/div")
     public WebElement selectDateElement;
 
     @FindBy(xpath="//article[@class='newPq_travellers_wrap']")
     public WebElement travellerCountElement;
 
-    @FindBy(className="travel_main_cta")
+    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Continue']")
+    public WebElement dateSubmitButton;
+
+    @FindBy(className = "travel_main_cta")
     public WebElement submitButton;
 
     @FindBy(id="traveller_2")
@@ -66,7 +70,6 @@ public class TravelHomePage {
     }
 
     public String getSelectedCountry(){
-
         return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
     }
 
@@ -88,11 +91,12 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
-        javaScriptUtils.setDateValue(selectDateElement, startDate);
+        WebElement sDate = waitUtils.waitForVisibilityOfElementLocated(By.xpath("//button[@aria-label='" + startDate + "']"));
+        sDate.click();
     }
 
     public void selectEndDate(String endDate){
-        javaScriptUtils.setDateValue(selectDateElement, endDate);
+        driver.findElement(By.xpath("//button[@aria-label='" + endDate + "']")).click();
     }
 
     public void submitDate(){

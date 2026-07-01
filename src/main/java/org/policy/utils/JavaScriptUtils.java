@@ -17,9 +17,5 @@ public class JavaScriptUtils {
     public void jsClick(WebElement element) {
         js.executeScript("arguments[0].click();", element);
     }
-
-    public void setDateValue(WebElement element, String date) {
-        js.executeScript("arguments[0].value='" + date + "';", element);
-    }
 }
 
