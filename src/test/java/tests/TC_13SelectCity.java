@@ -18,9 +18,6 @@ public class TC_13SelectCity extends BaseTest {
 
         homePage.clickCarInsurance();
         carPage.clickNewCar();
-
-
-
     }
 }
 
