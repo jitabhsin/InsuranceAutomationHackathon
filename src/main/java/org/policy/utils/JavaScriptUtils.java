@@ -5,14 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class JavaScriptUtils {
-    WebDriver driver;
 
-    public JavaScriptUtils(WebDriver driver){
+    WebDriver driver;
+    JavascriptExecutor js;
+
+    public JavaScriptUtils(WebDriver driver) {
         this.driver = driver;
+        this.js = (JavascriptExecutor) driver;
     }
 
-    public void setDateValue(WebElement element, String date){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("argument[0].value='" + date + "';", element);
+    public void jsClick(WebElement element) {
+        js.executeScript("arguments[0].click();", element);
+    }
+
+    public void setDateValue(WebElement element, String date) {
+        js.executeScript("arguments[0].value='" + date + "';", element);
     }
 }
+
