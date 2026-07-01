@@ -10,8 +10,6 @@ public class TC_22NavigateToHealthInsurancePage extends BaseTest {
 
     @Test
     public void verifyNavigationToHealthInsurancePage() {
-        driver.get("https://www.policybazaar.com/");
-
         HomePage homePage = new HomePage(driver);
         HealthHomePage healthHomePage = new HealthHomePage(driver);
 
@@ -20,7 +18,5 @@ public class TC_22NavigateToHealthInsurancePage extends BaseTest {
         Assert.assertTrue(submenuLoaded,
                 "TC_22 Failed: Health Insurance submenu/menu items did not load. "
                         + "Current URL: " + driver.getCurrentUrl());
-        System.out.println("TC_22 Passed: Navigated to Health Insurance page. URL: "
-                + driver.getCurrentUrl());
     }
 }
