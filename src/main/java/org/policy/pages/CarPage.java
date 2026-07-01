@@ -34,13 +34,19 @@ public class CarPage {
         waitUtils.waitForClickable(newCar).click();
     }
 
+
     public boolean isCarPageDisplayed(){
-        try{
+        try {
             return waitUtils.waitForVisibility(viewPrices).isDisplayed();
-        } catch (Exception e){
-            return false;
+        } catch (Exception e) {
+            try {
+                return waitUtils.waitForVisibility(newCar).isDisplayed();
+            } catch (Exception ex) {
+                return false;
+            }
         }
     }
+
 
     public String getErrorIfNot(){
         clickViewPrices();
