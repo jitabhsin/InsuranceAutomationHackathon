@@ -21,15 +21,19 @@ public class TravelHomePage {
         PageFactory.initElements(driver, this);
     }
 
+    String countryName = "";
+
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
 
     @FindBy(xpath = "//input[@placeholder='Add countries']")
+    public WebElement selectCountryText;
+
+    @FindBy(xpath = "//span[text()='France']")
     public WebElement selectedCountryText;
 
     @FindBy(xpath="//article[@class='newPq_duration_wrap']/div")
     public WebElement selectDateElement;
-
 
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Continue']")
     public WebElement dateSubmitButton;
@@ -72,13 +76,15 @@ public class TravelHomePage {
 
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
-        waitUtils.waitForVisibility(selectCountryElement).clear();
-        waitUtils.waitForVisibility(selectCountryElement).sendKeys(countryName);
+        waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
+        this.countryName = countryName;
 
         List<WebElement> options = waitUtils.waitForVisibilityOfAllElements();
 
+
         for(WebElement option : options){
             if(option.getText().equalsIgnoreCase(countryName)){
+                System.out.println(option.getText());
                 option.click();
                 break;
             }

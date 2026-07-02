@@ -18,11 +18,12 @@ public class TC_02VerifySelectedCountry extends BaseTest {
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
         homePage.clickTravelInsurance();
+        homePage.clickTravelScope();
         travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
-        Assert.assertEquals(selectedCountry, "United Kingdom");
+        Assert.assertEquals(selectedCountry, ConfigReader.getProperty("country"));
     }
 
 }

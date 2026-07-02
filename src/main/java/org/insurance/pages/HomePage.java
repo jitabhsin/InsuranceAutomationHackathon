@@ -24,7 +24,6 @@ public class HomePage {
     @FindBy(xpath = "//span[normalize-space()='Car']/ancestor::li[1]")
     public WebElement carInsuranceElement;
 
-
     @FindBy(xpath="//span[text()='Health']")
     public WebElement healthInsuranceElement;
 
