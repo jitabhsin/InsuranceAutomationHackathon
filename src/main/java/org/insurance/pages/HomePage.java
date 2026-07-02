@@ -47,7 +47,26 @@ public class HomePage {
 
     public void clickTravelScope(){
         waitUtils.waitForVisibility(selectTravelScope).click();
+    }
+
+    public void clickOtherCountries(){
         waitUtils.waitForVisibility(selectCountriesNeeded).click();
+    }
+
+    public boolean isSelectOtherCountriesOptionAvailable(){
+        try{
+            return waitUtils.waitForVisibility(selectCountriesNeeded).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isTravelScopeOptionAvailable(){
+        try{
+            return waitUtils.waitForVisibility(selectTravelScope).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
     }
 
     public boolean isHomePageDisplayed() {

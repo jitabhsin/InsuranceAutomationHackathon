@@ -1,6 +1,7 @@
 package org.insurance.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,8 +73,31 @@ public class TravelHomePage {
         return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
     }
 
+    public boolean isCountrySelectedCorrectly(){
+        try{
+            return selectedCountryText.getText().equals(countryName);
+        } catch (Exception e){
+            return false;
+        }
+    }
+    public boolean isSelectTravelTypeVisible(){
+        try{
+            return waitUtils.waitForVisibility(selectCountryText).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
+    public boolean isSelectTravelTypeSelected() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
+        String content = (String) js.executeScript(
+                "return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');",
+                selectCountryElement
+        );
+
+        return content != null && !content.equals("none");
+    }
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
         waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
@@ -84,7 +108,6 @@ public class TravelHomePage {
 
         for(WebElement option : options){
             if(option.getText().equalsIgnoreCase(countryName)){
-                System.out.println(option.getText());
                 option.click();
                 break;
             }
