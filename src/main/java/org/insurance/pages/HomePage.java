@@ -18,7 +18,7 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="a//span[text()='Travel']")
+    @FindBy(xpath="//span[text()='Travel']")
     public WebElement travelInsuranceElement;
 
     @FindBy(xpath="//span[text()='Car']")
