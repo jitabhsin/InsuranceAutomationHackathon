@@ -24,65 +24,16 @@ public class HealthHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//label[@for='male']")
-    WebElement maleLabel;
+    @FindBy( className = "health_icon_bg_size")
+    WebElement healthTab;
 
-    @FindBy(xpath = "//label[@for='female']")
-    WebElement femaleLabel;
-
-    @FindBy(xpath = "//input[@name='member']")
-    List<WebElement> memberCheckboxes;
-
-    List<WebElement> maleMemberList = new ArrayList<>();
-    List<WebElement> femaleMemberList = new ArrayList<>();
-
-    public boolean verifyHealthMenuVisible(HomePage homePage) {
-        WebElement healthMenu = waitUtils.waitForVisibility(homePage.healthInsuranceElement);
-        return healthMenu.isDisplayed();
+    public void clickHealthTab() {
+        waitUtils.waitForClickable(healthTab).click();
     }
 
-    public boolean navigateAndWaitForSubmenu(HomePage homePage) {
-        homePage.clickHealthInsurance();
-        waitUtils.waitForVisibility(maleLabel);
-        waitUtils.waitForVisibility(femaleLabel);
-        List<WebElement> members =
-                waitUtils.waitForVisibilityOfAllElements(By.xpath("//input[@name='member']"));
-
-        return maleLabel.isDisplayed()
-                && femaleLabel.isDisplayed()
-                && members != null
-                && !members.isEmpty()
-                && driver.getCurrentUrl().contains("health");
+    public boolean isHealthTabDisplayed() {
+        return waitUtils.waitForVisibility(healthTab).isDisplayed();
     }
 
-    public void navigateToHealthPage(HomePage homePage) {
-        homePage.clickHealthInsurance();
-    }
 
-    public void selectMaleGender() {
-        jsUtils.jsClick(waitUtils.waitForVisibility(maleLabel));
-        maleMemberList = new ArrayList<>(memberCheckboxes);
-    }
-
-    public void selectFemaleGender() {
-        jsUtils.jsClick(waitUtils.waitForVisibility(femaleLabel));
-        femaleMemberList = new ArrayList<>(memberCheckboxes);
-    }
-
-    public void clickMemberByLabel(String labelText) {
-        WebElement labelEl = driver.findElement(memberLabelLocator(labelText));
-        waitUtils.waitForClickable(labelEl).click();
-    }
-
-    private By memberLabelLocator(String labelText) {
-        return By.xpath("//label[normalize-space()='" + labelText + "']");
-    }
-
-    public List<WebElement> getMaleMemberList() {
-        return maleMemberList;
-    }
-
-    public List<WebElement> getFemaleMemberList() {
-        return femaleMemberList;
-    }
 }
