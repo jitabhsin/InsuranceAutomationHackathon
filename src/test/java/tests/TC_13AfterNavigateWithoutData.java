@@ -24,17 +24,17 @@ public class TC_13AfterNavigateWithoutData extends BaseTest {
         Assert.assertTrue(
                 carPage.isNewVehiclePageDisplayed(),
                 "New Vehicle page is not displayed");
-        System.out.println("✓ New Vehicle page displayed successfully");
+        System.out.println("New Vehicle page displayed successfully");
 
         Assert.assertTrue(
                 carPage.isNewVehicleMobileFieldDisplayed(),
                 "Mobile Number field is not displayed");
-        System.out.println("✓ Mobile Number field displayed successfully");
+        System.out.println("Mobile Number field displayed successfully");
 
         Assert.assertTrue(
                 carPage.isNewVehicleEmailFieldDisplayed(),
                 "Email field is not displayed");
-        System.out.println("✓ Email field displayed successfully");
+        System.out.println("Email field displayed successfully");
 
         carPage.clickNewVehicleGetQuote();
 
@@ -42,13 +42,13 @@ public class TC_13AfterNavigateWithoutData extends BaseTest {
                 carPage.getMobileErrorMessage(),
                 "Please enter a valid mobile number",
                 "Mobile validation message mismatch");
-        System.out.println("✓ Mobile validation displayed successfully");
+        System.out.println("Mobile validation displayed successfully");
 
         Assert.assertEquals(
                 carPage.getEmailErrorMessage(),
                 "Please enter valid email id",
                 "Email validation message mismatch");
-        System.out.println("✓ Email validation displayed successfully");
+        System.out.println("Email validation displayed successfully");
 
         System.out.println("TC_13 PASSED");
     }

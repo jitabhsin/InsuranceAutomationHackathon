@@ -24,19 +24,15 @@ public class TC_12WithoutCarNumber extends BaseTest {
         Assert.assertTrue(
                 carPage.isValidationMessageDisplayed(),
                 "Error message is not displayed");
-        System.out.println("✓ Error message displayed successfully");
+        System.out.println("Error message displayed successfully");
 
-        String actualMessage =
-                carPage.getValidationMessage();
+        String actualMessage = carPage.getValidationMessage();
 
-        Assert.assertEquals(
-                actualMessage,
+        Assert.assertEquals(actualMessage,
                 "Please enter a valid reg number",
                 "Incorrect validation message displayed");
 
-        System.out.println(
-                "✓ Validation Message : "
-                        + actualMessage);
+        System.out.println("✓Validation Message : " + actualMessage);
 
         System.out.println("TC_12 PASSED");
     }
