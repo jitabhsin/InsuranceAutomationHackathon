@@ -21,13 +21,11 @@ public class TravelHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id="country")
+    @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
 
-
-    @FindBy(xpath = "//div[contains(@class,'selectedCountryWrap')]//p")
+    @FindBy(xpath = "//input[@placeholder='Add countries']")
     public WebElement selectedCountryText;
-
 
     @FindBy(xpath="//article[@class='newPq_duration_wrap']/div")
     public WebElement selectDateElement;

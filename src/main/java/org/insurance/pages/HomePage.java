@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
-    private WebDriver driver;
-    private WaitUtils waitUtils;
+    WebDriver driver;
+    WaitUtils waitUtils;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -17,14 +18,20 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[contains(@href,'travel-insurance')]")
+    @FindBy(xpath="//span[text()='Travel']")
     public WebElement travelInsuranceElement;
 
-    @FindBy(xpath = "//a[contains(@href,'car-insurance')]")
+    @FindBy(xpath="//span[text()='Car']")
     public WebElement carInsuranceElement;
 
-    @FindBy(xpath = "//a[contains(@href,'health-insurance')]")
+    @FindBy(xpath="//span[text()='Health']")
     public WebElement healthInsuranceElement;
+
+    @FindBy(xpath="//span[text()='Select Scope']")
+    public WebElement selectTravelScope;
+
+    @FindBy(xpath="//a[@class='select-countries-link scope-popup']")
+    public WebElement selectCountriesNeeded;
 
     public void clickTravelInsurance() {
         waitUtils.waitForVisibility(travelInsuranceElement).click();
@@ -37,4 +44,10 @@ public class HomePage {
     public void clickHealthInsurance() {
         waitUtils.waitForVisibility(healthInsuranceElement).click();
     }
+
+    public void clickTravelScope(){
+        waitUtils.waitForVisibility(selectTravelScope).click();
+        waitUtils.waitForVisibility(selectCountriesNeeded).click();
+    }
+
 }
