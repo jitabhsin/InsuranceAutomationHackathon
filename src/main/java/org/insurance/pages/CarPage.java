@@ -18,108 +18,66 @@ public class CarPage {
         PageFactory.initElements(driver, this);
     }
 
-    // Car Registration Number
     @FindBy(id = "valid-carregnumber")
     public WebElement carRegistrationField;
 
-    // Mobile Number
     @FindBy(id = "valid-mobilenumber")
     public WebElement mobileNumberField;
 
-    // Email
     @FindBy(id = "valid-emailid")
     public WebElement emailField;
 
-    // Get Quote Button
     @FindBy(id = "car-get-quote")
     public WebElement getQuoteButton;
 
-    // Validation Message
     @FindBy(xpath = "//span[contains(@class,'ui-error')]")
     public WebElement errorMessage;
 
     public boolean isCarPageDisplayed() {
-
         try {
-
-            return waitUtils
-                    .waitForVisibility(carRegistrationField)
-                    .isDisplayed();
-
+            return waitUtils.waitForVisibility(carRegistrationField).isDisplayed();
         } catch (Exception e) {
-
             return false;
         }
     }
 
     public boolean isRegistrationFieldDisplayed() {
-
         try {
-
-            return waitUtils
-                    .waitForVisibility(carRegistrationField)
-                    .isDisplayed();
-
+            return waitUtils.waitForVisibility(carRegistrationField).isDisplayed();
         } catch (Exception e) {
-
             return false;
         }
     }
-
     public boolean isMobileFieldDisplayed() {
-
         try {
-
-            return waitUtils
-                    .waitForVisibility(mobileNumberField)
-                    .isDisplayed();
-
+            return waitUtils.waitForVisibility(mobileNumberField).isDisplayed();
         } catch (Exception e) {
-
             return false;
         }
     }
 
     public boolean isEmailFieldDisplayed() {
-
         try {
-
-            return waitUtils
-                    .waitForVisibility(emailField)
-                    .isDisplayed();
-
+            return waitUtils.waitForVisibility(emailField).isDisplayed();
         } catch (Exception e) {
-
             return false;
         }
     }
 
     public void clickGetQuote() {
-
-        waitUtils
-                .waitForClickable(getQuoteButton)
-                .click();
+        waitUtils.waitForClickable(getQuoteButton).click();
     }
 
     public boolean isValidationMessageDisplayed() {
-
         try {
-
-            return waitUtils
-                    .waitForVisibility(errorMessage)
-                    .isDisplayed();
-
+            return waitUtils.waitForVisibility(errorMessage).isDisplayed();
         } catch (Exception e) {
-
             return false;
         }
     }
 
     public String getValidationMessage() {
 
-        return waitUtils
-                .waitForVisibility(errorMessage)
-                .getText()
-                .trim();
+        return waitUtils.waitForVisibility(errorMessage).getText().trim();
     }
 }
