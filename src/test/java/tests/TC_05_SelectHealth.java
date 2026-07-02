@@ -51,6 +51,5 @@ public class TC_05_SelectHealth extends BaseTest {
 
         TravelQuotePage totalPlan = new TravelQuotePage(driver);
         String total = totalPlan.totalTravelPlan();
-        System.out.println(total);
     }
 }
