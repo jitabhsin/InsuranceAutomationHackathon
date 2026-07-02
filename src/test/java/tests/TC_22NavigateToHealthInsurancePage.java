@@ -1,8 +1,8 @@
 package tests;
 
 import basetest.BaseTest;
-import org.policy.pages.HealthHomePage;
-import org.policy.pages.HomePage;
+import org.insurance.pages.HealthHomePage;
+import org.insurance.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

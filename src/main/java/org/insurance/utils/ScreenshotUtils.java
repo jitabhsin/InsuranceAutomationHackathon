@@ -1,4 +1,4 @@
-package org.policy.utils;
+package org.insurance.utils;
 
 import java.io.File;
 import java.io.IOException;

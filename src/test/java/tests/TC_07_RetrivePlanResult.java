@@ -2,7 +2,7 @@ package tests;
 
 import basetest.BaseTest;
 import org.openqa.selenium.WebElement;
-import org.policy.pages.TravelQuotePage;
+import org.insurance.pages.TravelQuotePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
