@@ -39,12 +39,12 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
-    // Wait until list has at least 1 element
+
     public void waitForListToHaveElements(List<WebElement> elements) {
         wait.until(driver -> elements.size() > 0);
     }
 
-    // Wait until element disappears (for loader/skeleton)
+
     public void waitForInvisibility(By locator) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }

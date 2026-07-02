@@ -47,7 +47,6 @@ public class CarPage {
         }
     }
 
-
     public String getErrorIfNot(){
         clickViewPrices();
         return waitUtils.waitForVisibility(errorWithoutCarNumber).getText();
