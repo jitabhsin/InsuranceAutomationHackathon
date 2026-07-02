@@ -1,20 +1,24 @@
 package tests;
 
 import basetest.BaseTest;
+import io.cucumber.java.en_old.Tha;
 import org.policy.pages.HomePage;
 import org.policy.pages.TravelHomePage;
 import org.testng.annotations.Test;
 
-public class TC_03_SelectDates extends BaseTest {
+public class TC_04_SelectTravellers extends BaseTest {
+    HomePage homePage;
+    TravelHomePage travelHomePage;
 
     String startDate = "Jul 3, 2026";
     String endDate = "Jul 8, 2026";
 
-    HomePage homePage;
-    TravelHomePage travelHomePage;
+    int count = 2;
+    int age1 = 22;
+    int age2 = 21;
 
     @Test
-    public void selectDates(){
+    public void selectTravellers(){
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
 
@@ -31,5 +35,8 @@ public class TC_03_SelectDates extends BaseTest {
         travelHomePage.selectEndDate(endDate);
 
         travelHomePage.dateSubmitButton.click();
+
+        travelHomePage.selectTravellerCount(count, age1, age2);
+
     }
 }
