@@ -50,4 +50,23 @@ public class HomePage {
         waitUtils.waitForVisibility(selectCountriesNeeded).click();
     }
 
+    public boolean isHomePageDisplayed() {
+        try {
+            return driver.getTitle() != null &&
+                    !driver.getTitle().trim().isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isCarInsurancePresent() {
+        try {
+            return waitUtils
+                    .waitForVisibility(carInsuranceElement)
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
