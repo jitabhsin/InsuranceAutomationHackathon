@@ -1,40 +1,43 @@
 package org.insurance.pages;
 
+import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.insurance.utils.WaitUtils;
 
 public class HomePage {
-    WebDriver driver;
-    WaitUtils waitUtils;
 
-    public HomePage(WebDriver driver){
+    private WebDriver driver;
+    private WaitUtils waitUtils;
+
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Travel')]]//a")
-    public WebElement travelInsuranceElement;
+    // Travel Insurance
+    @FindBy(xpath = "//a[contains(@href,'travel-insurance')]")
+    private WebElement travelInsuranceElement;
 
-    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Car')]]//a")
-    public WebElement carInsuranceElement;
+    // Car Insurance
+    @FindBy(xpath = "//a[contains(@href,'car-insurance')]")
+    private WebElement carInsuranceElement;
 
-    @FindBy(xpath="//div[contains(@class,'prd-block')][.//p[contains(.,'Health')]]//a")
-    public WebElement healthInsuranceElement;
+    // Health Insurance
+    @FindBy(xpath = "//a[contains(@href,'health-insurance')]")
+    private WebElement healthInsuranceElement;
 
-    public void clickTravelInsurance(){
+    public void clickTravelInsurance() {
         waitUtils.waitForVisibility(travelInsuranceElement).click();
     }
 
-    public void clickCarInsurance(){
+    public void clickCarInsurance() {
         waitUtils.waitForVisibility(carInsuranceElement).click();
     }
 
-    public void clickHealthInsurance(){
+    public void clickHealthInsurance() {
         waitUtils.waitForVisibility(healthInsuranceElement).click();
     }
-
 }
