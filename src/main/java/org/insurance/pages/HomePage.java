@@ -17,17 +17,14 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    // Travel Insurance
     @FindBy(xpath = "//a[contains(@href,'travel-insurance')]")
-    private WebElement travelInsuranceElement;
+    public WebElement travelInsuranceElement;
 
-    // Car Insurance
     @FindBy(xpath = "//a[contains(@href,'car-insurance')]")
-    private WebElement carInsuranceElement;
+    public WebElement carInsuranceElement;
 
-    // Health Insurance
     @FindBy(xpath = "//a[contains(@href,'health-insurance')]")
-    private WebElement healthInsuranceElement;
+    public WebElement healthInsuranceElement;
 
     public void clickTravelInsurance() {
         waitUtils.waitForVisibility(travelInsuranceElement).click();
