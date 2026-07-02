@@ -15,10 +15,8 @@ public class TC_01NavigateTravelPage extends BaseTest {
     public void verifyTravelInsuranceNavigation(){
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-
         homePage.clickTravelInsurance();
         boolean isDisplayed = travelHomePage.isTravelPageDisplayed();
-
         Assert.assertTrue(isDisplayed, "Travel Insurance Page/Form is NOT displayed");
     }
 }
