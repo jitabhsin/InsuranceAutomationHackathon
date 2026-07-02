@@ -1,10 +1,10 @@
-package org.policy.pages;
+package org.insurance.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.policy.utils.WaitUtils;
+import org.insurance.utils.WaitUtils;
 
 public class CarPage {
 

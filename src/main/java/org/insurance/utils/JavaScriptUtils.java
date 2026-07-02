@@ -1,4 +1,4 @@
-package org.policy.utils;
+package org.insurance.utils;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import basetest.BaseTest;
-import org.policy.pages.HomePage;
-import org.policy.pages.CarPage;
+import org.insurance.pages.HomePage;
+import org.insurance.pages.CarPage;
 
 public class TC_11NavigateCarPage extends BaseTest{
 

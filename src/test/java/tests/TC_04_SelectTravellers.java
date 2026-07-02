@@ -1,9 +1,8 @@
 package tests;
 
 import basetest.BaseTest;
-import io.cucumber.java.en_old.Tha;
-import org.policy.pages.HomePage;
-import org.policy.pages.TravelHomePage;
+import org.insurance.pages.HomePage;
+import org.insurance.pages.TravelHomePage;
 import org.testng.annotations.Test;
 
 public class TC_04_SelectTravellers extends BaseTest {

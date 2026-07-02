@@ -1,10 +1,9 @@
 package tests;
 
 import basetest.BaseTest;
-import io.cucumber.java.en_old.Tha;
-import org.policy.pages.HomePage;
-import org.policy.pages.TravelHomePage;
-import org.policy.pages.TravelQuotePage;
+import org.insurance.pages.HomePage;
+import org.insurance.pages.TravelHomePage;
+import org.insurance.pages.TravelQuotePage;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

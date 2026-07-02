@@ -1,8 +1,8 @@
 package tests;
 
 import basetest.BaseTest;
-import org.policy.pages.HomePage;
-import org.policy.pages.TravelHomePage;
+import org.insurance.pages.HomePage;
+import org.insurance.pages.TravelHomePage;
 import org.testng.annotations.Test;
 
 public class TC_03_SelectDates extends BaseTest {

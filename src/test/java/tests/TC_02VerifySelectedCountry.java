@@ -1,9 +1,8 @@
 package tests;
 
 import basetest.BaseTest;
-import org.policy.pages.HomePage;
-import org.policy.pages.TravelHomePage;
-import org.policy.utils.WaitUtils;
+import org.insurance.pages.HomePage;
+import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
