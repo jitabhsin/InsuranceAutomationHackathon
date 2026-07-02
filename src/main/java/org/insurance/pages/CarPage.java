@@ -1,6 +1,7 @@
 package org.insurance.pages;
 
 import org.insurance.utils.WaitUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,6 +50,15 @@ public class CarPage {
 
     @FindBy(xpath = "//span[contains(text(),'Please enter valid email id')]")
     public WebElement emailErrorMessage;
+
+    @FindBy(id = "carRg")
+    public WebElement cityField;
+
+    @FindBy(id = "makeModelName")
+    public WebElement makeModelField;
+
+    @FindBy(xpath = "//a[contains(text(),'Proceed')]")
+    public WebElement proceedButton;
 
     public boolean isCarPageDisplayed() {
         try {
@@ -136,5 +146,41 @@ public class CarPage {
 
     public String getEmailErrorMessage() {
         return waitUtils.waitForVisibility(emailErrorMessage).getText().trim();
+    }
+
+    public void enterCity(String city) {
+        waitUtils.waitForVisibility(cityField).clear();
+        cityField.sendKeys(city);
+    }
+
+    public void selectCity(String city) {
+        driver.findElement(By.xpath("//li[contains(text(),'" + city + "')]")).click();
+    }
+
+    public void enterCarMake(String make) {
+        waitUtils.waitForVisibility(makeModelField).clear();
+        makeModelField.sendKeys(make);
+    }
+
+    public void selectCarModel(String model) {
+        driver.findElement(By.xpath("//li[contains(text(),'" + model + "')]")).click();
+    }
+
+    public void enterMobile(String mobile) {
+        waitUtils.waitForVisibility(newVehicleMobileField).clear();
+        newVehicleMobileField.sendKeys(mobile);
+    }
+
+    public void enterEmail(String email) {
+        waitUtils.waitForVisibility(newVehicleEmailField).clear();
+        newVehicleEmailField.sendKeys(email);
+    }
+
+    public void clickProceed() {
+        waitUtils.waitForClickable(proceedButton).click();
+    }
+
+    public boolean isSelectPlansPageDisplayed() {
+        return driver.getCurrentUrl().contains("select-plans");
     }
 }
