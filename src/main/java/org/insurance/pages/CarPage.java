@@ -12,7 +12,6 @@ public class CarPage {
     WaitUtils waitUtils;
 
     public CarPage(WebDriver driver) {
-
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
@@ -33,6 +32,24 @@ public class CarPage {
     @FindBy(xpath = "//span[contains(@class,'ui-error')]")
     public WebElement errorMessage;
 
+    @FindBy(xpath = "//a[contains(text(),'Got a new vehicle')]")
+    public WebElement newVehicleLink;
+
+    @FindBy(id = "car-registration-mob")
+    public WebElement newVehicleMobileField;
+
+    @FindBy(id = "car-registration-email")
+    public WebElement newVehicleEmailField;
+
+    @FindBy(id = "keyboardbindLast")
+    public WebElement newVehicleGetQuoteButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Please enter a valid mobile number')]")
+    public WebElement mobileErrorMessage;
+
+    @FindBy(xpath = "//span[contains(text(),'Please enter valid email id')]")
+    public WebElement emailErrorMessage;
+
     public boolean isCarPageDisplayed() {
         try {
             return waitUtils.waitForVisibility(carRegistrationField).isDisplayed();
@@ -48,6 +65,7 @@ public class CarPage {
             return false;
         }
     }
+
     public boolean isMobileFieldDisplayed() {
         try {
             return waitUtils.waitForVisibility(mobileNumberField).isDisplayed();
@@ -77,7 +95,46 @@ public class CarPage {
     }
 
     public String getValidationMessage() {
-
         return waitUtils.waitForVisibility(errorMessage).getText().trim();
+    }
+
+    public void clickNewVehicleLink() {
+        waitUtils.waitForClickable(newVehicleLink).click();
+    }
+
+    public boolean isNewVehiclePageDisplayed() {
+        try {
+            return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isNewVehicleMobileFieldDisplayed() {
+        try {
+            return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isNewVehicleEmailFieldDisplayed() {
+        try {
+            return waitUtils.waitForVisibility(newVehicleEmailField).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickNewVehicleGetQuote() {
+        waitUtils.waitForClickable(newVehicleGetQuoteButton).click();
+    }
+
+    public String getMobileErrorMessage() {
+        return waitUtils.waitForVisibility(mobileErrorMessage).getText().trim();
+    }
+
+    public String getEmailErrorMessage() {
+        return waitUtils.waitForVisibility(emailErrorMessage).getText().trim();
     }
 }
