@@ -21,8 +21,10 @@ public class HomePage {
     @FindBy(xpath="//*[contains(@class,'il-travel-img') or contains(text(),'Travel Insurance')]")
     public WebElement travelInsuranceElement;
 
-    @FindBy(xpath="//span[normalize-space()='Car']/parent::div")
+
+    @FindBy(xpath="//span[normalize-space()='Car']/ancestor::li[1]")
     public WebElement carInsuranceElement;
+
 
     @FindBy(xpath="//*[contains(@class,'il-health-img') or contains(text(),'Health Insurance')]")
     public WebElement healthInsuranceElement;
