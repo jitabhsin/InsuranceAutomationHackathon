@@ -1,11 +1,10 @@
 package tests;
 
+import basetest.BaseTest;
+import org.insurance.pages.CarPage;
+import org.insurance.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import basetest.BaseTest;
-import org.insurance.pages.HomePage;
-import org.insurance.pages.CarPage;
 
 public class TC_11NavigateCarPage extends BaseTest {
 
@@ -18,38 +17,33 @@ public class TC_11NavigateCarPage extends BaseTest {
         homePage = new HomePage(driver);
         carPage = new CarPage(driver);
 
-        // Added Validation
-        Assert.assertTrue(
-                homePage.isHomePageDisplayed(),
-                "Home Page is not loaded");
-
-        // Added Validation
-        Assert.assertTrue(
-                homePage.isCarInsurancePresent(),
-                "Car Insurance option is not displayed");
-
+        // Step 1 & 2 : Click Car Insurance
         homePage.clickCarInsurance();
 
+        // Step 3 : Verify Car Insurance Form
         Assert.assertTrue(
                 carPage.isCarPageDisplayed(),
-                "Car Insurance page/form is NOT displayed");
+                "Car Insurance form is not displayed");
+        System.out.println("✓ Car Insurance form displayed successfully");
 
-        // Added Validation
+        // Verify Car Registration Field
         Assert.assertTrue(
                 carPage.isRegistrationFieldDisplayed(),
-                "Registration field is not displayed");
+                "Car Registration Number field is not displayed");
+        System.out.println("✓ Car Registration Number field displayed successfully");
 
-        // Added Validation
-        Assert.assertFalse(
-                carPage.getCurrentUrl().trim().isEmpty(),
-                "URL is empty");
+        // Verify Mobile Number Field
+        Assert.assertTrue(
+                carPage.isMobileFieldDisplayed(),
+                "Mobile Number field is not displayed");
+        System.out.println("✓ Mobile Number field displayed successfully");
 
-        // Added Validation
-        Assert.assertFalse(
-                carPage.getPageTitle().trim().isEmpty(),
-                "Page title is empty");
+        // Verify Email Field
+        Assert.assertTrue(
+                carPage.isEmailFieldDisplayed(),
+                "Email field is not displayed");
+        System.out.println("✓ Email field displayed successfully");
 
-        System.out.println("Title : " + carPage.getPageTitle());
-        System.out.println("URL : " + carPage.getCurrentUrl());
+        System.out.println("TC_11 PASSED");
     }
 }
