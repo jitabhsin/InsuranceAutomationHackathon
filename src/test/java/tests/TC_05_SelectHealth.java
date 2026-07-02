@@ -5,6 +5,7 @@ import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.testng.annotations.Test;
+import utils.ConfigReader;
 
 import java.time.Duration;
 
@@ -24,20 +25,17 @@ public class TC_05_SelectHealth extends BaseTest {
     public void selectTravellersHealth(){
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-
         homePage.clickTravelInsurance();
-        travelHomePage.selectCountry("United Kingdom");
-
+        homePage.clickTravelScope();
+        homePage.clickOtherCountries();
+        travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
-        travelHomePage.selectDateElement.click();
-
+        travelHomePage.selectStartDateElement.click();
         travelHomePage.selectStartDate(startDate);
-
         travelHomePage.selectEndDate(endDate);
-
-        travelHomePage.dateSubmitButton.click();
+        travelHomePage.submitDate();
 
         travelHomePage.selectTravellerCount(count, age1, age2);
 

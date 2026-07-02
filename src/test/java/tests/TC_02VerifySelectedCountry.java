@@ -19,6 +19,7 @@ public class TC_02VerifySelectedCountry extends BaseTest {
         travelHomePage = new TravelHomePage(driver);
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
+        homePage.clickOtherCountries();
         travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);

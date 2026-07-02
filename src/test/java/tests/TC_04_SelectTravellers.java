@@ -4,6 +4,7 @@ import basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.annotations.Test;
+import utils.ConfigReader;
 
 public class TC_04_SelectTravellers extends BaseTest {
     HomePage homePage;
@@ -20,20 +21,20 @@ public class TC_04_SelectTravellers extends BaseTest {
     public void selectTravellers(){
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-
         homePage.clickTravelInsurance();
-        travelHomePage.selectCountry("United Kingdom");
-
+        homePage.clickTravelScope();
+        homePage.clickOtherCountries();
+        travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
-        travelHomePage.selectDateElement.click();
-
+        travelHomePage.selectStartDateElement.click();
         travelHomePage.selectStartDate(startDate);
 
+        travelHomePage.selectEndDateElement.click();
         travelHomePage.selectEndDate(endDate);
 
-        travelHomePage.dateSubmitButton.click();
+        travelHomePage.submitDate();
 
         travelHomePage.selectTravellerCount(count, age1, age2);
 
