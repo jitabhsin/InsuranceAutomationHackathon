@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
-    JavaScriptUtils javaScriptUtils;
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
@@ -24,6 +22,8 @@ public class TravelHomePage {
     }
 
     String countryName = "";
+    String startDate = "";
+    String endDate = "";
 
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
@@ -34,20 +34,20 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[text()='France']")
     public WebElement selectedCountryText;
 
-    @FindBy(id="il-start-date")
+    @FindBy(xpath="//input[@class='tel date-bg-input val-mob val-req numeric cal-popup ng-untouched ng-pristine ng-valid']")
     public WebElement selectStartAndEndDateElement;
 
-    @FindBy(id="il-end-date")
-    public WebElement selectEndDateElement;
+//    @FindBy(xpath = "//label[text()='Return date ']")
+//    public WebElement selectEndDateElement;
 
     @FindBy(xpath = "//a[text()='Continue']")
     public WebElement dateSubmitButton;
 
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
-    public WebElement ageSubmitButton;
-
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
-    public WebElement submitButton;
+//    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
+//    public WebElement ageSubmitButton;
+//
+//    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
+//    public WebElement submitButton;
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
@@ -55,12 +55,14 @@ public class TravelHomePage {
     @FindBy(xpath = "//div[@class='travel-head-month-year cal-popup']")
     public WebElement leftSideMonthAndYear;
 
-    @FindBy(xpath = "//div[@class='travel-head-month-year']")
-    public WebElement rightSidetMonthAndYear;
-
     @FindBy(xpath = "//div[@class='travel-calender-main cal-popup']")
     public WebElement calenderElement;
 
+    @FindBy(xpath = "//span[@class='ui-field-info float-right']")
+    public WebElement tripDurationElement;
+
+    @FindBy(xpath = "//h4[text()='Add travellers']")
+    public WebElement verifyAddTraveller;
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -116,6 +118,7 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
+        this.startDate = startDate;
         String[] dateSeperator = startDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -129,6 +132,7 @@ public class TravelHomePage {
 
 
     public void selectEndDate(String endDate){
+        this.endDate = endDate;
         String[] dateSeperator = endDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -141,15 +145,43 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(dateSubmitButton).click();
     }
 
-    public void selectHealthOfTravellers(String diabetesCheck){
-        if(diabetesCheck.equalsIgnoreCase("no")){
-            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
-        }
-    }
+//    public void selectTravellerCount(int count, int... ages) {
+//
+//        if (ages.length < count) {
+//            throw new IllegalArgumentException(
+//                    "Number of ages must be equal to or greater than traveller count");
+//        }
+//
+//        if (count == 1) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_1']")).click();
+//        } else if (count == 2) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_2']")).click();
+//        } else if (count == 3) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_3']")).click();
+//        } else if (count == 4){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_4']")).click();
+//        } else if (count == 5){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_5']")).click();
+//        } else if (count >= 6){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_6_plus']")).click();
+//        }
+//
+//        for (int i = 0; i < count; i++) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.id(String.valueOf(i))).click();
+//            String ageId = ages[i] + " years_undefined";
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='" + ageId + "']")).click();
+//        }
+//    }
 
-    public void getTravelQuota(){
-        waitUtils.waitForVisibility(submitButton).click();
-    }
+//    public void selectHealthOfTravellers(String diabetesCheck){
+//        if(diabetesCheck.equalsIgnoreCase("no")){
+//            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
+//        }
+//    }
+//
+//    public void getTravelQuota(){
+//        waitUtils.waitForVisibility(submitButton).click();
+//    }
 
     public void clickNextMonthAndYear(String monthAndYear){
         String leftSideMonthAndYearText = leftSideMonthAndYear.getText();
@@ -165,4 +197,32 @@ public class TravelHomePage {
         WebElement dateElement = driver.findElement(By.xpath(xpathString));
         waitUtils.waitForVisibility(dateElement).click();
     }
+
+    public String retrieveTripDuration(){
+        return tripDurationElement.getText();
+    }
+    public boolean isCalenderOpen(){
+        try{
+            return waitUtils.waitForVisibility(calenderElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isSubmitButtonPresent(){
+        try{
+            return waitUtils.waitForVisibility(dateSubmitButton).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isRedirectedToSelectTravellerCount(){
+        try{
+            return waitUtils.waitForVisibility(verifyAddTraveller).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
 }

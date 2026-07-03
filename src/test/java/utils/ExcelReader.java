@@ -1,19 +1,43 @@
 package utils;
 
 import java.io.FileInputStream;
+
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
-
     String path = "src/test/java/resources/data.xlsx";
-    public Object[][] readSheetTravel() {
-        return null;
+    public String[][] readSheetTravel() {
+
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheet("Travel");
+
+            int rowCount = sheet.getPhysicalNumberOfRows();
+            int colCount = sheet.getRow(0).getPhysicalNumberOfCells();
+
+            String[][] data = new String[rowCount - 1][colCount];
+
+            DataFormatter formatter = new DataFormatter();
+
+            for (int i = 1; i < rowCount; i++) {
+                for (int j = 0; j < colCount; j++) {
+
+                    data[i - 1][j] =
+                            formatter.formatCellValue(sheet.getRow(i).getCell(j));
+                }
+            }
+
+            return data;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-    public Object[][] readSheetHealth() {
-        return null;
-    }
+
     public Object[][] readSheetCar() {
 
         try {

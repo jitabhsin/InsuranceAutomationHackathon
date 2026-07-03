@@ -44,6 +44,25 @@ public class HealthHomePage {
     @FindBy(xpath = "//span[@class='filled-field-value ins-mem-pop']")
     public WebElement verifyMembersResult;
 
+    @FindBy(xpath = "//span[@class='contact-pop']")
+    WebElement contactDetails;
+
+    @FindBy(id = "valid-popmobilnumber")
+    WebElement mobileNumber;
+
+    @FindBy(id = "valid-popemil")
+    WebElement emailId;
+
+    @FindBy(id = "valid-poppincode")
+    WebElement pincode;
+
+    @FindBy(id = "your-name")
+    WebElement name;
+
+    @FindBy(className = "btn-done")
+    WebElement doneButton;
+
+
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
@@ -105,4 +124,38 @@ public class HealthHomePage {
         doneBtn.click();
         return true;
     }
+
+    public boolean isContactDetailsDisplayed() {
+        return waitUtils.waitForVisibility(contactDetails).isDisplayed();
+    }
+
+    public void clickContactDetails(){
+        contactDetails.click();
+    }
+
+
+    public void enterMobileNo(String mobileNo){
+        mobileNumber.sendKeys(mobileNo);
+    }
+
+    public void enterEmailId(String email){
+        emailId.sendKeys(email);
+    }
+
+    public void enterPincode(String pin){
+        pincode.sendKeys(pin);
+    }
+
+    public void enterName(String Name){
+        name.sendKeys(Name);
+    }
+
+    public boolean isDoneButtonDisplayed() {
+        return waitUtils.waitForVisibility(doneButton).isDisplayed();
+    }
+
+    public void clickDoneButton(){
+        doneButton.click();
+    }
+
 }
