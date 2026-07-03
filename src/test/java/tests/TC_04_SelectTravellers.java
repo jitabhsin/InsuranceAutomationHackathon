@@ -30,12 +30,12 @@ public class TC_04_SelectTravellers extends BaseTest {
 
         travelHomePage.selectStartAndEndDateElement.click();
         travelHomePage.selectStartDate(startDate);
-
         travelHomePage.selectEndDateElement.click();
         travelHomePage.selectEndDate(endDate);
 
         travelHomePage.submitDate();
 
+        travelHomePage.providePersonalDetails(ConfigReader.getProperty("contactNumber"), ConfigReader.getProperty("email"));
         travelHomePage.selectTravellerCount(count, age1, age2);
 
     }

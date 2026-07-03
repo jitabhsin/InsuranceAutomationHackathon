@@ -48,20 +48,29 @@ public class TravelHomePage {
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
     public WebElement submitButton;
 
-    @FindBy(id="0")
-    public WebElement traveller1Age;
+    @FindBy(id = "mul-no")
+    public WebElement contactNumber;
 
-    @FindBy(id="1")
-    public WebElement traveller2Age;
+    @FindBy(id = "mul-em")
+    public WebElement email;
 
-    @FindBy(id="21")
-    public WebElement selectAge1;
+    @FindBy(xpath = "//span[text()='0-50 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement zeroTofiftyAgeGroup;
 
-    @FindBy(id="22")
-    public WebElement selectAge2;
+    @FindBy(xpath = "//span[text()='51-60 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement fiftyAgeGroup;
 
-    @FindBy(id="ped_no")
-    public WebElement diabetesCheckBox;
+    @FindBy(xpath = "//span[text()='61-70 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement sixtyAgeGroup;
+
+    @FindBy(xpath = "//span[text()='71-85 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement seventyAboveAgeGroup;
+
+    @FindBy(id="//label[text()='No']")
+    public WebElement noHealthCheckBox;
+
+    @FindBy(id="//label[text()='Yes']")
+    public WebElement yesHealthCheckBox;
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
@@ -164,30 +173,21 @@ public class TravelHomePage {
     }
 
     public void selectTravellerCount(int count, int... ages) {
-
         if (ages.length < count) {
             throw new IllegalArgumentException(
                     "Number of ages must be equal to or greater than traveller count");
         }
 
-        if (count == 1) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_1']")).click();
-        } else if (count == 2) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_2']")).click();
-        } else if (count == 3) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_3']")).click();
-        } else if (count == 4){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_4']")).click();
-        } else if (count == 5){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_5']")).click();
-        } else if (count >= 6){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_6_plus']")).click();
-        }
-
         for (int i = 0; i < count; i++) {
-            waitUtils.waitForVisibilityOfElementLocated(By.id(String.valueOf(i))).click();
-            String ageId = ages[i] + " years_undefined";
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='" + ageId + "']")).click();
+            if (ages[i] > 0 && ages[i] <= 50) {
+                waitUtils.waitForVisibility(zeroTofiftyAgeGroup).click();
+            } else if (ages[i] > 50 && ages[i] <= 60) {
+                waitUtils.waitForVisibility(fiftyAgeGroup).click();
+            } else if (ages[i] > 60 && ages[i] <= 70) {
+                waitUtils.waitForVisibility(sixtyAgeGroup).click();
+            } else if (ages[i] > 70 && ages[i] <= 85) {
+                waitUtils.waitForVisibility(seventyAboveAgeGroup).click();
+            }
         }
     }
 
@@ -256,6 +256,11 @@ public class TravelHomePage {
             }
         } catch (Exception ignored) {}
         return "UNKNOWN";
+    }
+
+    public void providePersonalDetails(String number, String mailId){
+        contactNumber.sendKeys(number);
+        email.sendKeys(mailId);
     }
 
 }
