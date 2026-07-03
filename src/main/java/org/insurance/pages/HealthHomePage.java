@@ -36,7 +36,13 @@ public class HealthHomePage {
     WebElement memberBtn;
 
     @FindBy(xpath = "//button[@class='btn-adults btn-adults2 ins-mem-pop']")
-    WebElement addAdultBtn;
+    List<WebElement> addBtn;
+
+    @FindBy(className = "btn-insuremembers-details")
+    WebElement doneBtn;
+
+    @FindBy(xpath = "//span[@class='filled-field-value ins-mem-pop']")
+    public WebElement verifyMembersResult;
 
     @FindBy(xpath = "//span[@class='contact-pop']")
     WebElement contactDetails;
@@ -73,12 +79,12 @@ public class HealthHomePage {
     }
 
     public void clickProductDropdwn(){
+        waitUtils.waitForVisibility(selectProductDropdownBtn);
         selectProductDropdownBtn.click();
     }
 
     public String selectProduct(String productName){
         for(WebElement element : productOptions){
-            System.out.println(element.getText());
             if(element.getText().trim().equalsIgnoreCase(productName)){
                 waitUtils.waitForClickable(element).click();
                 break;
@@ -89,6 +95,34 @@ public class HealthHomePage {
 
     public void clickMemberBtn(){
         memberBtn.click();
+    }
+
+    int adultCount = 1;
+    int kidsCount = 1;
+    public void addMembers(String member, String dob){
+        String DOB[] = dob.split("-");
+        if(member.equalsIgnoreCase("Adult")){
+            addBtn.get(0).click();
+            driver.findElement(By.id("valid-adult" + adultCount + "date")).sendKeys(DOB[0]);
+            driver.findElement(By.id("valid-adult" + adultCount + "month")).sendKeys(DOB[1]);
+            driver.findElement(By.id("valid-adult" + adultCount + "year")).sendKeys(DOB[2]);
+            adultCount++;
+        }
+        else if(member.equalsIgnoreCase("Kids")){
+            addBtn.get(1).click();
+            driver.findElement(By.id("valid-k" + kidsCount + "date")).sendKeys(DOB[0]);
+            driver.findElement(By.id("valid-k" + kidsCount + "month")).sendKeys(DOB[1]);
+            driver.findElement(By.id("valid-k" + kidsCount + "year")).sendKeys(DOB[2]);
+            kidsCount++;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid Member");
+        }
+    }
+
+    public boolean clickDoneBtn(){
+        doneBtn.click();
+        return true;
     }
 
     public boolean isContactDetailsDisplayed() {
