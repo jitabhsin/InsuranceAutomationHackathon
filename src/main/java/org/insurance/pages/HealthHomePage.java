@@ -62,6 +62,8 @@ public class HealthHomePage {
     @FindBy(className = "btn-done")
     WebElement doneButton;
 
+    @FindBy(id = "city-get-quote")
+    WebElement getQuoteBtn;
 
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
@@ -158,4 +160,7 @@ public class HealthHomePage {
         doneButton.click();
     }
 
+    public void clickGetQuote(){
+        getQuoteBtn.click();
+    }
 }

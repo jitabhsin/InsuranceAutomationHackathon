@@ -26,8 +26,8 @@ public class TC_24_FillContactDetails extends BaseTest {
         System.out.println("Done button is displayed");
 
         healthHomePage.clickDoneButton();
+        healthHomePage.clickGetQuote();
 
+        Assert.assertTrue(, "Details filled successfully");
     }
-
-
 }
