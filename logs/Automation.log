@@ -37,3 +37,33 @@
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Closing browser
 03-07-2026 16:07:03 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
+03-07-2026 16:20:42 INFO  tests.TC_14SelectCarAndModel - ========== Browser Launch Started ==========
+03-07-2026 16:20:46 INFO  tests.TC_14SelectCarAndModel - Browser launched successfully
+03-07-2026 16:21:00 INFO  tests.TC_14SelectCarAndModel - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 16:21:00 INFO  tests.TC_14SelectCarAndModel - ========== Setup Completed ==========
+03-07-2026 16:21:01 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:01 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:21:01 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:21:24 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:21:25 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:21:26 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:28 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:28 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:21:28 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:21:28 INFO  tests.TC_14SelectCarAndModel - Closing browser
+03-07-2026 16:21:33 INFO  tests.TC_14SelectCarAndModel - Browser closed successfully
