@@ -3,13 +3,14 @@ package tests;
 import basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.ConfigReader;
+import utils.ExcelReader;
 
 public class TC_03_SelectDates extends BaseTest {
 
-    String startDate = "5, Sept 2026";
-    String endDate = "30, Nov 2026";
     HomePage homePage;
     TravelHomePage travelHomePage;
 
@@ -18,17 +19,28 @@ public class TC_03_SelectDates extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
+        boolean isDateSubmitPresent = travelHomePage.isSubmitButtonPresent();
+
         travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
         travelHomePage.selectStartAndEndDateElement.click();
-        travelHomePage.selectStartDate(startDate);
-        travelHomePage.selectEndDate(endDate);
+        boolean isCalenderOpen = travelHomePage.isCalenderOpen();
 
+        travelHomePage.selectStartDate(ConfigReader.getProperty("startDate"));
+        travelHomePage.selectEndDate(ConfigReader.getProperty("endDate"));
+        System.out.println(travelHomePage.retrieveTripDuration());
         travelHomePage.submitDate();
+
+        boolean verifyTravelCountRedirection = travelHomePage.isRedirectedToSelectTravellerCount();
+
+        Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
+        Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
+        Assert.assertTrue(verifyTravelCountRedirection, "Traveller Count Selection NOT loaded");
     }
 }
