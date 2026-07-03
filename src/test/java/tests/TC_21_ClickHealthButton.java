@@ -13,5 +13,6 @@ public class TC_21_ClickHealthButton extends BaseTest {
 
         healthHomePage.clickHealthTab();
         Assert.assertEquals(healthHomePage.isSelectProductDisplayed(), "Select products");
+        System.out.println("Product selected successfully");
     }
 }

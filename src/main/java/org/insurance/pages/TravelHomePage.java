@@ -22,8 +22,7 @@ public class TravelHomePage {
     }
 
     String countryName = "";
-    String startDate = "";
-    String endDate = "";
+
 
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
@@ -49,6 +48,21 @@ public class TravelHomePage {
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
     public WebElement submitButton;
 
+    @FindBy(id="0")
+    public WebElement traveller1Age;
+
+    @FindBy(id="1")
+    public WebElement traveller2Age;
+
+    @FindBy(id="21")
+    public WebElement selectAge1;
+
+    @FindBy(id="22")
+    public WebElement selectAge2;
+
+    @FindBy(id="ped_no")
+    public WebElement diabetesCheckBox;
+
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
 
@@ -60,6 +74,12 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//span[@class='ui-field-info float-right']")
     public WebElement tripDurationElement;
+
+    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-valid']")
+    public WebElement termsChecked;
+
+    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-invalid']")
+    public WebElement termsUnChecked;
 
     @FindBy(xpath = "//h4[text()='Add travellers']")
     public WebElement verifyAddTraveller;
@@ -118,7 +138,6 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
-        this.startDate = startDate;
         String[] dateSeperator = startDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -132,7 +151,6 @@ public class TravelHomePage {
 
 
     public void selectEndDate(String endDate){
-        this.endDate = endDate;
         String[] dateSeperator = endDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -223,6 +241,21 @@ public class TravelHomePage {
         } catch (Exception e){
             return false;
         }
+    }
+
+    public String getTermsStatus() {
+        try {
+            if (termsUnChecked.isDisplayed()) {
+                return "UNCHECKED";
+            }
+        } catch (Exception ignored) {}
+
+        try {
+            if (termsChecked.isDisplayed()) {
+                return "CHECKED";
+            }
+        } catch (Exception ignored) {}
+        return "UNKNOWN";
     }
 
 }
