@@ -6,6 +6,7 @@ import org.insurance.pages.TravelHomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import utils.ConfigReader;
 import utils.ExcelReader;
 
@@ -41,6 +42,11 @@ public class TC_03_SelectDates extends BaseTest {
 
         Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
         Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
+
+        String termsStatus = travelHomePage.getTermsStatus();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(termsStatus, "UNCHECKED", "Terms checkbox should be unchecked");
+
         Assert.assertTrue(verifyTravelCountRedirection, "Traveller Count Selection NOT loaded");
     }
 }
