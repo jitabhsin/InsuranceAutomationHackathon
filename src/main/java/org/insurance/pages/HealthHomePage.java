@@ -115,6 +115,11 @@ public class HealthHomePage {
     public void enterName(String Name){
         name.sendKeys(Name);
     }
+
+    public boolean isDoneButtonDisplayed() {
+        return waitUtils.waitForVisibility(doneButton).isDisplayed();
+    }
+
     public void clickDoneButton(){
         doneButton.click();
     }
