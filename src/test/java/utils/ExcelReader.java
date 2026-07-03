@@ -3,6 +3,7 @@ package utils;
 import java.io.FileInputStream;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -69,6 +70,43 @@ public class ExcelReader {
             }
 
             return data;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Object[][] readSheetHealth() {
+
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheet("Health");
+
+            int headerRowIndex = sheet.getFirstRowNum();
+            while (sheet.getRow(headerRowIndex) == null && headerRowIndex <= sheet.getLastRowNum()) {
+                headerRowIndex++;
+            }
+
+            int cols = sheet.getRow(headerRowIndex).getLastCellNum();
+            int lastRowNum = sheet.getLastRowNum();
+
+            DataFormatter formatter = new DataFormatter();
+            java.util.List<Object[]> rowsList = new java.util.ArrayList<>();
+
+            for (int i = headerRowIndex + 1; i <= lastRowNum; i++) {
+                Row row = sheet.getRow(i);
+                if (row == null) {
+                    continue;
+                }
+                Object[] rowData = new Object[cols];
+                for (int j = 0; j < cols; j++) {
+                    rowData[j] = formatter.formatCellValue(row.getCell(j));
+                }
+                rowsList.add(rowData);
+            }
+
+            return rowsList.toArray(new Object[0][]);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

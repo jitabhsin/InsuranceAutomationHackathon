@@ -37,3 +37,245 @@
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Closing browser
 03-07-2026 16:07:03 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
+03-07-2026 17:54:48 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 17:54:53 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 17:55:02 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:55:02 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 17:55:02 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 17:55:05 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 17:55:34 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 17:55:37 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 17:55:41 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:55:41 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 17:55:42 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 17:55:45 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 17:59:30 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 17:59:34 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 17:59:37 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:59:37 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 17:59:38 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 17:59:41 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:01:45 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:01:49 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:01:55 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:01:55 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:01:56 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:56 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:01:56 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:01:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:59 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:01:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:01:59 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:02:02 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:02:28 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:02:32 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:02:36 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:02:36 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:02:37 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:37 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:02:37 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:02:38 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:59 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:02:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:59 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:03:02 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:03:19 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:03:23 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:03:28 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:03:28 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:03:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:31 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:03:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:03:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:53 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:03:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:03:53 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:03:57 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:08:05 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:08:08 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:08:13 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:08:13 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:08:14 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:08:17 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:08:33 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:08:36 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:08:41 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:08:41 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:08:42 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:42 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:08:42 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:08:44 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:45 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:45 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:08:45 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:08:45 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:08:48 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:09:03 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:09:06 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:09:10 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:09:10 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:09:11 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:11 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:09:11 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:09:12 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:13 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:13 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:09:13 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:13 INFO  tests.TC_24_FillContactDetails - Closing browser
+03-07-2026 18:09:16 INFO  tests.TC_24_FillContactDetails - Browser closed successfully
+03-07-2026 18:09:40 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:09:44 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:09:46 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:09:46 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:09:47 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:47 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:09:47 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:09:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:50 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:09:50 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:09:50 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:50 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:10:53 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:10:56 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:10:56 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:10:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:58 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:10:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:10:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:11:20 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:11:20 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:11:20 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:15:57 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:16:01 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:16:06 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:16:06 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:16:07 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:07 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:16:07 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:16:10 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:31 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:16:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:07 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:18:10 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:18:16 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:18:16 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:18:17 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:17 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:18:17 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:18:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:39 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:18:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:26 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:19:31 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:19:37 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:19:37 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:19:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:39 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:19:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:19:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:20:01 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:20:01 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:20:01 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:02 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:27:07 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:27:26 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:27:26 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:27:28 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:28 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:27:28 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:27:30 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:27:32 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:27:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:21 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:29:26 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:29:29 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:29:29 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:29:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:31 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:29:31 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:29:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:29:39 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:29:39 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:44 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+03-07-2026 18:30:49 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+03-07-2026 18:30:52 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:30:52 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+03-07-2026 18:30:54 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:54 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:30:54 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:30:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:31:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:31:00 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:31:00 INFO  tests.TC_24_FillContactDetails - ==================================
