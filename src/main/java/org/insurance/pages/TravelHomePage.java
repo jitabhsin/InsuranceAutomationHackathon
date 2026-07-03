@@ -49,20 +49,7 @@ public class TravelHomePage {
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
     public WebElement submitButton;
 
-//    @FindBy(id="0")
-//    public WebElement traveller1Age;
-//
-//    @FindBy(id="1")
-//    public WebElement traveller2Age;
-//
-//    @FindBy(id="21")
-//    public WebElement selectAge1;
-//
-//    @FindBy(id="22")
-//    public WebElement selectAge2;
-//
-//    @FindBy(id="ped_no")
-//    public WebElement diabetesCheckBox;
+
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
