@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
-    String path = "src/test/java/resources/data.xlsx";
+    String path = "src/test/resources/data.xlsx";
     public String[][] readSheetTravel() {
 
         try (FileInputStream fis = new FileInputStream(path);

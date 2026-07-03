@@ -1,0 +1,39 @@
+03-07-2026 16:01:37 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
+03-07-2026 16:01:53 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
+03-07-2026 16:01:56 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
+03-07-2026 16:05:20 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
+03-07-2026 16:05:24 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
+03-07-2026 16:05:28 INFO  tests.TC_11NavigateCarPage - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 16:05:28 INFO  tests.TC_11NavigateCarPage - ========== Setup Completed ==========
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Test Execution Started
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - TC_11 - Verify Car Insurance Navigation Started
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Car Insurance form displayed successfully
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Registration Number field displayed successfully
+03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Mobile Number field displayed successfully
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Email field displayed successfully
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - TC_11 PASSED
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Test Execution Completed
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Closing browser
+03-07-2026 16:05:34 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
+03-07-2026 16:06:49 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
+03-07-2026 16:06:54 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
+03-07-2026 16:06:58 INFO  tests.TC_11NavigateCarPage - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 16:06:58 INFO  tests.TC_11NavigateCarPage - ========== Setup Completed ==========
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Test Execution Started
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - TC_11 - Verify Car Insurance Navigation Started
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Car Insurance form displayed successfully
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Registration Number field displayed successfully
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Mobile Number field displayed successfully
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Email field displayed successfully
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - TC_11 PASSED
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Test Execution Completed
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
+03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Closing browser
+03-07-2026 16:07:03 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
