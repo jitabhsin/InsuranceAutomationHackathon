@@ -31,7 +31,7 @@ public class WaitUtils {
     }
 
     public List<WebElement> waitForVisibilityOfAllElements(){
-        List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li")));
+        List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='dropdown-item']")));
         return list;
     }
 
