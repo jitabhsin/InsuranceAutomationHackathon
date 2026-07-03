@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
-    JavaScriptUtils javaScriptUtils;
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
@@ -24,6 +22,8 @@ public class TravelHomePage {
     }
 
     String countryName = "";
+    String startDate = "";
+    String endDate = "";
 
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
@@ -69,9 +69,6 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//div[@class='travel-head-month-year cal-popup']")
     public WebElement leftSideMonthAndYear;
-
-    @FindBy(xpath = "//div[@class='travel-head-month-year']")
-    public WebElement rightSidetMonthAndYear;
 
     @FindBy(xpath = "//div[@class='travel-calender-main cal-popup']")
     public WebElement calenderElement;
@@ -131,6 +128,7 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
+        this.startDate = startDate;
         String[] dateSeperator = startDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -144,6 +142,7 @@ public class TravelHomePage {
 
 
     public void selectEndDate(String endDate){
+        this.endDate = endDate;
         String[] dateSeperator = endDate.split(",");
         String date = dateSeperator[0].trim();
         String monthAndYear = dateSeperator[1].trim();
@@ -209,5 +208,20 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(dateElement).click();
     }
 
+    public boolean isCalenderOpen(){
+        try{
+            return waitUtils.waitForVisibility(calenderElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isSubmitButtonPresent(){
+        try{
+            return waitUtils.waitForVisibility(dateSubmitButton).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
 }

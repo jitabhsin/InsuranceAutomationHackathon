@@ -3,6 +3,7 @@
 
     <test name="All Tests">
         <classes>
+            <class name="tests.TC_02VerifySelectedCountry" />
             <class name="tests.TC_21ClickHealthButton"/>
             <class name="tests.TC_22SelectProducts"/>
         </classes>

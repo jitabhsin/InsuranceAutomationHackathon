@@ -12,7 +12,6 @@ public class TC_02VerifySelectedCountry extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-
     @Test
     public void verifyAndDisplaySelectedCountry(){
         homePage = new HomePage(driver);
@@ -20,6 +19,7 @@ public class TC_02VerifySelectedCountry extends BaseTest {
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
+
         travelHomePage.selectCountry(ConfigReader.getProperty("country"));
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
