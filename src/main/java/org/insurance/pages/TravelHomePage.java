@@ -37,32 +37,17 @@ public class TravelHomePage {
     @FindBy(xpath="//input[@class='tel date-bg-input val-mob val-req numeric cal-popup ng-untouched ng-pristine ng-valid']")
     public WebElement selectStartAndEndDateElement;
 
-    @FindBy(xpath = "//label[text()='Return date ']")
-    public WebElement selectEndDateElement;
+//    @FindBy(xpath = "//label[text()='Return date ']")
+//    public WebElement selectEndDateElement;
 
     @FindBy(xpath = "//a[text()='Continue']")
     public WebElement dateSubmitButton;
 
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
-    public WebElement ageSubmitButton;
-
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
-    public WebElement submitButton;
-
-//    @FindBy(id="0")
-//    public WebElement traveller1Age;
+//    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
+//    public WebElement ageSubmitButton;
 //
-//    @FindBy(id="1")
-//    public WebElement traveller2Age;
-//
-//    @FindBy(id="21")
-//    public WebElement selectAge1;
-//
-//    @FindBy(id="22")
-//    public WebElement selectAge2;
-//
-//    @FindBy(id="ped_no")
-//    public WebElement diabetesCheckBox;
+//    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
+//    public WebElement submitButton;
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
@@ -160,43 +145,43 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(dateSubmitButton).click();
     }
 
-    public void selectTravellerCount(int count, int... ages) {
+//    public void selectTravellerCount(int count, int... ages) {
+//
+//        if (ages.length < count) {
+//            throw new IllegalArgumentException(
+//                    "Number of ages must be equal to or greater than traveller count");
+//        }
+//
+//        if (count == 1) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_1']")).click();
+//        } else if (count == 2) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_2']")).click();
+//        } else if (count == 3) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_3']")).click();
+//        } else if (count == 4){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_4']")).click();
+//        } else if (count == 5){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_5']")).click();
+//        } else if (count >= 6){
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_6_plus']")).click();
+//        }
+//
+//        for (int i = 0; i < count; i++) {
+//            waitUtils.waitForVisibilityOfElementLocated(By.id(String.valueOf(i))).click();
+//            String ageId = ages[i] + " years_undefined";
+//            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='" + ageId + "']")).click();
+//        }
+//    }
 
-        if (ages.length < count) {
-            throw new IllegalArgumentException(
-                    "Number of ages must be equal to or greater than traveller count");
-        }
-
-        if (count == 1) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_1']")).click();
-        } else if (count == 2) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_2']")).click();
-        } else if (count == 3) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_3']")).click();
-        } else if (count == 4){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_4']")).click();
-        } else if (count == 5){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_5']")).click();
-        } else if (count >= 6){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_6_plus']")).click();
-        }
-
-        for (int i = 0; i < count; i++) {
-            waitUtils.waitForVisibilityOfElementLocated(By.id(String.valueOf(i))).click();
-            String ageId = ages[i] + " years_undefined";
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='" + ageId + "']")).click();
-        }
-    }
-
-    public void selectHealthOfTravellers(String diabetesCheck){
-        if(diabetesCheck.equalsIgnoreCase("no")){
-            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
-        }
-    }
-
-    public void getTravelQuota(){
-        waitUtils.waitForVisibility(submitButton).click();
-    }
+//    public void selectHealthOfTravellers(String diabetesCheck){
+//        if(diabetesCheck.equalsIgnoreCase("no")){
+//            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
+//        }
+//    }
+//
+//    public void getTravelQuota(){
+//        waitUtils.waitForVisibility(submitButton).click();
+//    }
 
     public void clickNextMonthAndYear(String monthAndYear){
         String leftSideMonthAndYearText = leftSideMonthAndYear.getText();

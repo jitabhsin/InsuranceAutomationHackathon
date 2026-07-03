@@ -42,6 +42,5 @@ public class TC_03_SelectDates extends BaseTest {
         Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
         Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
         Assert.assertTrue(verifyTravelCountRedirection, "Traveller Count Selection NOT loaded");
-
     }
 }
