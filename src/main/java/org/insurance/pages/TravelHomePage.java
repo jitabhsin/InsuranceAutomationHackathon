@@ -34,10 +34,10 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[text()='France']")
     public WebElement selectedCountryText;
 
-    @FindBy(id="il-start-date")
+    @FindBy(xpath="//input[@class='tel date-bg-input val-mob val-req numeric cal-popup ng-untouched ng-pristine ng-valid']")
     public WebElement selectStartAndEndDateElement;
 
-    @FindBy(id="il-end-date")
+    @FindBy(xpath = "//label[text()='Return date ']")
     public WebElement selectEndDateElement;
 
     @FindBy(xpath = "//a[text()='Continue']")
@@ -49,20 +49,20 @@ public class TravelHomePage {
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
     public WebElement submitButton;
 
-    @FindBy(id="0")
-    public WebElement traveller1Age;
-
-    @FindBy(id="1")
-    public WebElement traveller2Age;
-
-    @FindBy(id="21")
-    public WebElement selectAge1;
-
-    @FindBy(id="22")
-    public WebElement selectAge2;
-
-    @FindBy(id="ped_no")
-    public WebElement diabetesCheckBox;
+//    @FindBy(id="0")
+//    public WebElement traveller1Age;
+//
+//    @FindBy(id="1")
+//    public WebElement traveller2Age;
+//
+//    @FindBy(id="21")
+//    public WebElement selectAge1;
+//
+//    @FindBy(id="22")
+//    public WebElement selectAge2;
+//
+//    @FindBy(id="ped_no")
+//    public WebElement diabetesCheckBox;
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
