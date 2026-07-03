@@ -25,7 +25,7 @@ public class TC_03_SelectDates extends BaseTest {
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
-        travelHomePage.selectStartDateElement.click();
+        travelHomePage.selectStartAndEndDateElement.click();
         travelHomePage.selectStartDate(startDate);
         travelHomePage.selectEndDate(endDate);
 
