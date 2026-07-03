@@ -183,4 +183,5 @@ public class CarPage {
     public boolean isSelectPlansPageDisplayed() {
         return driver.getCurrentUrl().contains("select-plans");
     }
+
 }
