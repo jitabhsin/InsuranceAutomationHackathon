@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
-    String path = "src/test/java/resources/data.xlsx";
+    String path = "src/test/resources/data.xlsx";
     public String[][] readSheetTravel() {
 
         try (FileInputStream fis = new FileInputStream(path);
@@ -38,11 +38,12 @@ public class ExcelReader {
         }
     }
 
+
     public Object[][] readSheetCar() {
 
-        try {
-            FileInputStream fis = new FileInputStream(path);
-            Workbook workbook = new XSSFWorkbook(fis);
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
             Sheet sheet = workbook.getSheet("Car");
 
             int rows = sheet.getPhysicalNumberOfRows();
@@ -50,17 +51,28 @@ public class ExcelReader {
 
             Object[][] data = new Object[rows - 1][cols];
 
+            DataFormatter formatter = new DataFormatter();
+
             for (int i = 1; i < rows; i++) {
+
+                System.out.println("ROW " + i);
+
                 for (int j = 0; j < cols; j++) {
+
                     data[i - 1][j] =
-                            sheet.getRow(i).getCell(j).toString();
+                            formatter.formatCellValue(
+                                    sheet.getRow(i).getCell(j));
+
+                    System.out.println(
+                            "COL " + j + " = " + data[i - 1][j]);
                 }
             }
-            workbook.close();
+
             return data;
+
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
+
 }
