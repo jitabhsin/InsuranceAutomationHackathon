@@ -89,12 +89,15 @@ public class HealthHomePage {
             driver.findElement(By.id("valid-adult" + adultCount + "year")).sendKeys(DOB[2]);
             adultCount++;
         }
-        else{
+        else if(member.equalsIgnoreCase("Kids")){
             addBtn.get(1).click();
             driver.findElement(By.id("valid-k" + kidsCount + "date")).sendKeys(DOB[0]);
             driver.findElement(By.id("valid-k" + kidsCount + "month")).sendKeys(DOB[1]);
             driver.findElement(By.id("valid-k" + kidsCount + "year")).sendKeys(DOB[2]);
             kidsCount++;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid Member");
         }
     }
 
