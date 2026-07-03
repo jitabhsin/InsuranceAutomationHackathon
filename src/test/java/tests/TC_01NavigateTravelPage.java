@@ -5,6 +5,7 @@ import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class TC_01NavigateTravelPage extends BaseTest {
 
@@ -22,9 +23,13 @@ public class TC_01NavigateTravelPage extends BaseTest {
         boolean isSelectOtherCountriesDisplayed = homePage.isSelectOtherCountriesOptionAvailable();
         homePage.clickOtherCountries();
         boolean isDisplayed = travelHomePage.isTravelPageDisplayed();
-        Assert.assertTrue(isDisplayed, "Travel Insurance Page/Form is NOT displayed");
-        Assert.assertTrue(isOpened, "Home Page is NOT displayed Correctly");
+
+        Assert.assertTrue(isOpened,"Home Page is NOT displayed Correctly");
         Assert.assertTrue(isTravelScopeDisplayed, "Select Travel Scope NOT displayed");
-        Assert.assertTrue(isSelectOtherCountriesDisplayed, "Select Other Countries NOT displayed");
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(isSelectOtherCountriesDisplayed, "Select Other Countries NOT displayed");
+        softAssert.assertTrue(isDisplayed, "Travel Insurance Page/Form is NOT displayed");
+        softAssert.assertAll();
     }
 }
