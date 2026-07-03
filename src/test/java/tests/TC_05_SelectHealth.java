@@ -32,7 +32,7 @@ public class TC_05_SelectHealth extends BaseTest {
         String selectedCountry = travelHomePage.getSelectedCountry();
         System.out.println("Selected Country: " + selectedCountry);
 
-        travelHomePage.selectStartDateElement.click();
+        travelHomePage.selectStartAndEndDateElement.click();
         travelHomePage.selectStartDate(startDate);
         travelHomePage.selectEndDate(endDate);
         travelHomePage.submitDate();
