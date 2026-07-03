@@ -5,7 +5,7 @@ import org.insurance.pages.HealthHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_21ClickHealthButton extends BaseTest {
+public class TC_21_ClickHealthButton extends BaseTest {
     HealthHomePage healthHomePage;
     @Test
     public void verifyHealthTabButtonsVisibilityAndWorking() {
@@ -13,5 +13,6 @@ public class TC_21ClickHealthButton extends BaseTest {
 
         healthHomePage.clickHealthTab();
         Assert.assertEquals(healthHomePage.isSelectProductDisplayed(), "Select products");
+        System.out.println("Product selected successfully");
     }
 }
