@@ -35,7 +35,7 @@ public class TravelHomePage {
     public WebElement selectedCountryText;
 
     @FindBy(id="il-start-date")
-    public WebElement selectStartDateElement;
+    public WebElement selectStartAndEndDateElement;
 
     @FindBy(id="il-end-date")
     public WebElement selectEndDateElement;
