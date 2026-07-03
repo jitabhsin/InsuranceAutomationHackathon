@@ -32,7 +32,7 @@ public class TC_12WithoutCarNumber extends BaseTest {
                 "Please enter a valid reg number",
                 "Incorrect validation message displayed");
 
-        System.out.println("✓Validation Message : " + actualMessage);
+        System.out.println("Validation Message : " + actualMessage);
 
         System.out.println("TC_12 PASSED");
     }
