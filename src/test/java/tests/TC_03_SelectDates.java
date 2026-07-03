@@ -34,6 +34,7 @@ public class TC_03_SelectDates extends BaseTest {
 
         travelHomePage.selectStartDate(ConfigReader.getProperty("startDate"));
         travelHomePage.selectEndDate(ConfigReader.getProperty("endDate"));
+        System.out.println(travelHomePage.retrieveTripDuration());
         travelHomePage.submitDate();
 
         Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");

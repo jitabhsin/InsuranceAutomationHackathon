@@ -73,6 +73,8 @@ public class TravelHomePage {
     @FindBy(xpath = "//div[@class='travel-calender-main cal-popup']")
     public WebElement calenderElement;
 
+    @FindBy(xpath = "//span[@class='ui-field-info float-right']")
+    public WebElement tripDurationElement;
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -208,6 +210,9 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(dateElement).click();
     }
 
+    public String retrieveTripDuration(){
+        return tripDurationElement.getText();
+    }
     public boolean isCalenderOpen(){
         try{
             return waitUtils.waitForVisibility(calenderElement).isDisplayed();
