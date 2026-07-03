@@ -20,13 +20,7 @@ public class TC_14SelectCarAndModel extends BaseTest {
     }
 
     @Test(dataProvider = "carData")
-    public void verifySelectCarAndModel(
-            String city,
-            String make,
-            String model,
-            String mobile,
-            String email) {
-
+    public void verifySelectCarAndModel(String city, String make, String model, String mobile, String email) {
         System.out.println("CITY=" + city);
         System.out.println("MAKE=" + make);
         System.out.println("MODEL=" + model);
