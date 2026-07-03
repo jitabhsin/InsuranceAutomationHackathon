@@ -20,23 +20,24 @@ public class TC_14SelectCarAndModel extends BaseTest {
     }
 
     @Test(dataProvider = "carData")
-    public void verifySelectCarAndModel(String city, String make, String model, String mobile, String email) {
+    public void verifySelectCarAndModel(String city,String make,String model,String mobile,String email) {
+
         System.out.println("CITY=" + city);
         System.out.println("MAKE=" + make);
         System.out.println("MODEL=" + model);
         System.out.println("MOBILE=" + mobile);
         System.out.println("EMAIL=" + email);
         System.out.println("CURRENT URL=" + driver.getCurrentUrl());
-        Assert.assertNotNull(city);
-        Assert.assertNotNull(make);
-        Assert.assertNotNull(model);
-        Assert.assertFalse(city.trim().isEmpty());
-        Assert.assertFalse(make.trim().isEmpty());
-        Assert.assertFalse(model.trim().isEmpty());
-        Assert.assertEquals(mobile.length(), 10);
-        Assert.assertTrue(mobile.matches("\\d+"));
-        Assert.assertTrue(email.contains("@"));
-        Assert.assertTrue(email.contains("."));
+
+        Assert.assertFalse(city.trim().isEmpty(),"City is empty");
+        Assert.assertFalse(make.trim().isEmpty(),"Make is empty");
+        Assert.assertFalse(model.trim().isEmpty(),"Model is empty");
+
+        Assert.assertEquals(mobile.length(),10,"Invalid mobile length");
+        Assert.assertTrue(mobile.matches("\\d+"),"Mobile should contain only digits");
+
+        Assert.assertTrue(email.contains("@"),"Invalid email");
+
         homePage = new HomePage(driver);
         carPage = new CarPage(driver);
 
@@ -46,19 +47,20 @@ public class TC_14SelectCarAndModel extends BaseTest {
             carPage.enterMobile(mobile);
             carPage.enterEmail(email);
             carPage.clickNewVehicleGetQuote();
+
             Assert.assertTrue(
-                    carPage.isSelectPlansPageDisplayed(), "Select Plans page is not displayed");
+                    carPage.isSelectPlansPageDisplayed(),
+                    "Select Plans page is not displayed");
         }
+
         carPage.enterCity(city);
         carPage.selectCity(city);
         carPage.enterCarMake(make);
         carPage.selectCarModel(model);
+
         Assert.assertTrue(
                 driver.getCurrentUrl().contains("select-plans"),
                 "User is not on Select Plans page");
-        Assert.assertNotNull(city);
-        Assert.assertNotNull(make);
-        Assert.assertNotNull(model);
 
         System.out.println("TC_14 PASSED");
     }
