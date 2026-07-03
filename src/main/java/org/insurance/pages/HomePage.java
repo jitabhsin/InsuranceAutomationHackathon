@@ -1,56 +1,70 @@
 package org.insurance.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.insurance.utils.WaitUtils;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
     WebDriver driver;
     WaitUtils waitUtils;
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//*[contains(@class,'il-travel-img') or contains(text(),'Travel Insurance')]")
+    @FindBy(xpath="//span[text()='Travel']")
     public WebElement travelInsuranceElement;
 
-    @FindBy(xpath="//span[normalize-space()='Car']/parent::div")
+    @FindBy(xpath = "//span[normalize-space()='Car']/ancestor::li[1]")
     public WebElement carInsuranceElement;
 
-    @FindBy(xpath="//*[contains(@class,'il-health-img') or contains(text(),'Health Insurance')]")
+    @FindBy(xpath="//span[text()='Health']")
     public WebElement healthInsuranceElement;
 
-    public void clickTravelInsurance(){
-        waitUtils.waitForClickable(travelInsuranceElement).click();
+    @FindBy(xpath="//span[text()='Select Scope']")
+    public WebElement selectTravelScope;
+
+    @FindBy(xpath="//a[@class='select-countries-link scope-popup']")
+    public WebElement selectCountriesNeeded;
+
+    public void clickTravelInsurance() {
+        waitUtils.waitForVisibility(travelInsuranceElement).click();
     }
 
-    public void clickCarInsurance(){
-
-        waitUtils.waitForVisibility(carInsuranceElement);
-
-        ((JavascriptExecutor) driver)
-                .executeScript(
-                        "arguments[0].click();",
-                        carInsuranceElement);
+    public void clickCarInsurance() {
+        waitUtils.waitForVisibility(carInsuranceElement).click();
     }
 
-    public void clickHealthInsurance(){
-        waitUtils.waitForClickable(healthInsuranceElement).click();
+    public void clickHealthInsurance() {
+        waitUtils.waitForVisibility(healthInsuranceElement).click();
     }
 
-    public boolean isCarInsurancePresent() {
-        try {
-            return waitUtils
-                    .waitForVisibility(carInsuranceElement)
-                    .isDisplayed();
-        } catch (Exception e) {
+    public void clickTravelScope(){
+        waitUtils.waitForVisibility(selectTravelScope).click();
+    }
+
+    public void clickOtherCountries(){
+        waitUtils.waitForVisibility(selectCountriesNeeded).click();
+    }
+
+    public boolean isSelectOtherCountriesOptionAvailable(){
+        try{
+            return waitUtils.waitForVisibility(selectCountriesNeeded).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isTravelScopeOptionAvailable(){
+        try{
+            return waitUtils.waitForVisibility(selectTravelScope).isDisplayed();
+        } catch (Exception e){
             return false;
         }
     }
@@ -63,4 +77,15 @@ public class HomePage {
             return false;
         }
     }
+
+    public boolean isCarInsurancePresent() {
+        try {
+            return waitUtils
+                    .waitForVisibility(carInsuranceElement)
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

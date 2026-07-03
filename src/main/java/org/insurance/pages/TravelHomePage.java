@@ -1,8 +1,10 @@
 package org.insurance.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.insurance.utils.JavaScriptUtils;
@@ -21,19 +23,24 @@ public class TravelHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id="country")
+    String countryName = "";
+
+    @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
 
+    @FindBy(xpath = "//input[@placeholder='Add countries']")
+    public WebElement selectCountryText;
 
-    @FindBy(xpath = "//div[contains(@class,'selectedCountryWrap')]//p")
+    @FindBy(xpath = "//span[text()='France']")
     public WebElement selectedCountryText;
 
+    @FindBy(id="il-start-date")
+    public WebElement selectStartAndEndDateElement;
 
-    @FindBy(xpath="//article[@class='newPq_duration_wrap']/div")
-    public WebElement selectDateElement;
+    @FindBy(id="il-end-date")
+    public WebElement selectEndDateElement;
 
-
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Continue']")
+    @FindBy(xpath = "//a[text()='Continue']")
     public WebElement dateSubmitButton;
 
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
@@ -57,6 +64,18 @@ public class TravelHomePage {
     @FindBy(id="ped_no")
     public WebElement diabetesCheckBox;
 
+    @FindBy(xpath="//img[@class='cal-popup']")
+    public WebElement nextMonthButton;
+
+    @FindBy(xpath = "//div[@class='travel-head-month-year cal-popup']")
+    public WebElement leftSideMonthAndYear;
+
+    @FindBy(xpath = "//div[@class='travel-head-month-year']")
+    public WebElement rightSidetMonthAndYear;
+
+    @FindBy(xpath = "//div[@class='travel-calender-main cal-popup']")
+    public WebElement calenderElement;
+
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -70,14 +89,38 @@ public class TravelHomePage {
         return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
     }
 
+    public boolean isCountrySelectedCorrectly(){
+        try{
+            return selectedCountryText.getText().equals(countryName);
+        } catch (Exception e){
+            return false;
+        }
+    }
+    public boolean isSelectTravelTypeVisible(){
+        try{
+            return waitUtils.waitForVisibility(selectCountryText).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
+    public boolean isSelectTravelTypeSelected() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
+        String content = (String) js.executeScript(
+                "return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');",
+                selectCountryElement
+        );
+
+        return content != null && !content.equals("none");
+    }
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
-        waitUtils.waitForVisibility(selectCountryElement).clear();
-        waitUtils.waitForVisibility(selectCountryElement).sendKeys(countryName);
+        waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
+        this.countryName = countryName;
 
         List<WebElement> options = waitUtils.waitForVisibilityOfAllElements();
+
 
         for(WebElement option : options){
             if(option.getText().equalsIgnoreCase(countryName)){
@@ -88,18 +131,30 @@ public class TravelHomePage {
     }
 
     public void selectStartDate(String startDate){
-        WebElement sDate = waitUtils.waitForVisibilityOfElementLocated(By.xpath("//button[@aria-label='" + startDate + "']"));
-        sDate.click();
+        String[] dateSeperator = startDate.split(",");
+        String date = dateSeperator[0].trim();
+        String monthAndYear = dateSeperator[1].trim();
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(calenderElement).perform();
+
+        clickNextMonthAndYear(monthAndYear);
+        clickDate(monthAndYear, date);
     }
 
+
     public void selectEndDate(String endDate){
-        driver.findElement(By.xpath("//button[@aria-label='" + endDate + "']")).click();
+        String[] dateSeperator = endDate.split(",");
+        String date = dateSeperator[0].trim();
+        String monthAndYear = dateSeperator[1].trim();
+
+        clickNextMonthAndYear(monthAndYear);
+        clickDate(monthAndYear, date);
     }
 
     public void submitDate(){
-        submitButton.click();
+        waitUtils.waitForVisibility(dateSubmitButton).click();
     }
-
 
     public void selectTravellerCount(int count, int... ages) {
 
@@ -137,6 +192,21 @@ public class TravelHomePage {
 
     public void getTravelQuota(){
         waitUtils.waitForVisibility(submitButton).click();
+    }
+
+    public void clickNextMonthAndYear(String monthAndYear){
+        String leftSideMonthAndYearText = leftSideMonthAndYear.getText();
+        while(!leftSideMonthAndYearText.equalsIgnoreCase(monthAndYear)){
+            waitUtils.waitForVisibility(nextMonthButton).click();
+            waitUtils.waitForVisibility(leftSideMonthAndYear);
+            leftSideMonthAndYearText = leftSideMonthAndYear.getText();
+        }
+    }
+
+    public void clickDate(String monthAndYear, String date){
+        String xpathString = "//div[text()='" + monthAndYear + "']/ancestor::table//div[text()='" + date + "']";
+        WebElement dateElement = driver.findElement(By.xpath(xpathString));
+        waitUtils.waitForVisibility(dateElement).click();
     }
 
 
