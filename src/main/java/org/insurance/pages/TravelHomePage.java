@@ -76,6 +76,9 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[@class='ui-field-info float-right']")
     public WebElement tripDurationElement;
 
+    @FindBy(xpath = "//h4[text()='Add travellers']")
+    public WebElement verifyAddTraveller;
+
     public boolean isTravelPageDisplayed(){
         try{
             return waitUtils.waitForVisibility(selectCountryElement).isDisplayed();
@@ -224,6 +227,14 @@ public class TravelHomePage {
     public boolean isSubmitButtonPresent(){
         try{
             return waitUtils.waitForVisibility(dateSubmitButton).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isRedirectedToSelectTravellerCount(){
+        try{
+            return waitUtils.waitForVisibility(verifyAddTraveller).isDisplayed();
         } catch (Exception e){
             return false;
         }
