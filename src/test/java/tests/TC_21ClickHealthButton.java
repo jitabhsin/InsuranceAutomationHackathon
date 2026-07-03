@@ -5,12 +5,13 @@ import org.insurance.pages.HealthHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_21HealthButtonChecking extends BaseTest {
+public class TC_21ClickHealthButton extends BaseTest {
+    HealthHomePage healthHomePage;
     @Test
     public void verifyHealthTabButtonsVisibilityAndWorking() {
-        HealthHomePage healthHomePage = new HealthHomePage(getDriver());
+        healthHomePage = new HealthHomePage(getDriver());
 
         healthHomePage.clickHealthTab();
-        Assert.assertTrue(healthHomePage.isHealthTabDisplayed(), "Health tab is not displayed");
+        Assert.assertEquals(healthHomePage.isSelectProductDisplayed(), "Select products");
     }
 }
