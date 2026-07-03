@@ -10,9 +10,9 @@ public class ExtentManager {
         // Report Path
         ExtentSparkReporter reporter = new ExtentSparkReporter("./ExtentReports/ExtentReport.html");
         // Report Name
-        reporter.config().setReportName("Mini Project Automation Report");
+        reporter.config().setReportName("Project Automation Report");
         // Document Title
-        reporter.config().setDocumentTitle("OrangeHRM Execution Report");
+        reporter.config().setDocumentTitle("Insurance Execution Report");
         // Create Extent Report
         reporter.config().setTheme(Theme.DARK);
         extent = new ExtentReports();
