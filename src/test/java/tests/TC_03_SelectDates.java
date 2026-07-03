@@ -37,7 +37,11 @@ public class TC_03_SelectDates extends BaseTest {
         System.out.println(travelHomePage.retrieveTripDuration());
         travelHomePage.submitDate();
 
+        boolean verifyTravelCountRedirection = travelHomePage.isRedirectedToSelectTravellerCount();
+
         Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
         Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
+        Assert.assertTrue(verifyTravelCountRedirection, "Traveller Count Selection NOT loaded");
+
     }
 }
