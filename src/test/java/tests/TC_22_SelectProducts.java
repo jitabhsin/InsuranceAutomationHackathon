@@ -2,13 +2,10 @@ package tests;
 
 import basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
-import org.insurance.utils.WaitUtils;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_22SelectProducts extends BaseTest {
+public class TC_22_SelectProducts extends BaseTest {
     HealthHomePage healthHomePage;
 
     @Test

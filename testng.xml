@@ -3,8 +3,8 @@
 
     <test name="All Tests">
         <classes>
-            <class name="tests.TC_21ClickHealthButton"/>
-            <class name="tests.TC_22SelectProducts"/>
+            <class name="tests.TC_21_ClickHealthButton"/>
+            <class name="tests.TC_22_SelectProducts"/>
         </classes>
     </test>
 
