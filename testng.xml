@@ -3,9 +3,14 @@
 
     <test name="All Tests">
         <classes>
+<<<<<<< HEAD
             <class name="tests.TC_02VerifySelectedCountry" />
             <class name="tests.TC_21ClickHealthButton"/>
             <class name="tests.TC_22SelectProducts"/>
+=======
+            <class name="tests.TC_21_ClickHealthButton"/>
+            <class name="tests.TC_22_SelectProducts"/>
+>>>>>>> 1bcc5c990c978f65c98a08eb11292a4f68803757
         </classes>
     </test>
 
