@@ -49,6 +49,17 @@ public class TC_15VerifyPlansPage extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("select-plans"),"User is not on Select Plans page");
 
         carPage.clickProceedBtnCity();
+
+        boolean odtpSelected = carPage.checkODTP();
+        System.out.println("Own Damage + TP selected : " + odtpSelected);
+
         Assert.assertTrue(carPage.checkODTP(),"Own Damage + TP option is not selected by default");
+
+        carPage.selectZeroDepIfNotSelected();
+        boolean zeroDepSelected = carPage.selectZeroDepIfNotSelected();
+        System.out.println("Zero Dep selected : " + zeroDepSelected);
+        Assert.assertTrue(zeroDepSelected,"Zero Dep plan is not selected");
+
+
     }
 }
