@@ -193,12 +193,28 @@ public class CarPage {
     @FindBy(id = "checkODTPtpCaseValue")
     private WebElement ownDamageTpOption;
 
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]")
+    private WebElement zeroDepPlan;
+
+    @FindBy(xpath = "//div[contains(@class,'pageLoader')]")
+    private WebElement pageLoader;
+
+
     public void clickProceedBtnCity(){
         waitUtils.waitForClickable(proceedBtnCity).click();
     }
 
-    public boolean checkODTP(){
-        return waitUtils.waitForClickable(ownDamageTpOption).isSelected();
+    public boolean checkODTP() {
+
+        return waitUtils.waitForSelected(ownDamageTpOption);
     }
+    public boolean selectZeroDepIfNotSelected() {
+        if (!zeroDepPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(zeroDepPlan);
+        }
+        return waitUtils.waitForAttributeContains(zeroDepPlan, "class", "plans-box-active");
+    }
+
+
 
 }
