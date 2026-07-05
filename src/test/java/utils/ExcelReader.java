@@ -75,6 +75,29 @@ public class ExcelReader {
             throw new RuntimeException(e);
         }
     }
+    public Object[] readSheetCarFirstRow() {
+
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheet("Car");
+
+            int cols = sheet.getRow(0).getLastCellNum();
+            Object[] rowData = new Object[cols];
+
+            DataFormatter formatter = new DataFormatter();
+
+            for (int j = 0; j < cols; j++) {
+                rowData[j] = formatter.formatCellValue(sheet.getRow(1).getCell(j));
+                System.out.println("COL " + j + " = " + rowData[j]);
+            }
+
+            return rowData;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public Object[][] readSheetHealth() {
 
