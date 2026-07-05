@@ -55,11 +55,29 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         Assert.assertTrue(carPage.checkODTP(),"Own Damage + TP option is not selected by default");
 
-        carPage.selectZeroDepIfNotSelected();
         boolean zeroDepSelected = carPage.selectZeroDepIfNotSelected();
         System.out.println("Zero Dep selected : " + zeroDepSelected);
         Assert.assertTrue(zeroDepSelected,"Zero Dep plan is not selected");
 
+
+        String zeroDepAmount = carPage.getZeroDepAmount();
+        System.out.println("Zero Dep Amount : " + zeroDepAmount);
+        Assert.assertFalse(zeroDepAmount.isEmpty(),"Zero Dep amount is empty");
+        Assert.assertTrue(zeroDepAmount.contains("₹"),"Zero Dep amount missing ₹ symbol");
+
+
+        String totalPremium = carPage.getTotalPremiumAmount();
+        String planAmount   = carPage.getPlanAmount();
+
+        System.out.println("Total Premium Amount : " + totalPremium);
+        System.out.println("Plan Amount          : " + planAmount);
+
+        Assert.assertTrue(totalPremium.contains(zeroDepAmount.replace("₹","").trim()),
+                "Total Premium does not match Zero Dep amount");
+        Assert.assertTrue(planAmount.contains(zeroDepAmount.replace("₹","").trim()),
+                "Plan Amount does not match Zero Dep amount");
+
+        System.out.println("All three amounts match : " + zeroDepAmount);
 
     }
 }

@@ -199,6 +199,31 @@ public class CarPage {
     @FindBy(xpath = "//div[contains(@class,'pageLoader')]")
     private WebElement pageLoader;
 
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]//span[@class='premium-amount']")
+    private WebElement zeroDepAmount;
+
+
+    @FindBy(xpath = "//span[contains(@class,'extraboldTxt') and contains(.,'₹')]")
+    private WebElement totalPremiumAmount;
+
+    @FindBy(xpath = "//span[@class='plan-amount']")
+    private WebElement planAmount;
+
+
+    public String getPlanAmount() {
+        return waitUtils.waitForVisibility(planAmount).getText().trim();
+    }
+
+
+    public String getTotalPremiumAmount() {
+        jsUtils.scrollToElement(totalPremiumAmount);
+        return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*","").trim();
+    }
+
+
+    public String getZeroDepAmount() {
+        return waitUtils.waitForVisibility(zeroDepAmount).getText().trim();
+    }
 
     public void clickProceedBtnCity(){
         waitUtils.waitForClickable(proceedBtnCity).click();
