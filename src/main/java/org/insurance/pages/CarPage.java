@@ -1,20 +1,23 @@
 package org.insurance.pages;
 
+import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.*;
 
 public class CarPage {
 
     WebDriver driver;
     WaitUtils waitUtils;
-
+    JavaScriptUtils jsUtils;
     public CarPage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
+        this.jsUtils = new JavaScriptUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -59,6 +62,68 @@ public class CarPage {
 
     @FindBy(xpath = "//a[contains(text(),'Proceed')]")
     public WebElement proceedButton;
+
+    @FindBy(xpath = "//a[normalize-space()='Proceed']")
+    private WebElement proceedBtnCity;
+
+    @FindBy(id = "checkODTPtpCaseValue")
+    private WebElement ownDamageTpOption;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]")
+    private WebElement zeroDepPlan;
+
+    @FindBy(xpath = "//div[contains(@class,'pageLoader')]")
+    private WebElement pageLoader;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]//span[@class='premium-amount']")
+    private WebElement zeroDepAmount;
+
+    @FindBy(xpath = "//span[contains(@class,'extraboldTxt') and contains(.,'₹')]")
+    private WebElement totalPremiumAmount;
+
+    @FindBy(xpath = "//span[@class='plan-amount']")
+    private WebElement planAmount;
+
+    @FindBy(xpath = "//a[normalize-space()='Expand']")
+    private WebElement expandLink;
+
+    @FindBy(xpath = "//li[p[normalize-space()='City of registration']]/span")
+    private WebElement cityOfRegistration;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::button[contains(@class,'js-added-btn')][1]")
+    private WebElement personalProtectToggleBtn;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]")
+    private WebElement noFrillsPlan;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]")
+    private WebElement smartCoverPlan;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]//span[@class='premium-amount']")
+    private WebElement noFrillsAmount;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]//span[@class='premium-amount']")
+    private WebElement smartCoverAmount;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::span[@class='premium-amount' or contains(@class,'plan-price')][1]")
+    private WebElement personalProtectDisplayedPrice;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::input[@placeholder='Select Sum Assured'][1]")
+    private WebElement personalProtectSumDropdown;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::ul[1]//li")
+    private java.util.List<WebElement> personalProtectSumOptions;
+
+    @FindBy(id = "checklongtermtpCaseValue")
+    private WebElement longTermPolicyOption;
+
+    @FindBy(xpath = "//label[@for='checklongtermtpCaseValue']")
+    private WebElement longTermPolicyLabel;
+
+    public boolean isLongTermPolicySelected() {
+        return waitUtils.waitForSelected(longTermPolicyOption);
+    }
+
 
     public boolean isCarPageDisplayed() {
         try {
@@ -184,4 +249,102 @@ public class CarPage {
         return driver.getCurrentUrl().contains("select-plans");
     }
 
+
+    public void clickExpand() {
+        jsUtils.scrollToElement(expandLink);
+        jsUtils.jsClick(expandLink);
+    }
+
+
+    public String getCityOfRegistration() {
+        return waitUtils.waitForVisibility(cityOfRegistration).getText().trim();
+    }
+
+    public String getPlanAmount() {
+        return waitUtils.waitForVisibility(planAmount).getText().trim();
+    }
+
+    public String getTotalPremiumAmount() {
+        jsUtils.scrollToElement(totalPremiumAmount);
+        return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*","").trim();
+    }
+
+    public String getZeroDepAmount() {
+        return waitUtils.waitForVisibility(zeroDepAmount).getText().trim();
+    }
+
+    public void clickProceedBtnCity(){
+        waitUtils.waitForClickable(proceedBtnCity).click();
+    }
+
+    public boolean checkODTP() {
+        return waitUtils.waitForSelected(ownDamageTpOption);
+    }
+    public boolean selectZeroDepIfNotSelected() {
+        if (!zeroDepPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(zeroDepPlan);
+        }
+        return waitUtils.waitForAttributeContains(zeroDepPlan, "class", "plans-box-active");
+    }
+
+    public boolean selectNoFrillsIfNotSelected() {
+        if (!noFrillsPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(noFrillsPlan);
+        }
+        return waitUtils.waitForAttributeContains(noFrillsPlan, "class", "plans-box-active");
+    }
+
+    public boolean selectSmartCoverIfNotSelected() {
+        if (!smartCoverPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(smartCoverPlan);
+        }
+        return waitUtils.waitForAttributeContains(smartCoverPlan, "class", "plans-box-active");
+    }
+
+    public String getNoFrillsAmount() {
+        return waitUtils.waitForVisibility(noFrillsAmount).getText().trim();
+    }
+
+    public String getSmartCoverAmount() {
+        return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
+    }
+
+    public void togglePersonalProtect() {
+        jsUtils.scrollToElement(personalProtectToggleBtn);
+        jsUtils.jsClick(personalProtectToggleBtn);
+    }
+
+    public boolean isNoFrillsCardDisplayed()  { try { return waitUtils.waitForVisibility(noFrillsPlan).isDisplayed(); } catch (Exception e) { return false; } }
+    public boolean isZeroDepCardDisplayed()   { try { return waitUtils.waitForVisibility(zeroDepPlan).isDisplayed(); } catch (Exception e) { return false; } }
+    public boolean isSmartCoverCardDisplayed(){ try { return waitUtils.waitForVisibility(smartCoverPlan).isDisplayed(); } catch (Exception e) { return false; } }
+
+    public boolean isExpandLinkDisplayed() {
+        try { return waitUtils.waitForVisibility(expandLink).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isPersonalProtectDisplayed() {
+        try { return waitUtils.waitForVisibility(personalProtectToggleBtn).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public void openPersonalProtectDropdown() {
+        jsUtils.scrollToElement(personalProtectSumDropdown);
+        jsUtils.jsClick(personalProtectSumDropdown);
+    }
+
+    public List<WebElement> getPersonalProtectSumOptions() {
+        return personalProtectSumOptions;
+    }
+
+    public void selectPersonalProtectSum(WebElement option) {
+        jsUtils.jsClick(option);
+    }
+
+    public boolean selectLongTermPolicy() {
+        if (!longTermPolicyOption.isSelected()) {
+            jsUtils.jsClick(longTermPolicyLabel);
+        }
+        return waitUtils.waitForSelected(longTermPolicyOption);
+    }
 }
