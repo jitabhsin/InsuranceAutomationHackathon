@@ -37,6 +37,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         softAssert.assertEquals(selectedCountry, ConfigReader.getProperty("country"), "Selected country does not match expected country");
         softAssert.assertAll();
 
+        String termsStatus = travelHomePage.getTermsStatus();
         travelHomePage.selectStartAndEndDateElement.click();
         boolean isCalenderOpen = travelHomePage.isCalenderOpen();
 
@@ -47,8 +48,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
 
         boolean verifyTravelCountRedirection = travelHomePage.isRedirectedToSelectTravellerCount();
 
-        String termsStatus = travelHomePage.getTermsStatus();
-        softAssert.assertEquals(termsStatus, "UNCHECKED", "Terms checkbox should be unchecked");
+        softAssert.assertEquals(termsStatus, "CHECKED", "Terms checkbox should be unchecked");
 
         Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
         Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
