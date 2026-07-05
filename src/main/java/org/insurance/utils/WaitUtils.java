@@ -35,17 +35,14 @@ public class WaitUtils {
         return list;
     }
 
-    public List<WebElement> waitForVisibilityOfAllElements(By locator){
-        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+
+    public boolean waitForSelected(WebElement element) {
+        return wait.until(driver -> element.isSelected());
+    }
+
+    public boolean waitForAttributeContains(WebElement element, String attribute, String value) {
+        return wait.until(ExpectedConditions.attributeContains(element, attribute, value));
     }
 
 
-    public void waitForListToHaveElements(List<WebElement> elements) {
-        wait.until(driver -> elements.size() > 0);
-    }
-
-
-    public void waitForInvisibility(By locator) {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-    }
 }
