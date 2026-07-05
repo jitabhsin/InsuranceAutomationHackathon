@@ -78,7 +78,6 @@ public class CarPage {
     @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]//span[@class='premium-amount']")
     private WebElement zeroDepAmount;
 
-
     @FindBy(xpath = "//span[contains(@class,'extraboldTxt') and contains(.,'₹')]")
     private WebElement totalPremiumAmount;
 
@@ -114,6 +113,17 @@ public class CarPage {
 
     @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::ul[1]//li")
     private java.util.List<WebElement> personalProtectSumOptions;
+
+    @FindBy(id = "checklongtermtpCaseValue")
+    private WebElement longTermPolicyOption;
+
+    @FindBy(xpath = "//label[@for='checklongtermtpCaseValue']")
+    private WebElement longTermPolicyLabel;
+
+    public boolean isLongTermPolicySelected() {
+        return waitUtils.waitForSelected(longTermPolicyOption);
+    }
+
 
     public boolean isCarPageDisplayed() {
         try {
@@ -239,10 +249,12 @@ public class CarPage {
         return driver.getCurrentUrl().contains("select-plans");
     }
 
+
     public void clickExpand() {
         jsUtils.scrollToElement(expandLink);
-        waitUtils.waitForClickable(expandLink).click();
+        jsUtils.jsClick(expandLink);
     }
+
 
     public String getCityOfRegistration() {
         return waitUtils.waitForVisibility(cityOfRegistration).getText().trim();
@@ -327,5 +339,12 @@ public class CarPage {
 
     public void selectPersonalProtectSum(WebElement option) {
         jsUtils.jsClick(option);
+    }
+
+    public boolean selectLongTermPolicy() {
+        if (!longTermPolicyOption.isSelected()) {
+            jsUtils.jsClick(longTermPolicyLabel);
+        }
+        return waitUtils.waitForSelected(longTermPolicyOption);
     }
 }
