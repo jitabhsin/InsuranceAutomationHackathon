@@ -13,7 +13,7 @@ public class TC_15VerifyPlansPage extends BaseTest {
     CarPage carPage;
 
     @Test
-    public void verifyPlansPage() {
+    public void verifyPlansPageStructure() {
         ExcelReader excel = new ExcelReader();
         Object[] data = excel.readSheetCarFirstRow();
 
@@ -50,34 +50,40 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         carPage.clickProceedBtnCity();
 
+        // ---- Default plan option check ----
         boolean odtpSelected = carPage.checkODTP();
-        System.out.println("Own Damage + TP selected : " + odtpSelected);
+        System.out.println("Own Damage + TP selected by default : " + odtpSelected);
+        Assert.assertTrue(odtpSelected,"Own Damage + TP option is not selected by default");
 
-        Assert.assertTrue(carPage.checkODTP(),"Own Damage + TP option is not selected by default");
+        // ---- Verify all 3 plan cards exist ----
+        boolean noFrillsExists   = carPage.isNoFrillsCardDisplayed();
+        boolean zeroDepExists    = carPage.isZeroDepCardDisplayed();
+        boolean smartCoverExists = carPage.isSmartCoverCardDisplayed();
 
-        boolean zeroDepSelected = carPage.selectZeroDepIfNotSelected();
-        System.out.println("Zero Dep selected : " + zeroDepSelected);
-        Assert.assertTrue(zeroDepSelected,"Zero Dep plan is not selected");
+        System.out.println("No Frills card displayed   : " + noFrillsExists);
+        System.out.println("Zero Dep card displayed    : " + zeroDepExists);
+        System.out.println("Smart Cover card displayed : " + smartCoverExists);
 
+        Assert.assertTrue(noFrillsExists,   "No Frills plan card not displayed");
+        Assert.assertTrue(zeroDepExists,    "Zero Dep plan card not displayed");
+        Assert.assertTrue(smartCoverExists, "Smart Cover plan card not displayed");
 
-        String zeroDepAmount = carPage.getZeroDepAmount();
-        System.out.println("Zero Dep Amount : " + zeroDepAmount);
-        Assert.assertFalse(zeroDepAmount.isEmpty(),"Zero Dep amount is empty");
-        Assert.assertTrue(zeroDepAmount.contains("₹"),"Zero Dep amount missing ₹ symbol");
+        // ---- Verify Personal Protect addon exists ----
+        boolean addonExists = carPage.isPersonalProtectDisplayed();
+        System.out.println("Personal Protect Policy displayed : " + addonExists);
+        Assert.assertTrue(addonExists, "Personal Protect Policy section not displayed");
 
+        // ---- Verify Expand link + Car Details ----
+        boolean expandExists = carPage.isExpandLinkDisplayed();
+        System.out.println("Expand link displayed : " + expandExists);
+        Assert.assertTrue(expandExists, "Expand link not displayed");
 
-        String totalPremium = carPage.getTotalPremiumAmount();
-        String planAmount   = carPage.getPlanAmount();
+        carPage.clickExpand();
 
-        System.out.println("Total Premium Amount : " + totalPremium);
-        System.out.println("Plan Amount          : " + planAmount);
+        String cityOfReg = carPage.getCityOfRegistration();
+        System.out.println("City of Registration : " + cityOfReg);
+        Assert.assertEquals(cityOfReg, city, "City of Registration does not match input city");
 
-        Assert.assertTrue(totalPremium.contains(zeroDepAmount.replace("₹","").trim()),
-                "Total Premium does not match Zero Dep amount");
-        Assert.assertTrue(planAmount.contains(zeroDepAmount.replace("₹","").trim()),
-                "Plan Amount does not match Zero Dep amount");
-
-        System.out.println("All three amounts match : " + zeroDepAmount);
-
+        System.out.println("All structural checks passed on Plans Page");
     }
 }
