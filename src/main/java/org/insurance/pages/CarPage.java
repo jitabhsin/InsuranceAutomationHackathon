@@ -1,5 +1,6 @@
 package org.insurance.pages;
 
+import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +12,11 @@ public class CarPage {
 
     WebDriver driver;
     WaitUtils waitUtils;
-
+    JavaScriptUtils jsUtils;
     public CarPage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
+        this.jsUtils = new JavaScriptUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -182,6 +184,21 @@ public class CarPage {
 
     public boolean isSelectPlansPageDisplayed() {
         return driver.getCurrentUrl().contains("select-plans");
+    }
+
+
+    @FindBy(xpath = "//a[normalize-space()='Proceed']")
+    private WebElement proceedBtnCity;
+
+    @FindBy(id = "checkODTPtpCaseValue")
+    private WebElement ownDamageTpOption;
+
+    public void clickProceedBtnCity(){
+        waitUtils.waitForClickable(proceedBtnCity).click();
+    }
+
+    public boolean checkODTP(){
+        return waitUtils.waitForClickable(ownDamageTpOption).isSelected();
     }
 
 }
