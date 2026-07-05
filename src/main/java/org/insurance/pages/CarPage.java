@@ -209,6 +209,20 @@ public class CarPage {
     @FindBy(xpath = "//span[@class='plan-amount']")
     private WebElement planAmount;
 
+    @FindBy(xpath = "//a[normalize-space()='Expand']")
+    private WebElement expandLink;
+
+    @FindBy(xpath = "//li[p[normalize-space()='City of registration']]/span")
+    private WebElement cityOfRegistration;
+
+    public void clickExpand() {
+        jsUtils.scrollToElement(expandLink);
+        waitUtils.waitForClickable(expandLink).click();
+    }
+
+    public String getCityOfRegistration() {
+        return waitUtils.waitForVisibility(cityOfRegistration).getText().trim();
+    }
 
     public String getPlanAmount() {
         return waitUtils.waitForVisibility(planAmount).getText().trim();
@@ -240,6 +254,58 @@ public class CarPage {
         return waitUtils.waitForAttributeContains(zeroDepPlan, "class", "plans-box-active");
     }
 
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]")
+    private WebElement noFrillsPlan;
 
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]")
+    private WebElement smartCoverPlan;
 
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]//span[@class='premium-amount']")
+    private WebElement noFrillsAmount;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]//span[@class='premium-amount']")
+    private WebElement smartCoverAmount;
+
+    public boolean selectNoFrillsIfNotSelected() {
+        if (!noFrillsPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(noFrillsPlan);
+        }
+        return waitUtils.waitForAttributeContains(noFrillsPlan, "class", "plans-box-active");
+    }
+
+    public boolean selectSmartCoverIfNotSelected() {
+        if (!smartCoverPlan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(smartCoverPlan);
+        }
+        return waitUtils.waitForAttributeContains(smartCoverPlan, "class", "plans-box-active");
+    }
+
+    public String getNoFrillsAmount() {
+        return waitUtils.waitForVisibility(noFrillsAmount).getText().trim();
+    }
+
+    public String getSmartCoverAmount() {
+        return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
+    }
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::button[contains(@class,'js-added-btn')][1]")
+    private WebElement personalProtectToggleBtn;
+
+    public void togglePersonalProtect() {
+        jsUtils.scrollToElement(personalProtectToggleBtn);
+        jsUtils.jsClick(personalProtectToggleBtn);
+    }
+
+    public boolean isNoFrillsCardDisplayed()  { try { return waitUtils.waitForVisibility(noFrillsPlan).isDisplayed(); } catch (Exception e) { return false; } }
+    public boolean isZeroDepCardDisplayed()   { try { return waitUtils.waitForVisibility(zeroDepPlan).isDisplayed(); } catch (Exception e) { return false; } }
+    public boolean isSmartCoverCardDisplayed(){ try { return waitUtils.waitForVisibility(smartCoverPlan).isDisplayed(); } catch (Exception e) { return false; } }
+
+    public boolean isExpandLinkDisplayed() {
+        try { return waitUtils.waitForVisibility(expandLink).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isPersonalProtectDisplayed() {
+        try { return waitUtils.waitForVisibility(personalProtectToggleBtn).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
 }
