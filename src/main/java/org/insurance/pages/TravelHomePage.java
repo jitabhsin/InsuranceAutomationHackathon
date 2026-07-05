@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.insurance.utils.WaitUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TravelHomePage {
@@ -22,7 +23,6 @@ public class TravelHomePage {
     }
 
     String countryName = "";
-
 
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
@@ -84,14 +84,38 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[@class='ui-field-info float-right']")
     public WebElement tripDurationElement;
 
-    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-valid']")
-    public WebElement termsChecked;
-
-    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-invalid']")
-    public WebElement termsUnChecked;
+    @FindBy(id="ml-check")
+    public WebElement termsCheckbox;
 
     @FindBy(xpath = "//h4[text()='Add travellers']")
     public WebElement verifyAddTraveller;
+
+    @FindBy(xpath = "//span[@class='il-ui-error text-center'] | //span[@class='error_message']")
+    public List<WebElement> allCountryErrorElements;
+
+    @FindBy(xpath = "//span[@class='error_message']")
+    public List<WebElement> allTravellerErrorElements;
+
+    @FindBy(xpath = "//a[@class='il-con-close']")
+    public List<WebElement> selectedCountryElements;
+
+    @FindBy(xpath = "//input[@class='ng-touched ng-dirty ng-invalid']")
+    public List<WebElement> selectedTravellerElements;
+
+    @FindBy(xpath = "//a[@class='primary-btn']")
+    public WebElement travellerSubmitButton;
+
+    @FindBy(xpath = "//label[text()='All the travellers have a non-immigrant visa']")
+    public WebElement nonImmigrantVisaElement;
+
+    @FindBy(xpath = "//h2[@class='text-bold']")
+    public WebElement nonImmigrantAttention;
+
+    @FindBy(xpath = "//p[starts-with(text(),' Please note that this policy is')]")
+    public WebElement nonImmigrantInformation;
+
+    @FindBy(xpath = "//a[text()='Ok']")
+    public WebElement okButton;
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -244,23 +268,111 @@ public class TravelHomePage {
     }
 
     public String getTermsStatus() {
-        try {
-            if (termsUnChecked.isDisplayed()) {
-                return "UNCHECKED";
-            }
-        } catch (Exception ignored) {}
-
-        try {
-            if (termsChecked.isDisplayed()) {
-                return "CHECKED";
-            }
-        } catch (Exception ignored) {}
-        return "UNKNOWN";
+        return termsCheckbox.isSelected() ? "CHECKED" : "UNCHECKED";
     }
 
     public void providePersonalDetails(String number, String mailId){
         contactNumber.sendKeys(number);
         email.sendKeys(mailId);
+    }
+
+    public boolean countryErrorMessagesDisplayed(){
+        return !allCountryErrorElements.isEmpty();
+    }
+
+    public List<String> listAllErrorMessages(){
+        List<String> list = new ArrayList<>();
+        for(WebElement element : allCountryErrorElements){
+            list.add(element.getText());
+        }
+        return list;
+    }
+
+    public WebElement verifyNoCountrySelected() {
+        return selectedCountryElements.isEmpty()
+                ? null
+                : selectedCountryElements.get(0);
+    }
+
+    public String retrieveCountryError(){
+        return allCountryErrorElements.get(0).getText();
+    }
+
+    public String retrieveStartDateError(){
+        return allCountryErrorElements.get(1).getText();
+    }
+
+    public String retrieveEndDateError(){
+        return allCountryErrorElements.get(2).getText();
+    }
+
+    public boolean travellerErrorMessagesDisplayed(){
+        return !allTravellerErrorElements.isEmpty();
+    }
+
+    public List<String> listAllTravellerErrorMessages(){
+        List<String> list = new ArrayList<>();
+        for(WebElement element : allCountryErrorElements){
+            list.add(element.getText());
+        }
+        return list;
+    }
+
+    public WebElement verifyNoNumberSelected() {
+        return selectedTravellerElements.isEmpty()
+                ? null
+                : selectedTravellerElements.get(0);
+    }
+
+    public WebElement verifyNoEmailSelected() {
+        return selectedTravellerElements.isEmpty()
+                ? null
+                : selectedTravellerElements.get(1);
+    }
+
+    public String retrieveMobileError(){
+        return allTravellerErrorElements.get(0).getText();
+    }
+
+    public String retrieveEmailError(){
+        return allTravellerErrorElements.get(1).getText();
+    }
+
+    public String retrieveHealthError(){
+        return allTravellerErrorElements.get(2).getText();
+    }
+
+    public void selectNonImmigrantCheckBox(){
+        waitUtils.waitForVisibility(nonImmigrantVisaElement).click();
+    }
+
+    public boolean attentionFrameDisplayed(){
+        try{
+            return waitUtils.waitForVisibility(nonImmigrantAttention).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean verifyOkButtonPresence(){
+        try{
+            return waitUtils.waitForVisibility(okButton).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void retrieveAlertMessage(){
+        System.out.println(nonImmigrantAttention.getText());
+        System.out.println(nonImmigrantInformation.getText());
+    }
+
+    public boolean verifyEndDateOptionAvailableAgain(){
+        try{
+            return waitUtils.waitForVisibility(selectEndDateElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
     }
 
 }

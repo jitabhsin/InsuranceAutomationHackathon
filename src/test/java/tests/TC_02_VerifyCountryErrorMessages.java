@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class TC_002WithoutInputs extends BaseTest {
+public class TC_02_VerifyCountryErrorMessages extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
