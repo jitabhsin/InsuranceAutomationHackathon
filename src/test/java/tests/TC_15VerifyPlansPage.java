@@ -50,12 +50,10 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         carPage.clickProceedBtnCity();
 
-        // ---- Default plan option check ----
         boolean odtpSelected = carPage.checkODTP();
         System.out.println("Own Damage + TP selected by default : " + odtpSelected);
         Assert.assertTrue(odtpSelected,"Own Damage + TP option is not selected by default");
 
-        // ---- Verify all 3 plan cards exist ----
         boolean noFrillsExists   = carPage.isNoFrillsCardDisplayed();
         boolean zeroDepExists    = carPage.isZeroDepCardDisplayed();
         boolean smartCoverExists = carPage.isSmartCoverCardDisplayed();
@@ -68,12 +66,10 @@ public class TC_15VerifyPlansPage extends BaseTest {
         Assert.assertTrue(zeroDepExists,    "Zero Dep plan card not displayed");
         Assert.assertTrue(smartCoverExists, "Smart Cover plan card not displayed");
 
-        // ---- Verify Personal Protect addon exists ----
         boolean addonExists = carPage.isPersonalProtectDisplayed();
         System.out.println("Personal Protect Policy displayed : " + addonExists);
         Assert.assertTrue(addonExists, "Personal Protect Policy section not displayed");
 
-        // ---- Verify Expand link + Car Details ----
         boolean expandExists = carPage.isExpandLinkDisplayed();
         System.out.println("Expand link displayed : " + expandExists);
         Assert.assertTrue(expandExists, "Expand link not displayed");

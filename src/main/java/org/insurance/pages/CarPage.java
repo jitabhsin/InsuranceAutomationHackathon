@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.*;
 
 public class CarPage {
 
@@ -61,6 +62,58 @@ public class CarPage {
 
     @FindBy(xpath = "//a[contains(text(),'Proceed')]")
     public WebElement proceedButton;
+
+    @FindBy(xpath = "//a[normalize-space()='Proceed']")
+    private WebElement proceedBtnCity;
+
+    @FindBy(id = "checkODTPtpCaseValue")
+    private WebElement ownDamageTpOption;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]")
+    private WebElement zeroDepPlan;
+
+    @FindBy(xpath = "//div[contains(@class,'pageLoader')]")
+    private WebElement pageLoader;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]//span[@class='premium-amount']")
+    private WebElement zeroDepAmount;
+
+
+    @FindBy(xpath = "//span[contains(@class,'extraboldTxt') and contains(.,'₹')]")
+    private WebElement totalPremiumAmount;
+
+    @FindBy(xpath = "//span[@class='plan-amount']")
+    private WebElement planAmount;
+
+    @FindBy(xpath = "//a[normalize-space()='Expand']")
+    private WebElement expandLink;
+
+    @FindBy(xpath = "//li[p[normalize-space()='City of registration']]/span")
+    private WebElement cityOfRegistration;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::button[contains(@class,'js-added-btn')][1]")
+    private WebElement personalProtectToggleBtn;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]")
+    private WebElement noFrillsPlan;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]")
+    private WebElement smartCoverPlan;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]//span[@class='premium-amount']")
+    private WebElement noFrillsAmount;
+
+    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]//span[@class='premium-amount']")
+    private WebElement smartCoverAmount;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::span[@class='premium-amount' or contains(@class,'plan-price')][1]")
+    private WebElement personalProtectDisplayedPrice;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::input[@placeholder='Select Sum Assured'][1]")
+    private WebElement personalProtectSumDropdown;
+
+    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::ul[1]//li")
+    private java.util.List<WebElement> personalProtectSumOptions;
 
     public boolean isCarPageDisplayed() {
         try {
@@ -186,35 +239,6 @@ public class CarPage {
         return driver.getCurrentUrl().contains("select-plans");
     }
 
-
-    @FindBy(xpath = "//a[normalize-space()='Proceed']")
-    private WebElement proceedBtnCity;
-
-    @FindBy(id = "checkODTPtpCaseValue")
-    private WebElement ownDamageTpOption;
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]")
-    private WebElement zeroDepPlan;
-
-    @FindBy(xpath = "//div[contains(@class,'pageLoader')]")
-    private WebElement pageLoader;
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Zero Dep')]]//span[@class='premium-amount']")
-    private WebElement zeroDepAmount;
-
-
-    @FindBy(xpath = "//span[contains(@class,'extraboldTxt') and contains(.,'₹')]")
-    private WebElement totalPremiumAmount;
-
-    @FindBy(xpath = "//span[@class='plan-amount']")
-    private WebElement planAmount;
-
-    @FindBy(xpath = "//a[normalize-space()='Expand']")
-    private WebElement expandLink;
-
-    @FindBy(xpath = "//li[p[normalize-space()='City of registration']]/span")
-    private WebElement cityOfRegistration;
-
     public void clickExpand() {
         jsUtils.scrollToElement(expandLink);
         waitUtils.waitForClickable(expandLink).click();
@@ -228,12 +252,10 @@ public class CarPage {
         return waitUtils.waitForVisibility(planAmount).getText().trim();
     }
 
-
     public String getTotalPremiumAmount() {
         jsUtils.scrollToElement(totalPremiumAmount);
         return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*","").trim();
     }
-
 
     public String getZeroDepAmount() {
         return waitUtils.waitForVisibility(zeroDepAmount).getText().trim();
@@ -244,7 +266,6 @@ public class CarPage {
     }
 
     public boolean checkODTP() {
-
         return waitUtils.waitForSelected(ownDamageTpOption);
     }
     public boolean selectZeroDepIfNotSelected() {
@@ -253,18 +274,6 @@ public class CarPage {
         }
         return waitUtils.waitForAttributeContains(zeroDepPlan, "class", "plans-box-active");
     }
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]")
-    private WebElement noFrillsPlan;
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]")
-    private WebElement smartCoverPlan;
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'No Frills')]]//span[@class='premium-amount']")
-    private WebElement noFrillsAmount;
-
-    @FindBy(xpath = "//button[.//strong[contains(normalize-space(),'Smart Cover')]]//span[@class='premium-amount']")
-    private WebElement smartCoverAmount;
 
     public boolean selectNoFrillsIfNotSelected() {
         if (!noFrillsPlan.getAttribute("class").contains("plans-box-active")) {
@@ -287,8 +296,6 @@ public class CarPage {
     public String getSmartCoverAmount() {
         return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
     }
-    @FindBy(xpath = "//h3[normalize-space()='Personal Protect Policy']/following::button[contains(@class,'js-added-btn')][1]")
-    private WebElement personalProtectToggleBtn;
 
     public void togglePersonalProtect() {
         jsUtils.scrollToElement(personalProtectToggleBtn);
@@ -307,5 +314,18 @@ public class CarPage {
     public boolean isPersonalProtectDisplayed() {
         try { return waitUtils.waitForVisibility(personalProtectToggleBtn).isDisplayed(); }
         catch (Exception e) { return false; }
+    }
+
+    public void openPersonalProtectDropdown() {
+        jsUtils.scrollToElement(personalProtectSumDropdown);
+        jsUtils.jsClick(personalProtectSumDropdown);
+    }
+
+    public List<WebElement> getPersonalProtectSumOptions() {
+        return personalProtectSumOptions;
+    }
+
+    public void selectPersonalProtectSum(WebElement option) {
+        jsUtils.jsClick(option);
     }
 }
