@@ -19,6 +19,6 @@ public class TC_25_FetchPlanResult extends BaseTest {
 
         int total = healthResultPage.resultPlans();
         Assert.assertEquals(total, 3);
-        System.out.println("Total plans: " + total);
+        logger.info("Total plans: " + total);
     }
 }
