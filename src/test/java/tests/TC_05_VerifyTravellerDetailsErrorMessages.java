@@ -13,7 +13,6 @@ import org.insurance.utils.ExcelReader;
 import java.util.List;
 
 public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
-
     private static final Logger logger = LogManager.getLogger(TC_05_VerifyTravellerDetailsErrorMessages.class);
 
     HomePage homePage;

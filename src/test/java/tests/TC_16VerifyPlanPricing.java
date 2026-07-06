@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class TC_16VerifyPlanPricing extends BaseTest {
-
     private static final Logger logger =
             LogManager.getLogger(TC_16VerifyPlanPricing.class);
 
