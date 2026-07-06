@@ -1,106 +1,139 @@
 package tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
-import org.openqa.selenium.WebElement;
+import org.insurance.utils.ExcelReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.insurance.utils.ExcelReader;
-
-import java.util.List;
-
 
 public class TC_20VerifyInsuredDetailsPage extends BaseTest {
+
+    private static final Logger logger =
+            LogManager.getLogger(TC_20VerifyInsuredDetailsPage.class);
 
     HomePage homePage;
     CarPage carPage;
 
     @Test
     public void verifyInsuredDetailsPage() {
+
+        logger.info("TC_20 - Verify Insured Details Page Started");
+
         ExcelReader excel = new ExcelReader();
         Object[] data = excel.readSheetCarFirstRow();
 
-        String city   = data[0].toString();
-        String make   = data[1].toString();
-        String model  = data[2].toString();
+        String city = data[0].toString();
+        String make = data[1].toString();
+        String model = data[2].toString();
         String mobile = data[3].toString();
-        String email  = data[4].toString();
+        String email = data[4].toString();
+
+        logger.info("Excel data loaded successfully");
+        logger.info("City : {}", city);
+        logger.info("Make : {}", make);
+        logger.info("Model : {}", model);
 
         homePage = new HomePage(driver);
-        carPage  = new CarPage(driver);
+        carPage = new CarPage(driver);
+
+        logger.info("Page objects initialized");
 
         homePage.clickCarInsurance();
+        logger.info("Clicked Car Insurance");
+
         carPage.clickNewVehicleLink();
+        logger.info("Clicked New Vehicle");
+
         carPage.enterMobile(mobile);
+        logger.info("Entered Mobile Number");
+
         carPage.enterEmail(email);
+        logger.info("Entered Email Address");
+
         carPage.clickNewVehicleGetQuote();
+        logger.info("Clicked Get Quote");
 
         carPage.enterCity(city);
+        logger.info("Entered City");
+
         carPage.selectCity(city);
+        logger.info("Selected City");
+
         carPage.enterCarMake(make);
+        logger.info("Entered Car Make");
+
         carPage.selectCarModel(model);
+        logger.info("Selected Car Model");
 
         carPage.clickProceedBtnCity();
+        logger.info("Clicked Proceed Button");
 
         carPage.selectLongTermPolicy();
+        logger.info("Selected Long Term Policy");
+
         carPage.selectZeroDepIfNotSelected();
+        logger.info("Selected Zero Dep Plan");
 
         carPage.clickContinue();
-        System.out.println("Clicked Continue button");
+        logger.info("Clicked Continue Button");
 
         Assert.assertTrue(carPage.isVerifyInfoHeaderDisplayed(), "Verify Information header not displayed");
+        logger.info("Verify Information page displayed");
 
         carPage.clickThatsCorrect();
-        System.out.println("Clicked That's correct button");
+        logger.info("Clicked That's Correct Button");
 
-        Assert.assertTrue(carPage.isInsuredDetailsPage(),
-                "Not navigated to Insured Details page");
-        System.out.println("Landed on Insured Details page");
+        Assert.assertTrue(carPage.isInsuredDetailsPage(), "Not navigated to Insured Details page");
+        logger.info("Successfully navigated to Insured Details Page");
 
         carPage.closeKycPopupIfPresent();
+        logger.info("KYC popup handled if present");
 
         String carDetail = carPage.getInsuredCarDetail();
-        String regNo     = carPage.getInsuredRegNo();
-        String idv       = carPage.getInsuredIdv();
+        String regNo = carPage.getInsuredRegNo();
+        String idv = carPage.getInsuredIdv();
 
-        System.out.println("Car Detail        : " + carDetail);
-        System.out.println("Registration No.  : " + regNo);
-        System.out.println("IDV               : " + idv);
+        logger.info("Car Detail : {}", carDetail);
+        logger.info("Registration Number : {}", regNo);
+        logger.info("IDV : {}", idv);
 
-        Assert.assertTrue(carDetail.toUpperCase().contains(make.toUpperCase()),
-                "Car detail does not match make");
-        Assert.assertTrue(regNo.equalsIgnoreCase("NEW"),
-                "Registration no. should be NEW");
-        Assert.assertTrue(idv.contains("₹"),
-                "IDV missing ₹ symbol");
+        Assert.assertTrue(carDetail.toUpperCase().contains(make.toUpperCase()), "Car detail does not match make");
+        Assert.assertTrue(regNo.equalsIgnoreCase("NEW"), "Registration no. should be NEW");
+        Assert.assertTrue(idv.contains("₹"), "IDV missing ₹ symbol");
+        logger.info("Vehicle details validated successfully");
 
-        Assert.assertTrue(carPage.isPremiumSummaryDisplayed(),
-                "Premium summary block not displayed");
+        Assert.assertTrue(carPage.isPremiumSummaryDisplayed(), "Premium summary block not displayed");
+        logger.info("Premium Summary block displayed");
 
-        String base   = carPage.getInsuredBasePremium();
-        String addOn  = carPage.getInsuredAdditionalCovers();
-        String sub    = carPage.getInsuredSubTotal();
-        String net    = carPage.getInsuredNetPremium();
-        String tax    = carPage.getInsuredTax();
-        String total  = carPage.getInsuredTotalPremium();
+        String base = carPage.getInsuredBasePremium();
+        String addOn = carPage.getInsuredAdditionalCovers();
+        String sub = carPage.getInsuredSubTotal();
+        String net = carPage.getInsuredNetPremium();
+        String tax = carPage.getInsuredTax();
+        String total = carPage.getInsuredTotalPremium();
 
-        System.out.println("Base premium      : " + base);
-        System.out.println("Additional covers : " + addOn);
-        System.out.println("Sub Total         : " + sub);
-        System.out.println("Net Premium       : " + net);
-        System.out.println("Tax (18% GST)     : " + tax);
-        System.out.println("Total Premium     : " + total);
+        logger.info("Base Premium : {}", base);
+        logger.info("Additional Covers : {}", addOn);
+        logger.info("Sub Total : {}", sub);
+        logger.info("Net Premium : {}", net);
+        logger.info("Tax (18% GST) : {}", tax);
+        logger.info("Total Premium : {}", total);
 
-        Assert.assertFalse(base.isEmpty(),  "Base premium empty");
-        Assert.assertFalse(sub.isEmpty(),   "Sub Total empty");
-        Assert.assertFalse(net.isEmpty(),   "Net Premium empty");
+        Assert.assertFalse(base.isEmpty(), "Base premium empty");
+        Assert.assertFalse(sub.isEmpty(), "Sub Total empty");
+        Assert.assertFalse(net.isEmpty(), "Net Premium empty");
         Assert.assertFalse(total.isEmpty(), "Total Premium empty");
 
+        logger.info("Premium calculations validated");
+
         boolean proceedEnabled = carPage.isProceedToPayEnabled();
-        System.out.println("Proceed to Pay enabled : " + proceedEnabled);
+        logger.info("Proceed To Pay Enabled : {}", proceedEnabled);
         Assert.assertTrue(proceedEnabled, "Proceed to Pay button not enabled/clickable");
 
-        System.out.println("---- TC_20 Verify Insured Details Page PASSED ----");
+        logger.info("Proceed To Pay button is enabled");
+        logger.info("TC_20 PASSED");
     }
 }
