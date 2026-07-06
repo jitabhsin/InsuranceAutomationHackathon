@@ -1,100 +1,25 @@
-03-07-2026 16:01:37 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
-03-07-2026 16:01:53 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
-03-07-2026 16:01:56 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
-03-07-2026 16:05:20 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
-03-07-2026 16:05:24 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
-03-07-2026 16:05:28 INFO  tests.TC_11NavigateCarPage - Navigated to URL: https://www.icicilombard.com/
-03-07-2026 16:05:28 INFO  tests.TC_11NavigateCarPage - ========== Setup Completed ==========
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Test Execution Started
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - TC_11 - Verify Car Insurance Navigation Started
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Car Insurance form displayed successfully
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Registration Number field displayed successfully
-03-07-2026 16:05:29 INFO  tests.TC_11NavigateCarPage - Mobile Number field displayed successfully
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Email field displayed successfully
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - TC_11 PASSED
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Test Execution Completed
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:05:30 INFO  tests.TC_11NavigateCarPage - Closing browser
-03-07-2026 16:05:34 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
-03-07-2026 16:06:49 INFO  tests.TC_11NavigateCarPage - ========== Browser Launch Started ==========
-03-07-2026 16:06:54 INFO  tests.TC_11NavigateCarPage - Browser launched successfully
-03-07-2026 16:06:58 INFO  tests.TC_11NavigateCarPage - Navigated to URL: https://www.icicilombard.com/
-03-07-2026 16:06:58 INFO  tests.TC_11NavigateCarPage - ========== Setup Completed ==========
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Test Execution Started
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - TC_11 - Verify Car Insurance Navigation Started
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Car Insurance form displayed successfully
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Registration Number field displayed successfully
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Mobile Number field displayed successfully
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Email field displayed successfully
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - TC_11 PASSED
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Test Execution Completed
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
-03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Closing browser
-03-07-2026 16:07:03 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
-05-07-2026 23:30:19 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ========== Browser Launch Started ==========
-05-07-2026 23:30:25 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Browser launched successfully
-05-07-2026 23:30:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Navigated to URL: https://www.icicilombard.com/
-05-07-2026 23:30:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ========== Setup Completed ==========
-05-07-2026 23:30:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
-05-07-2026 23:30:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Test Execution Started
-05-07-2026 23:30:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
-05-07-2026 23:30:43 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
-05-07-2026 23:30:43 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Test Execution Completed
-05-07-2026 23:30:43 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
-05-07-2026 23:30:43 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Closing browser
-05-07-2026 23:30:49 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Browser closed successfully
-05-07-2026 23:34:18 INFO  tests.TC_02_VerifyCountryErrorMessages - ========== Browser Launch Started ==========
-05-07-2026 23:34:24 INFO  tests.TC_02_VerifyCountryErrorMessages - Browser launched successfully
-05-07-2026 23:34:30 INFO  tests.TC_02_VerifyCountryErrorMessages - Navigated to URL: https://www.icicilombard.com/
-05-07-2026 23:34:30 INFO  tests.TC_02_VerifyCountryErrorMessages - ========== Setup Completed ==========
-05-07-2026 23:34:30 INFO  tests.TC_02_VerifyCountryErrorMessages - ==================================
-05-07-2026 23:34:30 INFO  tests.TC_02_VerifyCountryErrorMessages - Test Execution Started
-05-07-2026 23:34:30 INFO  tests.TC_02_VerifyCountryErrorMessages - ==================================
-05-07-2026 23:34:37 INFO  tests.TC_02_VerifyCountryErrorMessages - ==================================
-05-07-2026 23:34:37 INFO  tests.TC_02_VerifyCountryErrorMessages - Test Execution Completed
-05-07-2026 23:34:37 INFO  tests.TC_02_VerifyCountryErrorMessages - ==================================
-05-07-2026 23:34:37 INFO  tests.TC_02_VerifyCountryErrorMessages - Closing browser
-05-07-2026 23:34:45 INFO  tests.TC_02_VerifyCountryErrorMessages - Browser closed successfully
-05-07-2026 23:35:01 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ========== Browser Launch Started ==========
-05-07-2026 23:35:07 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Browser launched successfully
-05-07-2026 23:35:11 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Navigated to URL: https://www.icicilombard.com/
-05-07-2026 23:35:11 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ========== Setup Completed ==========
-05-07-2026 23:35:12 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ==================================
-05-07-2026 23:35:12 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Test Execution Started
-05-07-2026 23:35:12 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ==================================
-05-07-2026 23:35:21 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ==================================
-05-07-2026 23:35:21 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Test Execution Completed
-05-07-2026 23:35:21 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - ==================================
-05-07-2026 23:35:21 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Closing browser
-05-07-2026 23:35:26 INFO  tests.TC_03_VerifyNonImmigrantCheckBox - Browser closed successfully
-05-07-2026 23:35:30 INFO  tests.TC_04_VerifySelectedCountry - ========== Browser Launch Started ==========
-05-07-2026 23:35:36 INFO  tests.TC_04_VerifySelectedCountry - Browser launched successfully
-05-07-2026 23:35:42 INFO  tests.TC_04_VerifySelectedCountry - Navigated to URL: https://www.icicilombard.com/
-05-07-2026 23:35:42 INFO  tests.TC_04_VerifySelectedCountry - ========== Setup Completed ==========
-05-07-2026 23:35:42 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:35:42 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-05-07-2026 23:35:42 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:35:54 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:35:54 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-05-07-2026 23:35:54 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:35:54 INFO  tests.TC_04_VerifySelectedCountry - Closing browser
-05-07-2026 23:36:00 INFO  tests.TC_04_VerifySelectedCountry - Browser closed successfully
-05-07-2026 23:38:17 INFO  tests.TC_04_VerifySelectedCountry - ========== Browser Launch Started ==========
-05-07-2026 23:38:58 INFO  tests.TC_04_VerifySelectedCountry - ========== Browser Launch Started ==========
-05-07-2026 23:39:03 INFO  tests.TC_04_VerifySelectedCountry - Browser launched successfully
-05-07-2026 23:39:09 INFO  tests.TC_04_VerifySelectedCountry - Navigated to URL: https://www.icicilombard.com/
-05-07-2026 23:39:09 INFO  tests.TC_04_VerifySelectedCountry - ========== Setup Completed ==========
-05-07-2026 23:39:09 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:39:09 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-05-07-2026 23:39:09 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:39:21 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:39:21 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-05-07-2026 23:39:21 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-05-07-2026 23:39:21 INFO  tests.TC_04_VerifySelectedCountry - Closing browser
-05-07-2026 23:39:27 INFO  tests.TC_04_VerifySelectedCountry - Browser closed successfully
+06-07-2026 12:09:23 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ========== Browser Launch Started ==========
+06-07-2026 12:09:31 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Browser launched successfully
+06-07-2026 12:09:37 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 12:09:37 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ========== Setup Completed ==========
+06-07-2026 12:09:37 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
+06-07-2026 12:09:37 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Test Execution Started
+06-07-2026 12:09:37 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
+06-07-2026 12:09:40 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - TC_05 - Verify Traveller Details Error Messages Started
+06-07-2026 12:09:41 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Navigating to Travel Insurance page
+06-07-2026 12:09:46 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Selecting country
+06-07-2026 12:09:48 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Opening calendar
+06-07-2026 12:09:52 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Submitting travel dates
+06-07-2026 12:09:52 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Submitting traveller details without entering any data
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Validation messages captured successfully
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Displaying all traveller validation messages
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Please enter valid mobile number
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Please enter valid email ID
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Please select atleast one member
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - All traveller validation messages verified successfully
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - TC_05 PASSED
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Test Execution Completed
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - ==================================
+06-07-2026 12:09:53 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Closing browser
+06-07-2026 12:10:03 INFO  tests.TC_05_VerifyTravellerDetailsErrorMessages - Browser closed successfully
