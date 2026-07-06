@@ -1,10 +1,12 @@
-06-07-2026 15:00:41 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Browser Launch Started ==========
-06-07-2026 15:00:45 INFO  tests.TC_20VerifyInsuredDetailsPage - Browser launched successfully
-06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Setup Completed ==========
-06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
-06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Started
-06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
-06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
-06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Completed
-06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:06:26 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Browser Launch Started ==========
+06-07-2026 15:06:30 INFO  tests.TC_20VerifyInsuredDetailsPage - Browser launched successfully
+06-07-2026 15:06:34 INFO  tests.TC_20VerifyInsuredDetailsPage - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 15:06:34 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Setup Completed ==========
+06-07-2026 15:06:34 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:06:34 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Started
+06-07-2026 15:06:34 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:06:53 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:06:53 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Completed
+06-07-2026 15:06:53 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:06:53 INFO  tests.TC_20VerifyInsuredDetailsPage - Closing browser
+06-07-2026 15:06:57 INFO  tests.TC_20VerifyInsuredDetailsPage - Browser closed successfully
