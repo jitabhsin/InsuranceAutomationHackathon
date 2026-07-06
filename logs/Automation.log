@@ -37,3 +37,838 @@
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - ==================================
 03-07-2026 16:06:59 INFO  tests.TC_11NavigateCarPage - Closing browser
 03-07-2026 16:07:03 INFO  tests.TC_11NavigateCarPage - Browser closed successfully
+03-07-2026 16:13:45 INFO  tests.TC_14SelectCarAndModel - ========== Browser Launch Started ==========
+03-07-2026 16:13:53 INFO  tests.TC_14SelectCarAndModel - Browser launched successfully
+03-07-2026 16:14:07 INFO  tests.TC_14SelectCarAndModel - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 16:14:07 INFO  tests.TC_14SelectCarAndModel - ========== Setup Completed ==========
+03-07-2026 16:14:09 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:09 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:14:09 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:14:36 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:14:37 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
+03-07-2026 16:14:38 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:39 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:39 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+03-07-2026 16:14:39 INFO  tests.TC_14SelectCarAndModel - ==================================
+03-07-2026 16:14:39 INFO  tests.TC_14SelectCarAndModel - Closing browser
+03-07-2026 16:14:43 INFO  tests.TC_14SelectCarAndModel - Browser closed successfully
+03-07-2026 17:45:45 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:45:49 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:45:55 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:45:55 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:45:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:45:55 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:45:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:45:57 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:45:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:45:57 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:45:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:45:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:45:57 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:45:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:46:00 ERROR utils.TestListener - fillContactDetails FAILED
+03-07-2026 17:46:00 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\fillContactDetails_20260703_174600.png
+03-07-2026 17:46:00 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:46:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:46:00 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:46:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:46:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:46:00 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:46:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:46:14 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:46:14 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_174614.png
+03-07-2026 17:46:14 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:46:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:46:14 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:46:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:46:14 INFO  tests.TC_23_SelectMembers - Closing browser
+03-07-2026 17:46:18 INFO  tests.TC_23_SelectMembers - Browser closed successfully
+03-07-2026 17:47:51 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:47:54 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:47:57 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:47:57 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:47:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:47:57 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:47:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:47:59 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:47:59 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:47:59 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:47:59 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:47:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:47:59 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:47:59 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:48:04 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 17:48:04 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:48:04 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:48:04 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:48:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:48:04 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:48:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:48:08 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:48:08 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_174808.png
+03-07-2026 17:48:08 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:48:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:48:08 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:48:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:48:08 INFO  tests.TC_23_SelectMembers - Closing browser
+03-07-2026 17:48:12 INFO  tests.TC_23_SelectMembers - Browser closed successfully
+03-07-2026 17:49:19 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:49:22 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:49:25 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:49:25 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:49:25 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:49:25 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:49:25 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:49:27 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:49:27 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:49:27 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:49:27 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:49:27 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:49:27 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:49:27 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:49:32 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 17:49:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:49:32 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:49:32 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:49:33 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:49:33 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:49:33 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:49:36 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:49:37 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_174936.png
+03-07-2026 17:49:37 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:49:37 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:49:37 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:49:37 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:49:37 INFO  tests.TC_23_SelectMembers - Closing browser
+03-07-2026 17:49:40 INFO  tests.TC_23_SelectMembers - Browser closed successfully
+03-07-2026 17:57:00 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:57:04 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:57:06 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:57:06 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:57:06 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:57:06 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:57:06 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:57:09 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:57:09 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:57:09 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:57:09 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:57:09 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:57:09 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:57:09 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:57:13 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 17:57:13 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:57:13 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:57:13 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:57:13 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:57:13 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:57:13 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:57:18 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:57:18 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_175718.png
+03-07-2026 17:57:18 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:57:18 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:57:18 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:57:18 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:57:18 INFO  tests.TC_23_SelectMembers - Closing browser
+03-07-2026 17:57:21 INFO  tests.TC_23_SelectMembers - Browser closed successfully
+03-07-2026 17:57:54 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:57:57 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:58:00 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:58:00 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:58:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:58:00 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:58:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:58:03 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:58:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:58:03 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:58:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:58:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:58:03 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:58:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:58:07 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 17:58:07 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:58:07 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:58:07 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:58:07 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:58:07 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:58:07 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:58:22 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:58:22 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_175822.png
+03-07-2026 17:58:22 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:58:22 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:58:22 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:58:22 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:58:22 INFO  tests.TC_23_SelectMembers - Closing browser
+03-07-2026 17:58:26 INFO  tests.TC_23_SelectMembers - Browser closed successfully
+03-07-2026 17:59:16 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 17:59:19 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 17:59:22 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 17:59:22 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 17:59:22 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:59:22 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 17:59:22 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:59:24 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 17:59:24 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:59:24 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 17:59:24 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 17:59:24 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:59:24 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 17:59:24 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:59:29 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 17:59:29 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:59:29 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 17:59:29 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 17:59:29 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:59:29 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 17:59:29 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:59:43 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 17:59:43 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_175943.png
+03-07-2026 17:59:43 INFO  utils.TestListener - Screenshot captured
+03-07-2026 17:59:43 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 17:59:43 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 17:59:43 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:00:17 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:00:20 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:00:26 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:00:26 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:00:26 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:00:26 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:00:26 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:00:28 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:00:28 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:00:28 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:00:28 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:00:28 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:00:28 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:00:28 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:00:34 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:00:34 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:00:34 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:00:34 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:00:34 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:00:34 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:00:34 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:00:35 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:00:35 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:00:35 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:00:35 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:01:44 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:01:50 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:01:57 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:01:57 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:01:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:01:57 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:01:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:02:05 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:02:05 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:02:05 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:02:05 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:02:05 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:05 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:02:05 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:17 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:02:17 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:17 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:02:17 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:02:17 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:02:17 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:02:17 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:02:18 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:02:18 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:02:18 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:02:18 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:15:52 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:15:55 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:15:59 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:15:59 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:15:59 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:15:59 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:15:59 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:16:03 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:16:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:16:03 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:16:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:16:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:03 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:16:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:15 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:16:15 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:15 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:16:15 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:16:15 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:16:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:17:34 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:17:39 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:17:44 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:17:44 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:17:45 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:17:45 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:17:45 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:17:49 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:17:49 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:17:49 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:17:49 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:17:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:17:49 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:17:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:17:57 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:17:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:17:57 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:17:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:17:57 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:17:57 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:17:57 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:07 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:18:08 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_181807.png
+03-07-2026 18:18:08 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:18:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:08 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:18:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:17 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:18:22 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:18:26 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:18:26 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:18:26 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:18:26 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:18:26 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:18:29 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:18:29 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:18:29 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:18:29 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:18:29 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:29 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:18:29 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:36 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:18:36 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:36 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:18:36 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:18:36 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:36 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:18:36 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:46 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:18:47 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_181846.png
+03-07-2026 18:18:47 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:18:47 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:18:47 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:18:47 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:20:44 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:20:47 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:20:54 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:20:54 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:20:54 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:20:54 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:20:54 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:20:56 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:20:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:20:56 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:20:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:20:56 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:20:56 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:20:56 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:05 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:21:05 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:05 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:21:05 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:05 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:05 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:21:05 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:15 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:21:15 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_182115.png
+03-07-2026 18:21:15 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:21:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:15 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:21:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:37 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:21:40 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:21:44 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:21:44 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:21:44 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:21:44 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:21:44 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:21:46 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:21:46 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:21:46 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:21:46 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:21:46 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:46 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:21:46 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:49 ERROR utils.TestListener - fillContactDetails FAILED
+03-07-2026 18:21:49 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\fillContactDetails_20260703_182149.png
+03-07-2026 18:21:49 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:21:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:49 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:21:49 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:21:49 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:49 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:21:49 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:21:59 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:21:59 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:22:06 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:22:10 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:22:13 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:22:13 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:22:13 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:22:13 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:22:13 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:22:15 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:22:15 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:22:15 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:22:15 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:22:15 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:22:15 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:22:15 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:22:19 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:22:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:22:19 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:22:19 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:22:19 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:22:19 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:22:19 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:22:20 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:22:20 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:22:20 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:22:20 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:24:01 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:24:04 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:24:07 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:24:07 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:24:07 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:07 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:24:07 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:09 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:24:09 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:09 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:24:09 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:09 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:24:09 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:24:09 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:24:14 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:24:14 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:24:14 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:24:14 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:24:14 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:24:14 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:24:50 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:24:53 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:24:56 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:24:56 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:24:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:56 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:24:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:58 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:24:58 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:58 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:24:58 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:24:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:24:58 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:24:58 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:25:03 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:25:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:25:03 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:25:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:25:03 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:25:03 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:25:03 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:25:15 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:25:15 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_182515.png
+03-07-2026 18:25:15 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:25:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:25:15 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:25:15 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:32:45 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:32:49 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:32:54 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:32:54 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:32:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:32:55 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:32:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:32:57 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:32:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:32:57 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:32:57 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:32:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:32:57 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:32:57 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:04 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:33:04 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:04 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:33:04 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:33:04 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:33:04 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:33:40 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:33:43 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:33:47 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:33:47 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:33:47 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:33:47 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:33:47 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:33:50 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:33:50 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:33:50 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:33:50 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:33:50 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:50 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:33:50 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:55 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:33:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:55 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:33:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:33:55 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:33:55 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:33:55 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:34:04 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:34:09 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:34:46 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:34:49 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:34:53 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:34:53 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:34:53 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:34:53 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:34:53 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:34:55 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:34:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:34:55 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:34:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:34:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:34:55 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:34:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:35:01 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:35:01 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:35:01 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:35:01 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:35:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:35:01 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:35:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:35:11 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:35:12 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_183511.png
+03-07-2026 18:35:12 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:35:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:35:12 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:35:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:41:08 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:41:11 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:41:14 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:41:14 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:41:14 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:41:15 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:41:15 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:41:16 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:41:16 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:41:16 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:41:59 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:42:02 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:42:06 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:42:06 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:42:06 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:42:06 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:42:06 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:42:08 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:42:08 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:42:08 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:42:54 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:42:57 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:43:00 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:43:00 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:43:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:00 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:43:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:03 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:43:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:31 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:43:34 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:43:37 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:43:37 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:43:37 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:37 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:43:37 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:39 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:43:39 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:43:39 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:46:22 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:46:27 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:46:32 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:46:32 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:46:32 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:46:32 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:46:32 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:46:35 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:46:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:46:35 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:46:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:46:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:46:35 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:46:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:46:45 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:46:45 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:46:45 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:46:45 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:46:45 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:46:45 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:46:45 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:46:46 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:46:46 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:46:46 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:46:46 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:47:48 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:47:52 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:47:56 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:47:56 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:47:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:47:56 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:47:56 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:48:00 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:48:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:48:00 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:48:00 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:48:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:48:00 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:48:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:48:11 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:48:11 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:48:11 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:48:11 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:48:11 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:48:11 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:48:11 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:48:22 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 18:48:23 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_184822.png
+03-07-2026 18:48:23 INFO  utils.TestListener - Screenshot captured
+03-07-2026 18:48:23 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:48:23 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:48:23 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:55:21 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:55:23 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 18:55:25 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:55:30 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 18:55:34 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 18:55:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:35 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 18:55:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:40 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:55:40 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:40 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:55:40 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:40 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:55:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:43 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 18:55:43 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:43 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 18:55:43 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 18:55:43 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:43 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 18:55:43 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:53 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:55:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:53 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:55:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:55:53 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:55:53 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:56:00 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 18:56:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:56:00 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 18:56:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 18:56:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:56:00 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 18:56:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:56:01 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 18:56:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 18:56:01 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 18:56:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:12:14 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 19:12:18 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 19:12:32 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 19:12:32 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 19:12:32 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:12:32 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 19:12:32 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:12:35 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 19:12:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:12:35 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 19:12:35 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:12:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:12:35 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 19:12:35 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:12:40 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 19:12:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:12:40 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 19:12:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:12:40 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:12:40 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 19:12:40 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:12:41 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 19:12:41 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:12:41 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 19:12:41 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:13:27 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 19:13:30 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 19:13:36 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 19:13:36 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 19:13:36 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:13:36 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 19:13:36 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:13:40 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 19:13:40 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:13:40 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 19:13:40 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:13:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:13:40 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 19:13:40 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:13:51 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 19:13:51 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:13:51 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 19:13:51 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:13:51 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:13:51 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 19:13:51 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:13:52 INFO  utils.TestListener - testFetchPlanResult PASSED
+03-07-2026 19:13:52 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:13:52 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 19:13:52 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:20:46 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 19:20:49 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 19:20:52 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 19:20:52 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 19:20:52 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:20:52 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 19:20:52 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:20:55 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 19:20:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:20:55 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 19:20:55 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:20:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:20:55 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 19:20:55 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:21:00 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 19:21:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:21:00 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 19:21:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:21:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:21:00 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 19:21:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:21:01 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 19:21:01 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_192101.png
+03-07-2026 19:21:01 INFO  utils.TestListener - Screenshot captured
+03-07-2026 19:21:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:21:01 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 19:21:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:21:55 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 19:21:57 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 19:22:01 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 19:22:01 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 19:22:01 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:22:01 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 19:22:01 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:22:03 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 19:22:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:22:03 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 19:22:03 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:22:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:22:03 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 19:22:03 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:22:08 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 19:22:08 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:22:08 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 19:22:08 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:22:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:22:08 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 19:22:08 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:22:09 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 19:22:09 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_192209.png
+03-07-2026 19:22:09 INFO  utils.TestListener - Screenshot captured
+03-07-2026 19:22:09 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:22:09 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 19:22:09 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:23:42 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+03-07-2026 19:23:46 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+03-07-2026 19:23:50 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+03-07-2026 19:23:50 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+03-07-2026 19:23:50 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:23:50 INFO  tests.TC_23_SelectMembers - Test Execution Started
+03-07-2026 19:23:50 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:23:53 INFO  utils.TestListener - testAddMembers PASSED
+03-07-2026 19:23:53 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:23:53 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+03-07-2026 19:23:53 INFO  tests.TC_23_SelectMembers - ==================================
+03-07-2026 19:23:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:23:53 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+03-07-2026 19:23:53 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:24:00 INFO  utils.TestListener - fillContactDetails PASSED
+03-07-2026 19:24:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:24:00 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+03-07-2026 19:24:00 INFO  tests.TC_24_FillContactDetails - ==================================
+03-07-2026 19:24:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:24:00 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+03-07-2026 19:24:00 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:24:01 ERROR utils.TestListener - testFetchPlanResult FAILED
+03-07-2026 19:24:01 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260703_192401.png
+03-07-2026 19:24:01 INFO  utils.TestListener - Screenshot captured
+03-07-2026 19:24:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+03-07-2026 19:24:01 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+03-07-2026 19:24:01 INFO  tests.TC_25_FetchPlanResult - ==================================
+06-07-2026 10:06:36 INFO  tests.TC_23_SelectMembers - ========== Browser Launch Started ==========
+06-07-2026 10:06:51 INFO  tests.TC_23_SelectMembers - Browser launched successfully
+06-07-2026 10:07:02 INFO  tests.TC_23_SelectMembers - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 10:07:02 INFO  tests.TC_23_SelectMembers - ========== Setup Completed ==========
+06-07-2026 10:07:02 INFO  tests.TC_23_SelectMembers - ==================================
+06-07-2026 10:07:02 INFO  tests.TC_23_SelectMembers - Test Execution Started
+06-07-2026 10:07:02 INFO  tests.TC_23_SelectMembers - ==================================
+06-07-2026 10:07:08 INFO  utils.TestListener - testAddMembers PASSED
+06-07-2026 10:07:08 INFO  tests.TC_23_SelectMembers - ==================================
+06-07-2026 10:07:08 INFO  tests.TC_23_SelectMembers - Test Execution Completed
+06-07-2026 10:07:08 INFO  tests.TC_23_SelectMembers - ==================================
+06-07-2026 10:07:08 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 10:07:08 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+06-07-2026 10:07:08 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 10:07:24 INFO  utils.TestListener - fillContactDetails PASSED
+06-07-2026 10:07:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 10:07:24 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+06-07-2026 10:07:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 10:07:24 INFO  tests.TC_25_FetchPlanResult - ==================================
+06-07-2026 10:07:24 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+06-07-2026 10:07:24 INFO  tests.TC_25_FetchPlanResult - ==================================
+06-07-2026 10:07:25 INFO  utils.TestListener - testFetchPlanResult PASSED
+06-07-2026 10:07:25 INFO  tests.TC_25_FetchPlanResult - ==================================
+06-07-2026 10:07:25 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+06-07-2026 10:07:25 INFO  tests.TC_25_FetchPlanResult - ==================================

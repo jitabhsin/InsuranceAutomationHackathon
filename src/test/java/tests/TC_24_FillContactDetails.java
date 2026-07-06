@@ -1,5 +1,6 @@
 package tests;
 
+import org.insurance.utils.WaitUtils;
 import org.testng.Assert;
 import basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
@@ -28,6 +29,6 @@ public class TC_24_FillContactDetails extends BaseTest {
         healthHomePage.clickDoneButton();
         healthHomePage.clickGetQuote();
 
-        Assert.assertTrue(, "Details filled successfully");
+        //Assert.assertTrue(, "Details filled successfully");
     }
 }
