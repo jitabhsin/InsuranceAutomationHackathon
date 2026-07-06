@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 06-07-2026 15:00:22 INFO  tests.TC_16VerifyPlanPricing - ========== Browser Launch Started ==========
 06-07-2026 15:00:25 INFO  tests.TC_16VerifyPlanPricing - Browser launched successfully
 06-07-2026 15:00:36 INFO  tests.TC_16VerifyPlanPricing - Navigated to URL: https://www.icicilombard.com/
@@ -72,3 +73,15 @@ TAMILNADU-TIRUNELVELI] (After Personal Protect Add)
 06-07-2026 15:01:12 INFO  tests.TC_16VerifyPlanPricing - ==================================
 06-07-2026 15:01:12 INFO  tests.TC_16VerifyPlanPricing - Closing browser
 06-07-2026 15:01:17 INFO  tests.TC_16VerifyPlanPricing - Browser closed successfully
+=======
+06-07-2026 14:45:21 INFO  tests.TC_19VerifyInformationBelow - ========== Browser Launch Started ==========
+06-07-2026 14:45:24 INFO  tests.TC_19VerifyInformationBelow - Browser launched successfully
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ========== Setup Completed ==========
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Test Execution Started
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - Test Execution Completed
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
+>>>>>>> 30df1db811ec94015f6c05810efce2eeaf56231b
