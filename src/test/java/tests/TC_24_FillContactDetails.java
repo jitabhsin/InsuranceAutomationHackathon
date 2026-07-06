@@ -22,7 +22,7 @@ public class TC_24_FillContactDetails extends BaseTest {
         healthHomePage.clickHealthTab();
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
-        System.out.println("Contact detail button is displayed");
+        logger.info("Contact detail button is displayed");
 
         healthHomePage.clickContactDetails();
         healthHomePage.enterMobileNo(mobileNo);
@@ -31,7 +31,7 @@ public class TC_24_FillContactDetails extends BaseTest {
         healthHomePage.enterName(name);
 
         Assert.assertTrue(healthHomePage.isDoneButtonDisplayed(), "Done Button is not displayed");
-        System.out.println("Done button is displayed");
+        logger.info("Done button is displayed");
         healthHomePage.clickDoneButton();
         healthHomePage.clickGetQuote();
     }
