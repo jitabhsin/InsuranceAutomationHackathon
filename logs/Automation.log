@@ -1,10 +1,10 @@
-06-07-2026 10:00:04 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
-06-07-2026 10:00:12 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 11:10:47 INFO  tests.TC_21_ClickHealthButton - ========== Browser Launch Started ==========
+06-07-2026 11:10:52 INFO  tests.TC_21_ClickHealthButton - Browser launched successfully
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - ========== Setup Completed ==========
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - Test Execution Started
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - Test Execution Completed
+06-07-2026 11:11:02 INFO  tests.TC_21_ClickHealthButton - ==================================
