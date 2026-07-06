@@ -16,10 +16,9 @@ public class TC_24_FillContactDetails extends BaseTest {
     }
 
     @Test(dataProvider = "healthData")
-    public void fillContactDetails(String name, String mobileNo, String email, String pincode, String dob){
+    public void fillContactDetails(String name, String mobileNo, String email, String pincode, String product, String member, String dob){
 
         healthHomePage = new HealthHomePage(driver);
-        healthHomePage.clearContactDetails();
         healthHomePage.clickHealthTab();
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
@@ -34,7 +33,6 @@ public class TC_24_FillContactDetails extends BaseTest {
         Assert.assertTrue(healthHomePage.isDoneButtonDisplayed(), "Done Button is not displayed");
         System.out.println("Done button is displayed");
         healthHomePage.clickDoneButton();
-
-        //Assert.assertTrue(, "Details filled successfully");
+        healthHomePage.clickGetQuote();
     }
 }
