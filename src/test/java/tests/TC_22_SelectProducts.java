@@ -11,11 +11,9 @@ public class TC_22_SelectProducts extends BaseTest {
     @Test
     public void testSelectProducts(){
         healthHomePage = new HealthHomePage(driver);
+        String actual = healthHomePage.selectProduct("Elevate");
 
-        healthHomePage.clickProductDropdwn();
-        String actual = healthHomePage.selectProduct("Activate Booster");
-
-        Assert.assertEquals(actual, "Activate Booster");
-        System.out.println("Activate Booster selected");
+        Assert.assertEquals(actual, "Elevate");
+        System.out.println("Elevate selected");
     }
 }
