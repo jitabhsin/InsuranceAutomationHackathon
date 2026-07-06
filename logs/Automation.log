@@ -1,10 +1,26 @@
-06-07-2026 10:00:04 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
-06-07-2026 10:00:12 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 10:34:14 INFO  tests.TC_13AfterNavigateWithoutData - ========== Browser Launch Started ==========
+06-07-2026 10:34:21 INFO  tests.TC_13AfterNavigateWithoutData - Browser launched successfully
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - ========== Setup Completed ==========
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - ==================================
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - Test Execution Started
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - ==================================
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - TC_13 - Verify New Vehicle Validation Messages Started
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - Test data loaded from config.properties
+06-07-2026 10:34:38 INFO  tests.TC_13AfterNavigateWithoutData - Navigated to Car Insurance page
+06-07-2026 10:34:44 INFO  tests.TC_13AfterNavigateWithoutData - Clicked New Vehicle link
+06-07-2026 10:34:44 INFO  tests.TC_13AfterNavigateWithoutData - New Vehicle page displayed successfully
+06-07-2026 10:34:44 INFO  tests.TC_13AfterNavigateWithoutData - Mobile Number field displayed successfully
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Email field displayed successfully
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Clicking Get Quote without entering any data
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Blank Mobile Error : Please enter a valid mobile number
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Blank Email Error : Please enter valid email id
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Blank field validations verified successfully
+06-07-2026 10:34:45 INFO  tests.TC_13AfterNavigateWithoutData - Entering invalid mobile and email
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - Invalid Mobile Error : Please enter a valid mobile number
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - Invalid Email Error : Please enter valid email id
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - Invalid data validations verified successfully
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - TC_13 PASSED
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - ==================================
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - Test Execution Completed
+06-07-2026 10:34:47 INFO  tests.TC_13AfterNavigateWithoutData - ==================================
