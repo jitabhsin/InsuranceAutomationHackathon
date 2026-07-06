@@ -86,7 +86,6 @@ public class HealthHomePage {
     }
 
     public String selectProduct(String productName){
-        System.out.println(productOptions.size());
         for(WebElement element : productOptions){
             if(element.getText().trim().equalsIgnoreCase(productName)){
                 waitUtils.waitForClickable(element).click();
@@ -159,6 +158,10 @@ public class HealthHomePage {
 
     public void clickDoneButton(){
         doneButton.click();
+    }
+
+    public void clearContactDetails(){
+        driver.navigate().refresh();
     }
 
     public void clickGetQuote(){

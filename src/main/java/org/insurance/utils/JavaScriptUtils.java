@@ -14,6 +14,10 @@ public class JavaScriptUtils {
         this.js = (JavascriptExecutor) driver;
     }
 
+    public void scrollToElement(WebElement element) {
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+    }
+
     public void jsClick(WebElement element) {
         js.executeScript("arguments[0].click();", element);
     }
