@@ -18,13 +18,6 @@
 
             logger.info("========== Browser Launch Started ==========");
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-blink-features=AutomationControlled");
-            options.setExperimentalOption(
-                    "excludeSwitches",
-                    new String[]{"enable-automation"});
-            options.setExperimentalOption(
-                    "useAutomationExtension",
-                    false);
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             logger.info("Browser launched successfully");
