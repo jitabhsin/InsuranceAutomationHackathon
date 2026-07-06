@@ -1,6 +1,6 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
