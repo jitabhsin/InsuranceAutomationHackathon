@@ -1,55 +1,85 @@
 package tests;
 
 import basetest.BaseTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import utils.ConfigReader;
+import utils.ExcelReader;
 
 public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
+
+    private static final Logger logger = LogManager.getLogger(TC_03_VerifyNonImmigrantCheckBox.class);
+
     HomePage homePage;
     TravelHomePage travelHomePage;
 
     @Test
-    public void verifyNonImmigrantCheckBox(){
+    public void verifyNonImmigrantCheckBox() {
+        ExcelReader excel = new ExcelReader();
+        Object[] data = excel.readSheetTravelFirstRow();
+
+        String country   = data[0].toString();
+        String startDate   = data[1].toString();
+        String endDate  = data[2].toString();
+
+        logger.info("TC_03 - Verify Non-Immigrant Check Box Started");
+
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-        SoftAssert softAssert = new SoftAssert();
+
+        logger.info("Navigating to Travel Insurance page");
 
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
-        boolean isDateSubmitPresent = travelHomePage.isSubmitButtonPresent();
 
-        travelHomePage.selectCountry(ConfigReader.getProperty("country"));
+        logger.info("Selecting country: {}", country);
+        travelHomePage.selectCountry(country);
+
         String selectedCountry = travelHomePage.getSelectedCountry();
-        System.out.println("Selected Country: " + selectedCountry);
+        logger.info("Selected Country: {}", selectedCountry);
 
+        Assert.assertEquals(selectedCountry, country, "Selected country does not match expected country");
+
+        logger.info("Opening travel date calendar");
         travelHomePage.selectStartAndEndDateElement.click();
-        boolean isCalenderOpen = travelHomePage.isCalenderOpen();
 
-        Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
+        Assert.assertTrue(travelHomePage.isCalenderOpen(),"Calendar is NOT opened");
 
-        travelHomePage.selectStartDate(ConfigReader.getProperty("startDate"));
-        travelHomePage.selectEndDate(ConfigReader.getProperty("endDate"));
-        System.out.println(travelHomePage.retrieveTripDuration());
+        logger.info("Selecting travel dates");
 
+        travelHomePage.selectStartDate(startDate);
+        travelHomePage.selectEndDate(endDate);
+
+        logger.info("Trip Duration: {}", travelHomePage.retrieveTripDuration());
+
+        logger.info("Selecting Non-Immigrant checkbox");
         travelHomePage.selectNonImmigrantCheckBox();
-        travelHomePage.retrieveAlertMessage();
+
+        String alertMessage =travelHomePage.retrieveAlertMessage();
+        logger.info("Alert Message: {}", alertMessage);
 
         boolean isAlertFrameOpened = travelHomePage.attentionFrameDisplayed();
         boolean isOkButtonPresent = travelHomePage.verifyOkButtonPresence();
+
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertTrue(isAlertFrameOpened,"Attention frame is NOT displayed");
+        softAssert.assertTrue(isOkButtonPresent,"OK button is NOT displayed");
+
+        logger.info("Clicking OK button");
         travelHomePage.okButton.click();
+
         boolean isEndDateOptionAvailable = travelHomePage.verifyEndDateOptionAvailableAgain();
 
-        softAssert.assertTrue(isAlertFrameOpened, "Attention Frame NOT opened and displayed");
-        softAssert.assertTrue(isOkButtonPresent, "Ok Button NOT displayed");
-        softAssert.assertTrue(isEndDateOptionAvailable, "End Date Option NOT displayed");
+        softAssert.assertTrue(isEndDateOptionAvailable,"End Date option is NOT displayed after closing alert");
         softAssert.assertAll();
-    }
 
+        logger.info("Non-Immigrant checkbox validation completed successfully");
+        logger.info("TC_03 PASSED");
+    }
 }
