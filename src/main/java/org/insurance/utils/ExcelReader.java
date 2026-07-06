@@ -1,4 +1,4 @@
-package utils;
+package org.insurance.utils;
 
 import java.io.FileInputStream;
 
