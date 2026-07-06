@@ -1,15 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-
 <suite name="Travel Suite">
-
     <listeners>
         <listener class-name="utils.TestListener"/>
     </listeners>
-
-    <test name="Car Insurance TC14 TC15">
+    <test name="All Tests">
         <classes>
-            <class name="tests.TC_14SelectCarAndModel"/>
-            <class name="tests.TC_15VerifyPlansPage"/>
+            <class name="tests.TC_21_ClickHealthButton"/>
+            <class name="tests.TC_22_SelectProducts"/>
+            <class name="tests.TC_23_SelectMembers"/>
+            <class name="tests.TC_24_FillContactDetails"/>
+            <class name="tests.TC_25_FetchPlanResult"/>
         </classes>
     </test>
 
