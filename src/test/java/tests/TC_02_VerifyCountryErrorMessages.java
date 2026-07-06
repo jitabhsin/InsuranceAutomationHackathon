@@ -1,6 +1,12 @@
 package tests;
 
+<<<<<<< HEAD
 import org.insurance.basetest.BaseTest;
+=======
+import basetest.BaseTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+>>>>>>> 42a42db32d10d3d1afa2ff4165a0b855e529a612
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
@@ -10,16 +16,27 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 
 public class TC_02_VerifyCountryErrorMessages extends BaseTest {
+
+    private static final Logger logger = LogManager.getLogger(TC_02_VerifyCountryErrorMessages.class);
+
     HomePage homePage;
     TravelHomePage travelHomePage;
 
     @Test
-    public void verifyErrorMessagesWithNoInput(){
+    public void verifyErrorMessagesWithNoInput() {
+
+        logger.info("TC_02 - Verify Country Error Messages Started");
+
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+
+        logger.info("Navigating to Travel Insurance page");
+
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
+
+        logger.info("Submitting form without entering any details");
 
         travelHomePage.dateSubmitButton.click();
 
@@ -31,20 +48,27 @@ public class TC_02_VerifyCountryErrorMessages extends BaseTest {
         String actualStartDateError = travelHomePage.retrieveStartDateError();
         String actualEndDateError = travelHomePage.retrieveEndDateError();
 
+        logger.info("Validation messages captured successfully");
+
         List<String> listOfErrors = travelHomePage.listAllErrorMessages();
-        System.out.println("Error Messages: ");
-        for(String str : listOfErrors){
-            System.out.println(str);
+
+        logger.info("Displaying all validation messages");
+
+        for (String error : listOfErrors) {
+            logger.info(error);
         }
 
-        boolean isErrorsDisplayed = travelHomePage.countryErrorMessagesDisplayed();
-        Assert.assertTrue(isErrorsDisplayed, "Errors NOT displayed");
-        Assert.assertNull(travelHomePage.verifyNoCountrySelected(),"Country Selected in the TextBox");
+        Assert.assertTrue(travelHomePage.countryErrorMessagesDisplayed(),"Validation errors are not displayed");
+        Assert.assertTrue(travelHomePage.isNoCountrySelected(), "A country is already selected");
 
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actualCountryError, expectedCountryError);
-        softAssert.assertEquals(actualStartDateError, expectedStartDateError);
-        softAssert.assertEquals(actualEndDateError, expectedEndDateError);
+
+        softAssert.assertEquals(actualCountryError, expectedCountryError, "Country validation message mismatch");
+        softAssert.assertEquals(actualStartDateError, expectedStartDateError,"Start Date validation message mismatch");
+        softAssert.assertEquals(actualEndDateError, expectedEndDateError, "End Date validation message mismatch");
         softAssert.assertAll();
+
+        logger.info("All validation messages verified successfully");
+        logger.info("TC_02 PASSED");
     }
 }
