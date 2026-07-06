@@ -1,7 +1,6 @@
 package tests;
 
-import basetest.BaseTest;
-import com.fasterxml.jackson.databind.ser.Serializers;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;

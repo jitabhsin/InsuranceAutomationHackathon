@@ -1,14 +1,12 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import utils.ConfigReader;
+import org.insurance.utils.ConfigReader;
 
 public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
     HomePage homePage;
