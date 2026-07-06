@@ -129,45 +129,26 @@ public class ExcelReader {
 
             Sheet sheet = workbook.getSheet("Health");
 
-            if (sheet == null) {
-                throw new RuntimeException("No sheet named 'Health' found in " + path
-                        + ". Available sheets: " + getSheetNames(workbook));
-            }
+            int rows = sheet.getPhysicalNumberOfRows();
+            int cols = sheet.getRow(0).getLastCellNum();
 
-            if (sheet.getLastRowNum() < 0) {
-                throw new RuntimeException("Sheet 'Health' in " + path
-                        + " has no rows. Make sure the file on disk actually has the header"
-                        + " and data saved into this sheet.");
-            }
-
-            int headerRowIndex = sheet.getFirstRowNum();
-            while (sheet.getRow(headerRowIndex) == null && headerRowIndex <= sheet.getLastRowNum()) {
-                headerRowIndex++;
-            }
-
-            if (sheet.getRow(headerRowIndex) == null) {
-                throw new RuntimeException("Could not find a header row in sheet 'Health' of " + path);
-            }
-
-            int cols = sheet.getRow(headerRowIndex).getLastCellNum();
-            int lastRowNum = sheet.getLastRowNum();
+            Object[][] data = new Object[rows - 1][cols];
 
             DataFormatter formatter = new DataFormatter();
-            java.util.List<Object[]> rowsList = new java.util.ArrayList<>();
 
-            for (int i = headerRowIndex + 1; i < lastRowNum; i++) {
-                Row row = sheet.getRow(i);
-                if (row == null) {
-                    continue;
-                }
-                Object[] rowData = new Object[cols];
+            for (int i = 1; i < rows; i++) {
+
+                System.out.println("ROW " + i);
+
                 for (int j = 0; j < cols; j++) {
-                    rowData[j] = formatter.formatCellValue(row.getCell(j));
-                }
-                rowsList.add(rowData);
-            }
 
-            return rowsList.toArray(new Object[0][]);
+                    data[i - 1][j] = formatter.formatCellValue(sheet.getRow(i).getCell(j));
+
+                    System.out.println(
+                            "COL " + j + " = " + data[i - 1][j]);
+                }
+            }
+            return data;
 
         } catch (Exception e) {
             throw new RuntimeException(e);
