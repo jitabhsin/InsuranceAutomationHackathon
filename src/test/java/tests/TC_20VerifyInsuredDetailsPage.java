@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC_20VerifyInsuredDetailsPage extends BaseTest {
-
     private static final Logger logger =
             LogManager.getLogger(TC_20VerifyInsuredDetailsPage.class);
 
