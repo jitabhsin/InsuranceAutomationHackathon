@@ -1,73 +1,10 @@
-06-07-2026 12:57:38 INFO  tests.TC_04_VerifySelectedCountry - ========== Browser Launch Started ==========
-06-07-2026 12:57:42 INFO  tests.TC_04_VerifySelectedCountry - Browser launched successfully
-06-07-2026 12:57:48 INFO  tests.TC_04_VerifySelectedCountry - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 12:57:48 INFO  tests.TC_04_VerifySelectedCountry - ========== Setup Completed ==========
-06-07-2026 12:57:48 INFO  tests.TC_04_VerifySelectedCountry - Reading travel test data from Excel
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - TC_04 - Verify Selected Country Started
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - Input data validation passed
-06-07-2026 12:57:49 INFO  tests.TC_04_VerifySelectedCountry - Navigating to Travel Insurance
-06-07-2026 12:57:55 INFO  tests.TC_04_VerifySelectedCountry - Travel Insurance page loaded
-06-07-2026 12:57:55 INFO  tests.TC_04_VerifySelectedCountry - Selecting country: France
-06-07-2026 12:57:56 INFO  tests.TC_04_VerifySelectedCountry - Selected Country: France
-06-07-2026 12:57:56 INFO  tests.TC_04_VerifySelectedCountry - Country validation completed
-06-07-2026 12:57:56 INFO  tests.TC_04_VerifySelectedCountry - Selecting travel dates
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Trip Duration: Trip Duration: 32 Days
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Successfully redirected to Traveller Count page
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - TC_04 PASSED
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - TC_04 - Verify Selected Country Started
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Input data validation passed
-06-07-2026 12:57:57 INFO  tests.TC_04_VerifySelectedCountry - Navigating to Travel Insurance
-06-07-2026 12:58:02 INFO  tests.TC_04_VerifySelectedCountry - Travel Insurance page loaded
-06-07-2026 12:58:02 INFO  tests.TC_04_VerifySelectedCountry - Selecting country: Germany
-06-07-2026 12:58:03 INFO  tests.TC_04_VerifySelectedCountry - Selected Country: Germany
-06-07-2026 12:58:03 INFO  tests.TC_04_VerifySelectedCountry - Country validation completed
-06-07-2026 12:58:03 INFO  tests.TC_04_VerifySelectedCountry - Selecting travel dates
-06-07-2026 12:58:04 INFO  tests.TC_04_VerifySelectedCountry - Trip Duration: Trip Duration: 14 Days
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - Successfully redirected to Traveller Count page
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - TC_04 PASSED
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - TC_04 - Verify Selected Country Started
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - Input data validation passed
-06-07-2026 12:58:05 INFO  tests.TC_04_VerifySelectedCountry - Navigating to Travel Insurance
-06-07-2026 12:58:08 INFO  tests.TC_04_VerifySelectedCountry - Travel Insurance page loaded
-06-07-2026 12:58:08 INFO  tests.TC_04_VerifySelectedCountry - Selecting country: Italy
-06-07-2026 12:58:08 INFO  tests.TC_04_VerifySelectedCountry - Selected Country: Italy
-06-07-2026 12:58:08 INFO  tests.TC_04_VerifySelectedCountry - Country validation completed
-06-07-2026 12:58:09 INFO  tests.TC_04_VerifySelectedCountry - Selecting travel dates
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Trip Duration: Trip Duration: 15 Days
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Successfully redirected to Traveller Count page
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - TC_04 PASSED
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Started
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - TC_04 - Verify Selected Country Started
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Input data validation passed
-06-07-2026 12:58:10 INFO  tests.TC_04_VerifySelectedCountry - Navigating to Travel Insurance
-06-07-2026 12:58:13 INFO  tests.TC_04_VerifySelectedCountry - Travel Insurance page loaded
-06-07-2026 12:58:13 INFO  tests.TC_04_VerifySelectedCountry - Selecting country: Spain
-06-07-2026 12:58:14 INFO  tests.TC_04_VerifySelectedCountry - Selected Country: Spain
-06-07-2026 12:58:14 INFO  tests.TC_04_VerifySelectedCountry - Country validation completed
-06-07-2026 12:58:14 INFO  tests.TC_04_VerifySelectedCountry - Selecting travel dates
-06-07-2026 12:58:15 INFO  tests.TC_04_VerifySelectedCountry - Trip Duration: Trip Duration: 99 Days
-06-07-2026 12:58:16 INFO  tests.TC_04_VerifySelectedCountry - Successfully redirected to Traveller Count page
-06-07-2026 12:58:16 INFO  tests.TC_04_VerifySelectedCountry - TC_04 PASSED
-06-07-2026 12:58:16 INFO  tests.TC_04_VerifySelectedCountry - ==================================
-06-07-2026 12:58:16 INFO  tests.TC_04_VerifySelectedCountry - Test Execution Completed
-06-07-2026 12:58:16 INFO  tests.TC_04_VerifySelectedCountry - ==================================
+06-07-2026 12:58:40 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
+06-07-2026 12:58:45 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
