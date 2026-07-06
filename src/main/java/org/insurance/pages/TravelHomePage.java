@@ -1,5 +1,6 @@
 package org.insurance.pages;
 
+import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.insurance.utils.WaitUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +29,6 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//input[@placeholder='Add countries']")
     public WebElement selectCountryText;
-
-    @FindBy(xpath = "//span[text()='France']")
-    public WebElement selectedCountryText;
 
     @FindBy(xpath="//input[@class='tel date-bg-input val-mob val-req numeric cal-popup ng-untouched ng-pristine ng-valid']")
     public WebElement selectStartAndEndDateElement;
@@ -99,7 +96,7 @@ public class TravelHomePage {
     @FindBy(xpath = "//a[@class='il-con-close']")
     public List<WebElement> selectedCountryElements;
 
-    @FindBy(xpath = "//input[@class='ng-touched ng-dirty ng-invalid']")
+    @FindBy(xpath = "//input[@class='ng-untouched ng-pristine ng-invalid']")
     public List<WebElement> selectedTravellerElements;
 
     @FindBy(xpath = "//a[@class='primary-btn']")
@@ -125,20 +122,33 @@ public class TravelHomePage {
         }
     }
 
-    public String getSelectedCountry(){
-        return waitUtils.waitForVisibility(selectedCountryText).getText().trim();
+    public String getSelectedCountry() {
+        By locator = By.xpath("//span[text()='" + countryName + "']");
+        return driver.findElement(locator).getText();
     }
 
-    public boolean isCountrySelectedCorrectly(){
-        try{
-            return selectedCountryText.getText().equals(countryName);
-        } catch (Exception e){
+    public boolean isCountrySelectedCorrectly() {
+        try {
+            By locator = By.xpath("//span[text()='" + countryName + "']");
+            return driver.findElement(locator).getText().equals(countryName);
+        } catch (Exception e) {
             return false;
         }
     }
+
+    public boolean isNoCountrySelected() {
+        try {
+            By locator = By.xpath("//span[text()='" + countryName + "']");
+            return driver.findElement(locator).getText().trim().isEmpty();
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
+
     public boolean isSelectTravelTypeVisible(){
         try{
-            return waitUtils.waitForVisibility(selectCountryText).isDisplayed();
+            return waitUtils.waitForVisibility(selectCountryElement).isDisplayed();
         } catch (Exception e){
             return false;
         }
@@ -169,6 +179,7 @@ public class TravelHomePage {
             }
         }
     }
+
 
     public void selectStartDate(String startDate){
         String[] dateSeperator = startDate.split(",");
@@ -288,12 +299,6 @@ public class TravelHomePage {
         return list;
     }
 
-    public WebElement verifyNoCountrySelected() {
-        return selectedCountryElements.isEmpty()
-                ? null
-                : selectedCountryElements.get(0);
-    }
-
     public String retrieveCountryError(){
         return allCountryErrorElements.get(0).getText();
     }
@@ -319,15 +324,11 @@ public class TravelHomePage {
     }
 
     public WebElement verifyNoNumberSelected() {
-        return selectedTravellerElements.isEmpty()
-                ? null
-                : selectedTravellerElements.get(0);
+        return selectedTravellerElements.isEmpty() ? null : selectedTravellerElements.get(0);
     }
 
     public WebElement verifyNoEmailSelected() {
-        return selectedTravellerElements.isEmpty()
-                ? null
-                : selectedTravellerElements.get(1);
+        return selectedTravellerElements.isEmpty() ? null : selectedTravellerElements.get(1);
     }
 
     public String retrieveMobileError(){
@@ -362,9 +363,9 @@ public class TravelHomePage {
         }
     }
 
-    public void retrieveAlertMessage(){
-        System.out.println(nonImmigrantAttention.getText());
-        System.out.println(nonImmigrantInformation.getText());
+    public String retrieveAlertMessage(){
+        String alertMessage = nonImmigrantAttention.getText() + "\n" + nonImmigrantInformation.getText();
+        return alertMessage;
     }
 
     public boolean verifyEndDateOptionAvailableAgain(){

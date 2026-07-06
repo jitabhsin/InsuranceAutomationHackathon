@@ -1,13 +1,13 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.ConfigReader;
+import org.insurance.utils.ConfigReader;
 
 public class TC_13AfterNavigateWithoutData extends BaseTest {
 

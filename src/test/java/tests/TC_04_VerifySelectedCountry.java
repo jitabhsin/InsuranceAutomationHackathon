@@ -1,59 +1,108 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import utils.ConfigReader;
+import org.insurance.utils.ConfigReader;
+import org.insurance.utils.ExcelReader;
 
 public class TC_04_VerifySelectedCountry extends BaseTest {
+
+    private static final Logger logger = LogManager.getLogger(TC_04_VerifySelectedCountry.class);
+
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-    @Test
-    public void verifyAndDisplaySelectedCountry(){
+    @DataProvider(name = "travelData")
+    public Object[][] getData() {
+        logger.info("Reading travel test data from Excel");
+        ExcelReader excel = new ExcelReader();
+        return excel.readSheetTravel();
+    }
+
+    @Test(dataProvider = "travelData")
+    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
+
+        logger.info("TC_04 - Verify Selected Country Started");
+
+        Assert.assertFalse(country.trim().isEmpty(),"Country is empty");
+        Assert.assertFalse(startDate.trim().isEmpty(),"Start Date is empty");
+        Assert.assertFalse(endDate.trim().isEmpty(),"End Date is empty");
+        Assert.assertFalse(travellerCount.trim().isEmpty(),"Traveller Count is empty");
+        Assert.assertFalse(travellerAges.trim().isEmpty(),"Traveller Ages are empty");
+
+        logger.info("Input data validation passed");
+
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+
+        if (!driver.getCurrentUrl().contains("travel-insurance") || travelHomePage.contactNumber.isDisplayed()) {
+
+            logger.info("Navigating to Travel Insurance");
+
+            driver.get(ConfigReader.getProperty("baseUrl"));
+
+            homePage.clickTravelInsurance();
+            homePage.clickTravelScope();
+            homePage.clickOtherCountries();
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),"Travel Insurance page not loaded");
+        }
+
+        logger.info("Travel Insurance page loaded");
+
         SoftAssert softAssert = new SoftAssert();
 
-        homePage.clickTravelInsurance();
-        homePage.clickTravelScope();
-        homePage.clickOtherCountries();
         boolean isDateSubmitPresent = travelHomePage.isSubmitButtonPresent();
 
-        travelHomePage.selectCountry(ConfigReader.getProperty("country"));
+        logger.info("Selecting country: {}", country);
+        travelHomePage.selectCountry(country);
+
         String selectedCountry = travelHomePage.getSelectedCountry();
-        System.out.println("Selected Country: " + selectedCountry);
+        logger.info("Selected Country: {}", selectedCountry);
+
         boolean isDisplayed = travelHomePage.isSelectTravelTypeVisible();
         boolean isClicked = travelHomePage.isSelectTravelTypeSelected();
         boolean isSelected = travelHomePage.isCountrySelectedCorrectly();
 
-        softAssert.assertTrue(isDisplayed, "Select Country Type not Visible");
-        softAssert.assertTrue(isClicked, "Select Country Type has not been Selected");
-        softAssert.assertTrue(isSelected, "Wrong Country has been selected");
-        softAssert.assertEquals(selectedCountry, ConfigReader.getProperty("country"), "Selected country does not match expected country");
-        softAssert.assertAll();
+        softAssert.assertTrue(isDisplayed,"Select Country field not visible");
+        softAssert.assertTrue(isClicked,"Country field not clicked");
+        softAssert.assertTrue(isSelected,"Wrong country selected");
+        softAssert.assertEquals(selectedCountry, country,"Selected country does not match expected country");
+
+        logger.info("Country validation completed");
 
         String termsStatus = travelHomePage.getTermsStatus();
+
         travelHomePage.selectStartAndEndDateElement.click();
-        boolean isCalenderOpen = travelHomePage.isCalenderOpen();
 
-        travelHomePage.selectStartDate(ConfigReader.getProperty("startDate"));
-        travelHomePage.selectEndDate(ConfigReader.getProperty("endDate"));
-        System.out.println(travelHomePage.retrieveTripDuration());
+        boolean isCalendarOpen = travelHomePage.isCalenderOpen();
+
+        logger.info("Selecting travel dates");
+
+        travelHomePage.selectStartDate(startDate);
+        travelHomePage.selectEndDate(endDate);
+
+        logger.info("Trip Duration: {}", travelHomePage.retrieveTripDuration());
+
         travelHomePage.submitDate();
+        boolean isRedirected = travelHomePage.isRedirectedToSelectTravellerCount();
 
-        boolean verifyTravelCountRedirection = travelHomePage.isRedirectedToSelectTravellerCount();
+        softAssert.assertEquals(termsStatus, "CHECKED", "Terms checkbox should be checked");
 
-        softAssert.assertEquals(termsStatus, "CHECKED", "Terms checkbox should be unchecked");
+        Assert.assertTrue(isCalendarOpen,"Calendar not opened");
+        Assert.assertTrue(isDateSubmitPresent,"Submit button not present");
+        Assert.assertTrue(isRedirected,"Traveller Count page not loaded");
+        softAssert.assertAll();
 
-        Assert.assertTrue(isCalenderOpen, "Calendar NOT Opened");
-        Assert.assertTrue(isDateSubmitPresent, "Date Submit Button NOT Present");
-        Assert.assertTrue(verifyTravelCountRedirection, "Traveller Count Selection NOT loaded");
+        logger.info("Successfully redirected to Traveller Count page");
 
+        logger.info("TC_04 PASSED");
     }
-
 }

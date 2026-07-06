@@ -1,12 +1,12 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.ExcelReader;
+import org.insurance.utils.ExcelReader;
 
 import java.util.List;
 

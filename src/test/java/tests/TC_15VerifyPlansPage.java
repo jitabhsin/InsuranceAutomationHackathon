@@ -1,11 +1,11 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.ExcelReader;
+import org.insurance.utils.ExcelReader;
 
 public class TC_15VerifyPlansPage extends BaseTest {
 
