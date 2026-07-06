@@ -1,10 +1,10 @@
-06-07-2026 14:45:21 INFO  tests.TC_19VerifyInformationBelow - ========== Browser Launch Started ==========
-06-07-2026 14:45:24 INFO  tests.TC_19VerifyInformationBelow - Browser launched successfully
-06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ========== Setup Completed ==========
-06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
-06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Test Execution Started
-06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
-06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
-06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - Test Execution Completed
-06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 15:00:41 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Browser Launch Started ==========
+06-07-2026 15:00:45 INFO  tests.TC_20VerifyInsuredDetailsPage - Browser launched successfully
+06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ========== Setup Completed ==========
+06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Started
+06-07-2026 15:00:48 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
+06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - Test Execution Completed
+06-07-2026 15:01:11 INFO  tests.TC_20VerifyInsuredDetailsPage - ==================================
