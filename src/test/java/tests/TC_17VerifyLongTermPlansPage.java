@@ -47,7 +47,6 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         carPage.selectCarModel(model);
 
         Assert.assertTrue(driver.getCurrentUrl().contains("select-plans"),"User is not on Select Plans page");
-
         carPage.clickProceedBtnCity();
 
         boolean longTermSelected = carPage.selectLongTermPolicy();
