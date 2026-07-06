@@ -23,6 +23,8 @@ public class TC_22_SelectProducts extends BaseTest {
     @Test(dataProvider = "healthData")
     public void testSelectProducts(String product){
         healthHomePage = new HealthHomePage(driver);
+        int totalProduct = healthHomePage.clickProductDropdwn();
+        Assert.assertEquals(totalProduct, 3);
         String actual = healthHomePage.selectProduct(product);
 
         Assert.assertEquals(actual, product);
