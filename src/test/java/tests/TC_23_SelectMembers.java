@@ -25,6 +25,6 @@ public class TC_23_SelectMembers extends BaseTest {
 
         Assert.assertTrue(verifyClickDoneBtn, "Done button clicked");
         Assert.assertEquals(healthPage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
-        System.out.println("Members details are filled successfully");
+        logger.info("Members details are filled successfully");
     }
 }
