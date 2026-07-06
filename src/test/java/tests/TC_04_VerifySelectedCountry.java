@@ -43,8 +43,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
 
-
-        if (!driver.getCurrentUrl().contains("travel-insurance")) {
+        if (!driver.getCurrentUrl().contains("travel-insurance") || travelHomePage.contactNumber.isDisplayed()) {
 
             logger.info("Navigating to Travel Insurance");
 
