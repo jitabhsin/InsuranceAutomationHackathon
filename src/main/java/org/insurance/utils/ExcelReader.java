@@ -129,7 +129,7 @@ public class ExcelReader {
 
             Sheet sheet = workbook.getSheet("Health");
 
-            int rows = sheet.getPhysicalNumberOfRows();
+            int rows = sheet.getLastRowNum();
             int cols = sheet.getRow(0).getLastCellNum();
 
             Object[][] data = new Object[rows - 1][cols];
@@ -158,6 +158,11 @@ public class ExcelReader {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void main(String[] args){
+        ExcelReader health = new ExcelReader();
+        health.readSheetHealth();
     }
 
     private java.util.List<String> getSheetNames(Workbook workbook) {
