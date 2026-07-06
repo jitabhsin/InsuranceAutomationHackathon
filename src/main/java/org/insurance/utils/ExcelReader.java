@@ -10,6 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
     String path = "src/test/resources/data.xlsx";
+
     public String[][] readSheetTravel() {
 
         try (FileInputStream fis = new FileInputStream(path);
@@ -39,6 +40,28 @@ public class ExcelReader {
         }
     }
 
+    public Object[] readSheetTravelFirstRow() {
+
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheet("Travel");
+
+            int cols = sheet.getRow(0).getLastCellNum();
+            Object[] rowData = new Object[cols];
+
+            DataFormatter formatter = new DataFormatter();
+
+            for (int j = 0; j < cols; j++) {
+                rowData[j] = formatter.formatCellValue(sheet.getRow(1).getCell(j));
+            }
+
+            return rowData;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public Object[][] readSheetCar() {
 
