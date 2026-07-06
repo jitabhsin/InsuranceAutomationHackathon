@@ -1,10 +1,10 @@
-06-07-2026 12:58:40 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
-06-07-2026 12:58:45 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
-06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
-06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
-06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
-06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 14:45:21 INFO  tests.TC_19VerifyInformationBelow - ========== Browser Launch Started ==========
+06-07-2026 14:45:24 INFO  tests.TC_19VerifyInformationBelow - Browser launched successfully
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ========== Setup Completed ==========
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - Test Execution Started
+06-07-2026 14:45:27 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - Test Execution Completed
+06-07-2026 14:45:40 INFO  tests.TC_19VerifyInformationBelow - ==================================
