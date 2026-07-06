@@ -1,10 +1,16 @@
-06-07-2026 10:00:04 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
-06-07-2026 10:00:12 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
-06-07-2026 10:00:20 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
-06-07-2026 10:00:56 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 11:12:00 INFO  tests.TC_24_FillContactDetails - ========== Browser Launch Started ==========
+06-07-2026 11:12:08 INFO  tests.TC_24_FillContactDetails - Browser launched successfully
+06-07-2026 11:12:13 INFO  tests.TC_24_FillContactDetails - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 11:12:13 INFO  tests.TC_24_FillContactDetails - ========== Setup Completed ==========
+06-07-2026 11:12:16 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:16 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+06-07-2026 11:12:16 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - Test Execution Started
+06-07-2026 11:12:24 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:29 INFO  tests.TC_24_FillContactDetails - ==================================
+06-07-2026 11:12:29 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
+06-07-2026 11:12:29 INFO  tests.TC_24_FillContactDetails - ==================================

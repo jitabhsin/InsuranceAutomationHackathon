@@ -19,6 +19,7 @@ public class TC_24_FillContactDetails extends BaseTest {
     public void fillContactDetails(String name, String mobileNo, String email, String pincode, String dob){
 
         healthHomePage = new HealthHomePage(driver);
+        healthHomePage.clearContactDetails();
         healthHomePage.clickHealthTab();
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
@@ -32,10 +33,7 @@ public class TC_24_FillContactDetails extends BaseTest {
 
         Assert.assertTrue(healthHomePage.isDoneButtonDisplayed(), "Done Button is not displayed");
         System.out.println("Done button is displayed");
-
         healthHomePage.clickDoneButton();
-        healthHomePage.clearContactDetails();
-        healthHomePage.clickGetQuote();
 
         //Assert.assertTrue(, "Details filled successfully");
     }
