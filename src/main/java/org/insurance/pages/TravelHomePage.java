@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.insurance.utils.WaitUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TravelHomePage {
@@ -22,7 +23,6 @@ public class TravelHomePage {
     }
 
     String countryName = "";
-
 
     @FindBy(xpath="//label[@for='ilcountry']")
     public WebElement selectCountryElement;
@@ -48,20 +48,29 @@ public class TravelHomePage {
     @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
     public WebElement submitButton;
 
-    @FindBy(id="0")
-    public WebElement traveller1Age;
+    @FindBy(id = "mul-no")
+    public WebElement contactNumber;
 
-    @FindBy(id="1")
-    public WebElement traveller2Age;
+    @FindBy(id = "mul-em")
+    public WebElement email;
 
-    @FindBy(id="21")
-    public WebElement selectAge1;
+    @FindBy(xpath = "//span[text()='0-50 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement zeroTofiftyAgeGroup;
 
-    @FindBy(id="22")
-    public WebElement selectAge2;
+    @FindBy(xpath = "//span[text()='51-60 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement fiftyAgeGroup;
 
-    @FindBy(id="ped_no")
-    public WebElement diabetesCheckBox;
+    @FindBy(xpath = "//span[text()='61-70 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement sixtyAgeGroup;
+
+    @FindBy(xpath = "//span[text()='71-85 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    public WebElement seventyAboveAgeGroup;
+
+    @FindBy(id="//label[text()='No']")
+    public WebElement noHealthCheckBox;
+
+    @FindBy(id="//label[text()='Yes']")
+    public WebElement yesHealthCheckBox;
 
     @FindBy(xpath="//img[@class='cal-popup']")
     public WebElement nextMonthButton;
@@ -75,14 +84,38 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[@class='ui-field-info float-right']")
     public WebElement tripDurationElement;
 
-    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-valid']")
-    public WebElement termsChecked;
-
-    @FindBy(xpath="//input[@class='ng-dirty ng-touched ng-invalid']")
-    public WebElement termsUnChecked;
+    @FindBy(id="ml-check")
+    public WebElement termsCheckbox;
 
     @FindBy(xpath = "//h4[text()='Add travellers']")
     public WebElement verifyAddTraveller;
+
+    @FindBy(xpath = "//span[@class='il-ui-error text-center'] | //span[@class='error_message']")
+    public List<WebElement> allCountryErrorElements;
+
+    @FindBy(xpath = "//span[@class='error_message']")
+    public List<WebElement> allTravellerErrorElements;
+
+    @FindBy(xpath = "//a[@class='il-con-close']")
+    public List<WebElement> selectedCountryElements;
+
+    @FindBy(xpath = "//input[@class='ng-touched ng-dirty ng-invalid']")
+    public List<WebElement> selectedTravellerElements;
+
+    @FindBy(xpath = "//a[@class='primary-btn']")
+    public WebElement travellerSubmitButton;
+
+    @FindBy(xpath = "//label[text()='All the travellers have a non-immigrant visa']")
+    public WebElement nonImmigrantVisaElement;
+
+    @FindBy(xpath = "//h2[@class='text-bold']")
+    public WebElement nonImmigrantAttention;
+
+    @FindBy(xpath = "//p[starts-with(text(),' Please note that this policy is')]")
+    public WebElement nonImmigrantInformation;
+
+    @FindBy(xpath = "//a[text()='Ok']")
+    public WebElement okButton;
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -164,30 +197,21 @@ public class TravelHomePage {
     }
 
     public void selectTravellerCount(int count, int... ages) {
-
         if (ages.length < count) {
             throw new IllegalArgumentException(
                     "Number of ages must be equal to or greater than traveller count");
         }
 
-        if (count == 1) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_1']")).click();
-        } else if (count == 2) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_2']")).click();
-        } else if (count == 3) {
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_3']")).click();
-        } else if (count == 4){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_4']")).click();
-        } else if (count == 5){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_5']")).click();
-        } else if (count >= 6){
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='traveller_6_plus']")).click();
-        }
-
         for (int i = 0; i < count; i++) {
-            waitUtils.waitForVisibilityOfElementLocated(By.id(String.valueOf(i))).click();
-            String ageId = ages[i] + " years_undefined";
-            waitUtils.waitForVisibilityOfElementLocated(By.xpath("//label[@for='" + ageId + "']")).click();
+            if (ages[i] > 0 && ages[i] <= 50) {
+                waitUtils.waitForVisibility(zeroTofiftyAgeGroup).click();
+            } else if (ages[i] > 50 && ages[i] <= 60) {
+                waitUtils.waitForVisibility(fiftyAgeGroup).click();
+            } else if (ages[i] > 60 && ages[i] <= 70) {
+                waitUtils.waitForVisibility(sixtyAgeGroup).click();
+            } else if (ages[i] > 70 && ages[i] <= 85) {
+                waitUtils.waitForVisibility(seventyAboveAgeGroup).click();
+            }
         }
     }
 
@@ -244,18 +268,111 @@ public class TravelHomePage {
     }
 
     public String getTermsStatus() {
-        try {
-            if (termsUnChecked.isDisplayed()) {
-                return "UNCHECKED";
-            }
-        } catch (Exception ignored) {}
+        return termsCheckbox.isSelected() ? "CHECKED" : "UNCHECKED";
+    }
 
-        try {
-            if (termsChecked.isDisplayed()) {
-                return "CHECKED";
-            }
-        } catch (Exception ignored) {}
-        return "UNKNOWN";
+    public void providePersonalDetails(String number, String mailId){
+        contactNumber.sendKeys(number);
+        email.sendKeys(mailId);
+    }
+
+    public boolean countryErrorMessagesDisplayed(){
+        return !allCountryErrorElements.isEmpty();
+    }
+
+    public List<String> listAllErrorMessages(){
+        List<String> list = new ArrayList<>();
+        for(WebElement element : allCountryErrorElements){
+            list.add(element.getText());
+        }
+        return list;
+    }
+
+    public WebElement verifyNoCountrySelected() {
+        return selectedCountryElements.isEmpty()
+                ? null
+                : selectedCountryElements.get(0);
+    }
+
+    public String retrieveCountryError(){
+        return allCountryErrorElements.get(0).getText();
+    }
+
+    public String retrieveStartDateError(){
+        return allCountryErrorElements.get(1).getText();
+    }
+
+    public String retrieveEndDateError(){
+        return allCountryErrorElements.get(2).getText();
+    }
+
+    public boolean travellerErrorMessagesDisplayed(){
+        return !allTravellerErrorElements.isEmpty();
+    }
+
+    public List<String> listAllTravellerErrorMessages(){
+        List<String> list = new ArrayList<>();
+        for(WebElement element : allCountryErrorElements){
+            list.add(element.getText());
+        }
+        return list;
+    }
+
+    public WebElement verifyNoNumberSelected() {
+        return selectedTravellerElements.isEmpty()
+                ? null
+                : selectedTravellerElements.get(0);
+    }
+
+    public WebElement verifyNoEmailSelected() {
+        return selectedTravellerElements.isEmpty()
+                ? null
+                : selectedTravellerElements.get(1);
+    }
+
+    public String retrieveMobileError(){
+        return allTravellerErrorElements.get(0).getText();
+    }
+
+    public String retrieveEmailError(){
+        return allTravellerErrorElements.get(1).getText();
+    }
+
+    public String retrieveHealthError(){
+        return allTravellerErrorElements.get(2).getText();
+    }
+
+    public void selectNonImmigrantCheckBox(){
+        waitUtils.waitForVisibility(nonImmigrantVisaElement).click();
+    }
+
+    public boolean attentionFrameDisplayed(){
+        try{
+            return waitUtils.waitForVisibility(nonImmigrantAttention).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean verifyOkButtonPresence(){
+        try{
+            return waitUtils.waitForVisibility(okButton).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void retrieveAlertMessage(){
+        System.out.println(nonImmigrantAttention.getText());
+        System.out.println(nonImmigrantInformation.getText());
+    }
+
+    public boolean verifyEndDateOptionAvailableAgain(){
+        try{
+            return waitUtils.waitForVisibility(selectEndDateElement).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
     }
 
 }
