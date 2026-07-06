@@ -3,25 +3,28 @@ package tests;
 import basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.ExcelReader;
 
 public class TC_23_SelectMembers extends BaseTest {
     HealthHomePage healthPage;
 
-    @Test
-    public void testAddMembers(){
+    @DataProvider(name = "healthData")
+    public Object[][] getHealthData() {
+        return new ExcelReader().readSheetHealth();
+    }
+
+    @Test(dataProvider = "healthData")
+    public void testAddMembers(String name, String mobileNo, String email, String pincode, String product, String member, String dob){
         healthPage = new HealthHomePage(driver);
 
-        healthPage.clickHealthTab();
-        healthPage.clickProductDropdwn();
-        String actual = healthPage.selectProduct("Activate Booster");
         healthPage.clickMemberBtn();
-        healthPage.addMembers("Adult", "12-07-2004");
-        healthPage.addMembers("Kids", "21-07-2020");
+        healthPage.addMembers(member, "12-07-2002");
         boolean verifyClickDoneBtn = healthPage.clickDoneBtn();
 
         Assert.assertTrue(verifyClickDoneBtn, "Done button clicked");
-        Assert.assertEquals(healthPage.verifyMembersResult.getText(), "1 Adult(s), 1 Kid(s)");
+        Assert.assertEquals(healthPage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
         System.out.println("Members details are filled successfully");
     }
 }

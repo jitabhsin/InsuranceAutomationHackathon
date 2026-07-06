@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HealthHomePage {
@@ -21,7 +20,13 @@ public class HealthHomePage {
     WebElement healthTab;
 
     @FindBy(xpath = "//label[normalize-space()='Select products']")
-    WebElement selectProductText;
+    WebElement verifyProductText;
+
+    @FindBy(xpath = "//label[normalize-space()='Insure members']")
+    WebElement verifyInsureMembersText;
+
+    @FindBy(xpath = "//label[normalize-space()='Contact details']")
+    WebElement verifyContactDetailsText;
 
     @FindBy(xpath = "//button[@class='product-dropbtn policyTypecls']")
     WebElement selectProductDropdownBtn;
@@ -62,6 +67,8 @@ public class HealthHomePage {
     @FindBy(className = "btn-done")
     WebElement doneButton;
 
+    @FindBy(id = "city-get-quote")
+    WebElement getQuoteBtn;
 
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
@@ -74,13 +81,22 @@ public class HealthHomePage {
         waitUtils.waitForClickable(healthTab).click();
     }
 
-    public String isSelectProductDisplayed() {
-        return waitUtils.waitForVisibility(selectProductText).getText();
+    public String isSelectProductTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyProductText).getText();
     }
 
-    public void clickProductDropdwn(){
+    public String isInsureMembersTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyInsureMembersText).getText();
+    }
+    public String isContactDetailsTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyContactDetailsText).getText();
+    }
+
+
+    public int clickProductDropdwn(){
         waitUtils.waitForVisibility(selectProductDropdownBtn);
         selectProductDropdownBtn.click();
+        return productOptions.size();
     }
 
     public String selectProduct(String productName){
@@ -126,42 +142,35 @@ public class HealthHomePage {
     }
 
     public boolean isContactDetailsDisplayed() {
-
         return waitUtils.waitForVisibility(contactDetails).isDisplayed();
     }
 
     public void clickContactDetails(){
-
         contactDetails.click();
     }
 
-    public void enterMobileNo(String mobileNo){
 
+    public void enterMobileNo(String mobileNo){
         mobileNumber.sendKeys(mobileNo);
     }
 
     public void enterEmailId(String email){
-
         emailId.sendKeys(email);
     }
 
     public void enterPincode(String pin){
-
         pincode.sendKeys(pin);
     }
 
     public void enterName(String Name){
-
         name.sendKeys(Name);
     }
 
     public boolean isDoneButtonDisplayed() {
-
         return waitUtils.waitForVisibility(doneButton).isDisplayed();
     }
 
     public void clickDoneButton(){
-
         doneButton.click();
     }
 
@@ -169,4 +178,7 @@ public class HealthHomePage {
         driver.navigate().refresh();
     }
 
+    public void clickGetQuote(){
+        waitUtils.waitForClickable(getQuoteBtn).click();
+    }
 }
