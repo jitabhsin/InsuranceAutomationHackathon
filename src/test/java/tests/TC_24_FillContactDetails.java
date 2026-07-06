@@ -12,11 +12,19 @@ public class TC_24_FillContactDetails extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        return new ExcelReader().readSheetHealth();
+        Object[][] data = new ExcelReader().readSheetHealth();
+        Object[][] contactDetails = new Object[data.length][4];
+        for (int i = 0; i < data.length; i++) {
+            contactDetails[i][0] = data[i][3];
+            contactDetails[i][1] = data[i][4];
+            contactDetails[i][2] = data[i][5];
+            contactDetails[i][3] = data[i][6];
+        }
+        return contactDetails;
     }
 
     @Test(dataProvider = "healthData")
-    public void fillContactDetails(String name, String mobileNo, String email, String pincode, String product, String member, String dob){
+    public void fillContactDetails(String name, String mobileNo, String email, String pincode){
 
         healthHomePage = new HealthHomePage(driver);
         healthHomePage.clickHealthTab();
