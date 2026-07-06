@@ -12,15 +12,21 @@ public class TC_23_SelectMembers extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        return new ExcelReader().readSheetHealth();
+        Object[][] data = new ExcelReader().readSheetHealth();
+        Object[][] memberDob = new Object[data.length][2];
+        for (int i = 0; i < data.length; i++) {
+            memberDob[i][0] = data[i][1];
+            memberDob[i][1] = data[i][2];
+        }
+        return memberDob;
     }
 
     @Test(dataProvider = "healthData")
-    public void testAddMembers(String name, String mobileNo, String email, String pincode, String product, String member, String dob){
+    public void testAddMembers(String member, String dob){
         healthPage = new HealthHomePage(driver);
 
         healthPage.clickMemberBtn();
-        healthPage.addMembers(member, "12-07-2002");
+        healthPage.addMembers(member, dob);
         boolean verifyClickDoneBtn = healthPage.clickDoneBtn();
 
         Assert.assertTrue(verifyClickDoneBtn, "Done button clicked");

@@ -12,11 +12,16 @@ public class TC_22_SelectProducts extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        return new ExcelReader().readSheetHealth();
+        Object[][] data = new ExcelReader().readSheetHealth();
+        Object[][] productData = new Object[data.length][1];
+        for (int i = 0; i < data.length; i++) {
+            productData[i][0] = data[i][0];
+        }
+        return productData;
     }
 
     @Test(dataProvider = "healthData")
-    public void testSelectProducts(String name, String mobileNo, String email, String pincode, String product, String member, String dob){
+    public void testSelectProducts(String product){
         healthHomePage = new HealthHomePage(driver);
         String actual = healthHomePage.selectProduct(product);
 
