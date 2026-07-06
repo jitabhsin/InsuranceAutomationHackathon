@@ -1,39 +1,10 @@
-06-07-2026 11:54:44 INFO  tests.TC_21_ClickHealthButton - ========== Browser Launch Started ==========
-06-07-2026 11:54:47 INFO  tests.TC_21_ClickHealthButton - Browser launched successfully
-06-07-2026 11:54:53 INFO  tests.TC_21_ClickHealthButton - Navigated to URL: https://www.icicilombard.com/
-06-07-2026 11:54:53 INFO  tests.TC_21_ClickHealthButton - ========== Setup Completed ==========
-06-07-2026 11:54:53 INFO  tests.TC_21_ClickHealthButton - ==================================
-06-07-2026 11:54:53 INFO  tests.TC_21_ClickHealthButton - Test Execution Started
-06-07-2026 11:54:53 INFO  tests.TC_21_ClickHealthButton - ==================================
-06-07-2026 11:54:54 INFO  utils.TestListener - verifyHealthTabButtonsVisibilityAndWorking PASSED
-06-07-2026 11:54:54 INFO  tests.TC_21_ClickHealthButton - ==================================
-06-07-2026 11:54:54 INFO  tests.TC_21_ClickHealthButton - Test Execution Completed
-06-07-2026 11:54:54 INFO  tests.TC_21_ClickHealthButton - ==================================
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - ==================================
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - Test Execution Started
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - ==================================
-06-07-2026 11:54:55 INFO  utils.TestListener - testSelectProducts PASSED
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - ==================================
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - Test Execution Completed
-06-07-2026 11:54:55 INFO  tests.TC_22_SelectProducts - ==================================
-06-07-2026 11:54:55 INFO  tests.TC_23_SelectMembers - ==================================
-06-07-2026 11:54:55 INFO  tests.TC_23_SelectMembers - Test Execution Started
-06-07-2026 11:54:55 INFO  tests.TC_23_SelectMembers - ==================================
-06-07-2026 11:54:56 INFO  utils.TestListener - testAddMembers PASSED
-06-07-2026 11:54:56 INFO  tests.TC_23_SelectMembers - ==================================
-06-07-2026 11:54:56 INFO  tests.TC_23_SelectMembers - Test Execution Completed
-06-07-2026 11:54:56 INFO  tests.TC_23_SelectMembers - ==================================
-06-07-2026 11:54:56 INFO  tests.TC_24_FillContactDetails - ==================================
-06-07-2026 11:54:56 INFO  tests.TC_24_FillContactDetails - Test Execution Started
-06-07-2026 11:54:56 INFO  tests.TC_24_FillContactDetails - ==================================
-06-07-2026 11:55:10 INFO  utils.TestListener - fillContactDetails PASSED
-06-07-2026 11:55:10 INFO  tests.TC_24_FillContactDetails - ==================================
-06-07-2026 11:55:10 INFO  tests.TC_24_FillContactDetails - Test Execution Completed
-06-07-2026 11:55:10 INFO  tests.TC_24_FillContactDetails - ==================================
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - ==================================
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - ==================================
-06-07-2026 11:55:10 INFO  utils.TestListener - testFetchPlanResult PASSED
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - ==================================
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
-06-07-2026 11:55:10 INFO  tests.TC_25_FetchPlanResult - ==================================
+06-07-2026 12:58:40 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Browser Launch Started ==========
+06-07-2026 12:58:45 INFO  tests.TC_18VerifyLongTermPlanPricing - Browser launched successfully
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Navigated to URL: https://www.icicilombard.com/
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ========== Setup Completed ==========
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Started
+06-07-2026 12:58:51 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - Test Execution Completed
+06-07-2026 12:59:09 INFO  tests.TC_18VerifyLongTermPlanPricing - ==================================

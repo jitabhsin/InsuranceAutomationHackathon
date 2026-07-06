@@ -1,11 +1,11 @@
 package tests;
 
 import org.testng.Assert;
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.ExcelReader;
+import org.insurance.utils.ExcelReader;
 
 public class TC_24_FillContactDetails extends BaseTest {
     HealthHomePage healthHomePage;
