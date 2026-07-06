@@ -17,6 +17,9 @@ public class HealthResultPage {
     @FindBy(xpath = "//div[@id='riaChat']/div")
     List<WebElement> planList;
 
+    @FindBy(xpath = ".//div/div/h3")
+    WebElement title;
+
     public HealthResultPage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
