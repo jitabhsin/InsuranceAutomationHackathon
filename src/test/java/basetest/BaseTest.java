@@ -47,14 +47,14 @@ public class BaseTest {
         logger.info("==================================");
     }
 
-    @AfterTest
-    public void tearDown() {
-        logger.info("Closing browser");
-        if (driver != null) {
-            driver.quit();
-            logger.info("Browser closed successfully");
-        }
-    }
+//    @AfterTest
+//    public void tearDown() {
+//        logger.info("Closing browser");
+//        if (driver != null) {
+//            driver.quit();
+//            logger.info("Browser closed successfully");
+//        }
+//    }
 
     public static WebDriver getDriver() {
         return driver;

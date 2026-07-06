@@ -148,7 +148,7 @@ public class TravelHomePage {
 
     public boolean isSelectTravelTypeVisible(){
         try{
-            return waitUtils.waitForVisibility(selectCountryText).isDisplayed();
+            return waitUtils.waitForVisibility(selectCountryElement).isDisplayed();
         } catch (Exception e){
             return false;
         }
