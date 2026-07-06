@@ -35,6 +35,8 @@ public class TC_24_FillContactDetails extends BaseTest {
 
         healthHomePage.clickDoneButton();
         healthHomePage.clearContactDetails();
-    }
+        healthHomePage.clickGetQuote();
 
+        //Assert.assertTrue(, "Details filled successfully");
+    }
 }
