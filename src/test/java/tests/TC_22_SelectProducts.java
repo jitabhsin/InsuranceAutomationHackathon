@@ -21,6 +21,6 @@ public class TC_22_SelectProducts extends BaseTest {
         String actual = healthHomePage.selectProduct(product);
 
         Assert.assertEquals(actual, product);
-        System.out.println(product + " selected");
+        logger.info(product + " selected");
     }
 }

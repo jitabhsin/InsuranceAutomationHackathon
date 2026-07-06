@@ -15,6 +15,6 @@ public class TC_21_ClickHealthButton extends BaseTest {
         Assert.assertEquals(healthHomePage.isSelectProductTextDisplayed(), "Select products");
         Assert.assertEquals(healthHomePage.isInsureMembersTextDisplayed(), "Insure members");
         Assert.assertEquals(healthHomePage.isContactDetailsTextDisplayed(), "Contact details");
-        System.out.println("Product selected successfully");
+        logger.info("Product selected successfully");
     }
 }
