@@ -1,15 +1,16 @@
 package tests;
 
-import basetest.BaseTest;
+import org.insurance.basetest.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
+import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import utils.ConfigReader;
-import utils.ExcelReader;
+import org.insurance.utils.ConfigReader;
+import org.insurance.utils.ExcelReader;
 
 public class TC_04_VerifySelectedCountry extends BaseTest {
 
