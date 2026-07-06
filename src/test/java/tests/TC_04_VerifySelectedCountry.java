@@ -42,18 +42,13 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
 
-        if (!driver.getCurrentUrl().contains("travel-insurance") || travelHomePage.contactNumber.isDisplayed()) {
+        logger.info("Navigating to Travel Insurance");
 
-            logger.info("Navigating to Travel Insurance");
+        homePage.clickTravelInsurance();
+        homePage.clickTravelScope();
+        homePage.clickOtherCountries();
 
-            driver.get(ConfigReader.getProperty("baseUrl"));
-
-            homePage.clickTravelInsurance();
-            homePage.clickTravelScope();
-            homePage.clickOtherCountries();
-
-            Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),"Travel Insurance page not loaded");
-        }
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),"Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded");
 
@@ -101,8 +96,13 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         Assert.assertTrue(isRedirected,"Traveller Count page not loaded");
         softAssert.assertAll();
 
+        if (!driver.getCurrentUrl().contains("travel-insurance") || travelHomePage.contactNumber.isDisplayed()) {
+            driver.get(ConfigReader.getProperty("baseUrl"));
+        }
+
         logger.info("Successfully redirected to Traveller Count page");
 
         logger.info("TC_04 PASSED");
+
     }
 }
