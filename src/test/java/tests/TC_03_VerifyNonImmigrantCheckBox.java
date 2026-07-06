@@ -1,22 +1,14 @@
 package tests;
 
-<<<<<<< HEAD
-import org.insurance.basetest.BaseTest;
-=======
-import basetest.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> 42a42db32d10d3d1afa2ff4165a0b855e529a612
+import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ExcelReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-<<<<<<< HEAD
-import org.insurance.utils.ConfigReader;
-=======
-import utils.ExcelReader;
->>>>>>> 42a42db32d10d3d1afa2ff4165a0b855e529a612
 
 public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
 
