@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class TC_01NavigateTravelPage extends BaseTest {
+public class TC_01_NavigateTravelPage extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
