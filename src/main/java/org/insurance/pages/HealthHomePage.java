@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HealthHomePage {
@@ -21,7 +20,13 @@ public class HealthHomePage {
     WebElement healthTab;
 
     @FindBy(xpath = "//label[normalize-space()='Select products']")
-    WebElement selectProductText;
+    WebElement verifyProductText;
+
+    @FindBy(xpath = "//label[normalize-space()='Insure members']")
+    WebElement verifyInsureMembersText;
+
+    @FindBy(xpath = "//label[normalize-space()='Contact details']")
+    WebElement verifyContactDetailsText;
 
     @FindBy(xpath = "//button[@class='product-dropbtn policyTypecls']")
     WebElement selectProductDropdownBtn;
@@ -76,13 +81,22 @@ public class HealthHomePage {
         waitUtils.waitForClickable(healthTab).click();
     }
 
-    public String isSelectProductDisplayed() {
-        return waitUtils.waitForVisibility(selectProductText).getText();
+    public String isSelectProductTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyProductText).getText();
     }
 
-    public void clickProductDropdwn(){
+    public String isInsureMembersTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyInsureMembersText).getText();
+    }
+    public String isContactDetailsTextDisplayed() {
+        return waitUtils.waitForVisibility(verifyContactDetailsText).getText();
+    }
+
+
+    public int clickProductDropdwn(){
         waitUtils.waitForVisibility(selectProductDropdownBtn);
         selectProductDropdownBtn.click();
+        return productOptions.size();
     }
 
     public String selectProduct(String productName){
