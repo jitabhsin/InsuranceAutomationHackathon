@@ -12,9 +12,6 @@ public class TC_23_SelectMembers extends BaseTest {
     public void testAddMembers(){
         healthPage = new HealthHomePage(driver);
 
-        healthPage.clickHealthTab();
-        healthPage.clickProductDropdwn();
-        String actual = healthPage.selectProduct("Activate Booster");
         healthPage.clickMemberBtn();
         healthPage.addMembers("Adult", "12-07-2004");
         healthPage.addMembers("Kids", "21-07-2020");

@@ -62,6 +62,8 @@ public class HealthHomePage {
     @FindBy(className = "btn-done")
     WebElement doneButton;
 
+    @FindBy(id = "city-get-quote")
+    WebElement getQuoteBtn;
 
     public HealthHomePage(WebDriver driver) {
         this.driver = driver;
@@ -126,42 +128,35 @@ public class HealthHomePage {
     }
 
     public boolean isContactDetailsDisplayed() {
-
         return waitUtils.waitForVisibility(contactDetails).isDisplayed();
     }
 
     public void clickContactDetails(){
-
         contactDetails.click();
     }
 
-    public void enterMobileNo(String mobileNo){
 
+    public void enterMobileNo(String mobileNo){
         mobileNumber.sendKeys(mobileNo);
     }
 
     public void enterEmailId(String email){
-
         emailId.sendKeys(email);
     }
 
     public void enterPincode(String pin){
-
         pincode.sendKeys(pin);
     }
 
     public void enterName(String Name){
-
         name.sendKeys(Name);
     }
 
     public boolean isDoneButtonDisplayed() {
-
         return waitUtils.waitForVisibility(doneButton).isDisplayed();
     }
 
     public void clickDoneButton(){
-
         doneButton.click();
     }
 
@@ -169,4 +164,7 @@ public class HealthHomePage {
         driver.navigate().refresh();
     }
 
+    public void clickGetQuote(){
+        waitUtils.waitForClickable(getQuoteBtn).click();
+    }
 }

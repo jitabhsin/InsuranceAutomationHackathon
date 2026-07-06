@@ -12,7 +12,6 @@ public class TC_22_SelectProducts extends BaseTest {
     public void testSelectProducts(){
         healthHomePage = new HealthHomePage(driver);
 
-        healthHomePage.clickHealthTab();
         healthHomePage.clickProductDropdwn();
         String actual = healthHomePage.selectProduct("Activate Booster");
 
