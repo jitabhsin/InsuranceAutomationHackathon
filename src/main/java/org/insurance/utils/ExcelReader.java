@@ -1,9 +1,10 @@
 package org.insurance.utils;
 
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -123,7 +124,6 @@ public class ExcelReader {
     }
 
     public Object[][] readSheetHealth() {
-
         try (FileInputStream fis = new FileInputStream(path);
              Workbook workbook = new XSSFWorkbook(fis)) {
 
@@ -137,15 +137,20 @@ public class ExcelReader {
             DataFormatter formatter = new DataFormatter();
 
             for (int i = 1; i < rows; i++) {
-
+                Row row = sheet.getRow(i);
                 System.out.println("ROW " + i);
-
                 for (int j = 0; j < cols; j++) {
-
-                    data[i - 1][j] = formatter.formatCellValue(sheet.getRow(i).getCell(j));
-
-                    System.out.println(
-                            "COL " + j + " = " + data[i - 1][j]);
+                    Cell cell = row.getCell(j);
+                    if (cell == null) {
+                        data[i - 1][j] = "";
+                    }
+                    else if (cell.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(cell)) {
+                        data[i - 1][j] = new SimpleDateFormat("dd-MM-yyyy").format(cell.getDateCellValue());
+                    }
+                    else {
+                        data[i - 1][j] = formatter.formatCellValue(cell);
+                    }
+                    System.out.println("COL " + j + " = " + data[i - 1][j]);
                 }
             }
             return data;
@@ -154,6 +159,7 @@ public class ExcelReader {
             throw new RuntimeException(e);
         }
     }
+
     private java.util.List<String> getSheetNames(Workbook workbook) {
         java.util.List<String> names = new java.util.ArrayList<>();
         for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
