@@ -132,7 +132,7 @@ public class ExcelReader {
             DataFormatter formatter = new DataFormatter();
             java.util.List<Object[]> rowsList = new java.util.ArrayList<>();
 
-            for (int i = headerRowIndex + 1; i <= lastRowNum; i++) {
+            for (int i = headerRowIndex + 1; i < lastRowNum; i++) {
                 Row row = sheet.getRow(i);
                 if (row == null) {
                     continue;
