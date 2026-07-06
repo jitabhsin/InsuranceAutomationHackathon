@@ -120,6 +120,36 @@ public class CarPage {
     @FindBy(xpath = "//label[@for='checklongtermtpCaseValue']")
     private WebElement longTermPolicyLabel;
 
+    @FindBy(xpath = "//a[normalize-space()='Continue']")
+    private WebElement continueBtn;
+
+    @FindBy(xpath = "//h1[contains(normalize-space(),'Please verify the information below')]")
+    private WebElement verifyInfoHeader;
+
+    @FindBy(xpath = "//h1[contains(normalize-space(),'Please verify')]/following::p[1]")
+    private WebElement verifyInfoSubtext;
+
+    @FindBy(id = "carRg")
+    private WebElement verifyCityInput;
+
+    @FindBy(id = "makeModelName")
+    private WebElement verifyMakeModelInput;
+
+    @FindBy(id = "carPurchaseDate")
+    private WebElement verifyRegDateInput;
+
+    @FindBy(xpath = "//span[contains(@class,'reg-un-indvalue')]")
+    private WebElement verifyRegUnderIndividual;
+
+    @FindBy(xpath = "//p[contains(normalize-space(),'valid and effective PUC certificate')]")
+    private WebElement verifyPucNote;
+
+    @FindBy(xpath = "//a[normalize-space()='Modify']")
+    private WebElement modifyBtn;
+
+    @FindBy(id = "buyId")
+    private WebElement thatsCorrectBtn;
+
     public boolean isLongTermPolicySelected() {
         return waitUtils.waitForSelected(longTermPolicyOption);
     }
@@ -347,4 +377,42 @@ public class CarPage {
         }
         return waitUtils.waitForSelected(longTermPolicyOption);
     }
+
+    public void clickContinue() {
+        jsUtils.scrollToElement(continueBtn);
+        jsUtils.jsClick(continueBtn);
+    }
+
+    public boolean isVerifyInfoHeaderDisplayed() {
+        try { return waitUtils.waitForVisibility(verifyInfoHeader).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public String getVerifyInfoSubtext()      {
+        return waitUtils.waitForVisibility(verifyInfoSubtext).getText().trim();
+    }
+    public String getVerifyCity()             {
+        return verifyCityInput.getAttribute("value").trim();
+    }
+    public String getVerifyMakeModel()        {
+        return verifyMakeModelInput.getAttribute("value").trim();
+    }
+    public String getVerifyRegDate()          {
+        return verifyRegDateInput.getAttribute("value").trim();
+    }
+    public String getVerifyRegUnderIndividual(){
+        return waitUtils.waitForVisibility(verifyRegUnderIndividual).getText().trim();
+    }
+    public String getVerifyPucNote()          {
+        return waitUtils.waitForVisibility(verifyPucNote).getText().trim();
+    }
+
+    public boolean isModifyBtnDisplayed()        {
+        try {
+            return waitUtils.waitForVisibility(modifyBtn).isDisplayed();
+        } catch (Exception e) { return false; } }
+
+    public boolean isThatsCorrectBtnDisplayed()  {
+        try { return waitUtils.waitForVisibility(thatsCorrectBtn).isDisplayed();
+        } catch (Exception e) { return false; } }
 }
