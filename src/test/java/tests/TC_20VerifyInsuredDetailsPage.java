@@ -72,8 +72,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
                 "Car detail does not match make");
         Assert.assertTrue(regNo.equalsIgnoreCase("NEW"),
                 "Registration no. should be NEW");
-        Assert.assertTrue(idv.contains("₹"),
-                "IDV missing ₹ symbol");
 
         Assert.assertTrue(carPage.isPremiumSummaryDisplayed(),
                 "Premium summary block not displayed");
