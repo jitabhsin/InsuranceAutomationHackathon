@@ -1,72 +1,77 @@
-07-07-2026 14:58:09 INFO  tests.TC_14SelectCarAndModel - ========== Browser Launch Started ==========
-07-07-2026 14:58:14 INFO  tests.TC_14SelectCarAndModel - Browser launched successfully
-07-07-2026 14:58:22 INFO  tests.TC_14SelectCarAndModel - Navigated to URL: https://www.icicilombard.com/
-07-07-2026 14:58:22 INFO  tests.TC_14SelectCarAndModel - ========== Setup Completed ==========
-07-07-2026 14:58:22 INFO  tests.TC_14SelectCarAndModel - Reading test data from Excel
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - Navigating to Car Insurance flow
-07-07-2026 14:58:24 INFO  tests.TC_14SelectCarAndModel - Clicked Car Insurance
-07-07-2026 14:58:26 INFO  tests.TC_14SelectCarAndModel - Clicked New Vehicle
-07-07-2026 14:58:27 INFO  tests.TC_14SelectCarAndModel - Entered mobile number
-07-07-2026 14:58:27 INFO  tests.TC_14SelectCarAndModel - Entered email address
-07-07-2026 14:58:33 INFO  tests.TC_14SelectCarAndModel - Clicked Get Quote
-07-07-2026 14:58:33 INFO  tests.TC_14SelectCarAndModel - Select Plans page displayed successfully
-07-07-2026 14:58:33 INFO  tests.TC_14SelectCarAndModel - Entering city
-07-07-2026 14:58:34 INFO  tests.TC_14SelectCarAndModel - Selecting city
-07-07-2026 14:58:34 INFO  tests.TC_14SelectCarAndModel - Entering car make
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Selecting car model
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Entering city
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Selecting city
-07-07-2026 14:58:35 INFO  tests.TC_14SelectCarAndModel - Entering car make
-07-07-2026 14:58:36 INFO  tests.TC_14SelectCarAndModel - Selecting car model
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Entering city
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Selecting city
-07-07-2026 14:58:37 INFO  tests.TC_14SelectCarAndModel - Entering car make
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Selecting car model
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Test Execution Started
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Entering city
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Selecting city
-07-07-2026 14:58:38 INFO  tests.TC_14SelectCarAndModel - Entering car make
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - Selecting car model
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - ==================================
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
-07-07-2026 14:58:39 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:16:35 INFO  tests.TC_14SelectCarAndModel - ========== Browser Launch Started ==========
+07-07-2026 17:16:42 INFO  tests.TC_14SelectCarAndModel - Browser launched successfully
+07-07-2026 17:16:42 INFO  tests.TC_14SelectCarAndModel - ========== Setup Completed ==========
+07-07-2026 17:16:42 INFO  tests.TC_14SelectCarAndModel - Reading test data from Excel
+07-07-2026 17:16:44 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:16:44 INFO  tests.TC_14SelectCarAndModel - Test Execution Started : verifySelectCarAndModel
+07-07-2026 17:16:44 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - Navigated to base URL
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - Navigating to Car Insurance flow
+07-07-2026 17:17:06 INFO  tests.TC_14SelectCarAndModel - Clicked Car Insurance
+07-07-2026 17:17:11 INFO  tests.TC_14SelectCarAndModel - Clicked New Vehicle
+07-07-2026 17:17:11 INFO  tests.TC_14SelectCarAndModel - Entered mobile number
+07-07-2026 17:17:12 INFO  tests.TC_14SelectCarAndModel - Entered email address
+07-07-2026 17:17:50 INFO  tests.TC_14SelectCarAndModel - Clicked Get Quote
+07-07-2026 17:17:51 INFO  tests.TC_14SelectCarAndModel - Select Plans page displayed successfully
+07-07-2026 17:17:51 INFO  tests.TC_14SelectCarAndModel - Entering city
+07-07-2026 17:17:52 INFO  tests.TC_14SelectCarAndModel - Selecting city
+07-07-2026 17:17:52 INFO  tests.TC_14SelectCarAndModel - Entering car make
+07-07-2026 17:17:54 INFO  tests.TC_14SelectCarAndModel - Selecting car model
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - Test Execution Started : verifySelectCarAndModel
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - DataProvider iteration - preserving page state
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
+07-07-2026 17:17:55 INFO  tests.TC_14SelectCarAndModel - Entering city
+07-07-2026 17:17:56 INFO  tests.TC_14SelectCarAndModel - Selecting city
+07-07-2026 17:17:56 INFO  tests.TC_14SelectCarAndModel - Entering car make
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Selecting car model
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Test Execution Started : verifySelectCarAndModel
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - DataProvider iteration - preserving page state
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
+07-07-2026 17:17:58 INFO  tests.TC_14SelectCarAndModel - Entering city
+07-07-2026 17:18:00 INFO  tests.TC_14SelectCarAndModel - Selecting city
+07-07-2026 17:18:00 INFO  tests.TC_14SelectCarAndModel - Entering car make
+07-07-2026 17:18:01 INFO  tests.TC_14SelectCarAndModel - Selecting car model
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Test Execution Started : verifySelectCarAndModel
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - DataProvider iteration - preserving page state
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - TC_14 - Verify Select Car And Model Started
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Input data validation passed
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Mobile and Email validation passed
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Entering city
+07-07-2026 17:18:02 INFO  tests.TC_14SelectCarAndModel - Selecting city
+07-07-2026 17:18:03 INFO  tests.TC_14SelectCarAndModel - Entering car make
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - Selecting car model
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - User successfully reached Select Plans page
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - TC_14 PASSED
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - Test Execution Completed
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - ==================================
+07-07-2026 17:18:04 INFO  tests.TC_14SelectCarAndModel - Closing browser
+07-07-2026 17:18:11 INFO  tests.TC_14SelectCarAndModel - Browser closed successfully

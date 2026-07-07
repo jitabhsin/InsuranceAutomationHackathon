@@ -8,10 +8,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import org.insurance.utils.ConfigReader;
 
+import java.lang.reflect.Method;
+
 public class BaseTest {
 
     protected static WebDriver driver;
     protected Logger logger = LogManager.getLogger(this.getClass());
+
+    private String previousTestMethod = "";
 
     @BeforeTest
     public void setup() {
@@ -24,12 +28,21 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void startTest() {
+    public void startTest(Method method) {
         logger.info("==================================");
-        logger.info("Test Execution Started");
+        logger.info("Test Execution Started : " + method.getName());
         logger.info("==================================");
-        driver.get(ConfigReader.getProperty("baseUrl"));
-        logger.info("Navigated to base URL");
+
+        String currentTestMethod = method.getName();
+
+        if (!currentTestMethod.equals(previousTestMethod)) {
+            driver.get(ConfigReader.getProperty("baseUrl"));
+            logger.info("Navigated to base URL");
+        } else {
+            logger.info("DataProvider iteration - preserving page state");
+        }
+
+        previousTestMethod = currentTestMethod;
     }
 
     @AfterMethod
@@ -48,5 +61,7 @@ public class BaseTest {
         }
     }
 
-    public static WebDriver getDriver() {return driver;}
+    public static WebDriver getDriver() {
+        return driver;
+    }
 }
