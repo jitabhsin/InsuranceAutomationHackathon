@@ -151,18 +151,30 @@ public class HealthHomePage {
 
 
     public void enterMobileNo(String mobileNo){
+        if(!mobileNumber.getAttribute("value").isEmpty()){
+            mobileNumber.clear();
+        }
         mobileNumber.sendKeys(mobileNo);
     }
 
     public void enterEmailId(String email){
+        if(!emailId.getAttribute("value").isEmpty()){
+            emailId.clear();
+        }
         emailId.sendKeys(email);
     }
 
     public void enterPincode(String pin){
+        if(!pincode.getAttribute("value").isEmpty()){
+            pincode.clear();
+        }
         pincode.sendKeys(pin);
     }
 
     public void enterName(String Name){
+        if(!name.getAttribute("value").isEmpty()){
+            name.clear();
+        }
         name.sendKeys(Name);
     }
 
