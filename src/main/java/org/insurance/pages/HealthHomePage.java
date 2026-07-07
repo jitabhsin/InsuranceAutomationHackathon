@@ -171,7 +171,7 @@ public class HealthHomePage {
     }
 
     public void clickDoneButton(){
-        doneButton.click();
+        jsUtils.jsClick(waitUtils.waitForClickable(doneButton));
     }
 
     public void clearContactDetails(){
