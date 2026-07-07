@@ -25,5 +25,7 @@ public class JavaScriptUtils {
         scrollToElement(element);
         js.executeScript("arguments[0].click();", element);
     }
+
+
 }
 

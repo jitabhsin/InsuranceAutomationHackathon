@@ -14,7 +14,7 @@ import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
+public class TC_08 extends BaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(
@@ -149,42 +149,24 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
 
         logger.info("Travel Quote Page Loaded");
 
+        Assert.assertTrue(
+                travelQuotePage.isNextCoverageEnabled());
+
+        travelQuotePage.navigateToLastCoverage();
+
+        Assert.assertFalse(
+                travelQuotePage.isNextCoverageEnabled());
 
         Assert.assertTrue(
-                travelQuotePage.getBenefitsTitle()
-                        .contains("Benefits curated for you"));
+                travelQuotePage.isPreviousCoverageEnabled());
+
+        travelQuotePage.navigateToFirstCoverage();
+
+        Assert.assertFalse(
+                travelQuotePage.isPreviousCoverageEnabled());
 
         Assert.assertTrue(
-                travelQuotePage.isShareQuoteDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isCompareBenefitsDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isEssentialPlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isValuePlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isPremiumPlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isRecommendedTagDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isPoweredByAIDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.getBenefitCount() > 0);
-
-        Assert.assertTrue(
-                travelQuotePage.getKeyHighlightCount() > 0);
-
-        Assert.assertEquals(
-                travelQuotePage.getPlanCount(),
-                3);
-
+                travelQuotePage.isNextCoverageEnabled());
 
         logger.info("TC_07 PASSED");
     }
