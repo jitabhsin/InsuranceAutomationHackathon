@@ -14,7 +14,9 @@ import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
+import java.util.List;
+
+public class TC_09 extends BaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(
@@ -150,41 +152,23 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
         logger.info("Travel Quote Page Loaded");
 
 
-        Assert.assertTrue(
-                travelQuotePage.getBenefitsTitle()
-                        .contains("Benefits curated for you"));
+        for (int i = 0; i < 3; i++) {
 
-        Assert.assertTrue(
-                travelQuotePage.isShareQuoteDisplayed());
+            travelQuotePage.clickMedicalCoverDropdown(i);
 
-        Assert.assertTrue(
-                travelQuotePage.isCompareBenefitsDisplayed());
+            List<String> values =
+                    travelQuotePage.getDropdownValues();
 
-        Assert.assertTrue(
-                travelQuotePage.isEssentialPlanDisplayed());
+            Assert.assertTrue(values.size() >= 3);
 
-        Assert.assertTrue(
-                travelQuotePage.isValuePlanDisplayed());
+            System.out.println(
+                    "Dropdown " + (i + 1));
 
-        Assert.assertTrue(
-                travelQuotePage.isPremiumPlanDisplayed());
+            for (String value : values) {
 
-        Assert.assertTrue(
-                travelQuotePage.isRecommendedTagDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isPoweredByAIDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.getBenefitCount() > 0);
-
-        Assert.assertTrue(
-                travelQuotePage.getKeyHighlightCount() > 0);
-
-        Assert.assertEquals(
-                travelQuotePage.getPlanCount(),
-                3);
-
+                System.out.println(value);
+            }
+        }
 
         logger.info("TC_07 PASSED");
     }

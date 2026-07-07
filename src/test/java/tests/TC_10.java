@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
+import org.insurance.pages.PlanDetails;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
@@ -14,7 +15,9 @@ import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
+import java.util.List;
+
+public class TC_10 extends BaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(
@@ -150,41 +153,30 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
         logger.info("Travel Quote Page Loaded");
 
 
-        Assert.assertTrue(
-                travelQuotePage.getBenefitsTitle()
-                        .contains("Benefits curated for you"));
+        for (int i = 0; i < 3; i++) {
 
-        Assert.assertTrue(
-                travelQuotePage.isShareQuoteDisplayed());
+            String selectedCover =
+                    travelQuotePage.selectLowestCoverage(i);
 
-        Assert.assertTrue(
-                travelQuotePage.isCompareBenefitsDisplayed());
+            System.out.println(
+                    "Selected Lowest Cover : "
+                            + selectedCover);
+        }
 
-        Assert.assertTrue(
-                travelQuotePage.isEssentialPlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isValuePlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isPremiumPlanDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isRecommendedTagDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.isPoweredByAIDisplayed());
-
-        Assert.assertTrue(
-                travelQuotePage.getBenefitCount() > 0);
-
-        Assert.assertTrue(
-                travelQuotePage.getKeyHighlightCount() > 0);
+        List<PlanDetails> lowestPlans =
+                travelQuotePage.getLowestThreePlans();
 
         Assert.assertEquals(
-                travelQuotePage.getPlanCount(),
+                lowestPlans.size(),
                 3);
 
+        System.out.println(
+                "Lowest 3 Premium Plans");
+
+        for (PlanDetails plan : lowestPlans) {
+
+            System.out.println(plan);
+        }
 
         logger.info("TC_07 PASSED");
     }

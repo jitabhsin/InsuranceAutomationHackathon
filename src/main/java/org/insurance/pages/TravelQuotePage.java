@@ -1,11 +1,10 @@
 package org.insurance.pages;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,17 +55,52 @@ public class TravelQuotePage {
     // ESSENTIAL PLAN
     // =====================================
 
-    @FindBy(xpath = "//h4[normalize-space()='Essential']")
+    @FindBy(xpath = "//h4[contains(normalize-space(),'Essential')]")
     WebElement essentialPlanHeader;
 
     @FindBy(xpath = "//h4[normalize-space()='Essential']/ancestor::div[contains(@class,'plan-curated-heading')]//span[contains(@class,'premium-amnt')]")
     WebElement essentialPremiumAmount;
 
-    @FindBy(xpath = "//h4[normalize-space()='Essential']/ancestor::div[contains(@class,'plan-curated-heading')]//p[contains(@class,'medcover-txt')]/span")
+    @FindBy(xpath = "//div[contains(@class,'plan-curated-block')]//h4[contains(normalize-space(),'Essential')]/ancestor::div[contains(@class,'plan-curated-block')]//p[contains(@class,'medcover-txt')]/span")
     WebElement essentialMedicalCover;
+
+    @FindBy(xpath = "//div[contains(@class,'dropdown')]//input[contains(@class,'selected')]")
+    List<WebElement> medicalCoverDropdowns;
+
+    @FindBy(xpath = "//span[contains(@class,'si-amount')]")
+    List<WebElement> allCoverAmounts;
+
+    @FindBy(xpath = "//li[contains(@class,'active')]//span[contains(@class,'si-amount')]")
+    List<WebElement> selectedCoverAmounts;
+
+    @FindBy(xpath = "//div[contains(@class,'plan-curated-list')]//span[contains(@class,'si-amount')]")
+    List<WebElement> medicalCoverOptions;
+
+    @FindBy(xpath =
+            "//div[contains(@class,'plan-curated-list')]")
+    List<WebElement> planCards;
 
     @FindBy(xpath = "//h4[normalize-space()='Essential']/ancestor::div[contains(@class,'plan-curated-block')]//a[normalize-space()='See all']")
     WebElement essentialSeeAllBtn;
+
+
+    @FindBy(xpath = "//span[contains(@class,'si-amount')]")
+    List<WebElement> allMedicalCoverOptions;
+
+    @FindBy(xpath = "//p[contains(@class,'medcover-txt')]/span")
+    List<WebElement> selectedMedicalCovers;
+
+    @FindBy(xpath = "//div[contains(@class,'dropdown')]//input[contains(@class,'selected')]")
+    private List<WebElement> dropdownInputs;
+
+    @FindBy(xpath = "//div[contains(@class,'plan-curated-heading')]//h4")
+    private List<WebElement> visiblePlanNames;
+
+    @FindBy(xpath = "//div[contains(@class,'plan-curated-heading')]//span[contains(@class,'premium-amnt')]")
+    private List<WebElement> visiblePremiums;
+
+    @FindBy(xpath = "//div[contains(@class,'plan-curated-heading')]//p[contains(@class,'medcover-txt')]/span")
+    private List<WebElement> visibleMedicalCovers;
 
     // =====================================
     // VALUE PLAN
@@ -94,7 +128,7 @@ public class TravelQuotePage {
     // PREMIUM PLAN
     // =====================================
 
-    @FindBy(xpath = "//h4[normalize-space()='Premium']")
+    @FindBy(xpath = "//h4[contains(normalize-space(),'Premium')]")
     WebElement premiumPlanHeader;
 
     @FindBy(xpath = "//h4[normalize-space()='Premium']/ancestor::div[contains(@class,'plan-curated-heading')]//span[contains(@class,'premium-amnt')]")
@@ -214,103 +248,222 @@ public class TravelQuotePage {
         return keyHighlightItems.size();
     }
 
-    public boolean isNextCoverageEnabled() {
+    public void navigateToLastCoverage() {
 
-        String classValue = nextCoverageBtn.getAttribute("class");
+        while (isNextCoverageEnabled()) {
 
-        return classValue.contains("active") && !classValue.contains("disabled");
-    }
+            String lastPremium =
+                    visiblePremiums.get(visiblePremiums.size() - 1).getText();
 
+            clickNextCoverage();
 
-    public Map<String, Double> getCurrentQuotes() {
-
-        Map<String, Double> quotes =
-                new LinkedHashMap<>();
-
-        int size =
-                Math.min(
-                        providerNames.size(),
-                        premiumAmounts.size());
-
-        for (int i = 0; i < size; i++) {
-
-            String provider =
-                    providerNames.get(i)
-                            .getText()
-                            .trim();
-
-            String premiumText =
-                    premiumAmounts.get(i)
-                            .getText()
-                            .replace("₹", "")
-                            .replace(",", "")
-                            .trim();
-
-            if (!provider.isEmpty()
-                    && !premiumText.isEmpty()) {
-
-                quotes.put(
-                        provider,
-                        Double.parseDouble(premiumText));
-            }
+            waitUtils.waitForTextChange(
+                    visiblePremiums.get(visiblePremiums.size() - 1),
+                    lastPremium);
         }
-
-        return quotes;
     }
 
-    public Map<String, Double> getAllQuotes() {
-
-        Map<String, Double> allQuotes =
-                new LinkedHashMap<>();
+    public void navigateToFirstCoverage() {
 
         while (true) {
 
-            allQuotes.putAll(
-                    getCurrentQuotes());
+            String className =
+                    previousCoverageBtn.getAttribute("class");
+
+            if (className.contains("disabled")) {
+                break;
+            }
+
+            String firstPremium =
+                    visiblePremiums.get(0).getText();
+
+            clickPreviousCoverage();
+
+            waitUtils.waitForTextChange(
+                    visiblePremiums.get(0),
+                    firstPremium);
+        }
+    }
+    public boolean isPreviousCoverageEnabled() {
+
+        waitUtils.waitForVisibility(previousCoverageBtn);
+
+        String classValue = previousCoverageBtn.getAttribute("class");
+
+        return classValue.contains("active")
+                && !classValue.contains("disabled");
+    }
+
+    public void clickMedicalCoverDropdown(int index) {
+
+        WebElement dropdown = dropdownInputs.get(index);
+
+        jsUtils.scrollToElement(dropdown);
+
+        waitUtils.waitForClickable(dropdown).click();
+    }
+
+    public List<String> getDropdownValues() {
+
+        List<String> values = new ArrayList<>();
+
+        for (WebElement option : allMedicalCoverOptions) {
+
+            String value = option.getText().trim();
+
+            if (!value.isEmpty()) {
+                values.add(value);
+            }
+        }
+
+        return values;
+    }
+
+    public String selectLowestCoverage(int dropdownIndex) {
+
+        clickMedicalCoverDropdown(dropdownIndex);
+
+        String lowestCover =
+                allMedicalCoverOptions.get(0).getText();
+
+        String previousPremium =
+                visiblePremiums.get(dropdownIndex).getText();
+
+        allMedicalCoverOptions.get(0).click();
+
+        waitUtils.waitForTextChange(
+                visiblePremiums.get(dropdownIndex),
+                previousPremium);
+
+        return lowestCover;
+    }
+
+    public int convertPremiumToInteger(String premium) {
+
+        premium = premium.replace("₹", "");
+        premium = premium.replace(",", "");
+        premium = premium.trim();
+
+        return Integer.parseInt(premium);
+    }
+
+    public List<PlanDetails> getVisiblePlans() {
+
+        List<PlanDetails> plans = new ArrayList<>();
+
+        for (int i = 0; i < visiblePlanNames.size(); i++) {
+
+            plans.add(
+                    new PlanDetails(
+                            visiblePlanNames.get(i).getText(),
+                            visibleMedicalCovers.get(i).getText(),
+                            visiblePremiums.get(i).getText()));
+        }
+
+        return plans;
+    }
+
+    public List<PlanDetails> getAllDisplayedPlans() {
+
+        List<PlanDetails> allPlans =
+                new ArrayList<>();
+
+        navigateToFirstCoverage();
+
+        while (true) {
+
+            List<PlanDetails> currentPlans =
+                    getVisiblePlans();
+
+            for (PlanDetails p : currentPlans) {
+
+                boolean exists = false;
+
+                for (PlanDetails existing : allPlans) {
+
+                    if (existing.getPlanName()
+                            .equalsIgnoreCase(p.getPlanName())) {
+
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists) {
+                    allPlans.add(p);
+                }
+            }
 
             if (!isNextCoverageEnabled()) {
                 break;
             }
 
-            String previousProvider =
-                    providerNames.get(0)
+            String lastPremium =
+                    visiblePremiums.get(
+                                    visiblePremiums.size()-1)
                             .getText();
 
             clickNextCoverage();
 
             waitUtils.waitForTextChange(
-                    providerNames.get(0),
-                    previousProvider);
+                    visiblePremiums.get(
+                            visiblePremiums.size()-1),
+                    lastPremium);
         }
 
-        return allQuotes;
+        return allPlans;
     }
 
-    public void verifyPlan(
-            String planName,
-            boolean displayed,
-            String premium,
-            String medicalCover) {
+    public List<PlanDetails> getLowestThreePlans() {
 
-        if (!displayed) {
-            throw new AssertionError(
-                    planName + " Plan not displayed");
+        List<PlanDetails> plans =
+                getAllDisplayedPlans();
+
+        for (int i = 0; i < plans.size(); i++) {
+
+            for (int j = i + 1; j < plans.size(); j++) {
+
+                int premium1 =
+                        convertPremiumToInteger(
+                                plans.get(i)
+                                        .getPremiumAmount());
+
+                int premium2 =
+                        convertPremiumToInteger(
+                                plans.get(j)
+                                        .getPremiumAmount());
+
+                if (premium2 < premium1) {
+
+                    PlanDetails temp = plans.get(i);
+                    plans.set(i, plans.get(j));
+                    plans.set(j, temp);
+                }
+            }
         }
 
-        if (premium.trim().isEmpty()) {
-            throw new AssertionError(
-                    planName + " Premium Missing");
+        List<PlanDetails> lowestThree =
+                new ArrayList<>();
+
+        for (int i = 0;
+             i < Math.min(3, plans.size());
+             i++) {
+
+            lowestThree.add(plans.get(i));
         }
 
-        if (medicalCover.trim().isEmpty()) {
-            throw new AssertionError(
-                    planName + " Medical Cover Missing");
-        }
-
-        System.out.println("----------------------------------");
-        System.out.println("PLAN NAME     : " + planName);
-        System.out.println("PREMIUM       : " + premium);
-        System.out.println("MEDICAL COVER : " + medicalCover);
-        System.out.println("----------------------------------");
+        return lowestThree;
     }
+
+    public boolean isNextCoverageEnabled() {
+
+        waitUtils.waitForVisibility(nextCoverageBtn);
+
+        String classValue = nextCoverageBtn.getAttribute("class");
+
+        return classValue.contains("active")
+                && !classValue.contains("disabled");
+    }
+
+
 }
