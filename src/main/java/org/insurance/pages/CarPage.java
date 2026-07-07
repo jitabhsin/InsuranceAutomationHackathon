@@ -120,10 +120,76 @@ public class CarPage {
     @FindBy(xpath = "//label[@for='checklongtermtpCaseValue']")
     private WebElement longTermPolicyLabel;
 
-    public boolean isLongTermPolicySelected() {
-        return waitUtils.waitForSelected(longTermPolicyOption);
-    }
+    @FindBy(xpath = "//a[normalize-space()='Continue']")
+    private WebElement continueBtn;
 
+    @FindBy(xpath = "//h1[contains(normalize-space(),'Please verify the information below')]")
+    private WebElement verifyInfoHeader;
+
+    @FindBy(xpath = "//h1[contains(normalize-space(),'Please verify')]/following::p[1]")
+    private WebElement verifyInfoSubtext;
+
+    @FindBy(id = "carRg")
+    private WebElement verifyCityInput;
+
+    @FindBy(id = "makeModelName")
+    private WebElement verifyMakeModelInput;
+
+    @FindBy(id = "carPurchaseDate")
+    private WebElement verifyRegDateInput;
+
+    @FindBy(xpath = "//span[contains(@class,'reg-un-indvalue')]")
+    private WebElement verifyRegUnderIndividual;
+
+    @FindBy(xpath = "//p[contains(normalize-space(),'valid and effective PUC certificate')]")
+    private WebElement verifyPucNote;
+
+    @FindBy(xpath = "//a[normalize-space()='Modify']")
+    private WebElement modifyBtn;
+
+    @FindBy(id = "buyId")
+    private WebElement thatsCorrectBtn;
+
+    @FindBy(id = "buyId")
+    private WebElement thatsCorrectButton;
+
+    @FindBy(xpath = "//a[contains(@class,'js_closePopup')]")
+    private WebElement kycPopupCloseBtn;
+
+    @FindBy(xpath = "//div[@class='il-car-details-head' and normalize-space()='Car detail']/following-sibling::div")
+    private WebElement insuredCarDetail;
+
+    @FindBy(xpath = "//div[@class='il-car-details-head' and normalize-space()='Registration no.']/following-sibling::div")
+    private WebElement insuredRegNo;
+
+    @FindBy(xpath = "//div[@class='il-car-details-head' and normalize-space()='Insured declared value (IDV)']/following-sibling::div")
+    private WebElement insuredIdv;
+
+    @FindBy(xpath = "//h3[normalize-space()='Premium summary']")
+    private WebElement premiumSummaryHeader;
+
+    @FindBy(xpath = "//li[p[normalize-space()='Base premium']]/span")
+    private WebElement insuredBasePremium;
+
+    @FindBy(xpath = "//li[p[contains(normalize-space(),'Additional covers')]]/span[contains(@class,'ng-star-inserted')]")
+    private WebElement insuredAdditionalCovers;
+
+    @FindBy(xpath = "//li[p[normalize-space()='Sub Total']]/span")
+    private WebElement insuredSubTotal;
+
+    @FindBy(xpath = "//li[p[normalize-space()='Net Premium']]/span")
+    private WebElement insuredNetPremium;
+
+    @FindBy(xpath = "//li[p[contains(normalize-space(),'Tax')]]/span[contains(@class,'ng-star-inserted')]")
+    private WebElement insuredTax;
+
+    @FindBy(xpath = "//li[p[normalize-space()='Total Premium']]/span")
+    private WebElement insuredTotalPremium;
+
+    @FindBy(xpath = "//a[normalize-space()='Proceed to pay']")
+    private WebElement proceedToPayBtn;
+
+    public boolean isLongTermPolicySelected() {return waitUtils.waitForSelected(longTermPolicyOption);}
 
     public boolean isCarPageDisplayed() {
         try {
@@ -347,4 +413,84 @@ public class CarPage {
         }
         return waitUtils.waitForSelected(longTermPolicyOption);
     }
+
+    public void clickContinue() {
+        jsUtils.scrollToElement(continueBtn);
+        jsUtils.jsClick(continueBtn);
+    }
+
+    public boolean isVerifyInfoHeaderDisplayed() {
+        try { return waitUtils.waitForVisibility(verifyInfoHeader).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public String getVerifyInfoSubtext()      {
+        return waitUtils.waitForVisibility(verifyInfoSubtext).getText().trim();
+    }
+    public String getVerifyCity()             {
+        return verifyCityInput.getAttribute("value").trim();
+    }
+    public String getVerifyMakeModel()        {
+        return verifyMakeModelInput.getAttribute("value").trim();
+    }
+    public String getVerifyRegDate()          {
+        return verifyRegDateInput.getAttribute("value").trim();
+    }
+    public String getVerifyRegUnderIndividual(){
+        return waitUtils.waitForVisibility(verifyRegUnderIndividual).getText().trim();
+    }
+    public String getVerifyPucNote()          {
+        return waitUtils.waitForVisibility(verifyPucNote).getText().trim();
+    }
+
+    public boolean isModifyBtnDisplayed()        {
+        try {
+            return waitUtils.waitForVisibility(modifyBtn).isDisplayed();
+        } catch (Exception e) { return false; } }
+
+    public boolean isThatsCorrectBtnDisplayed()  {
+        try {
+            return waitUtils.waitForVisibility(thatsCorrectBtn).isDisplayed();
+        } catch (Exception e) { return false; } }
+
+    public void clickThatsCorrect() {
+        jsUtils.scrollToElement(thatsCorrectButton);
+        jsUtils.jsClick(thatsCorrectButton);
+    }
+
+    public void closeKycPopupIfPresent() {
+        try {
+            if (kycPopupCloseBtn.isDisplayed()) {
+                jsUtils.jsClick(kycPopupCloseBtn);
+                System.out.println("KYC popup closed");
+            }
+        } catch (Exception e) {
+            System.out.println("KYC popup not shown");
+        }
+    }
+
+    public boolean isInsuredDetailsPage() {
+        return waitUtils.waitForUrlContains("insured-details");
+    }
+
+    public boolean isPremiumSummaryDisplayed(){
+        try { return waitUtils.waitForVisibility(premiumSummaryHeader).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isProceedToPayEnabled() {
+        try { return waitUtils.waitForClickable(proceedToPayBtn).isEnabled(); }
+        catch (Exception e) { return false; }
+    }
+
+    public String getInsuredCarDetail()      { return waitUtils.waitForVisibility(insuredCarDetail).getText().trim(); }
+    public String getInsuredRegNo()          { return waitUtils.waitForVisibility(insuredRegNo).getText().trim(); }
+    public String getInsuredIdv()            { return waitUtils.waitForVisibility(insuredIdv).getText().trim(); }
+    public String getInsuredBasePremium()    { return waitUtils.waitForVisibility(insuredBasePremium).getText().trim(); }
+    public String getInsuredAdditionalCovers(){ return waitUtils.waitForVisibility(insuredAdditionalCovers).getText().trim(); }
+    public String getInsuredSubTotal()       { return waitUtils.waitForVisibility(insuredSubTotal).getText().trim(); }
+    public String getInsuredNetPremium()     { return waitUtils.waitForVisibility(insuredNetPremium).getText().trim(); }
+    public String getInsuredTax()            { return waitUtils.waitForVisibility(insuredTax).getText().trim(); }
+    public String getInsuredTotalPremium()   { return waitUtils.waitForVisibility(insuredTotalPremium).getText().trim(); }
+
 }

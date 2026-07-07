@@ -40,7 +40,7 @@
             logger.info("==================================");
         }
 
-        @AfterTest
+       @AfterTest
         public void tearDown() {
             logger.info("Closing browser");
             if (driver != null) {
@@ -49,7 +49,5 @@
             }
         }
 
-        public static WebDriver getDriver() {
-            return driver;
-        }
+        public static WebDriver getDriver() {return driver;}
     }

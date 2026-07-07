@@ -43,6 +43,9 @@ public class WaitUtils {
     public boolean waitForAttributeContains(WebElement element, String attribute, String value) {
         return wait.until(ExpectedConditions.attributeContains(element, attribute, value));
     }
+    public boolean waitForUrlContains(String fragment) {
+        return wait.until(ExpectedConditions.urlContains(fragment));
+    }
 
     public boolean waitForElementCount(By locator, int expectedCount) {
         return wait.until(driver ->

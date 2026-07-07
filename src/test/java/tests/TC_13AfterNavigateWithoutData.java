@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import org.insurance.utils.ConfigReader;
 
 public class TC_13AfterNavigateWithoutData extends BaseTest {
-
     private static final Logger logger =
             LogManager.getLogger(TC_13AfterNavigateWithoutData.class);
 

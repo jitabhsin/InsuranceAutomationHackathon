@@ -1,9 +1,10 @@
 package org.insurance.utils;
 
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -123,56 +124,42 @@ public class ExcelReader {
     }
 
     public Object[][] readSheetHealth() {
-
         try (FileInputStream fis = new FileInputStream(path);
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheet("Health");
 
-            if (sheet == null) {
-                throw new RuntimeException("No sheet named 'Health' found in " + path
-                        + ". Available sheets: " + getSheetNames(workbook));
-            }
+            int rows = sheet.getPhysicalNumberOfRows();
+            int cols = sheet.getRow(0).getLastCellNum();
 
-            if (sheet.getLastRowNum() < 0) {
-                throw new RuntimeException("Sheet 'Health' in " + path
-                        + " has no rows. Make sure the file on disk actually has the header"
-                        + " and data saved into this sheet.");
-            }
-
-            int headerRowIndex = sheet.getFirstRowNum();
-            while (sheet.getRow(headerRowIndex) == null && headerRowIndex <= sheet.getLastRowNum()) {
-                headerRowIndex++;
-            }
-
-            if (sheet.getRow(headerRowIndex) == null) {
-                throw new RuntimeException("Could not find a header row in sheet 'Health' of " + path);
-            }
-
-            int cols = sheet.getRow(headerRowIndex).getLastCellNum();
-            int lastRowNum = sheet.getLastRowNum();
+            Object[][] data = new Object[rows - 1][cols];
 
             DataFormatter formatter = new DataFormatter();
-            java.util.List<Object[]> rowsList = new java.util.ArrayList<>();
 
-            for (int i = headerRowIndex + 1; i < lastRowNum; i++) {
+            for (int i = 1; i < rows; i++) {
                 Row row = sheet.getRow(i);
-                if (row == null) {
-                    continue;
-                }
-                Object[] rowData = new Object[cols];
+                System.out.println("ROW " + i);
                 for (int j = 0; j < cols; j++) {
-                    rowData[j] = formatter.formatCellValue(row.getCell(j));
+                    Cell cell = row.getCell(j);
+                    if (cell == null) {
+                        data[i - 1][j] = "";
+                    }
+                    else if (cell.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(cell)) {
+                        data[i - 1][j] = new SimpleDateFormat("dd-MM-yyyy").format(cell.getDateCellValue());
+                    }
+                    else {
+                        data[i - 1][j] = formatter.formatCellValue(cell);
+                    }
+                    System.out.println("COL " + j + " = " + data[i - 1][j]);
                 }
-                rowsList.add(rowData);
             }
-
-            return rowsList.toArray(new Object[0][]);
+            return data;
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
     private java.util.List<String> getSheetNames(Workbook workbook) {
         java.util.List<String> names = new java.util.ArrayList<>();
         for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
