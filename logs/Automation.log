@@ -1,0 +1,14 @@
+07-07-2026 10:08:05 INFO  tests.TC_07_VerifyTravelQuoteSummary - ========== Browser Launch Started ==========
+07-07-2026 10:08:21 INFO  tests.TC_07_VerifyTravelQuoteSummary - Browser launched successfully
+07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - Navigated to URL: https://www.icicilombard.com/
+07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ========== Setup Completed ==========
+07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
+07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - Test Execution Started
+07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
+07-07-2026 10:08:38 INFO  tests.TC_07_VerifyTravelQuoteSummary - TC_07 - Verify Travel Quote Summary Started
+07-07-2026 10:09:03 INFO  tests.TC_07_VerifyTravelQuoteSummary - Travel Quote Page Loaded
+07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
+07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - Test Execution Completed
+07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
+07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - Closing browser
+07-07-2026 10:09:28 INFO  tests.TC_07_VerifyTravelQuoteSummary - Browser closed successfully

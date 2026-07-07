@@ -189,9 +189,7 @@ public class CarPage {
     @FindBy(xpath = "//a[normalize-space()='Proceed to pay']")
     private WebElement proceedToPayBtn;
 
-    public boolean isLongTermPolicySelected() {
-        return waitUtils.waitForSelected(longTermPolicyOption);
-    }
+    public boolean isLongTermPolicySelected() {return waitUtils.waitForSelected(longTermPolicyOption);}
 
     public boolean isCarPageDisplayed() {
         try {

@@ -49,7 +49,5 @@
 //            }
 //        }
 
-        public static WebDriver getDriver() {
-            return driver;
-        }
+        public static WebDriver getDriver() {return driver;}
     }

@@ -21,5 +21,9 @@ public class JavaScriptUtils {
     public void jsClick(WebElement element) {
         js.executeScript("arguments[0].click();", element);
     }
+    public void scrollAndClick(WebElement element) {
+        scrollToElement(element);
+        js.executeScript("arguments[0].click();", element);
+    }
 }
 

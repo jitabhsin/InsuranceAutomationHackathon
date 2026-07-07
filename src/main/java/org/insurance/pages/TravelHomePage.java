@@ -1,5 +1,6 @@
 package org.insurance.pages;
 
+import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,17 +10,19 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 
 public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
+    JavaScriptUtils jsUtils;
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
         PageFactory.initElements(driver, this);
+        jsUtils = new JavaScriptUtils(driver);
     }
 
     String countryName = "";
@@ -29,6 +32,9 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//input[@placeholder='Add countries']")
     public WebElement selectCountryText;
+
+    @FindBy(xpath = "//div[@class='no-result-message']")
+    public WebElement noResultText;
 
     @FindBy(xpath="//input[@class='tel date-bg-input val-mob val-req numeric cal-popup ng-untouched ng-pristine ng-valid']")
     public WebElement selectStartAndEndDateElement;
@@ -51,22 +57,22 @@ public class TravelHomePage {
     @FindBy(id = "mul-em")
     public WebElement email;
 
-    @FindBy(xpath = "//span[text()='0-50 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    @FindBy(xpath = "//span[text()='0-50 Years']/following-sibling::div//a[contains(@class,'btn-plus')]")
     public WebElement zeroTofiftyAgeGroup;
 
-    @FindBy(xpath = "//span[text()='51-60 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    @FindBy(xpath = "//span[text()='51-60 Years']/following-sibling::div//a[contains(@class,'btn-plus')]")
     public WebElement fiftyAgeGroup;
 
-    @FindBy(xpath = "//span[text()='61-70 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    @FindBy(xpath = "//span[text()='61-70 Years']/following-sibling::div//a[contains(@class,'btn-plus')]")
     public WebElement sixtyAgeGroup;
 
-    @FindBy(xpath = "//span[text()='71-85 Years']/following-sibling::div//a[contains(@class,'btn-plus')]a")
+    @FindBy(xpath = "//span[text()='71-85 Years']/following-sibling::div//a[contains(@class,'btn-plus')]")
     public WebElement seventyAboveAgeGroup;
 
-    @FindBy(id="//label[text()='No']")
+    @FindBy(xpath="//label[text()='No']")
     public WebElement noHealthCheckBox;
 
-    @FindBy(id="//label[text()='Yes']")
+    @FindBy(xpath="//label[text()='Yes']")
     public WebElement yesHealthCheckBox;
 
     @FindBy(xpath="//img[@class='cal-popup']")
@@ -113,6 +119,29 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//a[text()='Ok']")
     public WebElement okButton;
+
+    @FindBy(xpath = "//input[@placeholder='DD']")
+    private List<WebElement> dayFields;
+
+    @FindBy(xpath = "//input[@placeholder='MM']")
+    private List<WebElement> monthFields;
+
+    @FindBy(xpath = "//input[@placeholder='YYYY']")
+    private List<WebElement> yearFields;
+
+    @FindBy(xpath = "//div[contains(@class,'il-traveller-details')]//label")
+    public List<WebElement> travellerHealthIssueCheckboxes;
+
+    public void safeClick(WebElement element) {
+        try {
+            element = waitUtils.waitForClickable(element);
+            jsUtils.scrollToElement(element);
+            element.click();
+        } catch (Exception e) {
+            System.out.println("Normal click failed. Trying JS Click");
+            jsUtils.scrollAndClick(element);
+        }
+    }
 
     public boolean isTravelPageDisplayed(){
         try{
@@ -180,6 +209,13 @@ public class TravelHomePage {
         }
     }
 
+    public boolean noResultFoundForCountry(){
+        try{
+            return noResultText.isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
     public void selectStartDate(String startDate){
         String[] dateSeperator = startDate.split(",");
@@ -207,21 +243,25 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(dateSubmitButton).click();
     }
 
-    public void selectTravellerCount(int count, int... ages) {
+    public void selectTravellerCount(int count, int[] ages) {
         if (ages.length < count) {
-            throw new IllegalArgumentException(
-                    "Number of ages must be equal to or greater than traveller count");
+            throw new IllegalArgumentException("Number of ages must be equal to or greater than traveller count");
         }
 
         for (int i = 0; i < count; i++) {
-            if (ages[i] > 0 && ages[i] <= 50) {
-                waitUtils.waitForVisibility(zeroTofiftyAgeGroup).click();
-            } else if (ages[i] > 50 && ages[i] <= 60) {
-                waitUtils.waitForVisibility(fiftyAgeGroup).click();
-            } else if (ages[i] > 60 && ages[i] <= 70) {
-                waitUtils.waitForVisibility(sixtyAgeGroup).click();
-            } else if (ages[i] > 70 && ages[i] <= 85) {
-                waitUtils.waitForVisibility(seventyAboveAgeGroup).click();
+            int age = ages[i];
+            System.out.println("Selecting traveller age : " + age);
+
+            if (age > 0 && age <= 50) {
+                safeClick(zeroTofiftyAgeGroup);
+            } else if (age > 50 && age <= 60) {
+                safeClick(fiftyAgeGroup);
+            } else if (age > 60 && age <= 70) {
+                safeClick(sixtyAgeGroup);
+            } else if (age > 70 && age <= 85) {
+                safeClick(seventyAboveAgeGroup);
+            } else {
+                throw new IllegalArgumentException("Invalid traveller age : " + age);
             }
         }
     }
@@ -230,10 +270,6 @@ public class TravelHomePage {
         if(diabetesCheck.equalsIgnoreCase("no")){
             waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
         }
-    }
-
-    public void getTravelQuota(){
-        waitUtils.waitForVisibility(submitButton).click();
     }
 
     public void clickNextMonthAndYear(String monthAndYear){
@@ -280,11 +316,6 @@ public class TravelHomePage {
 
     public String getTermsStatus() {
         return termsCheckbox.isSelected() ? "CHECKED" : "UNCHECKED";
-    }
-
-    public void providePersonalDetails(String number, String mailId){
-        contactNumber.sendKeys(number);
-        email.sendKeys(mailId);
     }
 
     public boolean countryErrorMessagesDisplayed(){
@@ -373,6 +404,129 @@ public class TravelHomePage {
             return waitUtils.waitForVisibility(selectEndDateElement).isDisplayed();
         } catch (Exception e){
             return false;
+        }
+    }
+
+    public boolean validateHealthIssueTravellers(String travellerAges, String healthIssueTravellers) {
+
+        String[] travellerAgeArray = travellerAges.split(",");
+        String[] healthIssueArray = healthIssueTravellers.split(",");
+
+        List<String> travellerAgeList = new ArrayList<>();
+
+        for (String age : travellerAgeArray) {
+            travellerAgeList.add(age.trim());
+        }
+
+        for (String issueAge : healthIssueArray) {
+            issueAge = issueAge.trim();
+
+            if (!travellerAgeList.contains(issueAge)) {
+                System.out.println("Invalid HealthIssueTraveller Age: " + issueAge + "\nTraveller Ages: " + travellerAges + "\nHealth Issue Travellers: " + healthIssueTravellers);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean validateSeniorTravellerDOBs(String travellerAges, String seniorTravellerDOBs) {
+
+        if (seniorTravellerDOBs == null || seniorTravellerDOBs.trim().isEmpty()) {
+            return true;
+        }
+
+        List<String> travellerAgeList = new ArrayList<>();
+
+        for (String age : travellerAges.split(",")) {
+            travellerAgeList.add(age.trim());
+        }
+
+        String[] dobEntries = seniorTravellerDOBs.split(",");
+
+        for (String entry : dobEntries) {
+            String seniorAge = entry.split("=")[0].trim();
+
+            if (!travellerAgeList.contains(seniorAge)) {
+                System.out.println("Invalid Senior DOB Mapping Age: " + seniorAge);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void enterSeniorTravellerDOBs(int[] ages, String seniorTravellerDOBs) {
+
+        if (seniorTravellerDOBs == null || seniorTravellerDOBs.trim().isEmpty()) {
+            return;
+        }
+
+        List<String> seniorAgeOrder = new ArrayList<>();
+
+        for (int age : ages) {
+            if (age > 70) {
+                seniorAgeOrder.add(String.valueOf(age));
+            }
+        }
+
+        Map<String, String> dobMap = new HashMap<>();
+        String[] dobEntries = seniorTravellerDOBs.split(",");
+
+        for (String entry : dobEntries) {
+            String[] parts = entry.trim().split("=");
+            dobMap.put(parts[0].trim(), parts[1].trim());
+        }
+
+        for (int i = 0; i < seniorAgeOrder.size(); i++) {
+            String age = seniorAgeOrder.get(i);
+            String dob = dobMap.get(age);
+
+            if (dob == null) {
+                continue;
+            }
+
+            String[] dobParts = dob.split("-");
+
+            String day = dobParts[0];
+            String month = dobParts[1];
+            String year = dobParts[2];
+
+            dayFields.get(i).clear();
+            dayFields.get(i).sendKeys(day);
+
+            monthFields.get(i).clear();
+            monthFields.get(i).sendKeys(month);
+
+            yearFields.get(i).clear();
+            yearFields.get(i).sendKeys(year);
+
+            System.out.println("Age " + age + " DOB Entered : " + dob);
+        }
+    }
+    public void selectHealthIssueTravellersByAge(String travellerAgesValue, String healthIssueTravellers) {
+
+        if (healthIssueTravellers == null || healthIssueTravellers.trim().isEmpty()) {
+            return;
+        }
+
+        String[] travellerAges = travellerAgesValue.split(",");
+        String[] issueAges = healthIssueTravellers.split(",");
+
+        List<Integer> sortedTravellerAges = new ArrayList<>();
+
+        for (String age : travellerAges) {
+            sortedTravellerAges.add(Integer.parseInt(age.trim()));
+        }
+
+        Collections.sort(sortedTravellerAges);
+
+        for (String age : issueAges) {
+            int issueAge = Integer.parseInt(age.trim());
+            int checkboxIndex = sortedTravellerAges.indexOf(issueAge);
+
+            if (checkboxIndex != -1 && checkboxIndex < travellerHealthIssueCheckboxes.size()) {
+                safeClick(travellerHealthIssueCheckboxes.get(checkboxIndex));
+                System.out.println("Selected traveller age: " + issueAge);
+            }
         }
     }
 

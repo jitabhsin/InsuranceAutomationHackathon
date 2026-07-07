@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -27,7 +28,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
+    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
 
         logger.info("TC_04 - Verify Selected Country Started");
 
@@ -36,6 +37,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         Assert.assertFalse(endDate.trim().isEmpty(),"End Date is empty");
         Assert.assertFalse(travellerCount.trim().isEmpty(),"Traveller Count is empty");
         Assert.assertFalse(travellerAges.trim().isEmpty(),"Traveller Ages are empty");
+        Assert.assertTrue(country.matches("^[a-zA-Z\\s\\-']+$"), "Invalid country name: " + country);
 
         logger.info("Input data validation passed");
 
@@ -58,6 +60,10 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
 
         logger.info("Selecting country: {}", country);
         travelHomePage.selectCountry(country);
+
+        logger.info("Check for No Result Found Text Found");
+        boolean noResultTextFound = travelHomePage.noResultFoundForCountry();
+        Assert.assertFalse(noResultTextFound, "No results found for the selected country");
 
         String selectedCountry = travelHomePage.getSelectedCountry();
         logger.info("Selected Country: {}", selectedCountry);

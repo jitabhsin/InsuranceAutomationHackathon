@@ -47,5 +47,28 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.urlContains(fragment));
     }
 
+    public boolean waitForElementCount(By locator, int expectedCount) {
+        return wait.until(driver ->
+                driver.findElements(locator).size() >= expectedCount);
+    }
+
+    public boolean waitForAttributeChange(
+            WebElement element,
+            String attribute,
+            String previousValue) {
+
+        return wait.until(driver ->
+                !element.getAttribute(attribute)
+                        .equals(previousValue));
+    }
+
+    public boolean waitForTextChange(
+            WebElement element,
+            String previousText) {
+
+        return wait.until(driver ->
+                !element.getText()
+                        .equals(previousText));
+    }
 
 }

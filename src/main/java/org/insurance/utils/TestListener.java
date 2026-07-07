@@ -23,17 +23,13 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-
         logger.error("{} FAILED", result.getName());
-
         try {
             if (BaseTest.getDriver() != null) {
-
                 String screenshotPath =
                         ScreenshotUtils.captureScreenshot(
                                 BaseTest.getDriver(),
                                 result.getName());
-
                 logger.info("Screenshot saved at: {}", screenshotPath);
             }
         } catch (Exception e) {
