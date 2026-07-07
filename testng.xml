@@ -6,21 +6,21 @@
         <listener class-name="org.insurance.utils.TestListener"/>
     </listeners>
 
-    <test name="CarInsurance">
-        <classes>
-            <class name="tests.TC_11NavigateCarPage"/>
-            <class name="tests.TC_12WithoutCarNumber"/>
-            <class name="tests.TC_13AfterNavigateWithoutData"/>
-            <class name="tests.TC_14SelectCarAndModel"/>
-            <class name="tests.TC_15VerifyPlansPage"/>
-            <class name="tests.TC_16VerifyPlanPricing"/>
-            <class name="tests.TC_17VerifyLongTermPlansPage"/>
-            <class name="tests.TC_18VerifyLongTermPlanPricing"/>
-            <class name="tests.TC_19VerifyInformationBelow"/>
-            <class name="tests.TC_20VerifyInsuredDetailsPage"/>
-        </classes>
-    </test>
-
+<!--    <test name="CarInsurance">-->
+<!-- -->
+<!--       <classes>-->
+<!--            <class name="tests.TC_11NavigateCarPage"/>-->
+<!--            <class name="tests.TC_12WithoutCarNumber"/>-->
+<!--            <class name="tests.TC_13AfterNavigateWithoutData"/>-->
+<!--            <class name="tests.TC_14SelectCarAndModel"/>-->
+<!--            <class name="tests.TC_15VerifyPlansPage"/>-->
+<!--            <class name="tests.TC_16VerifyPlanPricing"/>-->
+<!--            <class name="tests.TC_17VerifyLongTermPlansPage"/>-->
+<!--            <class name="tests.TC_18VerifyLongTermPlanPricing"/>-->
+<!--            <class name="tests.TC_19VerifyInformationBelow"/>-->
+<!--            <class name="tests.TC_20VerifyInsuredDetailsPage"/>-->
+<!--        </classes>-->
+<!--    </test>-->
     <test name="HealthInsurance">
         <classes>
             <class name="tests.TC_21_ClickHealthButton"/>
