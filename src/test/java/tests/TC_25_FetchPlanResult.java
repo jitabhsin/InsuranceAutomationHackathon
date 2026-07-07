@@ -13,6 +13,8 @@ public class TC_25_FetchPlanResult extends BaseTest {
         healthResultPage = new HealthResultPage(driver);
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
+        logger.info("Current URL: " + currUrl);
+        logger.info("Page title: " + title);
 
         Assert.assertEquals(title, "Elevate App");
         Assert.assertTrue(currUrl.contains("plan-page"), "Plan page is not opened");

@@ -26,10 +26,15 @@ public class TC_23_SelectMembers extends BaseTest {
         healthPage = new HealthHomePage(driver);
 
         healthPage.clickMemberBtn();
-        healthPage.addMembers(member, dob);
-        boolean verifyClickDoneBtn = healthPage.clickDoneBtn();
+        logger.info("Click member button");
 
-        Assert.assertTrue(verifyClickDoneBtn, "Done button clicked");
+        healthPage.addMembers(member, dob);
+        logger.info("Member data entered");
+
+        boolean verifyClickDoneBtn = healthPage.clickDoneBtn();
+        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
+        logger.info("Done button click");
+
         Assert.assertEquals(healthPage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
         logger.info("Members details are filled successfully");
     }

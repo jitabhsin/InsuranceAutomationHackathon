@@ -27,20 +27,26 @@ public class TC_24_FillContactDetails extends BaseTest {
     public void fillContactDetails(String name, String mobileNo, String email, String pincode){
 
         healthHomePage = new HealthHomePage(driver);
-        healthHomePage.clickHealthTab();
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
         logger.info("Contact detail button is displayed");
 
         healthHomePage.clickContactDetails();
+        logger.info("Contact detail tab clicked");
         healthHomePage.enterMobileNo(mobileNo);
+        logger.info("Mobile number entered");
         healthHomePage.enterEmailId(email);
+        logger.info("Email entered");
         healthHomePage.enterPincode(pincode);
+        logger.info("Pincode entered");
         healthHomePage.enterName(name);
+        logger.info("Name entered");
 
         Assert.assertTrue(healthHomePage.isDoneButtonDisplayed(), "Done Button is not displayed");
         logger.info("Done button is displayed");
         healthHomePage.clickDoneButton();
+        logger.info("Done button clicked");
         healthHomePage.clickGetQuote();
+        logger.info("Get quote button clicked");
     }
 }
