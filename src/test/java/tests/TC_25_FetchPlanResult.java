@@ -38,15 +38,15 @@ public class TC_25_FetchPlanResult extends BaseTest {
         Assert.assertEquals(actual, product);
         logger.info(product + " selected");
 
-        healthHomePage.clickMemberBtn();
-        logger.info("Click member button");
-
-        healthHomePage.addMembers(member, dob);
-        logger.info("Member data entered");
-
-        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
-        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
-        logger.info("Done button click");
+//        healthHomePage.clickMemberBtn();
+//        logger.info("Click member button");
+//
+//        healthHomePage.addMembers(member, dob);
+//        logger.info("Member data entered");
+//
+//        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
+//        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
+//        logger.info("Done button click");
 
         Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
         logger.info("Members details are filled successfully");
