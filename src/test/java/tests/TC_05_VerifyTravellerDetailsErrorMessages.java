@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -55,9 +56,9 @@ public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
         logger.info("Submitting traveller details without entering any data");
         travelHomePage.travellerSubmitButton.click();
 
-        String expectedMobileError = "Please enter valid mobile number";
-        String expectedEmailError = "Please enter valid email ID";
-        String expectedHealthError = "Please select atleast one member";
+        String expectedMobileError = ConfigReader.getProperty("expectedMobileError");
+        String expectedEmailError = ConfigReader.getProperty("expectedEmailError");
+        String expectedHealthError = ConfigReader.getProperty("expectedHealthError");
 
         String actualMobileError = travelHomePage.retrieveMobileError();
         String actualEmailError = travelHomePage.retrieveEmailError();

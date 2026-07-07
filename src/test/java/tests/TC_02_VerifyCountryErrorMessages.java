@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -36,9 +37,9 @@ public class TC_02_VerifyCountryErrorMessages extends BaseTest {
 
         travelHomePage.dateSubmitButton.click();
 
-        String expectedCountryError = "Please enter the countries you are travelling";
-        String expectedStartDateError = "Please select trip start date";
-        String expectedEndDateError = "Please select trip end date";
+        String expectedCountryError = ConfigReader.getProperty("expectedCountryError");
+        String expectedStartDateError = ConfigReader.getProperty("expectedStartDateError");
+        String expectedEndDateError = ConfigReader.getProperty("expectedEndDateError");
 
         String actualCountryError = travelHomePage.retrieveCountryError();
         String actualStartDateError = travelHomePage.retrieveStartDateError();
