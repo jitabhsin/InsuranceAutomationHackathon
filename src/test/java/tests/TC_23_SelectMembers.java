@@ -8,34 +8,51 @@ import org.testng.annotations.Test;
 import org.insurance.utils.ExcelReader;
 
 public class TC_23_SelectMembers extends BaseTest {
-    HealthHomePage healthPage;
+    HealthHomePage healthHomePage;
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
         Object[][] data = new ExcelReader().readSheetHealth();
-        Object[][] memberDob = new Object[data.length][2];
+        Object[][] memberDob = new Object[data.length][3];
         for (int i = 0; i < data.length; i++) {
-            memberDob[i][0] = data[i][1];
-            memberDob[i][1] = data[i][2];
+            memberDob[i][0] = data[i][0];
+            memberDob[i][1] = data[i][1];
+            memberDob[i][2] = data[i][2];
         }
         return memberDob;
     }
 
     @Test(dataProvider = "healthData")
-    public void testAddMembers(String member, String dob){
-        healthPage = new HealthHomePage(driver);
+    public void testAddMembers(String product, String member, String dob){
+        healthHomePage = new HealthHomePage(driver);
 
-        healthPage.clickMemberBtn();
+        healthHomePage.clickHealthTab();
+        logger.info("Health tab clicked");
+        Assert.assertEquals(healthHomePage.isSelectProductTextDisplayed(), "Select products");
+        Assert.assertEquals(healthHomePage.isInsureMembersTextDisplayed(), "Insure members");
+        Assert.assertEquals(healthHomePage.isContactDetailsTextDisplayed(), "Contact details");
+
+        int totalProduct = healthHomePage.clickProductDropdwn();
+        logger.info("Click product button");
+
+        Assert.assertEquals(totalProduct, 3);
+        String actual = healthHomePage.selectProduct(product);
+        logger.info("Product selected");
+
+        Assert.assertEquals(actual, product);
+        logger.info(product + " selected");
+
+        healthHomePage.clickMemberBtn();
         logger.info("Click member button");
 
-        healthPage.addMembers(member, dob);
+        healthHomePage.addMembers(member, dob);
         logger.info("Member data entered");
 
-        boolean verifyClickDoneBtn = healthPage.clickDoneBtn();
+        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
         Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
         logger.info("Done button click");
 
-        Assert.assertEquals(healthPage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
+        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
         logger.info("Members details are filled successfully");
     }
 }

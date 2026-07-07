@@ -1,25 +1,11 @@
-07-07-2026 10:44:55 INFO  tests.TC_21_ClickHealthButton - ========== Browser Launch Started ==========
-07-07-2026 10:44:58 INFO  tests.TC_21_ClickHealthButton - Browser launched successfully
-07-07-2026 10:45:09 INFO  tests.TC_21_ClickHealthButton - Navigated to URL: https://www.icicilombard.com/
-07-07-2026 10:45:09 INFO  tests.TC_21_ClickHealthButton - ========== Setup Completed ==========
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Test Execution Started
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
-07-07-2026 10:45:10 INFO  org.insurance.utils.TestListener - verifyHealthTabButtonsVisibilityAndWorking STARTED
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Health tab clicked
-07-07-2026 10:45:10 INFO  org.insurance.utils.TestListener - verifyHealthTabButtonsVisibilityAndWorking PASSED
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Test Execution Completed
-07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
-07-07-2026 10:45:12 INFO  org.insurance.utils.TestListener - testFetchPlanResult STARTED
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Current URL: https://www.icicilombard.com/
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Page title: General Insurance: Buy Health, Car, Bike & Travel Policy Online
-07-07-2026 10:45:12 ERROR org.insurance.utils.TestListener - testFetchPlanResult FAILED
-07-07-2026 10:45:12 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260707_104512.png
-07-07-2026 10:45:12 INFO  org.insurance.utils.TestListener - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260707_104512.png
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
-07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+07-07-2026 14:41:50 INFO  tests.TC_21_ClickHealthButton - ========== Browser Launch Started ==========
+07-07-2026 14:41:53 INFO  tests.TC_21_ClickHealthButton - Browser launched successfully
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - Navigated to URL: https://www.icicilombard.com/
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - ========== Setup Completed ==========
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - Test Execution Started
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - Health tab clicked
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - Test Execution Completed
+07-07-2026 14:42:02 INFO  tests.TC_21_ClickHealthButton - ==================================

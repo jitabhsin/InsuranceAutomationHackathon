@@ -12,21 +12,41 @@ public class TC_24_FillContactDetails extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        Object[][] data = new ExcelReader().readSheetHealth();
-        Object[][] contactDetails = new Object[data.length][4];
-        for (int i = 0; i < data.length; i++) {
-            contactDetails[i][0] = data[i][3];
-            contactDetails[i][1] = data[i][4];
-            contactDetails[i][2] = data[i][5];
-            contactDetails[i][3] = data[i][6];
-        }
-        return contactDetails;
+        return new ExcelReader().readSheetHealth();
     }
 
     @Test(dataProvider = "healthData")
-    public void fillContactDetails(String name, String mobileNo, String email, String pincode){
-
+    public void fillContactDetails(String product, String member, String dob, String name, String mobileNo, String email, String pincode){
         healthHomePage = new HealthHomePage(driver);
+
+        healthHomePage.clickHealthTab();
+        logger.info("Health tab clicked");
+        Assert.assertEquals(healthHomePage.isSelectProductTextDisplayed(), "Select products");
+        Assert.assertEquals(healthHomePage.isInsureMembersTextDisplayed(), "Insure members");
+        Assert.assertEquals(healthHomePage.isContactDetailsTextDisplayed(), "Contact details");
+
+        int totalProduct = healthHomePage.clickProductDropdwn();
+        logger.info("Click product button");
+
+        Assert.assertEquals(totalProduct, 3);
+        String actual = healthHomePage.selectProduct(product);
+        logger.info("Product selected");
+
+        Assert.assertEquals(actual, product);
+        logger.info(product + " selected");
+
+        healthHomePage.clickMemberBtn();
+        logger.info("Click member button");
+
+        healthHomePage.addMembers(member, dob);
+        logger.info("Member data entered");
+
+        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
+        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
+        logger.info("Done button click");
+
+        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
+        logger.info("Members details are filled successfully");
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
         logger.info("Contact detail button is displayed");

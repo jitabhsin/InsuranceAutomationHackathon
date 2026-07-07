@@ -2,7 +2,6 @@ package org.insurance.utils;
 
 import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -125,15 +124,14 @@ public class ExcelReader {
 
     public Object[][] readSheetHealth() {
         try (FileInputStream fis = new FileInputStream(path);
-             Workbook workbook = new XSSFWorkbook(fis)) {
+            Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheet("Health");
 
-            int rows = sheet.getLastRowNum();
-            int cols = sheet.getRow(0).getLastCellNum();
+            int rows = sheet.getPhysicalNumberOfRows();
+            int cols = sheet.getRow(0).getLastCellNum()-1;
 
             Object[][] data = new Object[rows - 1][cols];
-
             DataFormatter formatter = new DataFormatter();
 
             for (int i = 1; i < rows; i++) {
@@ -150,7 +148,7 @@ public class ExcelReader {
                     else {
                         data[i - 1][j] = formatter.formatCellValue(cell);
                     }
-                    System.out.println("Col " + j + data[i-1][j]);
+                    System.out.println("Col " + j + ": " + data[i-1][j]);
                 }
             }
             return data;
