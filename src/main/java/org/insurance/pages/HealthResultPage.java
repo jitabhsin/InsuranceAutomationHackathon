@@ -17,6 +17,10 @@ public class HealthResultPage {
     @FindBy(xpath = "//div[@id='riaChat']/div")
     List<WebElement> planList;
 
+    @FindBy(xpath = "//h4[normalize-space()='Optional add-ons']")
+    WebElement optionalAddons;
+
+
     public HealthResultPage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
@@ -25,7 +29,7 @@ public class HealthResultPage {
 
     public int resultPlans(){
         int i = 0;
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        waitUtils.waitForVisibility(optionalAddons);
         System.out.println(planList.size());
         for(WebElement element : planList){
             String title = element.findElement(By.xpath(".//div/div/h3")).getText();
