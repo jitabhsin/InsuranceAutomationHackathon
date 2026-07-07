@@ -2,7 +2,6 @@ package org.insurance.utils;
 
 import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -125,20 +124,19 @@ public class ExcelReader {
 
     public Object[][] readSheetHealth() {
         try (FileInputStream fis = new FileInputStream(path);
-             Workbook workbook = new XSSFWorkbook(fis)) {
+            Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheet("Health");
 
             int rows = sheet.getPhysicalNumberOfRows();
-            int cols = sheet.getRow(0).getLastCellNum();
+            int cols = sheet.getRow(0).getLastCellNum()-1;
 
             Object[][] data = new Object[rows - 1][cols];
-
             DataFormatter formatter = new DataFormatter();
 
             for (int i = 1; i < rows; i++) {
                 Row row = sheet.getRow(i);
-                System.out.println("ROW " + i);
+                System.out.println("Row: " + i);
                 for (int j = 0; j < cols; j++) {
                     Cell cell = row.getCell(j);
                     if (cell == null) {
@@ -150,7 +148,7 @@ public class ExcelReader {
                     else {
                         data[i - 1][j] = formatter.formatCellValue(cell);
                     }
-                    System.out.println("COL " + j + " = " + data[i - 1][j]);
+                    System.out.println("Col " + j + ": " + data[i-1][j]);
                 }
             }
             return data;
@@ -158,6 +156,11 @@ public class ExcelReader {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void main(String[] args){
+        ExcelReader health = new ExcelReader();
+        health.readSheetHealth();
     }
 
     private java.util.List<String> getSheetNames(Workbook workbook) {

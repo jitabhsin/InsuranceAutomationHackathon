@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
 import java.util.List;
 
 public class HealthResultPage {
@@ -17,8 +16,9 @@ public class HealthResultPage {
     @FindBy(xpath = "//div[@id='riaChat']/div")
     List<WebElement> planList;
 
-    @FindBy(xpath = ".//div/div/h3")
-    WebElement title;
+    @FindBy(xpath = "//h4[normalize-space()='Optional add-ons']")
+    WebElement optionalAddons;
+
 
     public HealthResultPage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +28,7 @@ public class HealthResultPage {
 
     public int resultPlans(){
         int i = 0;
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        waitUtils.waitForVisibility(optionalAddons);
         System.out.println(planList.size());
         for(WebElement element : planList){
             String title = element.findElement(By.xpath(".//div/div/h3")).getText();
