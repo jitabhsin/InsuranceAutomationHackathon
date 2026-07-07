@@ -138,6 +138,7 @@ public class ExcelReader {
 
             for (int i = 1; i < rows; i++) {
                 Row row = sheet.getRow(i);
+                System.out.println("Row: " + i);
                 for (int j = 0; j < cols; j++) {
                     Cell cell = row.getCell(j);
                     if (cell == null) {
@@ -149,6 +150,7 @@ public class ExcelReader {
                     else {
                         data[i - 1][j] = formatter.formatCellValue(cell);
                     }
+                    System.out.println("Col " + j + data[i-1][j]);
                 }
             }
             return data;

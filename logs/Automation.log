@@ -1,14 +1,25 @@
-07-07-2026 10:08:05 INFO  tests.TC_07_VerifyTravelQuoteSummary - ========== Browser Launch Started ==========
-07-07-2026 10:08:21 INFO  tests.TC_07_VerifyTravelQuoteSummary - Browser launched successfully
-07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - Navigated to URL: https://www.icicilombard.com/
-07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ========== Setup Completed ==========
-07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
-07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - Test Execution Started
-07-07-2026 10:08:37 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
-07-07-2026 10:08:38 INFO  tests.TC_07_VerifyTravelQuoteSummary - TC_07 - Verify Travel Quote Summary Started
-07-07-2026 10:09:03 INFO  tests.TC_07_VerifyTravelQuoteSummary - Travel Quote Page Loaded
-07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
-07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - Test Execution Completed
-07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - ==================================
-07-07-2026 10:09:23 INFO  tests.TC_07_VerifyTravelQuoteSummary - Closing browser
-07-07-2026 10:09:28 INFO  tests.TC_07_VerifyTravelQuoteSummary - Browser closed successfully
+07-07-2026 10:44:55 INFO  tests.TC_21_ClickHealthButton - ========== Browser Launch Started ==========
+07-07-2026 10:44:58 INFO  tests.TC_21_ClickHealthButton - Browser launched successfully
+07-07-2026 10:45:09 INFO  tests.TC_21_ClickHealthButton - Navigated to URL: https://www.icicilombard.com/
+07-07-2026 10:45:09 INFO  tests.TC_21_ClickHealthButton - ========== Setup Completed ==========
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Test Execution Started
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 10:45:10 INFO  org.insurance.utils.TestListener - verifyHealthTabButtonsVisibilityAndWorking STARTED
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Health tab clicked
+07-07-2026 10:45:10 INFO  org.insurance.utils.TestListener - verifyHealthTabButtonsVisibilityAndWorking PASSED
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - Test Execution Completed
+07-07-2026 10:45:10 INFO  tests.TC_21_ClickHealthButton - ==================================
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Test Execution Started
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+07-07-2026 10:45:12 INFO  org.insurance.utils.TestListener - testFetchPlanResult STARTED
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Current URL: https://www.icicilombard.com/
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Page title: General Insurance: Buy Health, Car, Bike & Travel Policy Online
+07-07-2026 10:45:12 ERROR org.insurance.utils.TestListener - testFetchPlanResult FAILED
+07-07-2026 10:45:12 INFO  org.insurance.utils.ScreenshotUtils - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260707_104512.png
+07-07-2026 10:45:12 INFO  org.insurance.utils.TestListener - Screenshot saved at: C:\Hackathon Projects\InsuranceAutomationHackathon\screenshots\testFetchPlanResult_20260707_104512.png
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - Test Execution Completed
+07-07-2026 10:45:12 INFO  tests.TC_25_FetchPlanResult - ==================================
