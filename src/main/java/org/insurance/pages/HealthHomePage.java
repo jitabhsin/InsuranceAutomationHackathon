@@ -179,6 +179,6 @@ public class HealthHomePage {
     }
 
     public void clickGetQuote(){
-        waitUtils.waitForClickable(getQuoteBtn).click();
+        jsUtils.jsClick(waitUtils.waitForClickable(getQuoteBtn));
     }
 }
