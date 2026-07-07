@@ -1,1 +1,1 @@
-Selenium , Cucumber , TestNg based Automation
+Selenium testng
