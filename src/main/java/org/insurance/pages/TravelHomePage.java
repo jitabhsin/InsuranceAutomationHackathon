@@ -176,14 +176,10 @@ public class TravelHomePage {
 
     public boolean isSelectTravelTypeSelected() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        String content = (String) js.executeScript(
-                "return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');",
-                selectCountryElement
-        );
-
+        String content = jsUtils.isTravelTypeSelected(selectCountryElement);
         return content != null && !content.equals("none");
     }
+
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
         waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
