@@ -81,10 +81,6 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
 
         logger.info("Travel Quote Page Loaded");
 
-        // =============================
-        // TRAVEL QUOTE VALIDATIONS
-        // =============================
-
         logger.info("Validating Benefits Title");
 
         Assert.assertTrue(
