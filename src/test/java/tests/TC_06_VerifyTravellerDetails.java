@@ -175,6 +175,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
             driver.get(ConfigReader.getProperty("baseUrl"));
         }
 
+        logger.info("All traveller details have been passed and redirected to Travel Quote Page and verified successfully");
         logger.info("TC_06 PASSED");
     }
 }

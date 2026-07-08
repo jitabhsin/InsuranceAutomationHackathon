@@ -18,7 +18,7 @@ public final class ExtentManager {
 
             extent = new ExtentReports();
             extent.attachReporter(reporter);
-            extent.setSystemInfo("Tester", "RASHU");
+            extent.setSystemInfo("Tester", "USHAR");
             extent.setSystemInfo("Framework", "Selenium TestNG");
             extent.setSystemInfo("Project", "InsuranceAutomation");
             extent.setSystemInfo("Environment", "QA");

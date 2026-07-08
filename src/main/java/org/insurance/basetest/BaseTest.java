@@ -66,10 +66,6 @@ public class BaseTest {
 //        }
 //    }
 
-    public static WebDriver getDriver() {
-        return driver;
-    }
-
     private void deleteOldScreenshots() {
         File folder = new File(System.getProperty("user.dir") + File.separator + "screenshots");
         if (folder.exists()) {
