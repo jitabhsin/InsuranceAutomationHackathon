@@ -83,7 +83,6 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         logger.info("Clicked Proceed Button");
 
         boolean longTermSelected = carPage.selectLongTermPolicy();
-        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
         logger.info("Long Term Policy Selected : {}", longTermSelected);
 
         Assert.assertTrue(longTermSelected, "Long Term Policy option is not selected");
@@ -108,6 +107,8 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         boolean expandExists = carPage.isExpandLinkDisplayed();
         logger.info("Expand Link Displayed : {}", expandExists);
         Assert.assertTrue(expandExists, "Expand link not displayed");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
 
         carPage.clickExpand();
         logger.info("Clicked Expand Link");

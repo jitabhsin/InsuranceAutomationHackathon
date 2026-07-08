@@ -75,7 +75,6 @@ public class TC_19VerifyInformationBelow extends BaseTest {
         logger.info("Selected Zero Dep Plan");
 
         carPage.clickContinue();
-        ScreenshotUtils.captureScreenshot(driver, "TC19_Verify_Information");
         logger.info("Clicked Continue Button");
 
         Assert.assertTrue(carPage.isVerifyInfoHeaderDisplayed(), "Verify Information header not displayed");
@@ -94,6 +93,8 @@ public class TC_19VerifyInformationBelow extends BaseTest {
         Assert.assertEquals(verifyCity, city, "City of Registration does not match Excel input");
         Assert.assertEquals(verifyMakeModel, model, "Car Make & Model does not match Excel input");
         Assert.assertTrue(verifyRegUnder.equalsIgnoreCase("YES"), "Registered Under Individual should be YES");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC19_Verify_Information");
 
         logger.info("All information validated successfully");
         logger.info("TC_19 PASSED");

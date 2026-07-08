@@ -17,12 +17,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        String screenshot = ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName() + "_PASS");
         test.get().pass("Test Passed");
-        try {
-            test.get().addScreenCaptureFromPath(screenshot);
-        } catch (Exception ignored) {
-        }
     }
 
     @Override
