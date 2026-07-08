@@ -157,78 +157,45 @@ public class TravelQuotePage {
     }
 
     public boolean isTravelQuotePageLoaded() {
-
         try {
-
             waitUtils.waitForVisibility(nextCoverageBtn);
-
-            return nextCoverageBtn.isDisplayed()
-                    && availablePlans.size() > 0;
-
+            return nextCoverageBtn.isDisplayed() && availablePlans.size() > 0;
         } catch (Exception e) {
-
             return false;
         }
     }
 
-    public boolean arePlansSortedByPremium(
-            List<PlanDetails> plans) {
-
+    public boolean arePlansSortedByPremium(List<PlanDetails> plans) {
         for (int i = 0; i < plans.size() - 1; i++) {
-
-            int current =
-                    convertPremiumToInteger(
-                            plans.get(i).getPremiumAmount());
-
-            int next =
-                    convertPremiumToInteger(
-                            plans.get(i + 1).getPremiumAmount());
+            int current = convertPremiumToInteger(plans.get(i).getPremiumAmount());
+            int next = convertPremiumToInteger(plans.get(i + 1).getPremiumAmount());
 
             if (current > next) {
                 return false;
             }
         }
-
         return true;
     }
 
-    public boolean isPlanDetailValid(
-            PlanDetails plan) {
-
-        return plan != null
-                && plan.getPlanName() != null
-                && !plan.getPlanName().trim().isEmpty()
-                && plan.getMedicalCover() != null
-                && !plan.getMedicalCover().trim().isEmpty()
-                && plan.getPremiumAmount() != null
-                && !plan.getPremiumAmount().trim().isEmpty();
+    public boolean isPlanDetailValid(PlanDetails plan) {
+        return plan != null && plan.getPlanName() != null && !plan.getPlanName().trim().isEmpty() && plan.getMedicalCover() != null && !plan.getMedicalCover().trim().isEmpty() && plan.getPremiumAmount() != null && !plan.getPremiumAmount().trim().isEmpty();
     }
 
-    public boolean areDropdownValuesUnique(
-            List<String> values) {
-
-        Set<String> uniqueValues =
-                new HashSet<>(values);
-
-        return uniqueValues.size()
-                == values.size();
+    public boolean areDropdownValuesUnique(List<String> values) {
+        Set<String> uniqueValues = new HashSet<>(values);
+        return uniqueValues.size() == values.size();
     }
-    public boolean hasValidDropdownValues(
-            List<String> values) {
 
+    public boolean hasValidDropdownValues(List<String> values) {
         if (values == null || values.isEmpty()) {
             return false;
         }
 
         for (String value : values) {
-
-            if (value == null
-                    || value.trim().isEmpty()) {
-
+            if (value == null || value.trim().isEmpty()) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -237,68 +204,33 @@ public class TravelQuotePage {
     }
 
     public void navigateToLastCoverage() {
-
         while (isNextCoverageEnabled()) {
-
-            String lastPremium =
-                    visiblePremiums.get(visiblePremiums.size() - 1).getText();
-
             clickNextCoverage();
-
-            waitUtils.waitForTextChange(
-                    visiblePremiums.get(visiblePremiums.size() - 1),
-                    lastPremium);
         }
     }
 
     public void navigateToFirstCoverage() {
-
-        while (true) {
-
-            String className =
-                    previousCoverageBtn.getAttribute("class");
-
-            if (className.contains("disabled")) {
-                break;
-            }
-
-            String firstPremium =
-                    visiblePremiums.get(0).getText();
-
+        while (isPreviousCoverageEnabled()) {
             clickPreviousCoverage();
-
-            waitUtils.waitForTextChange(
-                    visiblePremiums.get(0),
-                    firstPremium);
         }
     }
+
     public boolean isPreviousCoverageEnabled() {
-
         waitUtils.waitForVisibility(previousCoverageBtn);
-
         String classValue = previousCoverageBtn.getAttribute("class");
-
-        return classValue.contains("active")
-                && !classValue.contains("disabled");
+        return classValue.contains("active") && !classValue.contains("disabled");
     }
 
     public void clickMedicalCoverDropdown(int index) {
-
         WebElement dropdown = medicalCoverDropdowns.get(index);
-
         jsUtils.scrollToElement(dropdown);
-
         waitUtils.waitForClickable(dropdown).click();
     }
 
     public List<String> getDropdownValues() {
-
         List<String> values = new ArrayList<>();
-
         for (WebElement option : allMedicalCoverOptions) {
-
             String value = option.getText().trim();
-
             if (!value.isEmpty()) {
                 values.add(value);
             }
