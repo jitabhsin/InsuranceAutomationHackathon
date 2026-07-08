@@ -230,9 +230,7 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
         // Validate all soft assertions
         softAssert.assertAll();
 
-        logger.info("==========================================");
-        logger.info("All Travel Quote Summary Validations Passed");
+        logger.info("All Travel Quote Summary Validations Passed and Verified Successfully");
         logger.info("TC_07 PASSED");
-        logger.info("==========================================");
     }
 }

@@ -23,7 +23,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
     TravelQuotePage travelQuotePage;
 
     @Test
-    public void verifyTravelQuoteSummary() {
+    public void verifyTravelQuotaPlanNavigation() {
 
         ExcelReader excel = new ExcelReader();
         Object[] data = excel.readSheetTravelFirstRow();
@@ -210,6 +210,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         softAssert.assertAll();
 
+        logger.info("All traveller plans have been navigated and verified successfully");
         logger.info("TC_08 PASSED");
     }
 }

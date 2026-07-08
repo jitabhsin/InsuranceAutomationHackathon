@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -155,50 +156,189 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         logger.info("Travel Quote Page Loaded");
 
         travelQuotePage.waitForPage();
-        WebElement ele = driver.findElement(By.className("multi-sub-limit"));
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);",ele);
+        Assert.assertTrue(
+                travelQuotePage.isTravelQuotePageLoaded(),
+                "Travel Quote Page not loaded properly");
 
-        List<PlanDetails> allPlans = new ArrayList<>();
+        logger.info("Travel Quote Page verified successfully");
 
-        travelQuotePage.selectLowestCoverage(0);
-        allPlans.add(travelQuotePage.getCurrentPlanDetails(0));
+        WebElement ele =
+                driver.findElement(
+                        By.className("multi-sub-limit"));
 
-        travelQuotePage.selectLowestCoverage(1);
-        allPlans.add(travelQuotePage.getCurrentPlanDetails(1));
+        JavascriptExecutor js =
+                (JavascriptExecutor) driver;
 
-        travelQuotePage.selectLowestCoverage(2);
-        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
+        js.executeScript(
+                "arguments[0].scrollIntoView(true);",
+                ele);
+
+        logger.info("Scrolled to Medical Cover section");
+
+        SoftAssert softAssert =
+                new SoftAssert();
+
+        List<PlanDetails> allPlans =
+                new ArrayList<>();
+
+        logger.info(
+                "Selecting lowest coverage for first plan");
+
+        String coverage1 =
+                travelQuotePage.selectLowestCoverage(0);
+
+        PlanDetails plan1 =
+                travelQuotePage.getCurrentPlanDetails(0);
+
+        allPlans.add(plan1);
+
+        logger.info(
+                "Captured Plan: {}",
+                plan1);
+
+        softAssert.assertNotNull(
+                plan1,
+                "Plan 1 details are null");
+
+        logger.info(
+                "Selecting lowest coverage for second plan");
+
+        String coverage2 =
+                travelQuotePage.selectLowestCoverage(1);
+
+        PlanDetails plan2 =
+                travelQuotePage.getCurrentPlanDetails(1);
+
+        allPlans.add(plan2);
+
+        logger.info(
+                "Captured Plan: {}",
+                plan2);
+
+        softAssert.assertNotNull(
+                plan2,
+                "Plan 2 details are null");
+
+        logger.info(
+                "Selecting lowest coverage for third plan");
+
+        String coverage3 =
+                travelQuotePage.selectLowestCoverage(2);
+
+        PlanDetails plan3 =
+                travelQuotePage.getCurrentPlanDetails(2);
+
+        allPlans.add(plan3);
+
+        logger.info(
+                "Captured Plan: {}",
+                plan3);
+
+        softAssert.assertNotNull(
+                plan3,
+                "Plan 3 details are null");
+
+        logger.info("Navigating to next coverage");
 
         travelQuotePage.clickNextCoverage();
 
-        travelQuotePage.selectLowestCoverage(2);
-        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
+        logger.info(
+                "Selecting lowest coverage for fourth plan");
+
+        String coverage4 =
+                travelQuotePage.selectLowestCoverage(2);
+
+        PlanDetails plan4 =
+                travelQuotePage.getCurrentPlanDetails(2);
+
+        allPlans.add(plan4);
+
+        logger.info(
+                "Captured Plan: {}",
+                plan4);
+
+        softAssert.assertNotNull(
+                plan4,
+                "Plan 4 details are null");
+
+        logger.info("Navigating to final coverage");
 
         travelQuotePage.clickNextCoverage();
 
-        travelQuotePage.selectLowestCoverage(2);
-        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
+        logger.info(
+                "Selecting lowest coverage for fifth plan");
 
+        String coverage5 =
+                travelQuotePage.selectLowestCoverage(2);
 
+        PlanDetails plan5 =
+                travelQuotePage.getCurrentPlanDetails(2);
+
+        allPlans.add(plan5);
+
+        logger.info(
+                "Captured Plan: {}",
+                plan5);
+
+        softAssert.assertNotNull(
+                plan5,
+                "Plan 5 details are null");
+
+        logger.info(
+                "Total plans collected: {}",
+                allPlans.size());
+
+        softAssert.assertEquals(
+                allPlans.size(),
+                5,
+                "Expected 5 plans to be collected");
 
         List<PlanDetails> lowestPlans =
                 travelQuotePage.getLowestThreePlans(allPlans);
 
-        Assert.assertEquals(
-                lowestPlans.size(),
-                3);
+        logger.info(
+                "Lowest premium plans identified. Count: {}",
+                lowestPlans.size());
 
-        System.out.println(
-                "Lowest 3 Premium Plans");
+        softAssert.assertEquals(
+                lowestPlans.size(),
+                3,
+                "Lowest premium plan count mismatch");
+
+        logger.info("Printing Lowest 3 Premium Plans");
 
         for (PlanDetails plan : lowestPlans) {
 
-            System.out.println(plan);
+            logger.info(
+                    "Lowest Premium Plan => {}",
+                    plan);
+
+            softAssert.assertTrue(
+                    travelQuotePage.isPlanDetailValid(plan),
+                    "Invalid plan details found");
+
+            softAssert.assertNotNull(
+                    plan.getPlanName(),
+                    "Plan name is null");
+
+            softAssert.assertNotNull(
+                    plan.getPremiumAmount(),
+                    "Premium amount is null");
+
+            softAssert.assertNotNull(
+                    plan.getMedicalCover(),
+                    "Medical cover is null");
         }
 
-        logger.info("TC_07 PASSED");
-    }
 
+        softAssert.assertTrue(
+                travelQuotePage.arePlansSortedByPremium(lowestPlans),
+                "Lowest plans are not sorted by premium");
+
+        softAssert.assertAll();
+
+        logger.info("All Travel Plans have been retrieved and top 3 lowest plans have been listed and verified successfully");
+        logger.info("TC_10 PASSED");
+    }
 }

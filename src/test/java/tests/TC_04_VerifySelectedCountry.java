@@ -107,7 +107,6 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         }
 
         logger.info("Successfully redirected to Traveller Count page");
-
         logger.info("TC_04 PASSED");
 
     }
