@@ -29,23 +29,29 @@ public class HealthResultPage {
     }
 
     public int resultPlans(String product){
-        int i = 0;
         waitUtils.waitForVisibility(optionalAddons);
-        System.out.println(planList.size());
-        for(WebElement element : planList){
-            String title = element.findElement(By.xpath(".//div/div/h3")).getText();
-            String price = "";
-            if(i==0 && product.equals("Elevate")) {
-                price = element.findElement(By.xpath(".//div/div/div/div[2]/p")).getText();
+        int total = planList.size();
+        System.out.println(total);
+
+        for(int i = 1; i <= total; i++){
+            String cardXpath = "(//app-plan-card)[" + i + "]";
+
+            String titleXpath = cardXpath + "//div/div/h3";
+            String priceXpath;
+
+            if(i == 1 && product.equals("Elevate")){
+                priceXpath = cardXpath + "//div/div/div/div[2]/p";
+            } else if(product.equals("Activate Booster")){
+                priceXpath = cardXpath + "//div/div[2]/div/p";
+            } else {
+                priceXpath = cardXpath + "//div/div/div/div[1]/p";
             }
-            else if(product.equals("Activate Booster")){
-                price = element.findElement(By.xpath(".//div/div[2]/div/p")).getText();
-            }else {
-                price = element.findElement(By.xpath(".//div/div/div/div[1]/p")).getText();
-            }
-            i++;
+
+            String title = driver.findElement(By.xpath(titleXpath)).getText();
+            String price = driver.findElement(By.xpath(priceXpath)).getText();
+
             System.out.println(title + " -> " + price);
         }
-        return planList.size();
+        return total;
     }
 }
