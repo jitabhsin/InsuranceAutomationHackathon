@@ -78,7 +78,6 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
         logger.info("Clicked Proceed Button");
 
         boolean longTermSelected = carPage.selectLongTermPolicy();
-        ScreenshotUtils.captureScreenshot(driver, "TC18_Long_Term_Pricing");
         logger.info("Long Term Policy Selected : {}", longTermSelected);
         Assert.assertTrue(longTermSelected, "Long Term Policy option is not selected");
 
@@ -165,5 +164,7 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
 
         Assert.assertEquals(totalDigits, planDigits, "Total Premium and Plan Amount mismatch after Personal Protect Add for " + planName);
         logger.info("Total Premium and Plan Amount match after addon : {}", totalPremium);
+
+        ScreenshotUtils.captureScreenshot(driver, "TC18_Long_Term_Pricing");
     }
 }

@@ -80,7 +80,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         logger.info("Verify Information page displayed");
 
         carPage.clickThatsCorrect();
-        ScreenshotUtils.captureScreenshot(driver, "TC20_Insured_Details");
         logger.info("Clicked That's Correct Button");
 
         Assert.assertTrue(carPage.isInsuredDetailsPage(), "Not navigated to Insured Details page");
@@ -125,6 +124,8 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         Assert.assertFalse(total.isEmpty(), "Total Premium empty");
 
         logger.info("Premium calculations validated");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC20_Insured_Details");
 
         boolean proceedEnabled = carPage.isProceedToPayEnabled();
         logger.info("Proceed To Pay Enabled : {}", proceedEnabled);
