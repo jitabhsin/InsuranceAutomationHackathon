@@ -9,6 +9,16 @@
     <test name="CarInsurance">
 
        <classes>
+            <class name="tests.TC_01_NavigateTravelPage"/>
+            <class name="tests.TC_02_VerifyCountryErrorMessages"/>
+            <class name="tests.TC_03_VerifyNonImmigrantCheckBox"/>
+            <class name="tests.TC_04_VerifySelectedCountry"/>
+            <class name="tests.TC_05_VerifyTravellerDetailsErrorMessages"/>
+            <class name="tests.TC_06_VerifyTravellerDetails"/>
+            <class name="tests.TC_07_VerifyTravelQuoteSummary"/>
+            <class name="tests.TC_08_VerifyNavigationBetweenPlans"/>
+            <class name="tests.TC_09_VerifyFilteringForMedicalCovers"/>
+            <class name="tests.TC_10_RetrieveLowestThreePlans"/>
             <class name="tests.TC_11NavigateCarPage"/>
             <class name="tests.TC_12WithoutCarNumber"/>
             <class name="tests.TC_13AfterNavigateWithoutData"/>
@@ -19,6 +29,11 @@
             <class name="tests.TC_18VerifyLongTermPlanPricing"/>
             <class name="tests.TC_19VerifyInformationBelow"/>
             <class name="tests.TC_20VerifyInsuredDetailsPage"/>
+            <class name="tests.TC_21_ClickHealthButton"/>
+            <class name="tests.TC_22_SelectProducts"/>
+            <class name="tests.TC_23_SelectMembers"/>
+            <class name="tests.TC_24_FillContactDetails"/>
+            <class name="tests.TC_25_FetchPlanResult"/>
         </classes>
     </test>
 <!--    <test name="HealthInsurance">-->
