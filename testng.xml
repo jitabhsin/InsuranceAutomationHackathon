@@ -6,7 +6,7 @@
         <listener class-name="org.insurance.utils.TestListener"/>
     </listeners>
 
-    <test name="CarInsurance">
+    <test name="Insurance">
 
        <classes>
             <class name="tests.TC_01_NavigateTravelPage"/>
@@ -36,14 +36,4 @@
             <class name="tests.TC_25_FetchPlanResult"/>
         </classes>
     </test>
-<!--    <test name="HealthInsurance">-->
-<!--        <classes>-->
-<!--            <class name="tests.TC_21_ClickHealthButton"/>-->
-<!--            <class name="tests.TC_22_SelectProducts"/>-->
-<!--            <class name="tests.TC_23_SelectMembers"/>-->
-<!--            <class name="tests.TC_24_FillContactDetails"/>-->
-<!--            <class name="tests.TC_25_FetchPlanResult"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-
 </suite>

@@ -20,10 +20,6 @@ public class WaitUtils {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    public WebElement waitForVisibilityOfElementLocated(By element){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-    }
-
     public WebElement waitForVisibility(WebElement element){
         try {
             return wait.until(ExpectedConditions.visibilityOf(element));
@@ -66,27 +62,5 @@ public class WaitUtils {
 
     public boolean waitForElementCount(List<WebElement> list, int expectedCount) {
         return list.size() >= expectedCount;
-    }
-
-    public boolean waitForAttributeChange(
-            WebElement element,
-            String attribute,
-            String previousValue) {
-
-        try {
-            String currentValue = element.getAttribute(attribute);
-            return !currentValue.equals(previousValue);
-        } catch (StaleElementReferenceException e) {
-            return false;
-        }
-    }
-
-    public boolean waitForTextChange(WebElement element, String previousText) {
-
-        try {
-            return !element.getText().equals(previousText);
-        } catch (StaleElementReferenceException e) {
-            return false;
-        }
     }
 }

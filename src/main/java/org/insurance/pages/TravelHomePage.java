@@ -45,12 +45,6 @@ public class TravelHomePage {
     @FindBy(xpath = "//a[text()='Continue']")
     public WebElement dateSubmitButton;
 
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
-    public WebElement ageSubmitButton;
-
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
-    public WebElement submitButton;
-
     @FindBy(id = "mul-no")
     public WebElement contactNumber;
 
@@ -99,9 +93,6 @@ public class TravelHomePage {
     @FindBy(xpath = "//span[@class='error_message']")
     public List<WebElement> allTravellerErrorElements;
 
-    @FindBy(xpath = "//a[@class='il-con-close']")
-    public List<WebElement> selectedCountryElements;
-
     @FindBy(xpath = "//input[@class='ng-untouched ng-pristine ng-invalid']")
     public List<WebElement> selectedTravellerElements;
 
@@ -119,6 +110,9 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//a[text()='Ok']")
     public WebElement okButton;
+
+    @FindBy(xpath = "//div[@class='dropdown-item']")
+    public List<WebElement> countryDropDown;
 
     @FindBy(xpath = "//input[@placeholder='DD']")
     private List<WebElement> dayFields;
@@ -185,20 +179,16 @@ public class TravelHomePage {
 
     public boolean isSelectTravelTypeSelected() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        String content = (String) js.executeScript(
-                "return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');",
-                selectCountryElement
-        );
-
+        String content = jsUtils.isTravelTypeSelected(selectCountryElement);
         return content != null && !content.equals("none");
     }
+
     public void selectCountry(String countryName){
         waitUtils.waitForVisibility(selectCountryElement).click();
         waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
         this.countryName = countryName;
 
-        List<WebElement> options = waitUtils.waitForVisibilityOfAllElements();
+        List<WebElement> options = waitUtils.waitForVisibilityOfAllElements(countryDropDown);
 
 
         for(WebElement option : options){
@@ -250,7 +240,6 @@ public class TravelHomePage {
 
         for (int i = 0; i < count; i++) {
             int age = ages[i];
-            System.out.println("Selecting traveller age : " + age);
 
             if (age > 0 && age <= 50) {
                 safeClick(zeroTofiftyAgeGroup);
@@ -263,12 +252,6 @@ public class TravelHomePage {
             } else {
                 throw new IllegalArgumentException("Invalid traveller age : " + age);
             }
-        }
-    }
-
-    public void selectHealthOfTravellers(String diabetesCheck){
-        if(diabetesCheck.equalsIgnoreCase("no")){
-            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
         }
     }
 
