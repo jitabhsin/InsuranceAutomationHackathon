@@ -33,6 +33,7 @@ public class BaseTest {
             logger.info("Microsoft Edge launched");
         } else {
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
             logger.info("Google Chrome launched");
         }
