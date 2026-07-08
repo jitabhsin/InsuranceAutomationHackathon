@@ -10,7 +10,8 @@ import org.testng.annotations.*;
 
 import java.io.File;
 import java.lang.reflect.Method;
-
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 public class BaseTest {
 
     protected static WebDriver driver;
@@ -23,9 +24,21 @@ public class BaseTest {
         deleteOldLogs();
 
         logger.info("========== Browser Launch Started ==========");
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
+
+        String browser = ConfigReader.getProperty("browser");
+
+        if ("edge".equalsIgnoreCase(browser)) {
+            EdgeOptions options = new EdgeOptions();
+            driver = new EdgeDriver(options);
+            logger.info("Microsoft Edge launched");
+        } else {
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
+            logger.info("Google Chrome launched");
+        }
+
         driver.manage().window().maximize();
+
         logger.info("Browser launched successfully");
         logger.info("========== Setup Completed ==========");
     }

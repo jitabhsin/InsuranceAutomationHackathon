@@ -26,9 +26,6 @@ public class JavaScriptUtils {
         js.executeScript("arguments[0].click();", element);
     }
 
-    public String isTravelTypeSelected(WebElement element){
-        return (String) js.executeScript("return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');", element);
-    }
 
 }
 

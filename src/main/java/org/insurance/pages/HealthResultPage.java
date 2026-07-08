@@ -28,7 +28,7 @@ public class HealthResultPage {
         PageFactory.initElements(driver, this);
     }
 
-     public int resultPlans(String product){
+    public int resultPlans(String product){
         int i = 0;
         waitUtils.waitForVisibility(optionalAddons);
         System.out.println(planList.size());
