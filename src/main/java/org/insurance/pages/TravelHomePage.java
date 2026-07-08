@@ -45,12 +45,6 @@ public class TravelHomePage {
     @FindBy(xpath = "//a[text()='Continue']")
     public WebElement dateSubmitButton;
 
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Done']")
-    public WebElement ageSubmitButton;
-
-    @FindBy(xpath = "//button[contains(@class, 'travel_main_cta') and normalize-space()='Explore Plans ›']")
-    public WebElement submitButton;
-
     @FindBy(id = "mul-no")
     public WebElement contactNumber;
 
@@ -98,9 +92,6 @@ public class TravelHomePage {
 
     @FindBy(xpath = "//span[@class='error_message']")
     public List<WebElement> allTravellerErrorElements;
-
-    @FindBy(xpath = "//a[@class='il-con-close']")
-    public List<WebElement> selectedCountryElements;
 
     @FindBy(xpath = "//input[@class='ng-untouched ng-pristine ng-invalid']")
     public List<WebElement> selectedTravellerElements;
@@ -263,12 +254,6 @@ public class TravelHomePage {
             } else {
                 throw new IllegalArgumentException("Invalid traveller age : " + age);
             }
-        }
-    }
-
-    public void selectHealthOfTravellers(String diabetesCheck){
-        if(diabetesCheck.equalsIgnoreCase("no")){
-            waitUtils.waitForVisibilityOfElementLocated(By.id("ped_no")).click();
         }
     }
 
