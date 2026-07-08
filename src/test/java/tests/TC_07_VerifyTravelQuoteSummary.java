@@ -83,8 +83,7 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
 
         logger.info("Validating Benefits Title");
 
-        Assert.assertTrue(
-                travelQuotePage.getBenefitsTitle()
+        Assert.assertTrue(travelQuotePage.getBenefitsTitle()
                         .contains("Benefits curated for you"),
                 "Benefits title mismatch");
 

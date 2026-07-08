@@ -111,6 +111,9 @@ public class TravelHomePage {
     @FindBy(xpath = "//a[text()='Ok']")
     public WebElement okButton;
 
+    @FindBy(xpath = "//div[@class='dropdown-item']")
+    public List<WebElement> countryDropDown;
+
     @FindBy(xpath = "//input[@placeholder='DD']")
     private List<WebElement> dayFields;
 
@@ -185,7 +188,7 @@ public class TravelHomePage {
         waitUtils.waitForVisibility(selectCountryText).sendKeys(countryName);
         this.countryName = countryName;
 
-        List<WebElement> options = waitUtils.waitForVisibilityOfAllElements();
+        List<WebElement> options = waitUtils.waitForVisibilityOfAllElements(countryDropDown);
 
 
         for(WebElement option : options){
