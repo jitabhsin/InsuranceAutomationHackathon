@@ -55,7 +55,7 @@ public class BaseTest {
         logger.info("==================================");
     }
 
-    @AfterTest
+        @AfterTest
     public void tearDown() {
         logger.info("Closing browser");
         if (driver != null) {
