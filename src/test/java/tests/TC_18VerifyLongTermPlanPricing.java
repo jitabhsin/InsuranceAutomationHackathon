@@ -32,7 +32,6 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
         String make = data[1].toString();
         String model = data[2].toString();
         String mobile = data[3].toString();
-        String email = data[4].toString();
 
         logger.info("Excel data loaded successfully");
         logger.info("City : {}", city);
@@ -44,7 +43,6 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
         Assert.assertFalse(model.trim().isEmpty(), "Model is empty");
         Assert.assertEquals(mobile.length(), 10, "Invalid mobile length");
         Assert.assertTrue(mobile.matches("\\d+"), "Mobile should contain only digits");
-        Assert.assertTrue(email.contains("@"), "Invalid email");
 
         logger.info("Input validation completed successfully");
 
@@ -59,9 +57,6 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
 
         carPage.enterMobile(mobile);
         logger.info("Entered Mobile Number");
-
-        carPage.enterEmail(email);
-        logger.info("Entered Email Address");
 
         carPage.clickNewVehicleGetQuote();
         logger.info("Clicked Get Quote");
@@ -91,12 +86,14 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
 
         verifyPlan("Zero Dep", carPage.getZeroDepAmount(), carPage.getTotalPremiumAmount(), carPage.getPlanAmount());
         loopPersonalProtectSums("Zero Dep");
+
         boolean noFrillsSelected = carPage.selectNoFrillsIfNotSelected();
         logger.info("No Frills selected : {}", noFrillsSelected);
         Assert.assertTrue(noFrillsSelected, "No Frills plan is not selected");
 
         verifyPlan("No Frills", carPage.getNoFrillsAmount(), carPage.getTotalPremiumAmount(), carPage.getPlanAmount());
         loopPersonalProtectSums("No Frills");
+
         boolean smartCoverSelected = carPage.selectSmartCoverIfNotSelected();
         logger.info("Smart Cover selected : {}", smartCoverSelected);
         Assert.assertTrue(smartCoverSelected, "Smart Cover plan is not selected");
@@ -132,7 +129,10 @@ public class TC_18VerifyLongTermPlanPricing extends BaseTest {
             carPage.togglePersonalProtect();
             String totalAfterRemove = carPage.getTotalPremiumAmount();
             logger.info("{} | After Remove Total : {}", planName, totalAfterRemove);
-            Assert.assertEquals(totalAfterRemove.replaceAll("[^0-9,]", ""), baseTotal.replaceAll("[^0-9,]", ""), planName + " Total did not reset after removing addon [" + optionLabel + "]");
+            Assert.assertEquals(
+                    totalAfterRemove.replaceAll("[^0-9,]", ""),
+                    baseTotal.replaceAll("[^0-9,]", ""),
+                    planName + " Total did not reset after removing addon [" + optionLabel + "]");
         }
         logger.info("{} Personal Protect loop completed", planName);
     }

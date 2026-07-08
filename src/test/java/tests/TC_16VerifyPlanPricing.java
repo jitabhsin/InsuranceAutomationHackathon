@@ -31,21 +31,18 @@ public class TC_16VerifyPlanPricing extends BaseTest {
         String make = data[1].toString();
         String model = data[2].toString();
         String mobile = data[3].toString();
-        String email = data[4].toString();
 
         logger.info("Excel Data Loaded Successfully");
         logger.info("City : {}", city);
         logger.info("Make : {}", make);
         logger.info("Model : {}", model);
         logger.info("Mobile : {}", mobile);
-        logger.info("Email : {}", email);
 
         Assert.assertFalse(city.trim().isEmpty(), "City is empty");
         Assert.assertFalse(make.trim().isEmpty(), "Make is empty");
         Assert.assertFalse(model.trim().isEmpty(), "Model is empty");
         Assert.assertEquals(mobile.length(), 10, "Invalid mobile length");
         Assert.assertTrue(mobile.matches("\\d+"), "Mobile should contain only digits");
-        Assert.assertTrue(email.contains("@"), "Invalid email");
         logger.info("Input validation completed successfully");
 
         homePage = new HomePage(driver);
@@ -54,7 +51,6 @@ public class TC_16VerifyPlanPricing extends BaseTest {
         homePage.clickCarInsurance();
         carPage.clickNewVehicleLink();
         carPage.enterMobile(mobile);
-        carPage.enterEmail(email);
         carPage.clickNewVehicleGetQuote();
 
         Assert.assertTrue(carPage.isSelectPlansPageDisplayed(), "Select Plans page not displayed");
@@ -119,8 +115,10 @@ public class TC_16VerifyPlanPricing extends BaseTest {
             carPage.togglePersonalProtect();
             String totalAfterRemove = carPage.getTotalPremiumAmount();
             logger.info("{} | After Remove Total : {}", planName, totalAfterRemove);
-            Assert.assertEquals(totalAfterRemove.replaceAll("[^0-9,]", ""), baseTotal.replaceAll("[^0-9,]", ""), planName + " Total did not reset after removing addon [" + optionLabel + "]"
-            );
+            Assert.assertEquals(
+                    totalAfterRemove.replaceAll("[^0-9,]", ""),
+                    baseTotal.replaceAll("[^0-9,]", ""),
+                    planName + " Total did not reset after removing addon [" + optionLabel + "]");
         }
         logger.info("{} Personal Protect loop completed", planName);
     }

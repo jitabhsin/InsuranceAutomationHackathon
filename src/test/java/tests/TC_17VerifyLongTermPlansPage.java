@@ -29,7 +29,6 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         String make = data[1].toString();
         String model = data[2].toString();
         String mobile = data[3].toString();
-        String email = data[4].toString();
 
         logger.info("Excel data loaded successfully");
         logger.info("City : {}", city);
@@ -41,7 +40,6 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         Assert.assertFalse(model.trim().isEmpty(), "Model is empty");
         Assert.assertEquals(mobile.length(), 10, "Invalid mobile length");
         Assert.assertTrue(mobile.matches("\\d+"), "Mobile should contain only digits");
-        Assert.assertTrue(email.contains("@"), "Invalid email");
 
         logger.info("Input validation completed successfully");
 
@@ -58,9 +56,6 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
 
         carPage.enterMobile(mobile);
         logger.info("Entered Mobile Number");
-
-        carPage.enterEmail(email);
-        logger.info("Entered Email Address");
 
         carPage.clickNewVehicleGetQuote();
         logger.info("Clicked Get Quote");

@@ -28,7 +28,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         String make = data[1].toString();
         String model = data[2].toString();
         String mobile = data[3].toString();
-        String email = data[4].toString();
 
         logger.info("Excel data loaded successfully");
         logger.info("City : {}", city);
@@ -48,9 +47,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
 
         carPage.enterMobile(mobile);
         logger.info("Entered Mobile Number");
-
-        carPage.enterEmail(email);
-        logger.info("Entered Email Address");
 
         carPage.clickNewVehicleGetQuote();
         logger.info("Clicked Get Quote");

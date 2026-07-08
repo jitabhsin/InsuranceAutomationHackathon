@@ -1,5 +1,6 @@
 package org.insurance.pages;
 
+import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,10 +12,11 @@ public class HomePage {
 
     WebDriver driver;
     WaitUtils waitUtils;
-
+    JavaScriptUtils jsUtils;
     public HomePage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
+        jsUtils = new JavaScriptUtils(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -38,7 +40,7 @@ public class HomePage {
     }
 
     public void clickCarInsurance() {
-        waitUtils.waitForVisibility(carInsuranceElement).click();
+        jsUtils.jsClick(waitUtils.waitForVisibility(carInsuranceElement));
     }
 
     public void clickHealthInsurance() {
