@@ -81,9 +81,7 @@ public class WaitUtils {
         }
     }
 
-    public boolean waitForTextChange(
-            WebElement element,
-            String previousText) {
+    public boolean waitForTextChange(WebElement element, String previousText) {
 
         try {
             return !element.getText().equals(previousText);
