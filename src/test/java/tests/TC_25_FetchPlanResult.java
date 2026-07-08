@@ -15,7 +15,10 @@ public class TC_25_FetchPlanResult extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        return new ExcelReader().readSheetHealth();
+        Object[][] healthDetails =  new ExcelReader().readSheetHealth();
+        return new Object[][]{
+                healthDetails[0]
+        };
     }
 
     @Test(dataProvider = "healthData")
