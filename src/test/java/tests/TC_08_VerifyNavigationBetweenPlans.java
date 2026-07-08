@@ -40,65 +40,81 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         travelHomePage = new TravelHomePage(driver);
         travelQuotePage = new TravelQuotePage(driver);
 
+        logger.info("Country received from test data: {}", country);
         Assert.assertFalse(country.trim().isEmpty(), "Country is empty");
 
-        logger.info("Navigating to Travel Insurance section");
+        logger.info("Navigating to Travel Insurance page");
 
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
+                "Travel Insurance page not loaded");
+
         logger.info("Travel Insurance page loaded successfully");
 
+        logger.info("Selecting country: {}", country);
         travelHomePage.selectCountry(country);
 
-        logger.info("Selected country: {}", country);
-
+        logger.info("Opening travel date calendar");
         travelHomePage.selectStartAndEndDateElement.click();
 
+        logger.info("Selecting Start Date: {}", startDate);
         travelHomePage.selectStartDate(startDate);
+
+        logger.info("Selecting End Date: {}", endDate);
         travelHomePage.selectEndDate(endDate);
 
-        logger.info("Selected travel dates. Start Date: {}, End Date: {}", startDate, endDate);
-
+        logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        logger.info("Traveller Details page loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
+                "Traveller Details page not loaded");
+
+        logger.info("Traveller Details page loaded successfully");
 
         String contactNo = ConfigReader.getProperty("contactNum");
-
         String email = ConfigReader.getProperty("email");
 
+        logger.info("Entering Contact Number");
         travelHomePage.contactNumber.sendKeys(contactNo);
+
+        logger.info("Entering Email");
         travelHomePage.email.sendKeys(email);
 
-        logger.info("Entered contact details");
-
         int travellerCnt = Integer.parseInt(travellerCount);
+        logger.info("Traveller Count: {}", travellerCnt);
 
         String[] ageStrings = travellerAges.split(",");
-
         int[] ages = new int[ageStrings.length];
 
         for (int i = 0; i < ageStrings.length; i++) {
             ages[i] = Integer.parseInt(ageStrings[i].trim());
+            logger.info("Traveller {} Age: {}", i + 1, ages[i]);
         }
 
-        logger.info("Traveller ages processed successfully");
-
+        logger.info("Selecting traveller count and age groups");
         travelHomePage.selectTravellerCount(travellerCnt, ages);
 
-        logger.info("Selected traveller count: {}", travellerCnt);
-
-        logger.info("No health issues declared");
-
+        logger.info("Selecting Health Issue option: NO");
         travelHomePage.noHealthCheckBox.click();
 
+        logger.info("Submitting traveller details");
         travelHomePage.travellerSubmitButton.click();
 
-        travelQuotePage.waitForPage();
+        logger.info("Traveller details submitted successfully");
 
-        logger.info("Travel Quote Page Loaded");
+        logger.info("Waiting for navigation to Travel Quote page");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"),
+                "Navigation to Travel Quote page failed");
+
+        logger.info("Successfully navigated to Travel Quote page");
+
+        travelQuotePage.waitForElementstoLoad();
+
+        logger.info("Travel Quote Page Loaded Successfully");
 
         SoftAssert softAssert = new SoftAssert();
 

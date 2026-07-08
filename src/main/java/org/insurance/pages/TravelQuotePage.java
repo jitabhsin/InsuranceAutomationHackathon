@@ -35,7 +35,7 @@ public class TravelQuotePage {
     WebElement compareBenefitsBtn;
 
     @FindBy(xpath = "//a[contains(@class,'next-coverage')]")
-    WebElement nextCoverageBtn;
+    public WebElement nextCoverageBtn;
 
     @FindBy(xpath = "//a[contains(@class,'prev-coverage')]")
     WebElement previousCoverageBtn;
@@ -154,7 +154,7 @@ public class TravelQuotePage {
         return allBenefits.size();
     }
 
-    public void scrollIntoElement(){
+    public void scrollIntoMedicalFilterView(){
         jsUtils.scrollToElement(elementScroll);
     }
 
@@ -245,7 +245,7 @@ public class TravelQuotePage {
         return values;
     }
 
-    public void waitForPage() {
+    public void waitForElementstoLoad() {
         waitUtils.waitForVisibility(nextCoverageBtn).isDisplayed();
     }
 

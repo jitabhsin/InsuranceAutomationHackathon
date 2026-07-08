@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
 import org.testng.Assert;
@@ -20,6 +21,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
+    TravelQuotePage travelQuotePage;
 
     @DataProvider(name = "travelData")
     public Object[][] getData() {
@@ -38,6 +40,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+        travelQuotePage = new TravelQuotePage(driver);
 
         logger.info("Navigating to Travel Insurance");
 
@@ -183,7 +186,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         softAssert.assertAll();
 
-        if (driver.getCurrentUrl().contains("travel-app")) {
+        if (driver.getCurrentUrl().contains("travel-app") || travelQuotePage.nextCoverageBtn.isDisplayed()) {
             logger.info("Navigating back to Home Page");
             driver.get(ConfigReader.getProperty("baseUrl"));
         }
