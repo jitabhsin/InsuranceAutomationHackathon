@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
-import org.insurance.pages.PlanDetails;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
@@ -17,11 +16,11 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC_10 extends BaseTest {
+public class TC_09_VerifyFilteringForMedicalCover extends BaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(
-                    TC_07_VerifyTravelQuoteSummary.class);
+                    TC_09_VerifyFilteringForMedicalCover.class);
 
     HomePage homePage;
     TravelHomePage travelHomePage;
@@ -155,27 +154,20 @@ public class TC_10 extends BaseTest {
 
         for (int i = 0; i < 3; i++) {
 
-            String selectedCover =
-                    travelQuotePage.selectLowestCoverage(i);
+            travelQuotePage.clickMedicalCoverDropdown(i);
+
+            List<String> values =
+                    travelQuotePage.getDropdownValues();
+
+            Assert.assertTrue(values.size() >= 3);
 
             System.out.println(
-                    "Selected Lowest Cover : "
-                            + selectedCover);
-        }
+                    "Dropdown " + (i + 1));
 
-        List<PlanDetails> lowestPlans =
-                travelQuotePage.getLowestThreePlans();
+            for (String value : values) {
 
-        Assert.assertEquals(
-                lowestPlans.size(),
-                3);
-
-        System.out.println(
-                "Lowest 3 Premium Plans");
-
-        for (PlanDetails plan : lowestPlans) {
-
-            System.out.println(plan);
+                System.out.println(value);
+            }
         }
 
         logger.info("TC_07 PASSED");

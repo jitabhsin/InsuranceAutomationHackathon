@@ -47,10 +47,11 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.urlContains(fragment));
     }
 
-    public boolean waitForElementCount(By locator, int expectedCount) {
+    public boolean waitForElementCount(List<WebElement> list, int expectedCount) {
         return wait.until(driver ->
-                driver.findElements(locator).size() >= expectedCount);
+                list.size() >= expectedCount);
     }
+
 
     public boolean waitForAttributeChange(
             WebElement element,

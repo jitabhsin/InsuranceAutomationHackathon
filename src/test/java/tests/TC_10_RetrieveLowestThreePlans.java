@@ -4,23 +4,26 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
+import org.insurance.pages.PlanDetails;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.SkipException;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class TC_09 extends BaseTest {
+public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(
-                    TC_07_VerifyTravelQuoteSummary.class);
+                    TC_10_RetrieveLowestThreePlans.class);
 
     HomePage homePage;
     TravelHomePage travelHomePage;
@@ -151,23 +154,48 @@ public class TC_09 extends BaseTest {
 
         logger.info("Travel Quote Page Loaded");
 
+        travelQuotePage.waitForPage();
+        WebElement ele = driver.findElement(By.className("multi-sub-limit"));
 
-        for (int i = 0; i < 3; i++) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",ele);
 
-            travelQuotePage.clickMedicalCoverDropdown(i);
+        List<PlanDetails> allPlans = new ArrayList<>();
 
-            List<String> values =
-                    travelQuotePage.getDropdownValues();
+        travelQuotePage.selectLowestCoverage(0);
+        allPlans.add(travelQuotePage.getCurrentPlanDetails(0));
 
-            Assert.assertTrue(values.size() >= 3);
+        travelQuotePage.selectLowestCoverage(1);
+        allPlans.add(travelQuotePage.getCurrentPlanDetails(1));
 
-            System.out.println(
-                    "Dropdown " + (i + 1));
+        travelQuotePage.selectLowestCoverage(2);
+        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
 
-            for (String value : values) {
+        travelQuotePage.clickNextCoverage();
 
-                System.out.println(value);
-            }
+        travelQuotePage.selectLowestCoverage(2);
+        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
+
+        travelQuotePage.clickNextCoverage();
+
+        travelQuotePage.selectLowestCoverage(2);
+        allPlans.add(travelQuotePage.getCurrentPlanDetails(2));
+
+
+
+        List<PlanDetails> lowestPlans =
+                travelQuotePage.getLowestThreePlans(allPlans);
+
+        Assert.assertEquals(
+                lowestPlans.size(),
+                3);
+
+        System.out.println(
+                "Lowest 3 Premium Plans");
+
+        for (PlanDetails plan : lowestPlans) {
+
+            System.out.println(plan);
         }
 
         logger.info("TC_07 PASSED");

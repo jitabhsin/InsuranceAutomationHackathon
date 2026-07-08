@@ -5,6 +5,7 @@ import java.util.*;
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,8 @@ public class TravelQuotePage {
         this.jsUtils = new JavaScriptUtils(driver);
         PageFactory.initElements(driver, this);
     }
+
+    List<String> lowestCoverList = new ArrayList<>();
 
     // =====================================
     // PAGE LEVEL ELEMENTS
@@ -67,9 +70,6 @@ public class TravelQuotePage {
     @FindBy(xpath = "//div[contains(@class,'dropdown')]//input[contains(@class,'selected')]")
     List<WebElement> medicalCoverDropdowns;
 
-    @FindBy(xpath = "//span[contains(@class,'si-amount')]")
-    List<WebElement> allCoverAmounts;
-
     @FindBy(xpath = "//li[contains(@class,'active')]//span[contains(@class,'si-amount')]")
     List<WebElement> selectedCoverAmounts;
 
@@ -87,11 +87,6 @@ public class TravelQuotePage {
     @FindBy(xpath = "//span[contains(@class,'si-amount')]")
     List<WebElement> allMedicalCoverOptions;
 
-    @FindBy(xpath = "//p[contains(@class,'medcover-txt')]/span")
-    List<WebElement> selectedMedicalCovers;
-
-    @FindBy(xpath = "//div[contains(@class,'dropdown')]//input[contains(@class,'selected')]")
-    private List<WebElement> dropdownInputs;
 
     @FindBy(xpath = "//div[contains(@class,'plan-curated-heading')]//h4")
     private List<WebElement> visiblePlanNames;
@@ -140,6 +135,12 @@ public class TravelQuotePage {
     @FindBy(xpath = "//h4[normalize-space()='Premium']/ancestor::div[contains(@class,'plan-curated-block')]//a[normalize-space()='See all']")
     WebElement premiumSeeAllBtn;
 
+    @FindBy(xpath = "//h4[normalize-space()='Basic']/ancestor::div[contains(@class,'plan-curated-heading')]//span[contains(@class,'premium-amnt')]")
+    WebElement basicPremiumAmount;
+
+    @FindBy(xpath = "//h4[normalize-space()='Premium Plus']/ancestor::div[contains(@class,'plan-curated-heading')]//span[contains(@class,'premium-amnt')]")
+    WebElement premiumPlusPremiumAmount;
+
     // =====================================
     // BENEFITS
     // =====================================
@@ -159,6 +160,9 @@ public class TravelQuotePage {
 
     @FindBy(xpath = "//div[contains(@class,'key-details')]")
     List<WebElement> keyHighlightItems;
+
+    @FindBy(xpath = "//a[contains(@class,'js-popup-close')]")
+    private List<WebElement> popupCloseButtons;
 
     // =====================================
     // METHODS
@@ -244,6 +248,10 @@ public class TravelQuotePage {
         return allBenefits.size();
     }
 
+    public int getVisiblePlanCount() {
+        return visiblePlanNames.size();
+    }
+
     public int getKeyHighlightCount() {
         return keyHighlightItems.size();
     }
@@ -296,7 +304,7 @@ public class TravelQuotePage {
 
     public void clickMedicalCoverDropdown(int index) {
 
-        WebElement dropdown = dropdownInputs.get(index);
+        WebElement dropdown = medicalCoverDropdowns.get(index);
 
         jsUtils.scrollToElement(dropdown);
 
@@ -319,22 +327,60 @@ public class TravelQuotePage {
         return values;
     }
 
+    public void waitForPage() {
+        waitUtils.waitForVisibility(nextCoverageBtn).isDisplayed();
+    }
+
+    public void waitForEssentialAmount(){
+        waitUtils.waitForVisibility(essentialPremiumAmount).isDisplayed();
+    }
+
+    public void waitForValueAmount(){
+        waitUtils.waitForVisibility(valuePremiumAmount).isDisplayed();
+    }
+    public void waitForPremiumAmount(){
+        waitUtils.waitForVisibility(premiumAmount).isDisplayed();
+    }
+
+    public boolean isBasicAmountVisible(){
+        try{
+            return waitUtils.waitForVisibility(basicPremiumAmount).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isPremiumPlusVisible(){
+        try{
+            return waitUtils.waitForVisibility(premiumPlusPremiumAmount).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public void waitForBasicAmount(){
+        waitUtils.waitForVisibility(basicPremiumAmount).isDisplayed();
+    }
+
+    public void waitForPremiumPlusAmount(){
+        waitUtils.waitForVisibility(premiumPlusPremiumAmount).isDisplayed();
+    }
+
     public String selectLowestCoverage(int dropdownIndex) {
 
         clickMedicalCoverDropdown(dropdownIndex);
+        System.out.println("Medical coverage options " + allMedicalCoverOptions.size());
+        System.out.println("Premium plans " + visiblePremiums.size());
 
         String lowestCover =
                 allMedicalCoverOptions.get(0).getText();
 
-        String previousPremium =
-                visiblePremiums.get(dropdownIndex).getText();
-
         allMedicalCoverOptions.get(0).click();
 
-        waitUtils.waitForTextChange(
-                visiblePremiums.get(dropdownIndex),
-                previousPremium);
+        waitUtils.waitForElementCount(visiblePremiums,
+                3);
 
+        lowestCoverList.add(lowestCover);
         return lowestCover;
     }
 
@@ -347,114 +393,6 @@ public class TravelQuotePage {
         return Integer.parseInt(premium);
     }
 
-    public List<PlanDetails> getVisiblePlans() {
-
-        List<PlanDetails> plans = new ArrayList<>();
-
-        for (int i = 0; i < visiblePlanNames.size(); i++) {
-
-            plans.add(
-                    new PlanDetails(
-                            visiblePlanNames.get(i).getText(),
-                            visibleMedicalCovers.get(i).getText(),
-                            visiblePremiums.get(i).getText()));
-        }
-
-        return plans;
-    }
-
-    public List<PlanDetails> getAllDisplayedPlans() {
-
-        List<PlanDetails> allPlans =
-                new ArrayList<>();
-
-        navigateToFirstCoverage();
-
-        while (true) {
-
-            List<PlanDetails> currentPlans =
-                    getVisiblePlans();
-
-            for (PlanDetails p : currentPlans) {
-
-                boolean exists = false;
-
-                for (PlanDetails existing : allPlans) {
-
-                    if (existing.getPlanName()
-                            .equalsIgnoreCase(p.getPlanName())) {
-
-                        exists = true;
-                        break;
-                    }
-                }
-
-                if (!exists) {
-                    allPlans.add(p);
-                }
-            }
-
-            if (!isNextCoverageEnabled()) {
-                break;
-            }
-
-            String lastPremium =
-                    visiblePremiums.get(
-                                    visiblePremiums.size()-1)
-                            .getText();
-
-            clickNextCoverage();
-
-            waitUtils.waitForTextChange(
-                    visiblePremiums.get(
-                            visiblePremiums.size()-1),
-                    lastPremium);
-        }
-
-        return allPlans;
-    }
-
-    public List<PlanDetails> getLowestThreePlans() {
-
-        List<PlanDetails> plans =
-                getAllDisplayedPlans();
-
-        for (int i = 0; i < plans.size(); i++) {
-
-            for (int j = i + 1; j < plans.size(); j++) {
-
-                int premium1 =
-                        convertPremiumToInteger(
-                                plans.get(i)
-                                        .getPremiumAmount());
-
-                int premium2 =
-                        convertPremiumToInteger(
-                                plans.get(j)
-                                        .getPremiumAmount());
-
-                if (premium2 < premium1) {
-
-                    PlanDetails temp = plans.get(i);
-                    plans.set(i, plans.get(j));
-                    plans.set(j, temp);
-                }
-            }
-        }
-
-        List<PlanDetails> lowestThree =
-                new ArrayList<>();
-
-        for (int i = 0;
-             i < Math.min(3, plans.size());
-             i++) {
-
-            lowestThree.add(plans.get(i));
-        }
-
-        return lowestThree;
-    }
-
     public boolean isNextCoverageEnabled() {
 
         waitUtils.waitForVisibility(nextCoverageBtn);
@@ -465,5 +403,36 @@ public class TravelQuotePage {
                 && !classValue.contains("disabled");
     }
 
+    public PlanDetails getCurrentPlanDetails(int index) {
 
+        return new PlanDetails(
+                visiblePlanNames.get(index).getText(),
+                lowestCoverList.get(index),
+                visiblePremiums.get(index).getText());
+    }
+
+    public List<PlanDetails> sortPlansByPremium(
+            List<PlanDetails> plans) {
+
+        plans.sort((p1, p2) ->
+                Integer.compare(
+                        convertPremiumToInteger(
+                                p1.getPremiumAmount()),
+                        convertPremiumToInteger(
+                                p2.getPremiumAmount())
+                ));
+
+        return plans;
+    }
+
+    public List<PlanDetails> getLowestThreePlans(
+            List<PlanDetails> plans) {
+
+        sortPlansByPremium(plans);
+
+        return new ArrayList<>(
+                plans.subList(
+                        0,
+                        Math.min(3, plans.size())));
+    }
 }

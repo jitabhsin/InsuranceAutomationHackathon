@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,6 +25,7 @@ public class TC_11NavigateCarPage extends BaseTest {
         homePage = new HomePage(driver);
         carPage = new CarPage(driver);
         homePage.clickCarInsurance();
+        ScreenshotUtils.captureScreenshot(driver, "TC11_Car_Page");
 
         Assert.assertTrue(carPage.isCarPageDisplayed(),"Car Insurance form is not displayed");
         logger.info("Car Insurance form displayed successfully");
