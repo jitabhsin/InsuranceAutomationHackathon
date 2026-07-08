@@ -92,6 +92,9 @@ public class TravelQuotePage {
     @FindBy(xpath = "//div[contains(@class,'key-details')]")
     List<WebElement> keyHighlightItems;
 
+    @FindBy(className = "multi-sub-limit")
+    WebElement elementScroll;
+
     public String getBenefitsTitle() {
         return waitUtils.waitForVisibility(benefitsCuratedTitle).getText();
     }
@@ -150,6 +153,10 @@ public class TravelQuotePage {
 
     public int getBenefitCount() {
         return allBenefits.size();
+    }
+
+    public void scrollIntoElement(){
+        jsUtils.scrollToElement(elementScroll);
     }
 
     public int getVisiblePlanCount() {

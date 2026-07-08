@@ -104,6 +104,8 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         travelHomePage.travellerSubmitButton.click();
 
+        travelQuotePage.waitForPage();
+
         logger.info("Travel Quote Page Loaded");
 
         SoftAssert softAssert = new SoftAssert();

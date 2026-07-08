@@ -120,16 +120,7 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
                 travelQuotePage.isTravelQuotePageLoaded(),
                 "Travel Quote Page not loaded");
 
-        WebElement ele =
-                driver.findElement(
-                        By.className("multi-sub-limit"));
-
-        JavascriptExecutor js =
-                (JavascriptExecutor) driver;
-
-        js.executeScript(
-                "arguments[0].scrollIntoView(true);",
-                ele);
+        travelQuotePage.scrollIntoElement();
 
         logger.info("Scrolled to Medical Cover section");
 

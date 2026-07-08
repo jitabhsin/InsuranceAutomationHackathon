@@ -241,7 +241,6 @@ public class TravelHomePage {
 
         for (int i = 0; i < count; i++) {
             int age = ages[i];
-            System.out.println("Selecting traveller age : " + age);
 
             if (age > 0 && age <= 50) {
                 safeClick(zeroTofiftyAgeGroup);

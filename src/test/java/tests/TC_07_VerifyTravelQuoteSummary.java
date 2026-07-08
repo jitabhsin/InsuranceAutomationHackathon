@@ -107,11 +107,9 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
 
         travelHomePage.travellerSubmitButton.click();
 
-        logger.info("Travel Quote Page Loaded");
+        travelQuotePage.waitForPage();
 
-        // =============================
-        // TRAVEL QUOTE VALIDATIONS
-        // =============================
+        logger.info("Travel Quote Page Loaded");
 
         logger.info("Validating Benefits Title");
 

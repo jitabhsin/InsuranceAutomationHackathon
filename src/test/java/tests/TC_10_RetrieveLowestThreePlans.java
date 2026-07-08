@@ -163,16 +163,7 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
         logger.info("Travel Quote Page verified successfully");
 
-        WebElement ele =
-                driver.findElement(
-                        By.className("multi-sub-limit"));
-
-        JavascriptExecutor js =
-                (JavascriptExecutor) driver;
-
-        js.executeScript(
-                "arguments[0].scrollIntoView(true);",
-                ele);
+        travelQuotePage.scrollIntoElement();
 
         logger.info("Scrolled to Medical Cover section");
 
