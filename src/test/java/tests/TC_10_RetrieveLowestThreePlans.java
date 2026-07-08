@@ -85,8 +85,6 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
         travelHomePage.travellerSubmitButton.click();
 
-        logger.info("Travel Quote Page Loaded");
-
         travelQuotePage.waitForPage();
         Assert.assertTrue(travelQuotePage.isTravelQuotePageLoaded(), "Travel Quote Page not loaded properly");
         logger.info("Travel Quote Page verified successfully");

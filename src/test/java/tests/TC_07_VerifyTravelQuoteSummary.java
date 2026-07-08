@@ -35,79 +35,49 @@ public class TC_07_VerifyTravelQuoteSummary extends BaseTest {
         String endDate = data[2].toString();
         String travellerCount = data[3].toString();
         String travellerAges = data[4].toString();
-        String seniorTravellerDOBs = data[5].toString();
-        String healthIssue = data[6].toString();
-        String healthIssueTravellers = data[7].toString();
 
-        logger.info("==========================================");
         logger.info("TC_07 - Verify Travel Quote Summary Started");
-        logger.info("==========================================");
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
         travelQuotePage = new TravelQuotePage(driver);
 
-        logger.info("Navigating to Travel Insurance");
+        Assert.assertFalse(country.trim().isEmpty(), "Country is empty");
 
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        logger.info("Selecting destination country");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         travelHomePage.selectCountry(country);
-
-        logger.info("Selecting travel dates");
-
         travelHomePage.selectStartAndEndDateElement.click();
-
         travelHomePage.selectStartDate(startDate);
         travelHomePage.selectEndDate(endDate);
 
         travelHomePage.submitDate();
 
-        String contactNo =
-                ConfigReader.getProperty("contactNum");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
-        String email =
-                ConfigReader.getProperty("email");
-
-        logger.info("Entering traveller contact details");
+        String contactNo = ConfigReader.getProperty("contactNum");
+        String email = ConfigReader.getProperty("email");
 
         travelHomePage.contactNumber.sendKeys(contactNo);
         travelHomePage.email.sendKeys(email);
 
-        int travellerCnt =
-                Integer.parseInt(travellerCount);
+        int travellerCnt = Integer.parseInt(travellerCount);
+        String[] ageStrings = travellerAges.split(",");
 
-        String[] ageStrings =
-                travellerAges.split(",");
-
-        int[] ages =
-                new int[ageStrings.length];
+        int[] ages = new int[ageStrings.length];
 
         for (int i = 0; i < ageStrings.length; i++) {
-
-            ages[i] =
-                    Integer.parseInt(ageStrings[i].trim());
-
+            ages[i] = Integer.parseInt(ageStrings[i].trim());
         }
 
-        logger.info("Selecting traveller details");
-
-        travelHomePage.selectTravellerCount(
-                travellerCnt,
-                ages);
-
-        logger.info("Selecting No Health Issue");
-
+        travelHomePage.selectTravellerCount(travellerCnt, ages);
         travelHomePage.noHealthCheckBox.click();
 
-        logger.info("Submitting traveller details");
-
         travelHomePage.travellerSubmitButton.click();
-
-        travelQuotePage.waitForPage();
 
         logger.info("Travel Quote Page Loaded");
 
