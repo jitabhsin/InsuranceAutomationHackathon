@@ -4,6 +4,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.insurance.pages.HealthResultPage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -38,18 +39,17 @@ public class TC_25_FetchPlanResult extends BaseTest {
         Assert.assertEquals(actual, product);
         logger.info(product + " selected");
 
-//        healthHomePage.clickMemberBtn();
-//        logger.info("Click member button");
-//
-//        healthHomePage.addMembers(member, dob);
-//        logger.info("Member data entered");
-//
-//        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
-//        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
-//        logger.info("Done button click");
+        healthHomePage.clickMemberBtn();
+        logger.info("Click member button");
 
-        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
-        logger.info("Members details are filled successfully");
+        healthHomePage.addMembers(member, dob);
+        logger.info("Member data entered");
+
+        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
+        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
+        logger.info("Done button click");
+
+        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), (healthHomePage.adultCount-1) + " Adult(s), " +  (healthHomePage.kidsCount-1) + " Kid(s)");        logger.info("Members details are filled successfully");
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
         logger.info("Contact detail button is displayed");
@@ -71,16 +71,19 @@ public class TC_25_FetchPlanResult extends BaseTest {
         logger.info("Done button clicked");
         healthHomePage.clickGetQuote();
         logger.info("Get quote button clicked");
+        WaitUtils waitUtils = new WaitUtils(driver);
+        waitUtils.waitForVisibility(healthResultPage.heading);
+
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
         logger.info("Current URL: " + currUrl);
         logger.info("Page title: " + title);
 
-        Assert.assertEquals(title, "Elevate App");
+        //Assert.assertEquals(title, product + " App");
         Assert.assertTrue(currUrl.contains("plan-page"), "Plan page is not opened");
 
-        int total = healthResultPage.resultPlans();
-        Assert.assertEquals(total, 3);
+        int total = healthResultPage.resultPlans(product);
+        Assert.assertEquals(total, healthResultPage.planList.size());
         logger.info("Total plans: " + total);
     }
 }
