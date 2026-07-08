@@ -4,6 +4,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.insurance.pages.HealthResultPage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -70,13 +71,15 @@ public class TC_25_FetchPlanResult extends BaseTest {
         logger.info("Done button clicked");
         healthHomePage.clickGetQuote();
         logger.info("Get quote button clicked");
+        WaitUtils waitUtils = new WaitUtils(driver);
+        waitUtils.waitForVisibility(healthResultPage.heading);
 
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
         logger.info("Current URL: " + currUrl);
         logger.info("Page title: " + title);
 
-        Assert.assertEquals(title, "Elevate App");
+        Assert.assertEquals(title, product + " App");
         Assert.assertTrue(currUrl.contains("plan-page"), "Plan page is not opened");
 
         int total = healthResultPage.resultPlans();

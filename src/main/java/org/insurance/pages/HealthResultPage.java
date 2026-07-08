@@ -19,6 +19,8 @@ public class HealthResultPage {
     @FindBy(xpath = "//h4[normalize-space()='Optional add-ons']")
     WebElement optionalAddons;
 
+    @FindBy(xpath = "//h2[@class='si_heading']")
+    public WebElement heading;
 
     public HealthResultPage(WebDriver driver) {
         this.driver = driver;
