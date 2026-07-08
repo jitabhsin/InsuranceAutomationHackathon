@@ -15,25 +15,32 @@ public class WaitUtils {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public WaitUtils(WebDriver driver) {
+    public WaitUtils(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.wait.ignoring(StaleElementReferenceException.class);
     }
 
-    public WebElement waitForVisibilityOfElementLocated(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public WebElement waitForVisibilityOfElementLocated(By element){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public WebElement waitForVisibility(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element));
+    public WebElement waitForVisibility(WebElement element){
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (StaleElementReferenceException e) {
+            return wait.until(ExpectedConditions.visibilityOf(element));
+        }
     }
 
-    public WebElement waitForClickable(WebElement element) {
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    public WebElement waitForClickable(WebElement element){
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (StaleElementReferenceException e) {
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
+        }
     }
 
-    public List<WebElement> waitForVisibilityOfAllElements(List<WebElement> elements) {
+    public List<WebElement> waitForVisibilityOfAllElements(List<WebElement> elements){
         return wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
@@ -57,20 +64,27 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.urlContains(fragment));
     }
 
-    public boolean waitForElementCount(List<WebElement> elements, int expectedCount) {
-        return elements.size() >= expectedCount;
+    public boolean waitForElementCount(List<WebElement> list, int expectedCount) {
+        return list.size() >= expectedCount;
     }
 
-    public boolean waitForAttributeChange(WebElement element, String attribute, String previousValue) {
+    public boolean waitForAttributeChange(
+            WebElement element,
+            String attribute,
+            String previousValue) {
+
         try {
             String currentValue = element.getAttribute(attribute);
-            return currentValue != null && !currentValue.equals(previousValue);
+            return !currentValue.equals(previousValue);
         } catch (StaleElementReferenceException e) {
             return false;
         }
     }
 
-    public boolean waitForTextChange(WebElement element, String previousText) {
+    public boolean waitForTextChange(
+            WebElement element,
+            String previousText) {
+
         try {
             return !element.getText().equals(previousText);
         } catch (StaleElementReferenceException e) {
