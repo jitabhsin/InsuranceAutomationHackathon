@@ -14,6 +14,7 @@ public class CarPage {
     WebDriver driver;
     WaitUtils waitUtils;
     JavaScriptUtils jsUtils;
+
     public CarPage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
@@ -189,38 +190,28 @@ public class CarPage {
     @FindBy(xpath = "//a[normalize-space()='Proceed to pay']")
     private WebElement proceedToPayBtn;
 
-    public boolean isLongTermPolicySelected() {return waitUtils.waitForSelected(longTermPolicyOption);}
+    public boolean isLongTermPolicySelected() {
+        return waitUtils.waitForSelected(longTermPolicyOption);
+    }
 
     public boolean isCarPageDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(carRegistrationField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(carRegistrationField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public boolean isRegistrationFieldDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(carRegistrationField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(carRegistrationField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public boolean isMobileFieldDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(mobileNumberField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(mobileNumberField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public boolean isEmailFieldDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(emailField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(emailField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public void clickGetQuote() {
@@ -228,11 +219,8 @@ public class CarPage {
     }
 
     public boolean isValidationMessageDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(errorMessage).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(errorMessage).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public String getValidationMessage() {
@@ -244,27 +232,18 @@ public class CarPage {
     }
 
     public boolean isNewVehiclePageDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public boolean isNewVehicleMobileFieldDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(newVehicleMobileField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public boolean isNewVehicleEmailFieldDisplayed() {
-        try {
-            return waitUtils.waitForVisibility(newVehicleEmailField).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        try { return waitUtils.waitForVisibility(newVehicleEmailField).isDisplayed(); }
+        catch (Exception e) { return false; }
     }
 
     public void clickNewVehicleGetQuote() {
@@ -280,31 +259,27 @@ public class CarPage {
     }
 
     public void enterCity(String city) {
-        waitUtils.waitForVisibility(cityField).clear();
-        cityField.sendKeys(city);
-    }
-
-    public void selectCity(String city) {
-        driver.findElement(By.xpath("//li[contains(text(),'" + city + "')]")).click();
+        WebElement el = waitUtils.waitForVisibility(cityField);
+        el.clear();
+        el.sendKeys(city);
     }
 
     public void enterCarMake(String make) {
-        waitUtils.waitForVisibility(makeModelField).clear();
-        makeModelField.sendKeys(make);
-    }
-
-    public void selectCarModel(String model) {
-        driver.findElement(By.xpath("//li[contains(text(),'" + model + "')]")).click();
+        WebElement el = waitUtils.waitForVisibility(makeModelField);
+        el.clear();
+        el.sendKeys(make);
     }
 
     public void enterMobile(String mobile) {
-        waitUtils.waitForVisibility(newVehicleMobileField).clear();
-        newVehicleMobileField.sendKeys(mobile);
+        WebElement el = waitUtils.waitForVisibility(newVehicleMobileField);
+        el.clear();
+        el.sendKeys(mobile);
     }
 
     public void enterEmail(String email) {
-        waitUtils.waitForVisibility(newVehicleEmailField).clear();
-        newVehicleEmailField.sendKeys(email);
+        WebElement el = waitUtils.waitForVisibility(newVehicleEmailField);
+        el.clear();
+        el.sendKeys(email);
     }
 
     public void clickProceed() {
@@ -312,15 +287,14 @@ public class CarPage {
     }
 
     public boolean isSelectPlansPageDisplayed() {
-        return driver.getCurrentUrl().contains("select-plans");
+        return waitUtils.waitForUrlContains("select-plans");
     }
 
-
     public void clickExpand() {
+        waitUtils.waitForVisibility(expandLink);
         jsUtils.scrollToElement(expandLink);
         jsUtils.jsClick(expandLink);
     }
-
 
     public String getCityOfRegistration() {
         return waitUtils.waitForVisibility(cityOfRegistration).getText().trim();
@@ -331,21 +305,171 @@ public class CarPage {
     }
 
     public String getTotalPremiumAmount() {
+        waitUtils.waitForVisibility(totalPremiumAmount);
         jsUtils.scrollToElement(totalPremiumAmount);
-        return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*","").trim();
+        return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*", "").trim();
     }
 
     public String getZeroDepAmount() {
         return waitUtils.waitForVisibility(zeroDepAmount).getText().trim();
     }
 
-    public void clickProceedBtnCity(){
-        waitUtils.waitForClickable(proceedBtnCity).click();
+    public void clickProceedBtnCity() {
+        waitUtils.waitForVisibility(proceedBtnCity);
+        jsUtils.scrollToElement(proceedBtnCity);
+        jsUtils.jsClick(proceedBtnCity);
     }
 
     public boolean checkODTP() {
         return waitUtils.waitForSelected(ownDamageTpOption);
     }
+
+    public String getNoFrillsAmount() {
+        return waitUtils.waitForVisibility(noFrillsAmount).getText().trim();
+    }
+
+    public String getSmartCoverAmount() {
+        return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
+    }
+
+    public void togglePersonalProtect() {
+        waitUtils.waitForVisibility(personalProtectToggleBtn);
+        jsUtils.scrollToElement(personalProtectToggleBtn);
+        jsUtils.jsClick(personalProtectToggleBtn);
+    }
+
+    public boolean isNoFrillsCardDisplayed() {
+        try { return waitUtils.waitForVisibility(noFrillsPlan).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isZeroDepCardDisplayed() {
+        try { return waitUtils.waitForVisibility(zeroDepPlan).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isSmartCoverCardDisplayed() {
+        try { return waitUtils.waitForVisibility(smartCoverPlan).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isExpandLinkDisplayed() {
+        try { return waitUtils.waitForVisibility(expandLink).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isPersonalProtectDisplayed() {
+        try { return waitUtils.waitForVisibility(personalProtectToggleBtn).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public void openPersonalProtectDropdown() {
+        waitUtils.waitForVisibility(personalProtectSumDropdown);
+        jsUtils.scrollToElement(personalProtectSumDropdown);
+        jsUtils.jsClick(personalProtectSumDropdown);
+    }
+
+    public List<WebElement> getPersonalProtectSumOptions() {
+        return personalProtectSumOptions;
+    }
+
+    public void selectPersonalProtectSum(WebElement option) {
+        waitUtils.waitForVisibility(option);
+        jsUtils.jsClick(option);
+    }
+
+    public boolean selectLongTermPolicy() {
+        waitUtils.waitForVisibility(longTermPolicyLabel);
+        jsUtils.scrollToElement(longTermPolicyLabel);
+        if (!longTermPolicyOption.isSelected()) {
+            jsUtils.jsClick(longTermPolicyLabel);
+        }
+        return waitUtils.waitForSelected(longTermPolicyOption);
+    }
+
+    public void clickContinue() {
+        waitUtils.waitForVisibility(continueBtn);
+        jsUtils.scrollToElement(continueBtn);
+        jsUtils.jsClick(continueBtn);
+    }
+
+    public boolean isVerifyInfoHeaderDisplayed() {
+        try { return waitUtils.waitForVisibility(verifyInfoHeader).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public String getVerifyInfoSubtext() {
+        return waitUtils.waitForVisibility(verifyInfoSubtext).getText().trim();
+    }
+
+    public String getVerifyCity() {
+        return waitUtils.waitForVisibility(verifyCityInput).getAttribute("value").trim();
+    }
+
+    public String getVerifyMakeModel() {
+        return waitUtils.waitForVisibility(verifyMakeModelInput).getAttribute("value").trim();
+    }
+
+    public String getVerifyRegDate() {
+        return waitUtils.waitForVisibility(verifyRegDateInput).getAttribute("value").trim();
+    }
+
+    public String getVerifyRegUnderIndividual() {
+        return waitUtils.waitForVisibility(verifyRegUnderIndividual).getText().trim();
+    }
+
+    public String getVerifyPucNote() {
+        return waitUtils.waitForVisibility(verifyPucNote).getText().trim();
+    }
+
+    public boolean isModifyBtnDisplayed() {
+        try { return waitUtils.waitForVisibility(modifyBtn).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isThatsCorrectBtnDisplayed() {
+        try { return waitUtils.waitForVisibility(thatsCorrectBtn).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public void clickThatsCorrect() {
+        waitUtils.waitForVisibility(thatsCorrectButton);
+        jsUtils.scrollToElement(thatsCorrectButton);
+        jsUtils.jsClick(thatsCorrectButton);
+    }
+
+    public void closeKycPopupIfPresent() {
+        try {
+            if (waitUtils.waitForVisibility(kycPopupCloseBtn).isDisplayed()) {
+                jsUtils.jsClick(kycPopupCloseBtn);
+                System.out.println("KYC popup closed");
+            }
+        } catch (Exception e) {
+            System.out.println("KYC popup not shown");
+        }
+    }
+
+    public boolean isInsuredDetailsPage() {
+        return waitUtils.waitForUrlContains("insured-details");
+    }
+
+    public boolean isPremiumSummaryDisplayed() {
+        try { return waitUtils.waitForVisibility(premiumSummaryHeader).isDisplayed(); }
+        catch (Exception e) { return false; }
+    }
+
+    public boolean isProceedToPayEnabled() {
+        try { return waitUtils.waitForClickable(proceedToPayBtn).isEnabled(); }
+        catch (Exception e) { return false; }
+    }
+    public void selectCity(String city) {
+        driver.findElement(By.xpath("//li[contains(text(),'" + city + "')]")).click();
+    }
+
+    public void selectCarModel(String model) {
+        driver.findElement(By.xpath("//li[contains(text(),'" + model + "')]")).click();
+    }
+
     public boolean selectZeroDepIfNotSelected() {
         if (!zeroDepPlan.getAttribute("class").contains("plans-box-active")) {
             jsUtils.jsClick(zeroDepPlan);
@@ -367,130 +491,13 @@ public class CarPage {
         return waitUtils.waitForAttributeContains(smartCoverPlan, "class", "plans-box-active");
     }
 
-    public String getNoFrillsAmount() {
-        return waitUtils.waitForVisibility(noFrillsAmount).getText().trim();
-    }
-
-    public String getSmartCoverAmount() {
-        return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
-    }
-
-    public void togglePersonalProtect() {
-        jsUtils.scrollToElement(personalProtectToggleBtn);
-        jsUtils.jsClick(personalProtectToggleBtn);
-    }
-
-    public boolean isNoFrillsCardDisplayed()  { try { return waitUtils.waitForVisibility(noFrillsPlan).isDisplayed(); } catch (Exception e) { return false; } }
-    public boolean isZeroDepCardDisplayed()   { try { return waitUtils.waitForVisibility(zeroDepPlan).isDisplayed(); } catch (Exception e) { return false; } }
-    public boolean isSmartCoverCardDisplayed(){ try { return waitUtils.waitForVisibility(smartCoverPlan).isDisplayed(); } catch (Exception e) { return false; } }
-
-    public boolean isExpandLinkDisplayed() {
-        try { return waitUtils.waitForVisibility(expandLink).isDisplayed(); }
-        catch (Exception e) { return false; }
-    }
-
-    public boolean isPersonalProtectDisplayed() {
-        try { return waitUtils.waitForVisibility(personalProtectToggleBtn).isDisplayed(); }
-        catch (Exception e) { return false; }
-    }
-
-    public void openPersonalProtectDropdown() {
-        jsUtils.scrollToElement(personalProtectSumDropdown);
-        jsUtils.jsClick(personalProtectSumDropdown);
-    }
-
-    public List<WebElement> getPersonalProtectSumOptions() {
-        return personalProtectSumOptions;
-    }
-
-    public void selectPersonalProtectSum(WebElement option) {
-        jsUtils.jsClick(option);
-    }
-
-    public boolean selectLongTermPolicy() {
-        if (!longTermPolicyOption.isSelected()) {
-            jsUtils.jsClick(longTermPolicyLabel);
-        }
-        return waitUtils.waitForSelected(longTermPolicyOption);
-    }
-
-    public void clickContinue() {
-        jsUtils.scrollToElement(continueBtn);
-        jsUtils.jsClick(continueBtn);
-    }
-
-    public boolean isVerifyInfoHeaderDisplayed() {
-        try { return waitUtils.waitForVisibility(verifyInfoHeader).isDisplayed(); }
-        catch (Exception e) { return false; }
-    }
-
-    public String getVerifyInfoSubtext()      {
-        return waitUtils.waitForVisibility(verifyInfoSubtext).getText().trim();
-    }
-    public String getVerifyCity()             {
-        return verifyCityInput.getAttribute("value").trim();
-    }
-    public String getVerifyMakeModel()        {
-        return verifyMakeModelInput.getAttribute("value").trim();
-    }
-    public String getVerifyRegDate()          {
-        return verifyRegDateInput.getAttribute("value").trim();
-    }
-    public String getVerifyRegUnderIndividual(){
-        return waitUtils.waitForVisibility(verifyRegUnderIndividual).getText().trim();
-    }
-    public String getVerifyPucNote()          {
-        return waitUtils.waitForVisibility(verifyPucNote).getText().trim();
-    }
-
-    public boolean isModifyBtnDisplayed()        {
-        try {
-            return waitUtils.waitForVisibility(modifyBtn).isDisplayed();
-        } catch (Exception e) { return false; } }
-
-    public boolean isThatsCorrectBtnDisplayed()  {
-        try {
-            return waitUtils.waitForVisibility(thatsCorrectBtn).isDisplayed();
-        } catch (Exception e) { return false; } }
-
-    public void clickThatsCorrect() {
-        jsUtils.scrollToElement(thatsCorrectButton);
-        jsUtils.jsClick(thatsCorrectButton);
-    }
-
-    public void closeKycPopupIfPresent() {
-        try {
-            if (kycPopupCloseBtn.isDisplayed()) {
-                jsUtils.jsClick(kycPopupCloseBtn);
-                System.out.println("KYC popup closed");
-            }
-        } catch (Exception e) {
-            System.out.println("KYC popup not shown");
-        }
-    }
-
-    public boolean isInsuredDetailsPage() {
-        return waitUtils.waitForUrlContains("insured-details");
-    }
-
-    public boolean isPremiumSummaryDisplayed(){
-        try { return waitUtils.waitForVisibility(premiumSummaryHeader).isDisplayed(); }
-        catch (Exception e) { return false; }
-    }
-
-    public boolean isProceedToPayEnabled() {
-        try { return waitUtils.waitForClickable(proceedToPayBtn).isEnabled(); }
-        catch (Exception e) { return false; }
-    }
-
-    public String getInsuredCarDetail()      { return waitUtils.waitForVisibility(insuredCarDetail).getText().trim(); }
-    public String getInsuredRegNo()          { return waitUtils.waitForVisibility(insuredRegNo).getText().trim(); }
-    public String getInsuredIdv()            { return waitUtils.waitForVisibility(insuredIdv).getText().trim(); }
-    public String getInsuredBasePremium()    { return waitUtils.waitForVisibility(insuredBasePremium).getText().trim(); }
+    public String getInsuredCarDetail()       { return waitUtils.waitForVisibility(insuredCarDetail).getText().trim(); }
+    public String getInsuredRegNo()           { return waitUtils.waitForVisibility(insuredRegNo).getText().trim(); }
+    public String getInsuredIdv()             { return waitUtils.waitForVisibility(insuredIdv).getText().trim(); }
+    public String getInsuredBasePremium()     { return waitUtils.waitForVisibility(insuredBasePremium).getText().trim(); }
     public String getInsuredAdditionalCovers(){ return waitUtils.waitForVisibility(insuredAdditionalCovers).getText().trim(); }
-    public String getInsuredSubTotal()       { return waitUtils.waitForVisibility(insuredSubTotal).getText().trim(); }
-    public String getInsuredNetPremium()     { return waitUtils.waitForVisibility(insuredNetPremium).getText().trim(); }
-    public String getInsuredTax()            { return waitUtils.waitForVisibility(insuredTax).getText().trim(); }
-    public String getInsuredTotalPremium()   { return waitUtils.waitForVisibility(insuredTotalPremium).getText().trim(); }
-
+    public String getInsuredSubTotal()        { return waitUtils.waitForVisibility(insuredSubTotal).getText().trim(); }
+    public String getInsuredNetPremium()      { return waitUtils.waitForVisibility(insuredNetPremium).getText().trim(); }
+    public String getInsuredTax()             { return waitUtils.waitForVisibility(insuredTax).getText().trim(); }
+    public String getInsuredTotalPremium()    { return waitUtils.waitForVisibility(insuredTotalPremium).getText().trim(); }
 }

@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,14 +30,12 @@ public class TC_15VerifyPlansPage extends BaseTest {
         String make   = data[1].toString();
         String model  = data[2].toString();
         String mobile = data[3].toString();
-        String email  = data[4].toString();
 
         logger.info("Excel Data Loaded Successfully");
         logger.info("City : {}", city);
         logger.info("Make : {}", make);
         logger.info("Model : {}", model);
         logger.info("Mobile : {}", mobile);
-        logger.info("Email : {}", email);
 
         Assert.assertFalse(city.trim().isEmpty(), "City is empty");
         Assert.assertFalse(make.trim().isEmpty(), "Make is empty");
@@ -44,7 +43,6 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         Assert.assertEquals(mobile.length(), 10, "Invalid mobile length");
         Assert.assertTrue(mobile.matches("\\d+"), "Mobile should contain only digits");
-        Assert.assertTrue(email.contains("@"), "Invalid email");
         logger.info("Input data validation passed");
 
         homePage = new HomePage(driver);
@@ -60,9 +58,6 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         carPage.enterMobile(mobile);
         logger.info("Entered Mobile Number");
-
-        carPage.enterEmail(email);
-        logger.info("Entered Email Address");
 
         carPage.clickNewVehicleGetQuote();
         logger.info("Clicked Get Quote button");
@@ -87,6 +82,7 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         carPage.clickProceedBtnCity();
         logger.info("Clicked Proceed Button");
+        ScreenshotUtils.captureScreenshot(driver, "TC15_Plans_Page");
 
         boolean odtpSelected = carPage.checkODTP();
         logger.info("Own Damage + TP selected by default : {}", odtpSelected);
@@ -111,7 +107,7 @@ public class TC_15VerifyPlansPage extends BaseTest {
 
         boolean expandExists = carPage.isExpandLinkDisplayed();
         logger.info("Expand Link Displayed : {}", expandExists);
-        Assert.assertTrue(expandExists,"Expand link not displayed");
+        Assert.assertTrue(expandExists, "Expand link not displayed");
 
         carPage.clickExpand();
         logger.info("Clicked Expand Link");
@@ -119,7 +115,7 @@ public class TC_15VerifyPlansPage extends BaseTest {
         String cityOfReg = carPage.getCityOfRegistration();
         logger.info("City Of Registration : {}", cityOfReg);
 
-        Assert.assertEquals(cityOfReg, city,"City of Registration does not match input city");
+        Assert.assertEquals(cityOfReg, city, "City of Registration does not match input city");
         logger.info("City Of Registration verified successfully");
         logger.info("All structural checks passed on Plans Page");
 

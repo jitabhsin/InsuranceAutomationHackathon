@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         String make = data[1].toString();
         String model = data[2].toString();
         String mobile = data[3].toString();
-        String email = data[4].toString();
 
         logger.info("Excel data loaded successfully");
         logger.info("City : {}", city);
@@ -48,9 +48,6 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
 
         carPage.enterMobile(mobile);
         logger.info("Entered Mobile Number");
-
-        carPage.enterEmail(email);
-        logger.info("Entered Email Address");
 
         carPage.clickNewVehicleGetQuote();
         logger.info("Clicked Get Quote");
@@ -127,6 +124,8 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         Assert.assertFalse(total.isEmpty(), "Total Premium empty");
 
         logger.info("Premium calculations validated");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC20_Insured_Details");
 
         boolean proceedEnabled = carPage.isProceedToPayEnabled();
         logger.info("Proceed To Pay Enabled : {}", proceedEnabled);

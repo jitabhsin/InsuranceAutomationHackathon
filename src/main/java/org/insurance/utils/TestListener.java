@@ -1,44 +1,42 @@
 package org.insurance.utils;
 
+import com.aventstack.extentreports.*;
 import org.insurance.basetest.BaseTest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
 public class TestListener implements ITestListener {
 
-    private static final Logger logger =
-            LogManager.getLogger(TestListener.class);
+    private static final ExtentReports extent = ExtentManager.getReport();
+    private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     @Override
     public void onTestStart(ITestResult result) {
-        logger.info("{} STARTED", result.getName());
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
+        test.set(extentTest);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        logger.info("{} PASSED", result.getName());
+        test.get().pass("Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        logger.error("{} FAILED", result.getName());
+        String screenshot = ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName() + "_FAIL");
+        test.get().fail(result.getThrowable());
         try {
-            if (BaseTest.getDriver() != null) {
-                String screenshotPath =
-                        ScreenshotUtils.captureScreenshot(
-                                BaseTest.getDriver(),
-                                result.getName());
-                logger.info("Screenshot saved at: {}", screenshotPath);
-            }
-        } catch (Exception e) {
-            logger.error("Failed to capture screenshot", e);
+            test.get().addScreenCaptureFromPath(screenshot);
+        } catch (Exception ignored) {
         }
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        logger.warn("{} SKIPPED", result.getName());
+        test.get().skip("Test Skipped");
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        extent.flush();
     }
 }
