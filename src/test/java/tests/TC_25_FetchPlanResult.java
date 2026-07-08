@@ -4,6 +4,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.insurance.pages.HealthResultPage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.insurance.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -15,7 +16,10 @@ public class TC_25_FetchPlanResult extends BaseTest {
 
     @DataProvider(name = "healthData")
     public Object[][] getHealthData() {
-        return new ExcelReader().readSheetHealth();
+        Object[][] healthDetails =  new ExcelReader().readSheetHealth();
+        return new Object[][]{
+                healthDetails[0]
+        };
     }
 
     @Test(dataProvider = "healthData")
@@ -73,6 +77,8 @@ public class TC_25_FetchPlanResult extends BaseTest {
         logger.info("Get quote button clicked");
         WaitUtils waitUtils = new WaitUtils(driver);
         waitUtils.waitForVisibility(healthResultPage.heading);
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_25_FetchPlanResult");
 
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();

@@ -26,7 +26,7 @@ public class TC_13AfterNavigateWithoutData extends BaseTest {
         carPage = new CarPage(driver);
 
         String invalidMobile = ConfigReader.getProperty("invalidMobile");
-        String expectedMobileError = ConfigReader.getProperty("expectedMobileError");
+        String expectedMobileError = ConfigReader.getProperty("expectedMobileErrorForCar");
 
         logger.info("Test data loaded from config.properties");
 

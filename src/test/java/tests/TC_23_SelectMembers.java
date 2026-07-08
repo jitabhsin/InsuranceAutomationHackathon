@@ -2,6 +2,7 @@ package tests;
 
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -51,7 +52,7 @@ public class TC_23_SelectMembers extends BaseTest {
         boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
         Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
         logger.info("Done button click");
-
+        ScreenshotUtils.captureScreenshot(driver, "TC_23_SelectMembers");
         Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), (healthHomePage.adultCount-1) + " Adult(s), " +  (healthHomePage.kidsCount-1) + " Kid(s)");
         logger.info("Members details are filled successfully");
     }
