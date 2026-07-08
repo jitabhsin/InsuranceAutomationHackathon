@@ -434,7 +434,7 @@ public class TravelHomePage {
             String seniorAge = entry.split("=")[0].trim();
 
             if (!travellerAgeList.contains(seniorAge)) {
-                System.out.println("Invalid Senior DOB Mapping Age: " + seniorAge);
+                logger.info("Invalid Senior DOB Mapping Age: {}", seniorAge);
                 return false;
             }
         }
@@ -486,7 +486,7 @@ public class TravelHomePage {
             yearFields.get(i).clear();
             yearFields.get(i).sendKeys(year);
 
-            System.out.println("Age " + age + " DOB Entered : " + dob);
+            logger.info("Age {} DOB Entered : {}", age, dob);
         }
     }
     public void selectHealthIssueTravellersByAge(String travellerAgesValue, String healthIssueTravellers) {
@@ -512,9 +512,8 @@ public class TravelHomePage {
 
             if (checkboxIndex != -1 && checkboxIndex < travellerHealthIssueCheckboxes.size()) {
                 safeClick(travellerHealthIssueCheckboxes.get(checkboxIndex));
-                System.out.println("Selected traveller age: " + issueAge);
+                logger.info("Selected traveller age: {}", issueAge);
             }
         }
     }
-
-}
+    }
