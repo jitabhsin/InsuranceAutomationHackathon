@@ -43,13 +43,19 @@ public class HealthHomePage {
     @FindBy(xpath = "//button[@class='btn-adults btn-adults2 ins-mem-pop']")
     List<WebElement> addBtn;
 
+    @FindBy(xpath = "//button[contains(@type, 'button') and normalize-space()='-']")
+    List<WebElement> minusBtn;
+
+    @FindBy(xpath = "//div[@class='dob-close']/a")
+    WebElement closeDobBtn;
+
     @FindBy(className = "btn-insuremembers-details")
     WebElement doneBtn;
 
     @FindBy(xpath = "//span[@class='filled-field-value ins-mem-pop']")
     public WebElement verifyMembersResult;
 
-    @FindBy(xpath = "//span[@class='contact-pop']")
+    @FindBy(className = "btn-adddetails")
     WebElement contactDetails;
 
     @FindBy(id = "valid-popmobilnumber")
@@ -113,18 +119,23 @@ public class HealthHomePage {
         memberBtn.click();
     }
 
-    int adultCount = 1;
-    int kidsCount = 1;
+    public int adultCount = 1;
+    public int kidsCount = 1;
     public void addMembers(String member, String dob){
         String DOB[] = dob.split("-");
         if(member.equalsIgnoreCase("Adult")){
-            addBtn.get(0).click();
-            driver.findElement(By.id("valid-adult" + adultCount + "date")).sendKeys(DOB[0]);
+            if(!minusBtn.get(0).getAttribute("class").contains("btn-disable")){
+                closeDobBtn.click();
+            }
+            addBtn.get(0).click();driver.findElement(By.id("valid-adult" + adultCount + "date")).sendKeys(DOB[0]);
             driver.findElement(By.id("valid-adult" + adultCount + "month")).sendKeys(DOB[1]);
             driver.findElement(By.id("valid-adult" + adultCount + "year")).sendKeys(DOB[2]);
             adultCount++;
         }
         else if(member.equalsIgnoreCase("Kids")){
+            if(!minusBtn.get(1).getAttribute("class").contains("btn-disable")){
+                closeDobBtn.click();
+            }
             addBtn.get(1).click();
             driver.findElement(By.id("valid-k" + kidsCount + "date")).sendKeys(DOB[0]);
             driver.findElement(By.id("valid-k" + kidsCount + "month")).sendKeys(DOB[1]);

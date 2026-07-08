@@ -38,18 +38,17 @@ public class TC_25_FetchPlanResult extends BaseTest {
         Assert.assertEquals(actual, product);
         logger.info(product + " selected");
 
-//        healthHomePage.clickMemberBtn();
-//        logger.info("Click member button");
-//
-//        healthHomePage.addMembers(member, dob);
-//        logger.info("Member data entered");
-//
-//        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
-//        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
-//        logger.info("Done button click");
+        healthHomePage.clickMemberBtn();
+        logger.info("Click member button");
 
-        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
-        logger.info("Members details are filled successfully");
+        healthHomePage.addMembers(member, dob);
+        logger.info("Member data entered");
+
+        boolean verifyClickDoneBtn = healthHomePage.clickDoneBtn();
+        Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
+        logger.info("Done button click");
+
+        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), (healthHomePage.adultCount-1) + " Adult(s), " +  (healthHomePage.kidsCount-1) + " Kid(s)");        logger.info("Members details are filled successfully");
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
         logger.info("Contact detail button is displayed");
@@ -71,6 +70,7 @@ public class TC_25_FetchPlanResult extends BaseTest {
         logger.info("Done button clicked");
         healthHomePage.clickGetQuote();
         logger.info("Get quote button clicked");
+
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
         logger.info("Current URL: " + currUrl);
