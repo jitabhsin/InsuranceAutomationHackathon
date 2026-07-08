@@ -45,8 +45,7 @@ public class TC_24_FillContactDetails extends BaseTest {
         Assert.assertTrue(verifyClickDoneBtn, "Done button not clicked");
         logger.info("Done button click");
 
-        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), "1 Adult(s), 0 Kid(s)");
-        logger.info("Members details are filled successfully");
+        Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), (healthHomePage.adultCount-1) + " Adult(s), " +  (healthHomePage.kidsCount-1) + " Kid(s)");        logger.info("Members details are filled successfully");
 
         Assert.assertTrue(healthHomePage.isContactDetailsDisplayed(), "Contact tab is not displayed");
         logger.info("Contact detail button is displayed");
@@ -68,5 +67,6 @@ public class TC_24_FillContactDetails extends BaseTest {
         logger.info("Done button clicked");
         healthHomePage.clickGetQuote();
         logger.info("Get quote button clicked");
+        driver.get("https://www.icicilombard.com/");
     }
 }
