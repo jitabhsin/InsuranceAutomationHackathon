@@ -229,7 +229,7 @@ public class TravelQuotePage {
     }
 
     public void clickMedicalCoverDropdown(int index) {
-        WebElement dropdown = medicalCoverDropdowns.get(index);
+        WebElement dropdown = waitUtils.waitForClickable(medicalCoverDropdowns.get(index));
         jsUtils.scrollToElement(dropdown);
         waitUtils.waitForClickable(dropdown).click();
     }
@@ -270,13 +270,11 @@ public class TravelQuotePage {
 
         clickMedicalCoverDropdown(dropdownIndex);
 
-        String lowestCover =
-                allMedicalCoverOptions.get(0).getText();
+        String lowestCover = allMedicalCoverOptions.get(0).getText();
 
         allMedicalCoverOptions.get(0).click();
 
-        waitUtils.waitForElementCount(visiblePremiums,
-                3);
+        waitUtils.waitForElementCount(visiblePremiums,3);
 
         lowestCoverList.add(lowestCover);
         return lowestCover;
@@ -302,7 +300,10 @@ public class TravelQuotePage {
     }
 
     public PlanDetails getCurrentPlanDetails(int index) {
-
+        System.out.println(index);
+        System.out.println(visiblePlanNames.get(index).getText());
+        System.out.println(lowestCoverList.get(index));
+        System.out.println(visiblePremiums.get(index).getText());
         return new PlanDetails(
                 visiblePlanNames.get(index).getText(),
                 lowestCoverList.get(index),

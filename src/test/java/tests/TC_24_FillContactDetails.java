@@ -17,6 +17,7 @@ public class TC_24_FillContactDetails extends BaseTest {
 
     @Test(dataProvider = "healthData")
     public void fillContactDetails(String product, String member, String dob, String name, String mobileNo, String email, String pincode){
+        logger.info("TC_24_FillContactDetails");
         healthHomePage = new HealthHomePage(driver);
 
         healthHomePage.clickHealthTab();
@@ -68,5 +69,7 @@ public class TC_24_FillContactDetails extends BaseTest {
         healthHomePage.clickGetQuote();
         logger.info("Get quote button clicked");
         driver.get("https://www.icicilombard.com/");
+
+        logger.info("TC_24 Passed");
     }
 }

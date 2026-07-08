@@ -22,6 +22,7 @@ public class TC_22_SelectProducts extends BaseTest {
 
     @Test(dataProvider = "healthData")
     public void testSelectProducts(String product){
+        logger.info("TC_22_SelectProducts");
         healthHomePage = new HealthHomePage(driver);
 
         healthHomePage.clickHealthTab();
@@ -39,5 +40,6 @@ public class TC_22_SelectProducts extends BaseTest {
 
         Assert.assertEquals(actual, product);
         logger.info(product + " selected");
+        logger.info("TC_22 Passed");
     }
 }

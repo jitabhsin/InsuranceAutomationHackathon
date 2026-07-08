@@ -24,6 +24,7 @@ public class TC_23_SelectMembers extends BaseTest {
 
     @Test(dataProvider = "healthData")
     public void testAddMembers(String product, String member, String dob){
+        logger.info("TC_23_SelectMembers");
         healthHomePage = new HealthHomePage(driver);
 
         healthHomePage.clickHealthTab();
@@ -54,5 +55,6 @@ public class TC_23_SelectMembers extends BaseTest {
 
         Assert.assertEquals(healthHomePage.verifyMembersResult.getText(), (healthHomePage.adultCount-1) + " Adult(s), " +  (healthHomePage.kidsCount-1) + " Kid(s)");
         logger.info("Members details are filled successfully");
+        logger.info("TC_23 Passed");
     }
 }

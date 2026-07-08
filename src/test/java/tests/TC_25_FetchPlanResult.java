@@ -23,6 +23,7 @@ public class TC_25_FetchPlanResult extends BaseTest {
 
     @Test(dataProvider = "healthData")
     public void testFetchPlanResult(String product, String member, String dob, String name, String mobileNo, String email, String pincode){
+        logger.info("TC_25_FetchPlanResult");
         healthResultPage = new HealthResultPage(driver);
         healthHomePage = new HealthHomePage(driver);
 
@@ -88,5 +89,7 @@ public class TC_25_FetchPlanResult extends BaseTest {
         int total = healthResultPage.resultPlans(product);
         Assert.assertEquals(total, healthResultPage.planList.size());
         logger.info("Total plans: " + total);
+
+        logger.info("TC_25 Passed");
     }
 }
