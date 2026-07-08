@@ -14,6 +14,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.SkipException;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -30,19 +31,18 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
     TravelHomePage travelHomePage;
     TravelQuotePage travelQuotePage;
 
-    @Test
-    public void verifyTravelQuoteSummary() {
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        return new Object[][]{
+                travelDetails[0]
+        };
+    }
 
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @Test(dataProvider = "travelData")
+    public void verifyTravelQuoteSummary(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
 
-        String country = data[0].toString();
-        String startDate = data[1].toString();
-        String endDate = data[2].toString();
-        String travellerCount = data[3].toString();
-        String travellerAges = data[4].toString();
-
-        logger.info("TC_07 - Verify Travel Quote Summary Started");
+        logger.info("TC_10 - Verify Travel Quote Summary Started");
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
@@ -195,10 +195,11 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         logger.info("Printing Lowest 3 Premium Plans");
 
         for (PlanDetails plan : lowestPlans) {
-
+            int i = 1;
             logger.info(
-                    "Lowest Premium Plan => {}",
+                    "Lowest Premium Plan {} => {}",i,
                     plan);
+            i++;
 
             softAssert.assertTrue(
                     travelQuotePage.isPlanDetailValid(plan),
@@ -215,6 +216,7 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
             softAssert.assertNotNull(
                     plan.getMedicalCover(),
                     "Medical cover is null");
+
         }
 
 

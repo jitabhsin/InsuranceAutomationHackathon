@@ -1,5 +1,7 @@
 package org.insurance.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
@@ -17,6 +19,8 @@ public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
     JavaScriptUtils jsUtils;
+
+    private static final Logger logger = LogManager.getLogger(TravelHomePage.class);
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
@@ -132,7 +136,7 @@ public class TravelHomePage {
             jsUtils.scrollToElement(element);
             element.click();
         } catch (Exception e) {
-            System.out.println("Normal click failed. Trying JS Click");
+            logger.info("Normal click failed. Trying JS Click");
             jsUtils.scrollAndClick(element);
         }
     }
@@ -405,7 +409,7 @@ public class TravelHomePage {
             issueAge = issueAge.trim();
 
             if (!travellerAgeList.contains(issueAge)) {
-                System.out.println("Invalid HealthIssueTraveller Age: " + issueAge + "\nTraveller Ages: " + travellerAges + "\nHealth Issue Travellers: " + healthIssueTravellers);
+                logger.info("Invalid HealthIssueTraveller Age={}, Traveller Ages={}, Health Issue Travellers={}", issueAge, travellerAges, healthIssueTravellers);
                 return false;
             }
         }

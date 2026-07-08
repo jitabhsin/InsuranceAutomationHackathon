@@ -10,6 +10,7 @@ import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
 import org.testng.Assert;
 import org.testng.SkipException;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -22,19 +23,18 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
     TravelHomePage travelHomePage;
     TravelQuotePage travelQuotePage;
 
-    @Test
-    public void verifyTravelQuotaPlanNavigation() {
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        return new Object[][]{
+                travelDetails[0]
+        };
+    }
 
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @Test(dataProvider = "travelData")
+    public void verifyTravelQuotaPlanNavigation(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
 
-        String country = data[0].toString();
-        String startDate = data[1].toString();
-        String endDate = data[2].toString();
-        String travellerCount = data[3].toString();
-        String travellerAges = data[4].toString();
-
-        logger.info("TC_08 - Verify Travel Quote Summary Started");
+        logger.info("TC_08 - Verify Travel Quote Navigation Started");
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
@@ -65,36 +65,28 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         logger.info("Traveller Details page loaded");
 
-        String contactNo =
-                ConfigReader.getProperty("contactNum");
+        String contactNo = ConfigReader.getProperty("contactNum");
 
-        String email =
-                ConfigReader.getProperty("email");
+        String email = ConfigReader.getProperty("email");
 
         travelHomePage.contactNumber.sendKeys(contactNo);
         travelHomePage.email.sendKeys(email);
 
         logger.info("Entered contact details");
 
-        int travellerCnt =
-                Integer.parseInt(travellerCount);
+        int travellerCnt = Integer.parseInt(travellerCount);
 
-        String[] ageStrings =
-                travellerAges.split(",");
+        String[] ageStrings = travellerAges.split(",");
 
-        int[] ages =
-                new int[ageStrings.length];
+        int[] ages = new int[ageStrings.length];
 
         for (int i = 0; i < ageStrings.length; i++) {
-            ages[i] =
-                    Integer.parseInt(ageStrings[i].trim());
+            ages[i] = Integer.parseInt(ageStrings[i].trim());
         }
 
         logger.info("Traveller ages processed successfully");
 
-        travelHomePage.selectTravellerCount(
-                travellerCnt,
-                ages);
+        travelHomePage.selectTravellerCount(travellerCnt, ages);
 
         logger.info("Selected traveller count: {}", travellerCnt);
 
@@ -111,99 +103,66 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
 
         logger.info("Verifying Next Coverage button is enabled");
-        softAssert.assertTrue(
-                travelQuotePage.isNextCoverageEnabled(),
-                "Next Coverage Button not enabled for selecting next plans");
+        softAssert.assertTrue(travelQuotePage.isNextCoverageEnabled(), "Next Coverage Button not enabled for selecting next plans");
 
         logger.info("Navigating to last coverage page");
         travelQuotePage.navigateToLastCoverage();
 
         logger.info("Verifying Basic Plan visibility");
-        boolean isBasicPlanDisplayed =
-                travelQuotePage.isBasicAmountVisible();
+        boolean isBasicPlanDisplayed = travelQuotePage.isBasicAmountVisible();
 
-        softAssert.assertTrue(
-                isBasicPlanDisplayed,
-                "Basic Plan NOT displayed");
+        softAssert.assertTrue(isBasicPlanDisplayed, "Basic Plan NOT displayed");
 
         logger.info("Basic Plan displayed: {}", isBasicPlanDisplayed);
 
         logger.info("Verifying Premium Plus Plan visibility");
-        boolean isPremiumPlusPlanDisplayed =
-                travelQuotePage.isPremiumPlusVisible();
+        boolean isPremiumPlusPlanDisplayed = travelQuotePage.isPremiumPlusVisible();
 
-        softAssert.assertTrue(
-                isPremiumPlusPlanDisplayed,
-                "Premium Plus Plan NOT displayed");
+        softAssert.assertTrue(isPremiumPlusPlanDisplayed, "Premium Plus Plan NOT displayed");
 
-        logger.info("Premium Plus Plan displayed: {}",
-                isPremiumPlusPlanDisplayed);
+        logger.info("Premium Plus Plan displayed: {}", isPremiumPlusPlanDisplayed);
 
         logger.info("Verifying Next Coverage button is disabled on last coverage");
-        softAssert.assertFalse(
-                travelQuotePage.isNextCoverageEnabled(),
-                "Next Coverage Button enabled");
+        softAssert.assertFalse(travelQuotePage.isNextCoverageEnabled(), "Next Coverage Button enabled");
 
         logger.info("Verifying Previous Coverage button is enabled");
-        softAssert.assertTrue(
-                travelQuotePage.isPreviousCoverageEnabled(),
-                "Previous Coverage Button NOT enabled for selecting previous plans");
+        softAssert.assertTrue(travelQuotePage.isPreviousCoverageEnabled(), "Previous Coverage Button NOT enabled for selecting previous plans");
 
         logger.info("Navigating back to first coverage page");
         travelQuotePage.navigateToFirstCoverage();
 
         logger.info("Verifying Essential Plan visibility");
-        boolean isEssentialPlanDisplayed =
-                travelQuotePage.isEssentialPlanDisplayed();
+        boolean isEssentialPlanDisplayed = travelQuotePage.isEssentialPlanDisplayed();
 
-        softAssert.assertTrue(
-                isEssentialPlanDisplayed,
-                "Essential Plan NOT displayed");
+        softAssert.assertTrue(isEssentialPlanDisplayed, "Essential Plan NOT displayed");
 
-        logger.info("Essential Plan displayed: {}",
-                isEssentialPlanDisplayed);
+        logger.info("Essential Plan displayed: {}", isEssentialPlanDisplayed);
 
         logger.info("Verifying Value Plan visibility");
-        boolean isValuePlanDisplayed =
-                travelQuotePage.isValuePlanDisplayed();
+        boolean isValuePlanDisplayed = travelQuotePage.isValuePlanDisplayed();
 
-        softAssert.assertTrue(
-                isValuePlanDisplayed,
-                "Value Plan NOT displayed");
+        softAssert.assertTrue(isValuePlanDisplayed, "Value Plan NOT displayed");
 
-        logger.info("Value Plan displayed: {}",
-                isValuePlanDisplayed);
+        logger.info("Value Plan displayed: {}", isValuePlanDisplayed);
 
         logger.info("Verifying Premium Plan visibility");
-        boolean isPremiumPlanDisplayed =
-                travelQuotePage.isPremiumPlanDisplayed();
+        boolean isPremiumPlanDisplayed = travelQuotePage.isPremiumPlanDisplayed();
 
-        softAssert.assertTrue(
-                isPremiumPlanDisplayed,
-                "Premium Plan NOT displayed");
+        softAssert.assertTrue(isPremiumPlanDisplayed, "Premium Plan NOT displayed");
 
-        logger.info("Premium Plan displayed: {}",
-                isPremiumPlanDisplayed);
+        logger.info("Premium Plan displayed: {}", isPremiumPlanDisplayed);
 
         logger.info("Verifying Previous Coverage button is disabled");
-        softAssert.assertFalse(
-                travelQuotePage.isPreviousCoverageEnabled(),
-                "Previous Coverage Button Enabled");
+        softAssert.assertFalse(travelQuotePage.isPreviousCoverageEnabled(), "Previous Coverage Button Enabled");
 
         logger.info("Verifying Next Coverage button is enabled");
-        softAssert.assertTrue(
-                travelQuotePage.isNextCoverageEnabled(),
-                "Next Coverage Button is NOT enabled");
+        softAssert.assertTrue(travelQuotePage.isNextCoverageEnabled(), "Next Coverage Button is NOT enabled");
 
-        int visiblePlanCount =
-                travelQuotePage.getVisiblePlanCount();
+        int visiblePlanCount = travelQuotePage.getVisiblePlanCount();
 
         logger.info("Visible plan count: {}", visiblePlanCount);
 
-        softAssert.assertEquals(
-                visiblePlanCount,
-                3,
-                "Visible Plans are greater than 3");
+        softAssert.assertEquals(visiblePlanCount, 3, "Visible Plans are greater than 3");
 
         logger.info("Completed all Travel Quote Plan Navigations");
 
