@@ -15,7 +15,7 @@
             <class name="tests.TC_04_VerifySelectedCountry"/>
             <class name="tests.TC_05_VerifyTravellerDetailsErrorMessages"/>
             <class name="tests.TC_06_VerifyTravellerDetails"/>
-            <class name="tests.TC_07_VerifyTravelQuoteSummary"/>
+            <class name="tests.TC_07_VerifyTravelQuotePage"/>
             <class name="tests.TC_08_VerifyNavigationBetweenPlans"/>
             <class name="tests.TC_09_VerifyFilteringForMedicalCovers"/>
             <class name="tests.TC_10_RetrieveLowestThreePlans"/>

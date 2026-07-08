@@ -2,6 +2,7 @@ package tests;
 
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -37,7 +38,7 @@ public class TC_22_SelectProducts extends BaseTest {
         Assert.assertEquals(totalProduct, 3);
         String actual = healthHomePage.selectProduct(product);
         logger.info("Product selected");
-
+        ScreenshotUtils.captureScreenshot(driver, "TC_22_SelectProducts");
         Assert.assertEquals(actual, product);
         logger.info(product + " selected");
         logger.info("TC_22 Passed");

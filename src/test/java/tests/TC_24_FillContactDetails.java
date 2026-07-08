@@ -1,5 +1,6 @@
 package tests;
 
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
@@ -61,6 +62,8 @@ public class TC_24_FillContactDetails extends BaseTest {
         logger.info("Pincode entered");
         healthHomePage.enterName(name);
         logger.info("Name entered");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_24_FillContactDetails");
 
         Assert.assertTrue(healthHomePage.isDoneButtonDisplayed(), "Done Button is not displayed");
         logger.info("Done button is displayed");
