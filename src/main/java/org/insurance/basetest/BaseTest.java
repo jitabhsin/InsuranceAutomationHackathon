@@ -20,7 +20,6 @@ public class BaseTest {
     @BeforeTest
     public void setup() {
         deleteOldScreenshots();
-        deleteOldReports();
         deleteOldLogs();
 
         logger.info("========== Browser Launch Started ==========");
@@ -57,14 +56,14 @@ public class BaseTest {
         logger.info("==================================");
     }
 
-//    @AfterTest
-//    public void tearDown() {
-//        logger.info("Closing browser");
-//        if (driver != null) {
-//            driver.quit();
-//            logger.info("Browser closed successfully");
-//        }
-//    }
+    @AfterTest
+    public void tearDown() {
+        logger.info("Closing browser");
+        if (driver != null) {
+            driver.quit();
+            logger.info("Browser closed successfully");
+        }
+    }
 
     public static WebDriver getDriver() {
         return driver;
@@ -80,21 +79,6 @@ public class BaseTest {
                 }
             }
             logger.info("Old screenshots deleted");
-        }
-    }
-
-    private void deleteOldReports() {
-        File folder = new File(System.getProperty("user.dir")
-                                + File.separator
-                                + "ExtentReports");
-        if (folder.exists()) {
-            File[] files = folder.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    file.delete();
-                }
-            }
-            logger.info("Old Extent Reports deleted");
         }
     }
 
