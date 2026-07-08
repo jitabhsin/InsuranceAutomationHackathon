@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -82,6 +83,7 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         logger.info("Clicked Proceed Button");
 
         boolean longTermSelected = carPage.selectLongTermPolicy();
+        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
         logger.info("Long Term Policy Selected : {}", longTermSelected);
 
         Assert.assertTrue(longTermSelected, "Long Term Policy option is not selected");

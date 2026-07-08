@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -66,6 +67,7 @@ public class TC_16VerifyPlanPricing extends BaseTest {
 
         carPage.clickProceedBtnCity();
         boolean zeroDepSelected = carPage.selectZeroDepIfNotSelected();
+        ScreenshotUtils.captureScreenshot(driver, "TC16_Plan_Pricing");
         logger.info("Zero Dep selected : {}", zeroDepSelected);
 
         Assert.assertTrue(zeroDepSelected, "Zero Dep plan is not selected");

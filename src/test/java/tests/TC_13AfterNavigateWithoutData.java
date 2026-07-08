@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.insurance.utils.ConfigReader;
@@ -54,6 +55,7 @@ public class TC_13AfterNavigateWithoutData extends BaseTest {
         carPage.clickNewVehicleGetQuote();
 
         String invalidMobileError = carPage.getMobileErrorMessage();
+        ScreenshotUtils.captureScreenshot(driver, "TC13_Validation_Errors");
         logger.info("Invalid Mobile Error : {}", invalidMobileError);
         Assert.assertEquals(invalidMobileError, expectedMobileError, "Invalid mobile validation failed");
         Assert.assertTrue(invalidMobileError.toLowerCase().contains("mobile"), "Mobile error text validation failed");

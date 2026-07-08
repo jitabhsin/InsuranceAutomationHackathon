@@ -9,7 +9,10 @@ import org.testng.annotations.*;
 import org.insurance.utils.ConfigReader;
 
 import java.lang.reflect.Method;
+import org.testng.annotations.Listeners;
+import org.insurance.utils.TestListener;
 
+@Listeners(TestListener.class)
 public class BaseTest {
 
     protected static WebDriver driver;

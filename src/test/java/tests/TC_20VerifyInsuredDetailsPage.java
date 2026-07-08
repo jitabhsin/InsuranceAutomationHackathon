@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -79,6 +80,7 @@ public class TC_20VerifyInsuredDetailsPage extends BaseTest {
         logger.info("Verify Information page displayed");
 
         carPage.clickThatsCorrect();
+        ScreenshotUtils.captureScreenshot(driver, "TC20_Insured_Details");
         logger.info("Clicked That's Correct Button");
 
         Assert.assertTrue(carPage.isInsuredDetailsPage(), "Not navigated to Insured Details page");

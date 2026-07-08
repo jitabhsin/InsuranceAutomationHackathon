@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -74,6 +75,7 @@ public class TC_19VerifyInformationBelow extends BaseTest {
         logger.info("Selected Zero Dep Plan");
 
         carPage.clickContinue();
+        ScreenshotUtils.captureScreenshot(driver, "TC19_Verify_Information");
         logger.info("Clicked Continue Button");
 
         Assert.assertTrue(carPage.isVerifyInfoHeaderDisplayed(), "Verify Information header not displayed");

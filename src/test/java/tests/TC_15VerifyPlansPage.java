@@ -6,6 +6,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.CarPage;
 import org.insurance.pages.HomePage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -80,6 +81,7 @@ public class TC_15VerifyPlansPage extends BaseTest {
         logger.info("User is on Select Plans page");
 
         carPage.clickProceedBtnCity();
+        ScreenshotUtils.captureScreenshot(driver, "TC15_Plans_Page");
         logger.info("Clicked Proceed Button");
 
         boolean odtpSelected = carPage.checkODTP();
