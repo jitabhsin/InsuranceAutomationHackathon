@@ -40,7 +40,9 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         travelHomePage = new TravelHomePage(driver);
         travelQuotePage = new TravelQuotePage(driver);
 
-        Assert.assertFalse(country.trim().isEmpty(), "Country is empty");
+        Assert.assertFalse(
+                country.trim().isEmpty(),
+                "Country is empty");
 
         logger.info("Navigating to Travel Insurance section");
 
@@ -59,7 +61,8 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         travelHomePage.selectStartDate(startDate);
         travelHomePage.selectEndDate(endDate);
 
-        logger.info("Selected travel dates. Start Date: {}, End Date: {}", startDate, endDate);
+        logger.info("Selected travel dates. Start Date: {}, End Date: {}",
+                startDate, endDate);
 
         travelHomePage.submitDate();
 
@@ -103,8 +106,6 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         travelHomePage.noHealthCheckBox.click();
 
         travelHomePage.travellerSubmitButton.click();
-
-        travelQuotePage.waitForPage();
 
         logger.info("Travel Quote Page Loaded");
 
@@ -205,7 +206,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
                 3,
                 "Visible Plans are greater than 3");
 
-        logger.info("Completed all Travel Quote Plan Navigations");
+        logger.info("Completed all Travel Quote page validations");
 
         softAssert.assertAll();
 
