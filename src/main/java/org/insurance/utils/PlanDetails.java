@@ -1,4 +1,4 @@
-package org.insurance.pages;
+package org.insurance.utils;
 
 public class PlanDetails {
 

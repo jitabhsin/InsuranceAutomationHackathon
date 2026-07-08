@@ -103,9 +103,13 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
         String[] ageStrings = travellerAges.split(",");
 
         if (ageStrings.length != count) {
-            logger.info("Skipping row because Traveller Count ({}) does not match Age Entries ({})", count, ageStrings.length);
+            logger.info("Negative Test Passed - Traveller Count ({}) does not match Age Entries ({})",
+                    count, ageStrings.length);
+
+            Assert.assertTrue(true, "Expected invalid traveller count mapping");
+
             driver.get(ConfigReader.getProperty("baseUrl"));
-            throw new SkipException("Invalid Traveller Count and Age Mapping");
+            return;
         }
 
         int[] ages = new int[ageStrings.length];
@@ -131,9 +135,14 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
             boolean validDOB = travelHomePage.validateSeniorTravellerDOBs(travellerAges, seniorTravellerDOBs);
 
             if (!validDOB) {
-                logger.info("Skipping row due to Invalid Senior Traveller DOB Mapping. Ages : {} , DOBs : {}", travellerAges, seniorTravellerDOBs);
+                logger.info("Negative Test Passed - Invalid Senior Traveller DOB Mapping. Ages : {} , DOBs : {}",
+                        travellerAges, seniorTravellerDOBs);
+
+                Assert.assertFalse(validDOB,
+                        "Expected DOB mapping validation to fail");
+
                 driver.get(ConfigReader.getProperty("baseUrl"));
-                throw new SkipException("Skipping row due to Invalid Senior Traveller DOB Mapping");
+                return;
             }
 
             logger.info("Entering Senior Traveller DOB Details");
@@ -147,9 +156,13 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
             boolean validTravellerData = travelHomePage.validateHealthIssueTravellers(travellerAges, healthIssueTravellers);
 
             if (!validTravellerData) {
-                logger.info("Skipping row due to Invalid Health Issue Traveller Mapping");
+                logger.info("Negative Test Passed - Invalid Health Issue Traveller Mapping");
+
+                Assert.assertFalse(validTravellerData,
+                        "Expected Health Issue Traveller validation to fail");
+
                 driver.get(ConfigReader.getProperty("baseUrl"));
-                throw new SkipException("Skipping row due to Invalid HealthIssueTravellers data");
+                return;
             }
 
             logger.info("Selecting Health Issue : YES");

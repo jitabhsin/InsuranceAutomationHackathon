@@ -3,9 +3,8 @@ package org.insurance.pages;
 import java.util.*;
 
 import org.insurance.utils.JavaScriptUtils;
+import org.insurance.utils.PlanDetails;
 import org.insurance.utils.WaitUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
