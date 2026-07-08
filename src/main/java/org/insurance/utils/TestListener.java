@@ -20,15 +20,15 @@ public class TestListener implements ITestListener {
         test.get().pass("Test Passed");
     }
 
-    @Override
-    public void onTestFailure(ITestResult result) {
-        String screenshot = ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName() + "_FAIL");
-        test.get().fail(result.getThrowable());
-        try {
-            test.get().addScreenCaptureFromPath(screenshot);
-        } catch (Exception ignored) {
-        }
-    }
+//    @Override
+//    public void onTestFailure(ITestResult result) {
+//        String screenshot = ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName() + "_FAIL");
+//        test.get().fail(result.getThrowable());
+//        try {
+//            test.get().addScreenCaptureFromPath(screenshot);
+//        } catch (Exception ignored) {
+//        }
+//    }
 
     @Override
     public void onTestSkipped(ITestResult result) {

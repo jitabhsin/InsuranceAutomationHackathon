@@ -41,9 +41,6 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         String endDate = data[2].toString();
         String travellerCount = data[3].toString();
         String travellerAges = data[4].toString();
-        String seniorTravellerDOBs = data[5].toString();
-        String healthIssue = data[6].toString();
-        String healthIssueTravellers = data[7].toString();
 
         logger.info("TC_07 - Verify Travel Quote Summary Started");
 
@@ -51,200 +48,91 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         travelHomePage = new TravelHomePage(driver);
         travelQuotePage = new TravelQuotePage(driver);
 
-        Assert.assertFalse(
-                country.trim().isEmpty(),
-                "Country is empty");
+        Assert.assertFalse(country.trim().isEmpty(), "Country is empty");
 
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(
-                driver.getCurrentUrl()
-                        .contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         travelHomePage.selectCountry(country);
-
         travelHomePage.selectStartAndEndDateElement.click();
-
         travelHomePage.selectStartDate(startDate);
         travelHomePage.selectEndDate(endDate);
 
         travelHomePage.submitDate();
 
-        Assert.assertTrue(
-                travelHomePage
-                        .isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
-        String contactNo =
-                ConfigReader.getProperty("contactNum");
-
-        String email =
-                ConfigReader.getProperty("email");
+        String contactNo = ConfigReader.getProperty("contactNum");
+        String email = ConfigReader.getProperty("email");
 
         travelHomePage.contactNumber.sendKeys(contactNo);
         travelHomePage.email.sendKeys(email);
 
-        int travellerCnt =
-                Integer.parseInt(travellerCount);
+        int travellerCnt = Integer.parseInt(travellerCount);
+        String[] ageStrings = travellerAges.split(",");
 
-        String[] ageStrings =
-                travellerAges.split(",");
-
-        if (ageStrings.length != travellerCnt) {
-
-            driver.get(
-                    ConfigReader.getProperty("baseUrl"));
-
-            throw new SkipException(
-                    "Invalid Traveller Count Mapping");
-        }
-
-        int[] ages =
-                new int[ageStrings.length];
-
-        boolean seniorTravellerPresent = false;
+        int[] ages = new int[ageStrings.length];
 
         for (int i = 0; i < ageStrings.length; i++) {
-
-            ages[i] =
-                    Integer.parseInt(ageStrings[i].trim());
-
-            if (ages[i] > 70) {
-                seniorTravellerPresent = true;
-            }
+            ages[i] = Integer.parseInt(ageStrings[i].trim());
         }
 
-        travelHomePage.selectTravellerCount(
-                travellerCnt,
-                ages);
-
-        if (seniorTravellerPresent) {
-
-            if (!travelHomePage
-                    .validateSeniorTravellerDOBs(
-                            travellerAges,
-                            seniorTravellerDOBs)) {
-
-                throw new SkipException(
-                        "Invalid Senior Traveller DOB Mapping");
-            }
-
-            travelHomePage.enterSeniorTravellerDOBs(
-                    ages,
-                    seniorTravellerDOBs);
-        }
-
-        if (healthIssue.equalsIgnoreCase("Yes")) {
-
-            travelHomePage.yesHealthCheckBox.click();
-
-            travelHomePage
-                    .selectHealthIssueTravellersByAge(
-                            travellerAges,
-                            healthIssueTravellers);
-        }
-        else {
-
-            travelHomePage.noHealthCheckBox.click();
-        }
+        travelHomePage.selectTravellerCount(travellerCnt, ages);
+        travelHomePage.noHealthCheckBox.click();
 
         travelHomePage.travellerSubmitButton.click();
 
         logger.info("Travel Quote Page Loaded");
 
         travelQuotePage.waitForPage();
-
-        Assert.assertTrue(
-                travelQuotePage.isTravelQuotePageLoaded(),
-                "Travel Quote Page not loaded properly");
-
+        Assert.assertTrue(travelQuotePage.isTravelQuotePageLoaded(), "Travel Quote Page not loaded properly");
         logger.info("Travel Quote Page verified successfully");
 
-        WebElement ele =
-                driver.findElement(
-                        By.className("multi-sub-limit"));
-
-        JavascriptExecutor js =
-                (JavascriptExecutor) driver;
-
-        js.executeScript(
-                "arguments[0].scrollIntoView(true);",
-                ele);
-
+        travelQuotePage.scrollIntoElement();
         logger.info("Scrolled to Medical Cover section");
 
-        SoftAssert softAssert =
-                new SoftAssert();
+        SoftAssert softAssert = new SoftAssert();
 
-        List<PlanDetails> allPlans =
-                new ArrayList<>();
+        List<PlanDetails> allPlans = new ArrayList<>();
 
-        logger.info(
-                "Selecting lowest coverage for first plan");
+        logger.info("Selecting lowest coverage for first plan");
 
-        String coverage1 =
-                travelQuotePage.selectLowestCoverage(0);
-
-        PlanDetails plan1 =
-                travelQuotePage.getCurrentPlanDetails(0);
-
+        String coverage1 = travelQuotePage.selectLowestCoverage(0);
+        PlanDetails plan1 = travelQuotePage.getCurrentPlanDetails(0);
         allPlans.add(plan1);
 
-        logger.info(
-                "Captured Plan: {}",
-                plan1);
+        logger.info("Captured Plan: {}", plan1);
 
-        softAssert.assertNotNull(
-                plan1,
-                "Plan 1 details are null");
+        softAssert.assertNotNull(plan1, "Plan 1 details are null");
 
-        logger.info(
-                "Selecting lowest coverage for second plan");
+        logger.info("Selecting lowest coverage for second plan");
 
-        String coverage2 =
-                travelQuotePage.selectLowestCoverage(1);
-
-        PlanDetails plan2 =
-                travelQuotePage.getCurrentPlanDetails(1);
-
+        String coverage2 = travelQuotePage.selectLowestCoverage(1);
+        PlanDetails plan2 = travelQuotePage.getCurrentPlanDetails(1);
         allPlans.add(plan2);
 
-        logger.info(
-                "Captured Plan: {}",
-                plan2);
+        logger.info("Captured Plan: {}", plan2);
 
-        softAssert.assertNotNull(
-                plan2,
-                "Plan 2 details are null");
+        softAssert.assertNotNull(plan2, "Plan 2 details are null");
 
-        logger.info(
-                "Selecting lowest coverage for third plan");
+        logger.info("Selecting lowest coverage for third plan");
 
-        String coverage3 =
-                travelQuotePage.selectLowestCoverage(2);
-
-        PlanDetails plan3 =
-                travelQuotePage.getCurrentPlanDetails(2);
-
+        String coverage3 = travelQuotePage.selectLowestCoverage(2);
+        PlanDetails plan3 = travelQuotePage.getCurrentPlanDetails(2);
         allPlans.add(plan3);
 
-        logger.info(
-                "Captured Plan: {}",
-                plan3);
+        logger.info("Captured Plan: {}", plan3);
 
-        softAssert.assertNotNull(
-                plan3,
-                "Plan 3 details are null");
+        softAssert.assertNotNull(plan3, "Plan 3 details are null");
 
         logger.info("Navigating to next coverage");
 
         travelQuotePage.clickNextCoverage();
 
-        logger.info(
-                "Selecting lowest coverage for fourth plan");
+        logger.info("Selecting lowest coverage for fourth plan");
 
         String coverage4 =
                 travelQuotePage.selectLowestCoverage(2);
