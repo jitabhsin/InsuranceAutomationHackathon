@@ -108,11 +108,9 @@ public class TC_17VerifyLongTermPlansPage extends BaseTest {
         logger.info("Expand Link Displayed : {}", expandExists);
         Assert.assertTrue(expandExists, "Expand link not displayed");
 
-        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
-
         carPage.clickExpand();
         logger.info("Clicked Expand Link");
-
+        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
         String cityOfReg = carPage.getCityOfRegistration();
         logger.info("City Of Registration : {}", cityOfReg);
         Assert.assertEquals(cityOfReg, city, "City of Registration does not match input city");

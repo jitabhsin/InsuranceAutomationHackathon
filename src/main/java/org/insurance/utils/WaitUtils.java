@@ -36,6 +36,10 @@ public class WaitUtils {
         List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return list;
     }
+    public WebElement waitForVisibilityIgnoringStale(WebElement element) {
+        return wait.ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.visibilityOf(element));
+    }
 
     public boolean waitForSelected(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeSelected(element));
