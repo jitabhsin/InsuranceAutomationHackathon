@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.insurance.utils.ExcelReader;
@@ -17,14 +18,19 @@ public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-    @Test
-    public void verifyNonImmigrantCheckBox() {
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
 
-        String country   = data[0].toString();
-        String startDate   = data[1].toString();
-        String endDate  = data[2].toString();
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][3];
+        travelData[0][0] = data[0][0];
+        travelData[0][1] = data[0][1];
+        travelData[0][2] = data[0][2];
+        return travelData;
+    }
+
+    @Test(dataProvider = "travelData")
+    public void verifyNonImmigrantCheckBox(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_03 - Verify Non-Immigrant Check Box Started");
 

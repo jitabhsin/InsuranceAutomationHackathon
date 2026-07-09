@@ -7,6 +7,7 @@ import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.utils.ConfigReader;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.insurance.utils.ExcelReader;
@@ -19,14 +20,18 @@ public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-    @Test
-    public void verifyErrorMessagesWithNoInput() {
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][3];
+        travelData[0][0] = data[0][0];
+        travelData[0][1] = data[0][1];
+        travelData[0][2] = data[0][2];
+        return travelData;
+    }
 
-        String country   = data[0].toString();
-        String startDate   = data[1].toString();
-        String endDate  = data[2].toString();
+    @Test(dataProvider = "travelData")
+    public void verifyErrorMessagesWithNoInput(String country, String startDate, String endDate) {
 
         logger.info("TC_05 - Verify Traveller Details Error Messages Started");
 

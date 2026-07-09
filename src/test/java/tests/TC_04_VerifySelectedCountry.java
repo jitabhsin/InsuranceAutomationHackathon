@@ -21,14 +21,21 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
     TravelHomePage travelHomePage;
 
     @DataProvider(name = "travelData")
-    public Object[][] getData() {
-        logger.info("Reading travel test data from Excel");
-        ExcelReader excel = new ExcelReader();
-        return excel.readSheetTravel();
+    public Object[][] getTravelData() {
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][5];
+        for (int i = 0; i < data.length; i++) {
+            travelData[i][0] = data[i][0];
+            travelData[i][1] = data[i][1];
+            travelData[i][2] = data[i][2];
+            travelData[i][3] = data[i][3];
+            travelData[i][4] = data[i][4];
+        }
+        return travelData;
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_04 - Verify Selected Country Started");
 

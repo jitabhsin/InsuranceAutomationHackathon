@@ -25,11 +25,8 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getData() {
-
         logger.info("Reading traveller details test data from Excel");
-
         ExcelReader excel = new ExcelReader();
-
         return excel.readSheetTravel();
     }
 

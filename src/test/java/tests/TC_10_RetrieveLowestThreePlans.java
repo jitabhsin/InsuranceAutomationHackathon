@@ -29,14 +29,18 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
-        return new Object[][]{
-                travelDetails[0]
-        };
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][5];
+        travelData[0][0] = data[0][0];
+        travelData[0][1] = data[0][1];
+        travelData[0][2] = data[0][2];
+        travelData[0][3] = data[0][3];
+        travelData[0][4] = data[0][4];
+        return travelData;
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyTravelQuoteSummary(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyTravelQuoteSummary(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_10 - Verify Travel Quote Summary Started");
 
@@ -53,8 +57,7 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded successfully");
 
@@ -73,8 +76,7 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
         logger.info("Traveller Details page loaded successfully");
 
@@ -109,8 +111,7 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
         logger.info("Traveller details submitted successfully");
         logger.info("Waiting for navigation to Travel Quote page");
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"),
-                "Navigation to Travel Quote page failed");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
 
         logger.info("Successfully navigated to Travel Quote page");
         travelQuotePage.waitForElementstoLoad();
@@ -133,7 +134,6 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         allPlans.add(plan1);
 
         logger.info("Captured Plan: {}", plan1);
-
         softAssert.assertNotNull(plan1, "Plan 1 details are null");
 
         logger.info("Selecting lowest coverage for second plan");
@@ -143,7 +143,6 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         allPlans.add(plan2);
 
         logger.info("Captured Plan: {}", plan2);
-
         softAssert.assertNotNull(plan2, "Plan 2 details are null");
 
         logger.info("Selecting lowest coverage for third plan");
@@ -153,11 +152,9 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         allPlans.add(plan3);
 
         logger.info("Captured Plan: {}", plan3);
-
         softAssert.assertNotNull(plan3, "Plan 3 details are null");
 
         logger.info("Navigating to next coverage");
-
         travelQuotePage.clickNextCoverage();
 
         logger.info("Selecting lowest coverage for fourth plan");
@@ -167,11 +164,9 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         allPlans.add(plan4);
 
         logger.info("Captured Plan: {}", plan4);
-
         softAssert.assertNotNull(plan4, "Plan 4 details are null");
 
         logger.info("Navigating to final coverage");
-
         travelQuotePage.clickNextCoverage();
 
         logger.info("Selecting lowest coverage for fifth plan");
@@ -181,23 +176,18 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         allPlans.add(plan5);
 
         logger.info("Captured Plan: {}", plan5);
-
         softAssert.assertNotNull(plan5, "Plan 5 details are null");
 
         logger.info("Total plans collected: {}", allPlans.size());
-
         softAssert.assertEquals(allPlans.size(), 5, "Expected 5 plans to be collected");
 
         List<PlanDetails> lowestPlans = travelQuotePage.getLowestThreePlans(allPlans);
-
         logger.info("Lowest premium plans identified. Count: {}", lowestPlans.size());
-
         softAssert.assertEquals(lowestPlans.size(), 3, "Lowest premium plan count mismatch");
 
         logger.info("Printing Lowest 3 Premium Plans");
 
         for (PlanDetails plan : lowestPlans) {
-
             int i = 1;
             logger.info("Lowest Premium Plan {} => {}",i, plan);
             i++;

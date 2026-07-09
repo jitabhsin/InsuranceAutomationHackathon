@@ -25,14 +25,18 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
-        return new Object[][]{
-                travelDetails[0]
-        };
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][5];
+        travelData[0][0] = data[0][0];
+        travelData[0][1] = data[0][1];
+        travelData[0][2] = data[0][2];
+        travelData[0][3] = data[0][3];
+        travelData[0][4] = data[0][4];
+        return travelData;
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyTravelQuotePage(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyTravelQuotePage(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         SoftAssert softAssert = new SoftAssert();
 
@@ -51,8 +55,7 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded successfully");
 
@@ -71,8 +74,7 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
         logger.info("Traveller Details page loaded successfully");
 
@@ -108,8 +110,7 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         logger.info("Traveller details submitted successfully");
         logger.info("Waiting for navigation to Travel Quote page");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"),
-                "Navigation to Travel Quote page failed");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
 
         logger.info("Successfully navigated to Travel Quote page");
 
