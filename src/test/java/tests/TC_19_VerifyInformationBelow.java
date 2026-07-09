@@ -94,7 +94,7 @@ public class TC_19_VerifyInformationBelow extends BaseTest {
         Assert.assertEquals(verifyMakeModel, model, "Car Make & Model does not match Excel input");
         Assert.assertTrue(verifyRegUnder.equalsIgnoreCase("YES"), "Registered Under Individual should be YES");
 
-        ScreenshotUtils.captureScreenshot(driver, "TC19_Verify_Information");
+        ScreenshotUtils.captureScreenshot(driver, "TC_19_Verify_Information");
 
         logger.info("All information validated successfully");
         logger.info("TC_19 PASSED");

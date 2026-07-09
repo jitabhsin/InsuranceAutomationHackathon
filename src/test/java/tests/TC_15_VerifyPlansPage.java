@@ -82,7 +82,7 @@ public class TC_15_VerifyPlansPage extends BaseTest {
 
         carPage.clickProceedBtnCity();
         logger.info("Clicked Proceed Button");
-        ScreenshotUtils.captureScreenshot(driver, "TC15_Plans_Page");
+        ScreenshotUtils.captureScreenshot(driver, "TC_15_Plans_Page");
 
         boolean odtpSelected = carPage.checkODTP();
         logger.info("Own Damage + TP selected by default : {}", odtpSelected);
