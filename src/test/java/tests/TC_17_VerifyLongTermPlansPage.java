@@ -110,7 +110,7 @@ public class TC_17_VerifyLongTermPlansPage extends BaseTest {
 
         carPage.clickExpand();
         logger.info("Clicked Expand Link");
-        ScreenshotUtils.captureScreenshot(driver, "TC17_Long_Term_Plans");
+        ScreenshotUtils.captureScreenshot(driver, "TC_17_Long_Term_Plans");
         String cityOfReg = carPage.getCityOfRegistration();
         logger.info("City Of Registration : {}", cityOfReg);
         Assert.assertEquals(cityOfReg, city, "City of Registration does not match input city");

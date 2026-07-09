@@ -36,7 +36,7 @@ public class TC_12_WithoutCarNumber extends BaseTest {
         logger.info("Validation message displayed successfully");
 
         String actualMessage = carPage.getValidationMessage();
-        ScreenshotUtils.captureScreenshot(driver, "TC12_Reg_Number_Error");
+        ScreenshotUtils.captureScreenshot(driver, "TC_12_Reg_Number_Error");
         logger.info("Captured Validation Message: {}", actualMessage);
 
         Assert.assertEquals(actualMessage,"Please enter a valid reg number","Incorrect validation message displayed");
