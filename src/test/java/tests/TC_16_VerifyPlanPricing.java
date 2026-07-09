@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC_16VerifyPlanPricing extends BaseTest {
+public class TC_16_VerifyPlanPricing extends BaseTest {
     private static final Logger logger =
-            LogManager.getLogger(TC_16VerifyPlanPricing.class);
+            LogManager.getLogger(TC_16_VerifyPlanPricing.class);
 
     HomePage homePage;
     CarPage carPage;

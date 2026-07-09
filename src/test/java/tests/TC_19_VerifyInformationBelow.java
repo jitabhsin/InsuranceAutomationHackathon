@@ -10,10 +10,10 @@ import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_19VerifyInformationBelow extends BaseTest {
+public class TC_19_VerifyInformationBelow extends BaseTest {
 
     private static final Logger logger =
-            LogManager.getLogger(TC_19VerifyInformationBelow.class);
+            LogManager.getLogger(TC_19_VerifyInformationBelow.class);
 
     HomePage homePage;
     CarPage carPage;

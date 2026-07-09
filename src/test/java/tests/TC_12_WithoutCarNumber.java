@@ -9,9 +9,9 @@ import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_12WithoutCarNumber extends BaseTest {
+public class TC_12_WithoutCarNumber extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(TC_12WithoutCarNumber.class);
+    private static final Logger logger = LogManager.getLogger(TC_12_WithoutCarNumber.class);
 
     HomePage homePage;
     CarPage carPage;
