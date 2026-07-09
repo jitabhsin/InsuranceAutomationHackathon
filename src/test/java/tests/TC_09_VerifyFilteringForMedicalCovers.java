@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.SkipException;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -27,129 +28,124 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
     TravelHomePage travelHomePage;
     TravelQuotePage travelQuotePage;
 
-    @Test
-    public void verifyTravelMedicalCoverFiltering() {
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        return new Object[][]{
+                travelDetails[0]
+        };
+    }
 
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @Test(dataProvider = "travelData")
+    public void verifyTravelMedicalCoverFiltering(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
 
-        String country = data[0].toString();
-        String startDate = data[1].toString();
-        String endDate = data[2].toString();
-        String travellerCount = data[3].toString();
-        String travellerAges = data[4].toString();
-
-        logger.info("TC_07 - Verify Travel Quote Summary Started");
+        logger.info("TC_09 - Verify Travel Quote Filtering Started");
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
         travelQuotePage = new TravelQuotePage(driver);
 
+        logger.info("Country received from test data: {}", country);
         Assert.assertFalse(country.trim().isEmpty(), "Country is empty");
+
+        logger.info("Navigating to Travel Insurance page");
 
         homePage.clickTravelInsurance();
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
+                "Travel Insurance page not loaded");
 
+        logger.info("Travel Insurance page loaded successfully");
+
+        logger.info("Selecting country: {}", country);
         travelHomePage.selectCountry(country);
+
+        logger.info("Opening travel date calendar");
         travelHomePage.selectStartAndEndDateElement.click();
+
+        logger.info("Selecting Start Date: {}", startDate);
         travelHomePage.selectStartDate(startDate);
+
+        logger.info("Selecting End Date: {}", endDate);
         travelHomePage.selectEndDate(endDate);
 
+        logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
+                "Traveller Details page not loaded");
+
+        logger.info("Traveller Details page loaded successfully");
 
         String contactNo = ConfigReader.getProperty("contactNum");
         String email = ConfigReader.getProperty("email");
 
+        logger.info("Entering Contact Number");
         travelHomePage.contactNumber.sendKeys(contactNo);
+
+        logger.info("Entering Email");
         travelHomePage.email.sendKeys(email);
 
         int travellerCnt = Integer.parseInt(travellerCount);
-        String[] ageStrings = travellerAges.split(",");
+        logger.info("Traveller Count: {}", travellerCnt);
 
+        String[] ageStrings = travellerAges.split(",");
         int[] ages = new int[ageStrings.length];
 
         for (int i = 0; i < ageStrings.length; i++) {
             ages[i] = Integer.parseInt(ageStrings[i].trim());
+            logger.info("Traveller {} Age: {}", i + 1, ages[i]);
         }
 
+        logger.info("Selecting traveller count and age groups");
         travelHomePage.selectTravellerCount(travellerCnt, ages);
+
+        logger.info("Selecting Health Issue option: NO");
         travelHomePage.noHealthCheckBox.click();
 
+        logger.info("Submitting traveller details");
         travelHomePage.travellerSubmitButton.click();
 
-        travelQuotePage.waitForPage();
+        logger.info("Traveller details submitted successfully");
 
+        logger.info("Waiting for navigation to Travel Quote page");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
+
+        logger.info("Successfully navigated to Travel Quote page");
+
+        travelQuotePage.waitForElementstoLoad();
         logger.info("Travel Quote Page Loaded Successfully");
 
-        Assert.assertTrue(
-                travelQuotePage.isTravelQuotePageLoaded(),
-                "Travel Quote Page not loaded");
-
-        travelQuotePage.scrollIntoElement();
-
+        travelQuotePage.scrollIntoMedicalFilterView();
         logger.info("Scrolled to Medical Cover section");
 
-        SoftAssert softAssert =
-                new SoftAssert();
+        SoftAssert softAssert = new SoftAssert();
 
         for (int i = 0; i < 3; i++) {
-
-            logger.info(
-                    "Validating Medical Cover Dropdown {}",
-                    i + 1);
+            logger.info("Validating Medical Cover Dropdown {}", i + 1);
 
             travelQuotePage.clickMedicalCoverDropdown(i);
 
-            List<String> values =
-                    travelQuotePage.getDropdownValues();
+            List<String> values = travelQuotePage.getDropdownValues();
 
-            logger.info(
-                    "Dropdown {} contains {} values",
-                    i + 1,
-                    values.size());
+            logger.info("Dropdown {} contains {} values", i + 1, values.size());
 
-            softAssert.assertTrue(
-                    values.size() >= 3,
-                    "Dropdown " + (i + 1)
-                            + " contains less than 3 options");
+            softAssert.assertTrue(values.size() >= 3, "Dropdown " + (i + 1) + " contains less than 3 options");
+            softAssert.assertFalse(values.isEmpty(), "Dropdown " + (i + 1) + " has no values");
+            softAssert.assertTrue(travelQuotePage.areDropdownValuesUnique(values), "Dropdown " + (i + 1) + " contains duplicate values");
+            softAssert.assertTrue(travelQuotePage.hasValidDropdownValues(values), "Invalid values found in Dropdown " + (i + 1));
 
-            softAssert.assertFalse(
-                    values.isEmpty(),
-                    "Dropdown " + (i + 1)
-                            + " has no values");
-
-            softAssert.assertTrue(
-                    travelQuotePage.areDropdownValuesUnique(values),
-                    "Dropdown " + (i + 1)
-                            + " contains duplicate values");
-
-            softAssert.assertTrue(
-                    travelQuotePage.hasValidDropdownValues(values),
-                    "Invalid values found in Dropdown "
-                            + (i + 1));
-
-            logger.info(
-                    "Values present in Dropdown {}",
-                    i + 1);
+            logger.info("Values present in Dropdown {}", i + 1);
 
             for (String value : values) {
-
                 logger.info(value);
-
-                softAssert.assertFalse(
-                        value.trim().isEmpty(),
-                        "Blank value found in Dropdown "
-                                + (i + 1));
+                softAssert.assertFalse(value.trim().isEmpty(), "Blank value found in Dropdown " + (i + 1));
             }
 
-            logger.info(
-                    "Dropdown {} validation completed",
-                    i + 1);
+            logger.info("Dropdown {} validation completed", i + 1);
         }
 
         logger.info("All medical cover dropdown validations completed in the displayed page is completed");

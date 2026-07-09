@@ -4,6 +4,7 @@ import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HealthHomePage;
 import org.insurance.pages.HealthResultPage;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.insurance.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -23,6 +24,7 @@ public class TC_25_FetchPlanResult extends BaseTest {
 
     @Test(dataProvider = "healthData")
     public void testFetchPlanResult(String product, String member, String dob, String name, String mobileNo, String email, String pincode){
+        logger.info("TC_25_FetchPlanResult");
         healthResultPage = new HealthResultPage(driver);
         healthHomePage = new HealthHomePage(driver);
 
@@ -77,6 +79,8 @@ public class TC_25_FetchPlanResult extends BaseTest {
         WaitUtils waitUtils = new WaitUtils(driver);
         waitUtils.waitForVisibility(healthResultPage.heading);
 
+        ScreenshotUtils.captureScreenshot(driver, "TC_25_FetchPlanResult");
+
         String currUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
         logger.info("Current URL: " + currUrl);
@@ -88,5 +92,7 @@ public class TC_25_FetchPlanResult extends BaseTest {
         int total = healthResultPage.resultPlans(product);
         Assert.assertEquals(total, healthResultPage.planList.size());
         logger.info("Total plans: " + total);
+
+        logger.info("TC_25 Passed");
     }
 }

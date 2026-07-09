@@ -20,47 +20,35 @@ public class WaitUtils {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
+//    public WebElement waitForVisibilityOfElementLocated(By element){
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+//    }
+
     public WebElement waitForVisibility(WebElement element){
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(element));
-        } catch (StaleElementReferenceException e) {
-            return wait.until(ExpectedConditions.visibilityOf(element));
-        }
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public WebElement waitForClickable(WebElement element){
-        try {
-            return wait.until(ExpectedConditions.elementToBeClickable(element));
-        } catch (StaleElementReferenceException e) {
-            return wait.until(ExpectedConditions.elementToBeClickable(element));
-        }
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public List<WebElement> waitForVisibilityOfAllElements(List<WebElement> elements){
-        return wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+        List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+        return list;
     }
 
+
     public boolean waitForSelected(WebElement element) {
-        try {
-            return wait.until(ExpectedConditions.elementToBeSelected(element));
-        } catch (StaleElementReferenceException e) {
-            return false;
-        }
+        return wait.until(driver -> element.isSelected());
     }
 
     public boolean waitForAttributeContains(WebElement element, String attribute, String value) {
-        try {
-            return wait.until(ExpectedConditions.attributeContains(element, attribute, value));
-        } catch (StaleElementReferenceException e) {
-            return false;
-        }
+        return wait.until(ExpectedConditions.attributeContains(element, attribute, value));
     }
-
     public boolean waitForUrlContains(String fragment) {
         return wait.until(ExpectedConditions.urlContains(fragment));
     }
-
     public boolean waitForElementCount(List<WebElement> list, int expectedCount) {
-        return list.size() >= expectedCount;
+        return wait.until(driver ->list.size() >= expectedCount);
     }
 }

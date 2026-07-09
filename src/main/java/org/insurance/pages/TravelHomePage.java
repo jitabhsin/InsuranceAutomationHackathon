@@ -1,5 +1,7 @@
 package org.insurance.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.insurance.utils.JavaScriptUtils;
 import org.insurance.utils.WaitUtils;
 import org.openqa.selenium.By;
@@ -17,6 +19,8 @@ public class TravelHomePage {
     WebDriver driver;
     WaitUtils waitUtils;
     JavaScriptUtils jsUtils;
+
+    private static final Logger logger = LogManager.getLogger(TravelHomePage.class);
 
     public TravelHomePage(WebDriver driver){
         this.driver = driver;
@@ -132,7 +136,7 @@ public class TravelHomePage {
             jsUtils.scrollToElement(element);
             element.click();
         } catch (Exception e) {
-            System.out.println("Normal click failed. Trying JS Click");
+            logger.info("Normal click failed. Trying JS Click");
             jsUtils.scrollAndClick(element);
         }
     }
@@ -405,7 +409,7 @@ public class TravelHomePage {
             issueAge = issueAge.trim();
 
             if (!travellerAgeList.contains(issueAge)) {
-                System.out.println("Invalid HealthIssueTraveller Age: " + issueAge + "\nTraveller Ages: " + travellerAges + "\nHealth Issue Travellers: " + healthIssueTravellers);
+                logger.info("Invalid HealthIssueTraveller Age={}, Traveller Ages={}, Health Issue Travellers={}", issueAge, travellerAges, healthIssueTravellers);
                 return false;
             }
         }
@@ -430,7 +434,7 @@ public class TravelHomePage {
             String seniorAge = entry.split("=")[0].trim();
 
             if (!travellerAgeList.contains(seniorAge)) {
-                System.out.println("Invalid Senior DOB Mapping Age: " + seniorAge);
+                logger.info("Invalid Senior DOB Mapping Age: {}", seniorAge);
                 return false;
             }
         }
@@ -482,7 +486,7 @@ public class TravelHomePage {
             yearFields.get(i).clear();
             yearFields.get(i).sendKeys(year);
 
-            System.out.println("Age " + age + " DOB Entered : " + dob);
+            logger.info("Age {} DOB Entered : {}", age, dob);
         }
     }
     public void selectHealthIssueTravellersByAge(String travellerAgesValue, String healthIssueTravellers) {
@@ -508,9 +512,8 @@ public class TravelHomePage {
 
             if (checkboxIndex != -1 && checkboxIndex < travellerHealthIssueCheckboxes.size()) {
                 safeClick(travellerHealthIssueCheckboxes.get(checkboxIndex));
-                System.out.println("Selected traveller age: " + issueAge);
+                logger.info("Selected traveller age: {}", issueAge);
             }
         }
     }
-
-}
+    }

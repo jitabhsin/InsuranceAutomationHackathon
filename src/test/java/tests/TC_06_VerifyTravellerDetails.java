@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.basetest.BaseTest;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
 import org.testng.Assert;
@@ -20,6 +21,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
+    TravelQuotePage travelQuotePage;
 
     @DataProvider(name = "travelData")
     public Object[][] getData() {
@@ -38,6 +40,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+        travelQuotePage = new TravelQuotePage(driver);
 
         logger.info("Navigating to Travel Insurance");
 
@@ -103,9 +106,13 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
         String[] ageStrings = travellerAges.split(",");
 
         if (ageStrings.length != count) {
-            logger.info("Skipping row because Traveller Count ({}) does not match Age Entries ({})", count, ageStrings.length);
+            logger.info("Negative Test Passed - Traveller Count ({}) does not match Age Entries ({})",
+                    count, ageStrings.length);
+
+            Assert.assertTrue(true, "Expected invalid traveller count mapping");
+
             driver.get(ConfigReader.getProperty("baseUrl"));
-            throw new SkipException("Invalid Traveller Count and Age Mapping");
+            return;
         }
 
         int[] ages = new int[ageStrings.length];
@@ -131,9 +138,14 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
             boolean validDOB = travelHomePage.validateSeniorTravellerDOBs(travellerAges, seniorTravellerDOBs);
 
             if (!validDOB) {
-                logger.info("Skipping row due to Invalid Senior Traveller DOB Mapping. Ages : {} , DOBs : {}", travellerAges, seniorTravellerDOBs);
+                logger.info("Negative Test Passed - Invalid Senior Traveller DOB Mapping. Ages : {} , DOBs : {}",
+                        travellerAges, seniorTravellerDOBs);
+
+                Assert.assertFalse(validDOB,
+                        "Expected DOB mapping validation to fail");
+
                 driver.get(ConfigReader.getProperty("baseUrl"));
-                throw new SkipException("Skipping row due to Invalid Senior Traveller DOB Mapping");
+                return;
             }
 
             logger.info("Entering Senior Traveller DOB Details");
@@ -147,9 +159,13 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
             boolean validTravellerData = travelHomePage.validateHealthIssueTravellers(travellerAges, healthIssueTravellers);
 
             if (!validTravellerData) {
-                logger.info("Skipping row due to Invalid Health Issue Traveller Mapping");
+                logger.info("Negative Test Passed - Invalid Health Issue Traveller Mapping");
+
+                Assert.assertFalse(validTravellerData,
+                        "Expected Health Issue Traveller validation to fail");
+
                 driver.get(ConfigReader.getProperty("baseUrl"));
-                throw new SkipException("Skipping row due to Invalid HealthIssueTravellers data");
+                return;
             }
 
             logger.info("Selecting Health Issue : YES");
@@ -170,7 +186,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         softAssert.assertAll();
 
-        if (driver.getCurrentUrl().contains("travel-app")) {
+        if (driver.getCurrentUrl().contains("travel-app") || travelQuotePage.nextCoverageBtn.isDisplayed()) {
             logger.info("Navigating back to Home Page");
             driver.get(ConfigReader.getProperty("baseUrl"));
         }
