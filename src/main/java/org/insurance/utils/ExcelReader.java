@@ -158,11 +158,6 @@ public class ExcelReader {
         }
     }
 
-    public static void main(String[] args){
-        ExcelReader health = new ExcelReader();
-        health.readSheetHealth();
-    }
-
     private java.util.List<String> getSheetNames(Workbook workbook) {
         java.util.List<String> names = new java.util.ArrayList<>();
         for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
