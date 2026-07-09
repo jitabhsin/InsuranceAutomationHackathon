@@ -305,13 +305,13 @@ public class CarPage {
     }
 
     public String getTotalPremiumAmount() {
-        waitUtils.waitForVisibility(totalPremiumAmount);
-        jsUtils.scrollToElement(totalPremiumAmount);
-        return waitUtils.waitForVisibility(totalPremiumAmount).getText().replaceAll("\\+.*", "").trim();
+        WebElement element = waitUtils.waitForVisibilityIgnoringStale(totalPremiumAmount);
+        jsUtils.scrollToElement(element);
+        return element.getText().replaceAll("\\+.*", "").trim();
     }
 
     public String getZeroDepAmount() {
-        return waitUtils.waitForVisibility(zeroDepAmount).getText().trim();
+        return waitUtils.waitForVisibilityIgnoringStale(zeroDepAmount).getText().trim();
     }
 
     public void clickProceedBtnCity() {
@@ -325,11 +325,11 @@ public class CarPage {
     }
 
     public String getNoFrillsAmount() {
-        return waitUtils.waitForVisibility(noFrillsAmount).getText().trim();
+        return waitUtils.waitForVisibilityIgnoringStale(noFrillsAmount).getText().trim();
     }
 
     public String getSmartCoverAmount() {
-        return waitUtils.waitForVisibility(smartCoverAmount).getText().trim();
+        return waitUtils.waitForVisibilityIgnoringStale(smartCoverAmount).getText().trim();
     }
 
     public void togglePersonalProtect() {
@@ -339,18 +339,27 @@ public class CarPage {
     }
 
     public boolean isNoFrillsCardDisplayed() {
-        try { return waitUtils.waitForVisibility(noFrillsPlan).isDisplayed(); }
-        catch (Exception e) { return false; }
+        try {
+            return waitUtils.waitForVisibilityIgnoringStale(noFrillsPlan).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean isZeroDepCardDisplayed() {
-        try { return waitUtils.waitForVisibility(zeroDepPlan).isDisplayed(); }
-        catch (Exception e) { return false; }
+        try {
+            return waitUtils.waitForVisibilityIgnoringStale(zeroDepPlan).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean isSmartCoverCardDisplayed() {
-        try { return waitUtils.waitForVisibility(smartCoverPlan).isDisplayed(); }
-        catch (Exception e) { return false; }
+        try {
+            return waitUtils.waitForVisibilityIgnoringStale(smartCoverPlan).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean isExpandLinkDisplayed() {
@@ -454,8 +463,11 @@ public class CarPage {
     }
 
     public boolean isPremiumSummaryDisplayed() {
-        try { return waitUtils.waitForVisibility(premiumSummaryHeader).isDisplayed(); }
-        catch (Exception e) { return false; }
+        try {
+            return waitUtils.waitForVisibilityIgnoringStale(premiumSummaryHeader).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean isProceedToPayEnabled() {
@@ -471,24 +483,33 @@ public class CarPage {
     }
 
     public boolean selectZeroDepIfNotSelected() {
-        if (!zeroDepPlan.getAttribute("class").contains("plans-box-active")) {
-            jsUtils.jsClick(zeroDepPlan);
+        WebElement plan = waitUtils.waitForVisibilityIgnoringStale(zeroDepPlan);
+
+        if (!plan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(plan);
         }
-        return waitUtils.waitForAttributeContains(zeroDepPlan, "class", "plans-box-active");
+
+        return waitUtils.waitForAttributeContains(plan, "class", "plans-box-active");
     }
 
     public boolean selectNoFrillsIfNotSelected() {
-        if (!noFrillsPlan.getAttribute("class").contains("plans-box-active")) {
-            jsUtils.jsClick(noFrillsPlan);
+        WebElement plan = waitUtils.waitForVisibilityIgnoringStale(noFrillsPlan);
+
+        if (!plan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(plan);
         }
-        return waitUtils.waitForAttributeContains(noFrillsPlan, "class", "plans-box-active");
+
+        return waitUtils.waitForAttributeContains(plan, "class", "plans-box-active");
     }
 
     public boolean selectSmartCoverIfNotSelected() {
-        if (!smartCoverPlan.getAttribute("class").contains("plans-box-active")) {
-            jsUtils.jsClick(smartCoverPlan);
+        WebElement plan = waitUtils.waitForVisibilityIgnoringStale(smartCoverPlan);
+
+        if (!plan.getAttribute("class").contains("plans-box-active")) {
+            jsUtils.jsClick(plan);
         }
-        return waitUtils.waitForAttributeContains(smartCoverPlan, "class", "plans-box-active");
+
+        return waitUtils.waitForAttributeContains(plan, "class", "plans-box-active");
     }
 
     public String getInsuredCarDetail()       { return waitUtils.waitForVisibility(insuredCarDetail).getText().trim(); }

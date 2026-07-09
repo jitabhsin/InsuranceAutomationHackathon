@@ -20,10 +20,6 @@ public class WaitUtils {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-//    public WebElement waitForVisibilityOfElementLocated(By element){
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-//    }
-
     public WebElement waitForVisibility(WebElement element){
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -36,7 +32,10 @@ public class WaitUtils {
         List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return list;
     }
-
+    public WebElement waitForVisibilityIgnoringStale(WebElement element) {
+        return wait.ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.visibilityOf(element));
+    }
 
     public boolean waitForSelected(WebElement element) {
         return wait.until(driver -> element.isSelected());
