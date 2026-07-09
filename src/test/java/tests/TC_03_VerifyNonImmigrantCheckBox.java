@@ -5,7 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.insurance.utils.ExcelReader;
@@ -17,14 +19,21 @@ public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-    @Test
-    public void verifyNonImmigrantCheckBox() {
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
+        return new Object[][]{
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                }
+        };
+    }
 
-        String country   = data[0].toString();
-        String startDate   = data[1].toString();
-        String endDate  = data[2].toString();
+    @Test(dataProvider = "travelData")
+    public void verifyNonImmigrantCheckBox(String country, String startDate, String endDate) {
 
         logger.info("TC_03 - Verify Non-Immigrant Check Box Started");
 
@@ -59,6 +68,9 @@ public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
 
         logger.info("Selecting Non-Immigrant checkbox");
         travelHomePage.selectNonImmigrantCheckBox();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_03_VerifyNonImmigrantCheckBox");
+        logger.info("Non Immigrant Alert Message Screenshot taken");
 
         String alertMessage =travelHomePage.retrieveAlertMessage();
         logger.info("Alert Message: {}", alertMessage);

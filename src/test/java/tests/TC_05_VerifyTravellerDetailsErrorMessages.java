@@ -6,7 +6,9 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.utils.ConfigReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.insurance.utils.ExcelReader;
@@ -19,14 +21,21 @@ public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
     HomePage homePage;
     TravelHomePage travelHomePage;
 
-    @Test
-    public void verifyErrorMessagesWithNoInput() {
-        ExcelReader excel = new ExcelReader();
-        Object[] data = excel.readSheetTravelFirstRow();
+    @DataProvider(name = "travelData")
+    public Object[][] getTravelData() {
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
+        return new Object[][]{
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                }
+        };
+    }
 
-        String country   = data[0].toString();
-        String startDate   = data[1].toString();
-        String endDate  = data[2].toString();
+    @Test(dataProvider = "travelData")
+    public void verifyErrorMessagesWithNoInput(String country, String startDate, String endDate) {
 
         logger.info("TC_05 - Verify Traveller Details Error Messages Started");
 
@@ -54,6 +63,9 @@ public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
 
         logger.info("Submitting traveller details without entering any data");
         travelHomePage.travellerSubmitButton.click();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_05_VerifyTravellerDetailsErrorMessages");
+        logger.info("Traveller Details Error Messages Screenshot taken");
 
         String expectedMobileError = ConfigReader.getProperty("expectedMobileError");
         String expectedEmailError = ConfigReader.getProperty("expectedEmailError");

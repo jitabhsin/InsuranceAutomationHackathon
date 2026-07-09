@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -21,15 +22,11 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
-    TravelQuotePage travelQuotePage;
 
     @DataProvider(name = "travelData")
     public Object[][] getData() {
-
         logger.info("Reading traveller details test data from Excel");
-
         ExcelReader excel = new ExcelReader();
-
         return excel.readSheetTravel();
     }
 
@@ -40,7 +37,6 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-        travelQuotePage = new TravelQuotePage(driver);
 
         logger.info("Navigating to Travel Insurance");
 
@@ -131,6 +127,10 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
         logger.info("Selecting Traveller Count");
 
         travelHomePage.selectTravellerCount(count, ages);
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_06_VerifyTravellerDetails");
+        logger.info("Traveller Details Screenshot taken");
+
         logger.info("Senior Traveller Present : {}", hasSeniorTraveller);
 
         if (hasSeniorTraveller) {
@@ -186,7 +186,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         softAssert.assertAll();
 
-        if (driver.getCurrentUrl().contains("travel-app") || travelQuotePage.nextCoverageBtn.isDisplayed()) {
+        if (driver.getCurrentUrl().contains("travel-app")) {
             logger.info("Navigating back to Home Page");
             driver.get(ConfigReader.getProperty("baseUrl"));
         }

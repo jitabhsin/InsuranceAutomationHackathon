@@ -23,7 +23,9 @@ public class TC_01_NavigateTravelPage extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
+
         ScreenshotUtils.captureScreenshot(driver, "TC_01_NavigateTravelPage");
+        logger.info("Home Page Screenshot taken");
 
         logger.info("Verifying Home Page is displayed");
         Assert.assertTrue(homePage.isHomePageDisplayed(),"Home Page is NOT displayed correctly");

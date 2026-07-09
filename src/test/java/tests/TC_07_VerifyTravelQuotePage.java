@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -25,16 +26,21 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
         return new Object[][]{
-                travelDetails[0]
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                        travelData[3],
+                        travelData[4]
+                }
         };
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyTravelQuotePage(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
-
-        SoftAssert softAssert = new SoftAssert();
+    public void verifyTravelQuotePage(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_07 - Verify Travel Quote Validation Started");
 
@@ -51,8 +57,7 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded successfully");
 
@@ -71,8 +76,7 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
         logger.info("Traveller Details page loaded successfully");
 
@@ -106,82 +110,72 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
         travelHomePage.travellerSubmitButton.click();
 
         logger.info("Traveller details submitted successfully");
+
         logger.info("Waiting for navigation to Travel Quote page");
-
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"),
-                "Navigation to Travel Quote page failed");
-
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
         logger.info("Successfully navigated to Travel Quote page");
 
         travelQuotePage.waitForElementstoLoad();
-
         logger.info("Travel Quote Page Loaded Successfully");
 
-        logger.info("Validating Benefits Title");
+        ScreenshotUtils.captureScreenshot(driver, "TC_07_VerifyTravelQuotePage");
+        logger.info("Travel Quotes Page Screenshot taken");
 
+        SoftAssert softAssert = new SoftAssert();
+
+        logger.info("Validating Benefits Title");
         Assert.assertTrue(travelQuotePage.getBenefitsTitle().contains("Benefits curated for you"), "Benefits title mismatch");
 
         logger.info("Validating Plan Count");
-
         Assert.assertEquals(travelQuotePage.getPlanCount(), 3, "Incorrect number of plans displayed");
 
         logger.info("Validating Share Quote Button");
-
         softAssert.assertTrue(travelQuotePage.isShareQuoteDisplayed(), "Share Quote button not displayed");
 
         logger.info("Validating Compare Benefits Button");
-
         softAssert.assertTrue(travelQuotePage.isCompareBenefitsDisplayed(), "Compare Benefits button not displayed");
 
         logger.info("Validating Essential Plan");
-
         softAssert.assertTrue(travelQuotePage.isEssentialPlanDisplayed(), "Essential Plan not displayed");
-
         softAssert.assertFalse(travelQuotePage.getEssentialPremium().trim().isEmpty(), "Essential premium missing");
-
         logger.info("Essential Premium : " + travelQuotePage.getEssentialPremium());
 
         logger.info("Validating Value Plan");
-
         softAssert.assertTrue(travelQuotePage.isValuePlanDisplayed(), "Value Plan not displayed");
-
         softAssert.assertFalse(travelQuotePage.getValuePremium().trim().isEmpty(), "Value premium missing");
-
         logger.info("Value Premium : " + travelQuotePage.getValuePremium());
 
         logger.info("Validating Premium Plan");
-
         softAssert.assertTrue(travelQuotePage.isPremiumPlanDisplayed(), "Premium Plan not displayed");
-
         softAssert.assertFalse(travelQuotePage.getPremiumAmount().trim().isEmpty(), "Premium amount missing");
-
         logger.info("Premium Amount : " + travelQuotePage.getPremiumAmount());
 
         logger.info("Validating Recommended Tag");
-
         softAssert.assertTrue(travelQuotePage.isRecommendedTagDisplayed(), "Recommended tag not displayed");
 
         logger.info("Validating Powered By AI");
-
         softAssert.assertTrue(travelQuotePage.isPoweredByAIDisplayed(), "Powered By AI section not displayed");
 
         logger.info("Validating Benefits Section");
-
         softAssert.assertTrue(travelQuotePage.getBenefitCount() > 0, "Benefits are not displayed");
-
         logger.info("Total Benefit Count : " + travelQuotePage.getBenefitCount());
 
         logger.info("Validating Key Highlight Section");
-
         softAssert.assertTrue(travelQuotePage.getKeyHighlightCount() > 0, "Key Highlights not displayed");
 
         logger.info("Total Key Highlight Count : " + travelQuotePage.getKeyHighlightCount());
 
         logger.info("Validating Coverage Navigation");
 
+        logger.info("Validating Next Coverage Enabled");
         softAssert.assertTrue(travelQuotePage.isNextCoverageEnabled(), "Next Coverage button should be enabled");
-
         logger.info("Next Coverage Button Verified");
+
+        logger.info("Validating Previous Coverage Disabled");
+        softAssert.assertTrue(travelQuotePage.isPreviousCoverageDisabled(), "Previous Coverage button should be disabled");
+        logger.info("Previous Coverage Button Verified");
+
+        logger.info("Coverage Navigation Verified");
 
         softAssert.assertAll();
 

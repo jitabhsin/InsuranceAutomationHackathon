@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -25,14 +26,21 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
         return new Object[][]{
-                travelDetails[0]
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                        travelData[3],
+                        travelData[4]
+                }
         };
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyTravelQuotaPlanNavigation(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyTravelQuotaPlanNavigation(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_08 - Verify Travel Quote Navigation Started");
 
@@ -49,8 +57,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded successfully");
 
@@ -69,8 +76,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
         logger.info("Traveller Details page loaded successfully");
 
@@ -102,18 +108,13 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         logger.info("Submitting traveller details");
         travelHomePage.travellerSubmitButton.click();
-
         logger.info("Traveller details submitted successfully");
 
         logger.info("Waiting for navigation to Travel Quote page");
-
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"),
-                "Navigation to Travel Quote page failed");
-
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
         logger.info("Successfully navigated to Travel Quote page");
 
         travelQuotePage.waitForElementstoLoad();
-
         logger.info("Travel Quote Page Loaded Successfully");
 
         SoftAssert softAssert = new SoftAssert();
@@ -123,6 +124,9 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         logger.info("Navigating to last coverage page");
         travelQuotePage.navigateToLastCoverage();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_08_VerifyNavigationBetweenPlans");
+        logger.info("Travel Quotes Page after Navigated to last Plan Screenshot taken");
 
         logger.info("Verifying Basic Plan visibility");
         boolean isBasicPlanDisplayed = travelQuotePage.isBasicAmountVisible();
@@ -156,16 +160,12 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         logger.info("Verifying Value Plan visibility");
         boolean isValuePlanDisplayed = travelQuotePage.isValuePlanDisplayed();
-
         softAssert.assertTrue(isValuePlanDisplayed, "Value Plan NOT displayed");
-
         logger.info("Value Plan displayed: {}", isValuePlanDisplayed);
 
         logger.info("Verifying Premium Plan visibility");
         boolean isPremiumPlanDisplayed = travelQuotePage.isPremiumPlanDisplayed();
-
         softAssert.assertTrue(isPremiumPlanDisplayed, "Premium Plan NOT displayed");
-
         logger.info("Premium Plan displayed: {}", isPremiumPlanDisplayed);
 
         logger.info("Verifying Previous Coverage button is disabled");
@@ -175,9 +175,7 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
         softAssert.assertTrue(travelQuotePage.isNextCoverageEnabled(), "Next Coverage Button is NOT enabled");
 
         int visiblePlanCount = travelQuotePage.getVisiblePlanCount();
-
         logger.info("Visible plan count: {}", visiblePlanCount);
-
         softAssert.assertEquals(visiblePlanCount, 3, "Visible Plans are greater than 3");
 
         logger.info("Completed all Travel Quote Plan Navigations");

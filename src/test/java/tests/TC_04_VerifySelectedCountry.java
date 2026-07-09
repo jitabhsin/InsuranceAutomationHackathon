@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -21,14 +22,22 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
     TravelHomePage travelHomePage;
 
     @DataProvider(name = "travelData")
-    public Object[][] getData() {
-        logger.info("Reading travel test data from Excel");
-        ExcelReader excel = new ExcelReader();
-        return excel.readSheetTravel();
+    public Object[][] getTravelData() {
+        logger.info("Reading traveller details test data from Excel");
+        Object[][] data = new ExcelReader().readSheetTravel();
+        Object[][] travelData = new Object[data.length][5];
+        for (int i = 0; i < data.length; i++) {
+            travelData[i][0] = data[i][0];
+            travelData[i][1] = data[i][1];
+            travelData[i][2] = data[i][2];
+            travelData[i][3] = data[i][3];
+            travelData[i][4] = data[i][4];
+        }
+        return travelData;
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyAndDisplaySelectedCountry(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_04 - Verify Selected Country Started");
 
@@ -91,6 +100,9 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         travelHomePage.selectEndDate(endDate);
 
         logger.info("Trip Duration: {}", travelHomePage.retrieveTripDuration());
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_04_VerifySelectedCountry");
+        logger.info("Travel Details Screenshot taken");
 
         travelHomePage.submitDate();
         boolean isRedirected = travelHomePage.isRedirectedToSelectTravellerCount();

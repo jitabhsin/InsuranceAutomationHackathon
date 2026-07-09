@@ -227,6 +227,13 @@ public class TravelQuotePage {
         return classValue.contains("active") && !classValue.contains("disabled");
     }
 
+    public boolean isPreviousCoverageDisabled() {
+        waitUtils.waitForVisibility(previousCoverageBtn);
+        String classValue = previousCoverageBtn.getAttribute("class");
+        return !classValue.contains("active") || classValue.contains("disabled");
+    }
+
+
     public void clickMedicalCoverDropdown(int index) {
         WebElement dropdown = waitUtils.waitForClickable(medicalCoverDropdowns.get(index));
         jsUtils.scrollToElement(dropdown);

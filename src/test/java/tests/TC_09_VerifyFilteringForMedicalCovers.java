@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -30,14 +31,21 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] travelDetails =  new ExcelReader().readSheetTravel();
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
         return new Object[][]{
-                travelDetails[0]
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                        travelData[3],
+                        travelData[4]
+                }
         };
     }
 
     @Test(dataProvider = "travelData")
-    public void verifyTravelMedicalCoverFiltering(String country, String startDate, String endDate, String travellerCount, String travellerAges, String seniorTravellerDOBs, String healthIssue, String healthIssueTravellers) {
+    public void verifyTravelMedicalCoverFiltering(String country, String startDate, String endDate, String travellerCount, String travellerAges) {
 
         logger.info("TC_09 - Verify Travel Quote Filtering Started");
 
@@ -54,8 +62,7 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
         homePage.clickTravelScope();
         homePage.clickOtherCountries();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"),
-                "Travel Insurance page not loaded");
+        Assert.assertTrue(driver.getCurrentUrl().contains("travel-insurance"), "Travel Insurance page not loaded");
 
         logger.info("Travel Insurance page loaded successfully");
 
@@ -74,8 +81,7 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
         logger.info("Submitting travel dates");
         travelHomePage.submitDate();
 
-        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(),
-                "Traveller Details page not loaded");
+        Assert.assertTrue(travelHomePage.isRedirectedToSelectTravellerCount(), "Traveller Details page not loaded");
 
         logger.info("Traveller Details page loaded successfully");
 
@@ -111,9 +117,7 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
         logger.info("Traveller details submitted successfully");
 
         logger.info("Waiting for navigation to Travel Quote page");
-
         Assert.assertTrue(driver.getCurrentUrl().contains("travel-app"), "Navigation to Travel Quote page failed");
-
         logger.info("Successfully navigated to Travel Quote page");
 
         travelQuotePage.waitForElementstoLoad();
@@ -126,11 +130,12 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
 
         for (int i = 0; i < 3; i++) {
             logger.info("Validating Medical Cover Dropdown {}", i + 1);
-
             travelQuotePage.clickMedicalCoverDropdown(i);
 
-            List<String> values = travelQuotePage.getDropdownValues();
+            ScreenshotUtils.captureScreenshot(driver, "TC_09_VerifyFilteringForMedicalCovers");
+            logger.info("Travel Quotes Medical Filters Dropdown Screenshot taken");
 
+            List<String> values = travelQuotePage.getDropdownValues();
             logger.info("Dropdown {} contains {} values", i + 1, values.size());
 
             softAssert.assertTrue(values.size() >= 3, "Dropdown " + (i + 1) + " contains less than 3 options");
