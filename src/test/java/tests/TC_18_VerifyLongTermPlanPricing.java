@@ -165,6 +165,6 @@ public class TC_18_VerifyLongTermPlanPricing extends BaseTest {
         Assert.assertEquals(totalDigits, planDigits, "Total Premium and Plan Amount mismatch after Personal Protect Add for " + planName);
         logger.info("Total Premium and Plan Amount match after addon : {}", totalPremium);
 
-        ScreenshotUtils.captureScreenshot(driver, "TC18_Long_Term_Pricing");
+        ScreenshotUtils.captureScreenshot(driver, "TC_18_Long_Term_Pricing");
     }
 }

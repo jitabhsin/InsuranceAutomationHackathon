@@ -67,7 +67,7 @@ public class TC_16_VerifyPlanPricing extends BaseTest {
 
         carPage.clickProceedBtnCity();
         boolean zeroDepSelected = carPage.selectZeroDepIfNotSelected();
-        ScreenshotUtils.captureScreenshot(driver, "TC16_Plan_Pricing");
+        ScreenshotUtils.captureScreenshot(driver, "TC_16_Plan_Pricing");
         logger.info("Zero Dep selected : {}", zeroDepSelected);
 
         Assert.assertTrue(zeroDepSelected, "Zero Dep plan is not selected");

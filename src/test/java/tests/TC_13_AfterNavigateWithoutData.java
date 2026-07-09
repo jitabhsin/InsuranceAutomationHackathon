@@ -55,7 +55,7 @@ public class TC_13_AfterNavigateWithoutData extends BaseTest {
         carPage.clickNewVehicleGetQuote();
 
         String invalidMobileError = carPage.getMobileErrorMessage();
-        ScreenshotUtils.captureScreenshot(driver, "TC13_Validation_Errors");
+        ScreenshotUtils.captureScreenshot(driver, "TC_13_Validation_Errors");
         logger.info("Invalid Mobile Error : {}", invalidMobileError);
         Assert.assertEquals(invalidMobileError, expectedMobileError, "Invalid mobile validation failed");
         Assert.assertTrue(invalidMobileError.toLowerCase().contains("mobile"), "Mobile error text validation failed");

@@ -25,7 +25,7 @@ public class TC_11_NavigateCarPage extends BaseTest {
         homePage = new HomePage(driver);
         carPage = new CarPage(driver);
         homePage.clickCarInsurance();
-        ScreenshotUtils.captureScreenshot(driver, "TC11_Car_Page");
+        ScreenshotUtils.captureScreenshot(driver, "TC_11_Car_Page");
 
         Assert.assertTrue(carPage.isCarPageDisplayed(),"Car Insurance form is not displayed");
         logger.info("Car Insurance form displayed successfully");

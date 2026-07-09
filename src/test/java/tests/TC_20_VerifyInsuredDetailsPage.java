@@ -125,7 +125,7 @@ public class TC_20_VerifyInsuredDetailsPage extends BaseTest {
 
         logger.info("Premium calculations validated");
 
-        ScreenshotUtils.captureScreenshot(driver, "TC20_Insured_Details");
+        ScreenshotUtils.captureScreenshot(driver, "TC_20_Insured_Details");
 
         boolean proceedEnabled = carPage.isProceedToPayEnabled();
         logger.info("Proceed To Pay Enabled : {}", proceedEnabled);

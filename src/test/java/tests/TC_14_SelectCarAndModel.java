@@ -57,7 +57,7 @@ public class TC_14_SelectCarAndModel extends BaseTest {
             logger.info("Clicked Get Quote");
 
             Assert.assertTrue(carPage.isSelectPlansPageDisplayed(), "Select Plans page is not displayed");
-            ScreenshotUtils.captureScreenshot(driver, "TC14_Select_Plans_Page");
+            ScreenshotUtils.captureScreenshot(driver, "TC_14_Select_Plans_Page");
             logger.info("Select Plans page displayed successfully");
         }
         logger.info("Entering city");
