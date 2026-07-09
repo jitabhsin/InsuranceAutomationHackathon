@@ -38,7 +38,7 @@ public class WaitUtils {
     }
 
     public boolean waitForSelected(WebElement element) {
-        return wait.until(driver -> element.isSelected());
+        return wait.until(ExpectedConditions.elementToBeSelected(element));
     }
 
     public boolean waitForAttributeContains(WebElement element, String attribute, String value) {
