@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -99,6 +100,9 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
         travelHomePage.selectEndDate(endDate);
 
         logger.info("Trip Duration: {}", travelHomePage.retrieveTripDuration());
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_04_VerifySelectedCountry");
+        logger.info("Travel Details Screenshot taken");
 
         travelHomePage.submitDate();
         boolean isRedirected = travelHomePage.isRedirectedToSelectTravellerCount();

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
 import org.insurance.utils.ConfigReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -36,6 +37,9 @@ public class TC_02_VerifyCountryErrorMessages extends BaseTest {
         logger.info("Submitting form without entering any details");
 
         travelHomePage.dateSubmitButton.click();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_02_VerifyCountryErrorMessages");
+        logger.info("Travel Details Error Messages Screenshot taken");
 
         String expectedCountryError = ConfigReader.getProperty("expectedCountryError");
         String expectedStartDateError = ConfigReader.getProperty("expectedStartDateError");

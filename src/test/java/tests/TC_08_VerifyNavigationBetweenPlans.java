@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -123,6 +124,9 @@ public class TC_08_VerifyNavigationBetweenPlans extends BaseTest {
 
         logger.info("Navigating to last coverage page");
         travelQuotePage.navigateToLastCoverage();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_08_VerifyNavigationBetweenPlans");
+        logger.info("Travel Quotes Page after Navigated to last Plan Screenshot taken");
 
         logger.info("Verifying Basic Plan visibility");
         boolean isBasicPlanDisplayed = travelQuotePage.isBasicAmountVisible();

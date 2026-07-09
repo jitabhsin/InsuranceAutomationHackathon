@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.insurance.pages.HomePage;
 import org.insurance.pages.TravelHomePage;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -69,6 +70,9 @@ public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
 
         logger.info("Selecting Non-Immigrant checkbox");
         travelHomePage.selectNonImmigrantCheckBox();
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_03_VerifyNonImmigrantCheckBox");
+        logger.info("Non Immigrant Alert Message Screenshot taken");
 
         String alertMessage =travelHomePage.retrieveAlertMessage();
         logger.info("Alert Message: {}", alertMessage);

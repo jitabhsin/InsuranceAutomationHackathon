@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -128,6 +129,10 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
         logger.info("Selecting Traveller Count");
 
         travelHomePage.selectTravellerCount(count, ages);
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_06_VerifyTravellerDetails");
+        logger.info("Traveller Details Screenshot taken");
+
         logger.info("Senior Traveller Present : {}", hasSeniorTraveller);
 
         if (hasSeniorTraveller) {

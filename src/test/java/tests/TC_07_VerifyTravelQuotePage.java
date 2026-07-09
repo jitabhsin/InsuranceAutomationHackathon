@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -116,6 +117,9 @@ public class TC_07_VerifyTravelQuotePage extends BaseTest {
 
         travelQuotePage.waitForElementstoLoad();
         logger.info("Travel Quote Page Loaded Successfully");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_07_VerifyTravelQuotePage");
+        logger.info("Travel Quotes Page Screenshot taken");
 
         SoftAssert softAssert = new SoftAssert();
 

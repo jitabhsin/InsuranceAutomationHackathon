@@ -8,6 +8,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -130,6 +131,9 @@ public class TC_09_VerifyFilteringForMedicalCovers extends BaseTest {
         for (int i = 0; i < 3; i++) {
             logger.info("Validating Medical Cover Dropdown {}", i + 1);
             travelQuotePage.clickMedicalCoverDropdown(i);
+
+            ScreenshotUtils.captureScreenshot(driver, "TC_09_VerifyFilteringForMedicalCovers");
+            logger.info("Travel Quotes Medical Filters Dropdown Screenshot taken");
 
             List<String> values = travelQuotePage.getDropdownValues();
             logger.info("Dropdown {} contains {} values", i + 1, values.size());

@@ -9,6 +9,7 @@ import org.insurance.pages.TravelHomePage;
 import org.insurance.pages.TravelQuotePage;
 import org.insurance.utils.ConfigReader;
 import org.insurance.utils.ExcelReader;
+import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -157,6 +158,9 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
         logger.info("Captured Plan: {}", plan3);
         softAssert.assertNotNull(plan3, "Plan 3 details are null");
 
+        ScreenshotUtils.captureScreenshot(driver, "TC_10_RetrieveLowestThreePlans");
+        logger.info("Filtered Travel Quotes Screenshot taken");
+
         logger.info("Navigating to next coverage");
         travelQuotePage.clickNextCoverage();
 
@@ -180,6 +184,9 @@ public class TC_10_RetrieveLowestThreePlans extends BaseTest {
 
         logger.info("Captured Plan: {}", plan5);
         softAssert.assertNotNull(plan5, "Plan 5 details are null");
+
+        ScreenshotUtils.captureScreenshot(driver, "TC_10_RetrieveLowestThreePlans");
+        logger.info("Filtered Travel Quotes Screenshot taken");
 
         logger.info("Total plans collected: {}", allPlans.size());
         softAssert.assertEquals(allPlans.size(), 5, "Expected 5 plans to be collected");
