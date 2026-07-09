@@ -86,7 +86,6 @@ public class TC_25_FetchPlanResult extends BaseTest {
         logger.info("Current URL: " + currUrl);
         logger.info("Page title: " + title);
 
-//        Assert.assertEquals(title, product + " App");
         Assert.assertTrue(currUrl.contains("plan-page"), "Plan page is not opened");
 
         int total = healthResultPage.resultPlans(product);
