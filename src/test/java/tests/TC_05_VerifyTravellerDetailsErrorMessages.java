@@ -22,12 +22,15 @@ public class TC_05_VerifyTravellerDetailsErrorMessages extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
-        Object[][] data = new ExcelReader().readSheetTravel();
-        Object[][] travelData = new Object[data.length][3];
-        travelData[0][0] = data[0][0];
-        travelData[0][1] = data[0][1];
-        travelData[0][2] = data[0][2];
-        return travelData;
+        logger.info("Reading first row from travel test data from Excel");
+        Object[] travelData = new ExcelReader().readSheetTravelFirstRow();
+        return new Object[][]{
+                {
+                        travelData[0],
+                        travelData[1],
+                        travelData[2],
+                }
+        };
     }
 
     @Test(dataProvider = "travelData")

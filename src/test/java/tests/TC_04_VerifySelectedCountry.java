@@ -22,6 +22,7 @@ public class TC_04_VerifySelectedCountry extends BaseTest {
 
     @DataProvider(name = "travelData")
     public Object[][] getTravelData() {
+        logger.info("Reading traveller details test data from Excel");
         Object[][] data = new ExcelReader().readSheetTravel();
         Object[][] travelData = new Object[data.length][5];
         for (int i = 0; i < data.length; i++) {
