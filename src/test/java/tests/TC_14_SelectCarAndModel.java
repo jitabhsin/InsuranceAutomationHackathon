@@ -11,10 +11,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.insurance.utils.ExcelReader;
 
-public class TC_14SelectCarAndModel extends BaseTest {
+public class TC_14_SelectCarAndModel extends BaseTest {
 
     private static final Logger logger =
-            LogManager.getLogger(TC_14SelectCarAndModel.class);
+            LogManager.getLogger(TC_14_SelectCarAndModel.class);
 
     HomePage homePage;
     CarPage carPage;

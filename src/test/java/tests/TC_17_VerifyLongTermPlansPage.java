@@ -10,10 +10,10 @@ import org.insurance.utils.ScreenshotUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_17VerifyLongTermPlansPage extends BaseTest {
+public class TC_17_VerifyLongTermPlansPage extends BaseTest {
 
     private static final Logger logger =
-            LogManager.getLogger(TC_17VerifyLongTermPlansPage.class);
+            LogManager.getLogger(TC_17_VerifyLongTermPlansPage.class);
 
     HomePage homePage;
     CarPage carPage;
