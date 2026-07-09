@@ -9,16 +9,16 @@
     <test name="Insurance">
 
        <classes>
-<!--            <class name="tests.TC_01_NavigateTravelPage"/>-->
-<!--            <class name="tests.TC_02_VerifyCountryErrorMessages"/>-->
-<!--            <class name="tests.TC_03_VerifyNonImmigrantCheckBox"/>-->
-<!--            <class name="tests.TC_04_VerifySelectedCountry"/>-->
-<!--            <class name="tests.TC_05_VerifyTravellerDetailsErrorMessages"/>-->
-<!--            <class name="tests.TC_06_VerifyTravellerDetails"/>-->
-<!--            <class name="tests.TC_07_VerifyTravelQuotePage"/>-->
-<!--            <class name="tests.TC_08_VerifyNavigationBetweenPlans"/>-->
-<!--            <class name="tests.TC_09_VerifyFilteringForMedicalCovers"/>-->
-<!--            <class name="tests.TC_10_RetrieveLowestThreePlans"/>-->
+            <class name="tests.TC_01_NavigateTravelPage"/>
+            <class name="tests.TC_02_VerifyCountryErrorMessages"/>
+            <class name="tests.TC_03_VerifyNonImmigrantCheckBox"/>
+            <class name="tests.TC_04_VerifySelectedCountry"/>
+            <class name="tests.TC_05_VerifyTravellerDetailsErrorMessages"/>
+            <class name="tests.TC_06_VerifyTravellerDetails"/>
+            <class name="tests.TC_07_VerifyTravelQuotePage"/>
+            <class name="tests.TC_08_VerifyNavigationBetweenPlans"/>
+            <class name="tests.TC_09_VerifyFilteringForMedicalCovers"/>
+            <class name="tests.TC_10_RetrieveLowestThreePlans"/>
             <class name="tests.TC_11NavigateCarPage"/>
             <class name="tests.TC_12WithoutCarNumber"/>
             <class name="tests.TC_13AfterNavigateWithoutData"/>
