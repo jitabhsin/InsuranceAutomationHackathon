@@ -13,10 +13,10 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC_18VerifyLongTermPlanPricing extends BaseTest {
+public class TC_18_VerifyLongTermPlanPricing extends BaseTest {
 
     private static final Logger logger =
-            LogManager.getLogger(TC_18VerifyLongTermPlanPricing.class);
+            LogManager.getLogger(TC_18_VerifyLongTermPlanPricing.class);
 
     HomePage homePage;
     CarPage carPage;
