@@ -33,8 +33,7 @@ public class WaitUtils {
         return list;
     }
     public WebElement waitForVisibilityIgnoringStale(WebElement element) {
-        return wait.ignoring(StaleElementReferenceException.class)
-                .until(ExpectedConditions.visibilityOf(element));
+        return wait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
     }
 
     public boolean waitForSelected(WebElement element) {
@@ -47,6 +46,7 @@ public class WaitUtils {
     public boolean waitForUrlContains(String fragment) {
         return wait.until(ExpectedConditions.urlContains(fragment));
     }
+
     public boolean waitForElementCount(List<WebElement> list, int expectedCount) {
         return wait.until(driver ->list.size() >= expectedCount);
     }
