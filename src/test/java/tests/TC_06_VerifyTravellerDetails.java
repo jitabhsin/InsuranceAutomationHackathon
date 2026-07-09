@@ -22,7 +22,6 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
     HomePage homePage;
     TravelHomePage travelHomePage;
-    TravelQuotePage travelQuotePage;
 
     @DataProvider(name = "travelData")
     public Object[][] getData() {
@@ -38,7 +37,6 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         homePage = new HomePage(driver);
         travelHomePage = new TravelHomePage(driver);
-        travelQuotePage = new TravelQuotePage(driver);
 
         logger.info("Navigating to Travel Insurance");
 
@@ -188,7 +186,7 @@ public class TC_06_VerifyTravellerDetails extends BaseTest {
 
         softAssert.assertAll();
 
-        if (driver.getCurrentUrl().contains("travel-app") || travelQuotePage.nextCoverageBtn.isDisplayed()) {
+        if (driver.getCurrentUrl().contains("travel-app")) {
             logger.info("Navigating back to Home Page");
             driver.get(ConfigReader.getProperty("baseUrl"));
         }
