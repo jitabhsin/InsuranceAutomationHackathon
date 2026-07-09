@@ -28,8 +28,6 @@ public class TC_03_VerifyNonImmigrantCheckBox extends BaseTest {
                         travelData[0],
                         travelData[1],
                         travelData[2],
-                        travelData[3],
-                        travelData[4]
                 }
         };
     }
